@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #10 - Árvores de Suporte de Custo Mínimo</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">DAA 2016/2017</a> (CC2001) - DCC/FCUP</h3>
+  <h1>Aula Prática #10 - Árvores de Suporte de Custo Mínimo<br>
+    <small><small>(semana de 05/12 a 09/12)</small></small><br>
+  </h1>
+  <hr>
+  
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre, os exercícios a submeter desta aula são:
+     
+    <ul>      
+      <li><a class="important" href="../problemas/daa025.html">[DAA 025] - Sardas</a> (peso 50%)
+      <li><a class="important" href="../problemas/daa026.html">[DAA 026] - Uma Árvore Desafiante</a> (peso 50%)
+    </ul>
+
+    <p><b>Prazo de submissão:</b> 4 de Janeiro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak de DAA</a>)</p>
+    
+  <p><b>Não se esqueçam que qualquer ajuda que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois da prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota. Relebre que cada aula vale 10% da nota desta componente.</p>
+  
+<hr>
+
+<h2>Uma primeira implementação de árvores de suporte de custo mínimo</h2>
+
+<p><b>1)</b> Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa025.html">[DAA 025] - Sardas</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>Neste problema temos de encontrar a árvore de suporte de custo mínimo que liga as sardas.
+  <li>Para saber a distância da sarda <span lang="latex">(x_1, y_1)</span> a <span lang="latex">(x_2, y_2)</span>, basta usar <span lang="latex">\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}</span>
+  <li>Tanto pode usar o algoritmo de <b>Prim</b>, como o algoritmo de <b>Kruskal</b>. Uma sugestão é implementar ambos e verificar que dão a mesma resposta.
+  <li>Tendo em conta os limites, não é necessário usar estruturas de dados especializadas, e "qualquer" implementação (mesmo que quadrática no tempo e no espaço) passa.
+    <li>Use <b>doubles</b> para os seus cálculos para não perder precisão.
+</ul>
+    
+<hr>
+
+<h2>Estruturas de dados especializadas - Um implementação linearítmica de MST</h2>
+
+    <p><b>2)</b> O objectivo final deste exercicio e obter uma <b>implementação linearitmica</b> (algo que seja <span lang="latex">\mathcal{O}(|E| \log |V|)</span> ou <span lang="latex">\mathcal{O}(|E| \log |E|)</span>) do cálculo de uma árvore de suporte de custo mínimo.</p>
+
+  <p>Para verificar a sua implementação deverá submeter código para o problema <a class="important" href="../problemas/daa026.html">[DAA 026] - Uma Árvore Desafiante</a>, que tem um único teste pontuável com 50 mil nós e 500 mil arestas (não público), para o qual tem um tempo limite de execução a rondar os 8 segundos.</p>
+  
+  <ul>
+    
+    <li><b>Um gerador de casos:</b>
+      
+      <p>Comece por fazer download de um código parar gerar (pseudo) aleatoriamente grafos pesados, não dirigidos e conexos de um determinado tamanho: <a class="important" href="../codigo/RandomGraph.java">RandomGraph.java</a>
+
+      <p>Para usar basta chamar <span class="terminal">java RandomGraph &lt;NUM_NÓS&gt; &lt;NUM_ARESTAS&gt; &lt;PESO_MÁXIMO&gt;.</span>
+
+      <p>Por exemplo uma chamada <span class="terminal">java RandomGraph 10 20 100</span> gera um grafo aleatório pesado, não dirigido e conexo com 10 nós e 20 arestas com pesos entre 1 e 100.
+
+      <p>Experimente compilar e executar o gerador várias vezes com argumentos diferentes para ver o seu comportamento. A ideia é depois usar o gerador para poder ir vendo o comportamento assintótico dos programas que for criando (ou seja, ver como cresce o tempo de execução à medida que vai aumentando o número de nós e de arestas).
+
+      <p><i>Nota: o teste do problema 26 foi gerado com "java RandomGraph 50000 500000 1000"</i>
+
+	<li><b>Lendo o grafo para uma lista de adjacências</b>
+
+	  <p>Crie um programa para ler um grafo neste formato usando como base de implementação o código para pesquisa em largura dado na <a href="p09.html">aula anterior</a>.
+	    <ul>
+	      <li>É para usar as classes <span class="codigo">Node</span> e <span class="codigo">Graph</span> (pode claro acrescentar/retirar atributos)
+	      <li>Como o grafo é pesado, qual deve ser o tipo da lista de adjacências de cada nó? Ao invés de uma lista de inteiros, precisa de uma lista de pares <i>(v,w)</i>, indicando que o nó em causa está ligado ao nó <i>v</i> com uma aresta de peso <i>w</i>. A sugestão é que crie uma nova classe <span class="codigo">Edge</span> para representar uma aresta, contendo como atributos os dois inteiros <i>v</i> e <i>w</i>. Depois é só ter uma lista de <i>Edges</i>.
+	      <li>No final faça uma função para imprimir o grafo para ter a certeza que o leu bem.
+	      <li><font color="red">Uma matriz de adjacências nao vai funcionar neste problema, porque não tem memória para guardar 50&nbsp;000<sup>2<sup> posições.</font>
+	    </ul>
+
+
+	    <li><b>Uma primeira solução</b>
+	      
+	      <p>Adapte a sua solução (provavelmente <i>naive</i> e desse modo quadrática) do problema Sardas para esta base de código.
+
+	      <p>Áté que tamanhos de grafo consegue ir calculando em menos de 5 segundos? Experimente variar o número de nós e de arestas usando para isso o gerador de grafos dados. O aumento no tempo de execução corresponde ao que esperaria tendo em conta a complexidade do seu programa? (pode usar o comando <tt>time</tt> para ver o tempo que o seu programa demora).
+
+</ul>
+		
+  <p>Experimente agora implementar uma ou mais das ideias seguintes, submetendo o problema no Mooshak:
+
+<ul>
+    
+  <li><b><u>Opção eficiente 1:</u> Solução linearítmica com Prim usando heaps</b>
+    <p>O passo de escolher a próxima aresta deve ser feito usando uma <b>fila de prioridade</b>, que é implementada como uma <i>heap</i> na sua linguagem de programação e garante tempo logarítmico de inserção e remoção do mínimo:
+      
+    <ul>
+      <li><b>C++:</b> <span class="codigo">priority_queue</span> (ver <a href="http://www.cplusplus.com/reference/queue/priority_queue/">documentação</a> e <a href="http://www.cplusplus.com/reference/queue/priority_queue/priority_queue/">exemplo</a>)<br>
+      <li><b>Java:</b> <span class="codigo">PriorityQueue</span> (ver <a href="https://docs.oracle.com/javase/7/docs/api/java/util/PriorityQueue.html">documentação</a>)
+    </ul>
+
+    <p>A fila de prioridade deve conter <i>Edges</i> - um par <i>(v,w)</i> - prioritizados pelo peso <i>w</i>. Deve implementar um comparador para a sua classe <i>Edge</i> (tal como na ordenaçao customizada) para que a fila de prioridade saiba "lidar" com as arestas [Nota: em C a priority_queue é uma max-heap, pelo que o comparador deverá ter isso em conta; em Java a PriorityQueue é uma min-heap].
+
+    <p>Cada vez que a estimativa de distância à árvore melhora, deve inserir novo <i>Edge</i> na fila de prioridade com o novo (e reduzido) peso. Mais tarde, ao escolher a próxima aresta, deve ignorar arestas ainda na fila de prioridade que vão dar a nós já "percorridos" (ou seja, estimativas anteriores piores para a distância desses nós).
+    
+      <li><b><u>Opção eficiente 2:</u> Solução linearítmica com Prim usando uma BST</b>
+	
+	<p>O passo de escolher a próxima aresta deve ser feito usando uma
+	  <b>árvore binária de pesquisa</b>, que é implementada como uma <i>red-black tree</i> na sua linguagem de programação e garante tempo logarítmico de inserção e remoção do mínimo:
+	
+	<ul>
+	  <li><b>C++:</b> <span class="codigo">set</span> (ver <a href="http://www.cplusplus.com/reference/set/set/">documentação</a> e <a href="http://www.cplusplus.com/reference/set/set/set/">exemplo</a>)<br>
+      <li><b>Java:</b> <span class="codigo">TreeSet</span> (ver <a href="https://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html">documentação</a>)
+	</ul>
+	
+	<p>A conjunto deve conter <i>Edges</i> - um par <i>(v,w)</i> - ordenados pelo peso <i>w</i>.
+
+	<p>A API do set ou TreeSet permite ir buscar o elemento mínimo (relembro o problema dos Bakugans) para identificar o próximo nó.
+	  
+	<p>Cada vez que a estimativa de distância à árvore melhora, pode retirar a estimative anterior do conjunto e re-inserir um novo <i>Edge</i> com o novo (e reduzido) peso. 
+      	
+	  <li><b><u>Opção eficiente 3:</u> Solução linearítmica com Kruskal usando union-find</b>
+
+	    <p>Deve começar por criar uma classe <span class="codigo">Edge</span> com três atributos <i>(u, v, w)</i> indicando que existe uma aresta de <i>u</i> para <i>v</i> com peso <i>w</i>. Leis os dados para um array de Edges, e poderá chamar a ordenação linearítmica padrão com <span class="codigo">Arrays.sort</span>, bastando para isso que implemente um comparador (como na ordenação customizada) que ordene por ordem crescente do peso.
+
+	    <p>Para implementar o resto do Kruskal, deve usar <b>florestas de conjuntos disjuntos</b> (<i>disjoint sets<i>) com aplicação de ambas as heurísicas <b><i>union by rank</i></b> e <b><i>path compression</i></b> (pode experimentar depois o que muda no tempo de execução sem nenhum destas heurísticas, com uma ou com ambas).
+
+  </ul>
+
+
+    
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

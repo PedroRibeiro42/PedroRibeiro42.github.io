@@ -1,0 +1,194 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[DAA 030] Análise de uma rede biológica</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 13 de Dezembro</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i></small></p>
+
+<hr>
+  
+<h1><font color="blue">[DAA 030] Análise de uma rede biológica</font></h1>
+
+<p>Tens de ajudar um grupo de biólogos a
+analisarem uma rede de interação de proteínas. Os biológos resolveram
+modelar a rede como um <b>grafo não dirigido e não pesado</b> e estão
+interessados em dados sobre distâncias entre nós. Podes assumir que a
+rede que estão a estudar é completamente conexa, ou seja, existe um
+caminho entre qualquer par de nós do grafo associado.</p>
+
+<p>Considera por exemplo a rede modelada pelo grafo da seguinte figura:</p>
+
+<p><img src="daa030.png"></p>
+
+<p>A <b>distância mínima</b> entre dois nós do grafo é o número mínimo
+de arestas num caminho entre esses dois nós. Para a rede da figura,
+uma matriz de distâncas mínimas seria:</p>
+
+<table bgcolor="black" cellpadding="2" cellspacing="1">
+<tr bgcolor="white"><th>Nos</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th></tr>
+<tr bgcolor="white"><th>1</th><td>--</td><td>1</td><td>1</td><td>3</td><td>2</td><td>2</td><td>4</td><td>3</td></tr>
+<tr bgcolor="white"><th>2</th><td>1</td><td>--</td><td>1</td><td>3</td><td>2</td><td>2</td><td>4</td><td>3</td></tr>
+<tr bgcolor="white"><th>3</th><td>1</td><td>1</td><td>--</td><td>2</td><td>1</td><td>1</td><td>3</td><td>2</td></tr>
+<tr bgcolor="white"><th>4</th><td>3</td><td>3</td><td>2</td><td>--</td><td>3</td><td>1</td><td>1</td><td>2</td></tr>
+<tr bgcolor="white"><th>5</th><td>2</td><td>2</td><td>1</td><td>3</td><td>--</td><td>2</td><td>4</td><td>3</td></tr>
+<tr bgcolor="white"><th>6</th><td>2</td><td>2</td><td>1</td><td>1</td><td>2</td><td>--</td><td>2</td><td>1</td></tr>
+<tr bgcolor="white"><th>7</th><td>4</td><td>4</td><td>3</td><td>1</td><td>4</td><td>2</td><td>--</td><td>1</td></tr>
+<tr bgcolor="white"><th>8</th><td>3</td><td>3</td><td>2</td><td>2</td><td>3</td><td>1</td><td>1</td><td>--</td></tr>
+</table>
+
+<p>A <b>excentricidade</b> de um nó é igual à maior distância mínima
+dele próprio a um qualquer outro nó. Por exemplo:</p>
+
+<pre>
+excentricidade(1) = 4
+excentricidade(3) = 3
+</pre>
+
+<p>Os biólogos estão a tentar perceber a importância dos vários nós e
+por isso querem saber várias coisas sobre a excentricidade. Em
+particular, desejam saber as seguintes propriedades da rede:</p>
+
+<ul>
+<li><b>Diâmetro:</b> é igual ao maior caminho mínimo entre dois nós,
+ou seja, à máxima excentricidade. Para o exemplo dado o diâmetro é 4.
+<li><b>Raio:</b> é igual à menor excentricidade de um nó. Para o
+exemplo dado o raio é 2.
+<li><b>Nós centrais:</b> os que têm excentricidade mínima (igual ao raio)
+são considerados centrais. Para o exemplo dado o único nó central é o 6.
+<li><b>Nós periféricos:</b> todos os nós para quais existe um nó à
+máxima distância mínima, ou seja, se um grafo tem diâmetro <i>d</i>,
+são os nós que têm pelo menos um outro nó à distância mínima de <i>d</i>. Para o exemplo dados os nós periféricos são o 1, 2, 5 e 7.
+</ul>
+
+<p>Tens de ajudar os biólogos a conseguirem estes dados.</p>
+
+<p>
+<h2><font color="blue">Tarefa</font></h2>
+
+<p>Dada um grafo conexo não dirigido e não pesado descrevendo uma rede
+biológica, a tua tarefa é calcular o seu diâmetro, o seu raio, quais
+os nós centrais e quais os nós periféricos.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha vem um único número inteiro <b>N</b>
+indicando o número de nós do grafo a considerar. Os nós são
+identificados por números inteiros consecutivos de 1 até <b>N</b>.</p>
+
+<p>Na segunda linha vem um único número inteiro <b>E</b> indicando o
+número de arestas do grafo. Seguem-se <b>E</b>
+linhas, cada uma contendo dois inteiros <b>A</b> e <b>B</b> indicando
+que existe uma aresta (ligação direta) entre os nós <b>A</b>
+e <b>B</b>.</p>
+
+<p>As arestas podem vir por qualquer ordem mas é garantido que nunca
+aparecem arestas repetidas. É também garantido que dão origem a um
+grafo completamente conexo.</p>
+
+<p>O exemplo de input corresponde à figura dada anteriormente.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>Na primeira linha deve vir um único inteiro indicando o diâmetro da rede.</p>
+
+<p>Na segunda linha deve vir um único inteiro indicando o raio.</p>
+
+<p>Na terceira linha devem vir os nós centrais. Se existir mais que um nó
+central, deves escrevê-los por ordem crescente e com um espaço a
+separar cada par de nós.</p>
+
+<p>Na quarta linha devem vir os nós periféricos. Se existir mais que
+um nó periférico, deves escrevê-los por ordem crescente e com um
+espaço a separar cada par de nós.</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td>1 &le; <b>N</b> &le; 1500</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de nós</td>
+</tr>
+<tr>
+<td>1 &le; <b>E</b> &le; 5000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de arestas (ligações)</td>
+</tr>
+</table>
+
+  
+<h2><font color="blue">Exemplo de Input</font></h2>
+
+<pre>
+8
+9
+1 3
+2 3
+3 5
+3 6
+6 4
+6 8
+4 7
+1 2
+8 7
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+
+<pre>
+4
+2
+6
+1 2 5 7
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O exemplo de input corresponde à figura do enunciado.</p>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

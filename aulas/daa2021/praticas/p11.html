@@ -1,0 +1,76 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #11 - Distâncias Mínimas</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">DAA 2016/2017</a> (CC2001) - DCC/FCUP</h3>
+  <h1>Aula Prática #11 - Distâncias Mínimas<br>
+    <small><small>(semana de 12/12 a 16/12)</small></small><br>
+  </h1>
+  <hr>
+  
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre, os exercícios a submeter desta aula são:
+     
+    <ul>      
+      <li><a class="important" href="../problemas/daa027.html">[DAA 027] - Viagem para as Aulas Teóricas</a> (peso 50%)
+      <li><a class="important" href="../problemas/daa028.html">[DAA 028] - Buracos Negros</a> (peso 50%)
+      <li><a class="important" href="../problemas/daa029.html">[DAA 029] - Ligações Aéreas</a> (peso 50%)
+    </ul>
+
+    <p><b>Prazo de submissão:</b> 4 de Janeiro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak de DAA</a>)</p>
+    
+  <p><b>Não se esqueçam que qualquer ajuda que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois da prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota. Relebre que cada aula vale 10% da nota desta componente.</p>
+  
+<hr>
+
+<h2>SSSP <i>(single source shortest path problem)</i></h2>
+
+<p><b>1)</b> Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa027.html">[DAA 027] - Viagem para as Aulas Teóricas</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>A sua primeira tarefa é <b>atribuir um número a cada nome de um nó</b>. No final da leitura o grafo construido deve ser entre "números" e não entre "strings". Pode por exemplo fazer uma função <span class="codigo">numero</span> que receba uma string e devolva um inteiro. Para isso precisa de um array auxiliar que guarde os nomes. Para saber o número, procure nesse array. Caso não exista o nome, adicione e devolva o novo número. Outra alternativa é usar um <span class="codigo">map</span> que mapeia strings em inteiros.
+<li>Para descobrir a distância mínima de um ponto a outro num grafo pesado podemos usar o <b>algoritmo de Dijkstra</b> <span class="slides">[ver slides 4 a 8]</span>
+<li> Como o <span lang="latex">|V|</span> máximo é relativamente pequeno (1000) podemos usar uma <b>versão "naive"</b> do algoritmo de Disjktra (um ciclo para descobrir o mínimo, ou seja, um {\tt choose\_best} em <span lang="latex">\mathcal{O}(|V|)</span>), que resulta numa complexidade final de <span lang="latex">\mathcal{O}(|V|^2)</span>. 
+<li> Se no final se quiser testar, experimente passar a usar <b>heaps</b>, para atingir uma complexidade melhor (tal como fez com o algoritmo de Prim na aula de árvores de suporte de custo mínimo).
+</ul>
+    
+<hr>
+
+<h2>SSSP <i>(single source shortest path problem)</i></h2>
+
+<p><b>2)</b> Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa028.html">[DAA 028] - Buracos Negros</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>Este problema pede para descobrir se existem <b>ciclos negativos</b>
+<li>Para descobrir a distâncias mínimas e saber se existem ciclos de soma negativa podemos usar o <b>algoritmo de Bellman-Ford</b>, que tem uma complexidade temporal de <span lang="latex">\mathcal{O}(|V| \cdot |E|)</span> se usarmos simplesmente uma lista das arestas <span class="slides">[ver slides 11 a 15]</span>
+</ul>
+    
+<hr>
+
+<h2>Fecho Transitivo</h2>
+
+<p><b>3)</b> Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa029.html">[DAA 029] - Ligações Aéreas</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>O que o problema pede chama-se de <b>fecho transitivo</b> de um grafo.
+  <li>Como o <span lang="latex">|V|</span> máximo é pequeno (26) podemos usar o <b>algoritmo de Floyd-Warshall</b>, que é <span lang="latex">\mathcal{O}(|V|^3)</span> <span class="slides">[ver slides 17 a 25]</span>
+
+
+</ul>
+    
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

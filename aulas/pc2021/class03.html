@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Competitive Programming (CC3036) - Class #03</title>
+	<link rel=StyleSheet href="style.css" type="text/css">
+</head>
+
+<body>
+  
+<table bgcolor="black" border="0" cellspacing="1" cellpadding="0">
+<tr>
+<td rowspan="3" bgcolor="white"><a href="index.html"><img src="logo_pc2021.png" height="50" border="0"></a></td>
+<td class="h1" valign="middle" align="center">&nbsp; Class #03 &nbsp;</td>
+</tr>
+<tr>
+<td class="h3" valign="middle" align="center">&nbsp;<a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a>&nbsp;</td>
+</tr>
+</table>
+
+<h2>Main learning outcomes for this class</h2>
+
+<ol>
+  <li><b>Range Maximum Query (RMQ):</b>
+    <ul>
+      <li>I know the <b>RMQ</b> and what is asks for
+      <li>I know variants, such as asking for the minimum or the sum (<b>RSQ</b>)
+    </ul>
+  <li><b>Square-root (srt) decomposition</b>
+    <ul>
+      <li>I know the meaning of <b>decomposing</b> an array of size <i>n</i> into </i>buckets</i> of size <i>sqrt(n)</i>
+      <li>I know how to answer an RMQ <b><i>query</i></b> using <i>sqrt decomposition</i>
+      <li>I know how to do a <b><i>single update</i></b> in RMQ using <i>sqrt decomposition</i>
+      <li>I understand how to <b>adapt</b> it to variations such as RSQ.
+    </ul>
+  <li><b>Segments trees:</b>
+    <ul>
+      <li>I understand the concept of <b>segment trees</b>
+      <li>I know how how to <b>implement</b> segment trees using simple arrays
+      <li>I know how to answer an RMQ <b><i>query</i></b> using <i>segment trees</i>
+      <li>I know how to do a <b><i>single update</i></b> in RMQ using <i>segment trees</i>
+      <li>I understand how to <b>adapt</b> the <b>merge</b> function of a segment tree to more complex variations (including storing several values in a node, like for instance in a <b>merge sort tree</b>)
+      <li>I know and understand the concept of <b>lazy propagation</b> to make <b>range updates</b>
+      <li>I know and understand the concept of <b>offline processing</b> and how I can (re)sort queries to make a good usage of segment trees
+      <li>I know and understand the concept of <b>2D Segment Trees</b> for generalizing to a 2D case
+    </ul>
+</ol>
+
+<hr>
+
+<h2>Study Material</h2>
+
+
+
+<ul>
+  <li><b>General References in websites:</b>
+    <ul>
+      <li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/range-minimum-query-and-lowest-common-ancestor/">Range Minimum Query and Lowest Common Ancestor</a> (TopCoder Tutorial)
+      <li><a href="http://codeforces.com/blog/entry/15890">Algorithm Gym :: Everything About Segment Trees</a> (CodeForces Blog Post)
+      <li><a href="https://cp-algorithms.com/data_structures/sqrt_decomposition.html">Sqrt Decomposition</a> (E-Maxx Algorithms)
+      <li><a href="https://cp-algorithms.com/data_structures/segment_tree.html">Segment Trees</a> (E-Maxx Algorithms)
+    </ul>
+  <li><b>Example Implementations:</b>
+    <ul>
+      <li>Example implementation of segment trees: <a href="material/12086.html">12086.cpp</a> <i>(available after class)</i><br>
+	[solves <a href="https://uva.onlinejudge.org/index.php?option=com_onlinejudge&Itemid=8&page=show_problem&category=&problem=3238&mosmsg=Submission+received+with+ID+22166205">UVA 12086 - Potentiometers</a>] <font color="darkgreen"><b>[FUNCTIONAL EXAMPLE CODE!]</b></font>
+    </ul>
+  <li><b>Book References:</b>
+    <ul>
+      <li>Section 9.3 and Chapters 27 and 28 of the <a href="https://cses.fi/book/book.pdf">Competitive Programmer's Handbook</a> book
+      <li>Section 2.3.3 of the <a href="https://www.comp.nus.edu.sg/~stevenha/myteaching/competitive_programming/cp2.pdf">Competitive Programming</a> book
+    </ul>
+</ul>
+
+
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a> |
+  <b>Último update:</b>
+		<script type="text/javascript" LANGUAGE="JavaScript">
+		  update = new Date(document.lastModified)
+		  theMonth = update.getMonth() + 1
+		  theDate = update.getDate()
+		  theYear = update.getFullYear()
+		  h = update.getHours()
+		  if (h<10) h = "0"+h;
+                  m = update.getMinutes()
+ 		  if (m<10) m = "0"+m;	
+                  s = update.getSeconds()
+  		  if (s<10) s = "0"+s;
+		  document.writeln(theDate + "/" + theMonth + "/" + theYear + " " + h + ":" + m + ":" + s)
+		</script></p>
+
+</body>
+
+</html>

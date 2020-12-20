@@ -1,0 +1,99 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[DAA 022] Árvores red-black</title>
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuída à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 22 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2021/praticas/aula06.html">ler o guião da aula #06</a>]</b></small></p>
+  
+<hr>
+
+<h1><font color="blue">[DAA 022] Árvores red-black</font></h1>
+
+<p><img src="daa022.png" alt="" align="right" border="0"> As árvores
+red-black são um tipo de árvores binárias de pesquisa "equilibradas"
+que garantem tempo logarítmico nas operações típicas de pesquisa, inserção e remoção de elementos.
+
+<p>Para que uma árvore binária de nós pretos e vermelhos seja considerada <b>red-black</b> tem que obedecer a várias restrições. Antes de tudo o resto, tem de ser uma <b>árvore binária de pesquisa</b>, ou seja, para qualquer nó da árvore, todos os nós descendentes à sua esquerda têm de ser menores, e todos os nós descendentes à sua direita têm de ser maiores. Para além disso, tem de respeitar as seguintes propriedades:</ul>
+
+<ul>
+<li><b>(root property)</b> A raíz da árvore é preta
+<li><b>(leaf property)</b> As folhas são nós (nulos/vazios) pretos
+<li><b>(red property)</b> Os filhos de um nó vermelho são pretos
+<li><b>(black property)</b> Para cada da nó, um caminho para qualquer uma das suas folhas descendentes tem o mesmo número de nós pretos
+</ul>
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dada uma árvore binária constituída unicamente por nós pretos e vermelhos, a tua tarefa é determinar se ela é uma árvore red-black, ou seja, se é árvore binária de pesquisa e se obedece às propriedades descritas.
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha do <i>input</i> está um número A indicando a quantidade de árvores a considerar.
+
+<p>Seguem-se <b>A</b> linhas, cada uma com <b>N<sub>i</sub></b> inteiros entre -1000 e 1000 descrevendo descrevendo uma árvore red-black em <i>preorder</i> (raíz, sub-árvore esquerda, sub-árvore direita). Um número positivo indica um nó preto com esse valor. Um número negativo indica um nó vermelho contendo o valor absoluto do número (ex: -5 indica um nó vermelho contendo o número 5). O número zero representa uma folha nula preta.
+
+<p>A título de exemplo, a árvore da figura de cima é descrita por:
+  <pre>12 -5 2 0 0 8 -7 0 0 -10 0 0 21 0 -32 0 0</pre>
+
+<p>É garantido que não existem números repetidos na árvore.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O <i>output</i> deve ter exactamente <b>A</b> linhas. Em cada uma
+delas deve ser imprimido SIM ou NAO consoante a árvore respectiva seja ou não uma red-black tree.
+</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td><b>1 &le; A &le; 20</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de árvores a considerar</td>
+</tr>
+<tr>
+<td><b>1 &leq; N<sub>i</sub> &leq; 100</td>
+<td>&nbsp; &nbsp; </td>
+<td> Número de nós de uma árvore</td>
+</tr>
+</table>
+
+
+<h2><font color="blue">Exemplo de Input</font></h2>
+<pre>
+3
+12 -5 2 0 0 8 -7 0 0 -10 0 0 21 0 -32 0 0
+12 5 -2 0 0 -8 -7 0 0 -10 0 0 21 0 -32 0 0
+12 -5 2 0 0 8 -7 0 0 10 0 0 21 0 -32 0 0
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+SIM
+NAO
+NAO
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O exemplo de input corresponde às seguintes 3 árvores:</p>
+
+<p><img src="daa022input.png">
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

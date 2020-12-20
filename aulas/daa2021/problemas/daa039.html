@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[DAA 039] Bolhas pandémicas</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 3 de Janeiro</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i></small></p>
+
+<hr>
+ 
+<h1><font color="blue">[DAA 039] Bolhas pandémicas</font></h1>
+
+<p><img align="right" src="daa039.jpg">No contexto de uma pandemia, uma bolha é um conjunto de pessoas que têm contacto físico próximo e regular. Uma bolha é por exemplo uma família que mora na mesma casa. Familiares ou amigos que vivam noutras casas não são da mesmo bolha. Por exemplo, a seguinte figura ilutra 10 pessoas que pertencem a 4 diferentes bolhas:</p>
+
+<p><img height="180" src="daa039_ex1.png"></p>
+
+<p>A Administração de Saúde sabe que por vezes diferentes bolhas se misturam, porque duas pessoas se encontraram e ficaram próximas e sem máscara durante muito tempo. A partir do momento em que isto acontece, as bolhas de ambas juntam-se numa única bolha. Por exemplo, se a Teresa e a Luisa se encontram, então passam a existir apenas 3 bolhas como indicado na seguinte imagem:</p>
+
+<p><img height="180" src="daa039_ex2.png"></p>
+
+<p>Tens de ajudar a Administração de Saúde a gerir as várias bolhas, criando um programa que permita gerir novos contactos e ao mesmo tempo ser capaz de perceber se duas pessoas pertencem ou não à mesma bolha.</p>
+
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dado um conjunto de bolhas iniciais, a tua tarefa é processar dois tipos de operações que vão acontecendo ao longo do tempo: (1) saber se um dado par de pessoas está na mesma bolha; (2) ser capaz processar um encontro entre duas pessoas, juntando as suas bolhas numa só no caso de pertencerem a bolhas diferentes.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>A primeira linha contém dois inteiros <b>N P</b>, indicando respetivamente o número <b>N</b> de bolhas iniciais e o número <b>P</b> de pessoas a considerar. Seguem-se <b>N</b> linhas, cada uma indicando uma bolha. Cada uma destas linhas começa por indicar <b>Q</b>, o número de pessoas nessa bolha, seguida dos nomes das pessoas dessa bolha. É garantido que existem no total <b>P</b> pessoas, que nunca aparecem nomes repetidos, e que estes são constituídos apenas por 1 a 10 letras.</p>
+
+<p>A linha seguinte contém um inteiro <b>T</b> o número de operações a considerar. Seguem-se <b>T</b> linhas indicando as operações, que podem ser do tipo:</p>
+<ul>
+  <li><b>P nome1 nome2</b> que indica se queremos saber se as pessoas <i>nome1</i> e <i>nome2</i> estão ou não na mesma bolha;</li>
+  <li><b>E nome1 nome2</b> indica que <i>nome1</i> e <i>nome2</i> se encontraram e que a partir de agora as suas duas bolhas se juntam numa só bolha (pode acontecer que os nomes já estejam previamente na mesma bolha: nesse caso não acontece nada).
+</ul>
+
+<p>Podes assumir que todos os nomes dados existem numa das bolhas iniciais.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O output deve ser constituído por <b>T</b> linhas, uma por cada operação:</p>
+
+<ul>
+  <li>Se a operação for do tipo <b>P nome1 nome2</b> deve ser escrito "sim" <i>nome1</i> estão na mesma bolha e "nao" caso contrário;</li>
+  <li>Se a operação for do tipo <b>E nome1 nome2</b> deve ser escrito um inteiro indicando a quantidade total de bolhas diferentes depois de ter acontecido o encontro.
+</ul>
+
+<p>Notem que as operações são feitas consecutivamente no tempo. Por isso, o resultado da <i>i</i>-ésima operação deve assumir que entretanto já foram feitas antes todas as operações que a antecedem no input.</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td>1 &le; <b>N</b> &le; 50&nbsp;000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Quantidade de bolhas iniciais</td>
+</tr>
+<tr>
+<td>1 &le; <b>P</b> &le; 50&nbsp;000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Quantidade total de pessoas</td>
+</tr>
+<tr>
+  <td>1 &le; <b>T</b> &le; 50&nbsp;000</td>
+  <td>&nbsp; &nbsp; </td>
+  <td>Quantidade de operações</td>
+</tr>
+</table>
+  
+<h2><font color="blue">Exemplo de Input</font></h2>
+<pre>
+4 10
+3 Carlos Maria Ana
+1 Pedro
+4 Nuno Luisa Joana Raul
+2 Teresa Filipa
+9
+P Filipa Nuno
+E Teresa Luisa
+P Filipa Nuno
+P Pedro Carlos
+P Carlos Nuno
+E Ana Filipa
+P Pedro Carlos
+P Ana Joana
+E Filipa Maria
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+nao
+3
+sim
+nao
+nao
+2
+nao
+sim
+2
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<ul>
+  <li>No início existem 4 bolhas: {Carlos, Maria, Ana} | {Pedro} | {Nuno, Luisa, Joana, Raul} | {Teresa, Filipa}
+  <li>À operação <b>P Filipa Nuno</b> é respondido "nao".
+  <li>A operação <b>E Teresa Luisa</b> reduz para 3 bolhas: {Carlos, Maria, Ana} | {Pedro} | {Nuno, Luisa, Joana, Raul, Teresa, Filipa}
+  <li>À operação <b>P Filipa Nuno</b> é respondido agora "sim".
+  <li>À operação <b>P Pedro Carlos</b> é respondido "nao".
+  <li>À operação <b>P Carlos Nuno</b> é respondido "nao".
+  <li>A operação <b>E Ana Filipa</b> reduz para 2 bolhas: {Carlos, Maria, Ana, Nuno, Luisa, Joana, Raul, Teresa, Filipa} | {Pedro}
+  <li>À operação <b>P Pedro Carlos</b> é respondido "nao".
+  <li>À operação <b>P Ana Joana</b> é respondido "nao".
+  <li>A operação <b>E Filipa Maria</b> não reduz o nº de bolhas e mantêm-se as duas anteriores.
+</ul>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

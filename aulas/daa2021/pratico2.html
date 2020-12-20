@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta http-equiv="content-type" content="text/html;
+	charset=utf-8" />
+        <link rel="shortcut icon" href="favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="style.css" media="screen,projection" />
+	<title>[DAA] Desenho e Análise de Algoritmos 20/21 - Test Prático 2</title>
+</head>
+
+<body>
+<div id="wrap">
+
+	<div id="header">
+		<p id="toplinks"><a href="https://www.dcc.fc.up.pt/site/cursos/licenciatura-em-ciencia-de-computadores">LCC</a> | <a href="https://www.dcc.fc.up.pt/site/cursos/mestrado-integrado-em-engenharia-de-redes-e-sistemas-informaticos">MIERSI</a> | <a href="http://www.fc.up.pt/">FCUP</a></p>
+		<h1>
+		 <img align="right" src="images/daa2021.png">
+                <a href="index.html">Desenho e Análise de Algoritmos</a></h1>
+		<p id="slogan">Edição 2020/2021<br>
+                  Licenciatura em Ciência de Computadores<br>
+		  Mestrado Int. Engenharia de Redes e Sistemas Informáticos</p>
+	</div>
+
+<div id="content">
+
+<h1>Objectivos para o Teste Prático 2 (12 de Dezembro)</h1>
+
+<p>Aqui fica uma lista de objectivos para o 2º teste prático de DAA, que incidirá sobre os capítulos 6 a 8. <b>Poderá implementar as soluções em C, C++ ou Java.</b>
+
+  <h3>Formato:</h3>
+
+  <ul>
+    <li><b>Data:</b> 12 de Dezembro de 2020 (sábado)
+    <li><b>Horário:</b> um turno às 8:45, outro às 11:15
+    <li><b>Duração:</b> 2h
+    <li><b>Local:</b> laboratórios do DCC/FCUP
+    <li><b>Valorização:</b> 2.5 valores (como explicado em <a href="avaliacao.html">avaliação</a>)
+  </ul>
+  
+
+<h3>Checklist para o teste:</h3>
+
+<ol>
+<li>Fazer <b>inscrição</b> no teste via Mooshak: ir ao concurso "2º Teste Prático - Inscrição", clicar na checkbox e submeter (<font color="red">até às 22:00 de quinta, dia 10 de Dezembro).</font> Podem indicar preferência de turno, sendo que irei tentar obedecer ao pedido (desde que tenha espaço no turno respetivo).</li>
+<li><b>(Pré)Submeter</b> um ficheiro com código (e qualquer texto que queiram), ao qual terão acesso durante o teste - ir ao concurso "2º Teste Prático - Pré-Submissão de Código" e submeter um único ficheiro; se submeterem mais do que uma vez apenas a sua última submissão estará disponível no dia do teste prático; o ficheiro (.txt) pode conter o que quiserem até um máximo de 500KB (<font color="red">até às 22:00 de sexta, dia 11 de Dezembro).</font></li>
+<li>Na sexta-feira, dia 11 de Dezembro, logo pela manhã, irei enviar (mail, site e slack) uma <b>distribuição dos alunos por horários e salas</b> com indicação de como fazerem no dia e a que horas devem chegar.</li>
+</ol>
+
+<p>As pontuações são parciais, significando que cada problema terá vários testes, cada um valendo um determinado número de pontos. Para cada teste pontuável existirá um teste não pontuável de características similares disponível para visualização quando falharem. Os testes pontuáveis são secretos. A sua pontuação é determinada pelos testes em que o seu programa acertar. <b>Para terem 100% num problema será necessário terem uma solução eficiente.</b> Uma solução com "força bruta" poderá portanto dar menos do que a pontuação ótima.</p>
+
+<p>Os enunciados estão "despidos" da uma história mais gira para irem directos ao que é pedido de modo a que possam usar as duas horas de forma adequada. <b>Para alguns dos problemas poderão ser dadas dicas sobre como resolver.</b></p>
+
+<p>Terão acesso a <b>documentação</b> das vossa linguagens e às classes FastScanner e FastInput, no Java.</p>
+
+<p>O teste prático terá os seguintes 3+1 problemas para serem resolvidos em 2h (o último problema é para ter nota acima de 100%):</p>
+
+<h2>Problema A (34% da nota)</h2>
+
+<h3>Saber usar pesquisa em profundidade (DFS) para percorrer um grafo</h3>
+
+<p class="teste">Será pedido algo como:</p>
+
+<ul>
+<li>Imprimir a ordem em que os nós são visitados com DFS
+<li>Calcular quantidade e/ou tamanho/peso de componentes conexos
+<li>Saber verificar se um grafo é bipartido
+<li>Saber calcular uma ordenação topológica
+</ul>
+
+<p>Problemas exemplo:<br>
+- <a href="problemas/daa025.html"><u>[DAA 025] Redes de circuitos electrónicos</u></a><br>
+- <a href="problemas/daa026.html"><u>[DAA 026] Contagem de células</u></a><br>
+- <a href="problemas/daa027.html"><u>[DAA 027] Grafos bipartidos</u></a><br>
+- <a href="problemas/daa029.html"><u>[DAA 029] Ordem rara</u></a> <i>(o grafo seria dado mais diretamente se este fosse um problema do teste)</i>
+</p>
+
+<h2>Problema B (33% da nota)</h2>
+
+<h3>Saber usar pesquisa em largura (BFS) para calcular distâncias num grafo não pesado</h3>
+
+<p class="teste">Será pedido algo como:</p>
+
+<ul>
+<li>Diâmetro ou raio de um grafo
+<li>Nó mais perto/longe de um dado conjunto de nós
+<li>Calcular nós a uma dada distância
+</ul>
+
+<p>Problemas exemplo:<br>
+- <a href="problemas/daa030.html"><u>[DAA 030] Análise de uma rede biológica</u></a><br>
+- <a href="problemas/daa031.html"><u>[DAA 031] Nuvem de cinzas</u></a><br>
+  <i>(o problema do teste será substancialmente mais fácil, mas o 031 é um bom problema de treino)</i>
+</p>
+
+<p>Para este problema será obrigatório usar BFS (não poderá por exemplo usar Dijkstra)
+
+<h2>Problema C (33% da nota)</h2>
+
+<h3>Saber usar o algoritmo de Dijkstra para calcular distâncias num grafo pesado</h3>
+
+<p class="teste">Será pedido algo como:</p>
+
+<ul>
+<li>Nó mais perto/longe de um dado conjunto de nós
+<li>Calcular nós a uma dada distância
+<li>Caminho mínimo entre dois nós
+</ul>
+
+<p>Para este problema é garantido que os pesos não são negativos (sendo que por isso não precisará de um Bellman-Ford). Se optar por algo como um Floyd-Warshall (ou Bellman-Ford) poderá não ter a cotação completa. Para além disso, para ter 100% será necessário ter uma implementação eficiente em O(|E| log |V|) . Uma implementação quadrática dará apenas pontuação parcial.
+
+<p>Problemas exemplo:</br>
+  - <a href="problemas/daa033.html"><u>[DAA 033] Viagem para as aulas</u></a></br>
+  - <a href="problemas/daa035.html"><u>[DAA 035] Ligações aéreas</u></a> <i>(note que com Floyd-Warshall num problema SSSP não terá cotação completa)</i></p>
+
+<h2>Problema D (20% da nota)</h2>
+
+<h3>Tema Aberto</h3>
+
+<ul>
+  <li>Este problema pode dar 20% adicionais (0.5 valores), ou seja, é possível ter nota acima dos 2.5 valores (por exemplo para compensar algo que corra menos bem noutro componente da avaliação)
+  <li>É um problema um pouco mais complicado que os anteriores, sem dicas dadas no enunciado, e que só deverá ser tentado depois de resolvidos os outros três
+<li><b>Pode usar qualquer tema/algoritmo dos capítulos 6 a 8, bem como ser necessário combinar com algo dos capítulos anteriores (ex: programação dinâmica).</b>
+</ul>
+
+	</div>
+
+	<div id="sidebar">
+		<h2>Teóricas</h2>
+		<p><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a></p>
+		<h2>Práticas Laboratoriais</h2>
+                <p>
+                <a href="https://sigarra.up.pt/fcup/pt/func_geral.formview?p_codigo=631380">Alberto Barbosa</a><br>
+		<a href="https://www.dcc.fc.up.pt/~edrdo/">Eduardo Marques</a><br>
+		<a href="http://www.inescporto.pt/~hfpo/">Hélder Oliveira</a><br>
+		<a href="https://www.dcc.fc.up.pt/~mbb/">Manuel Barbosa</a><br>
+		<a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a><br>
+		</p>
+
+		<h2>Conteúdo:</h2>
+		<ul>
+		  <li><a href="index.html">Página Inicial</a></li>
+		  <li><a href="info.html">Informações Gerais</a></li>
+		  <ul>
+                         <li><a href="info.html#objectivos">Objectivos</a></li>
+                         <li><a href="info.html#programa">Programa</a></li>
+		 </ul>
+		  <li><a href="plan.html">Planificação</a></li>
+		  <ul>
+                         <li><a href="plan.html#calendario">Calendário</a></li>
+                         <li><a href="plan.html#sumarios">Sumários</a></li>
+		 </ul>
+		  <li><a href="avaliacao.html">Avaliação</a></li>
+		  <ul>
+                         <li><a href="avaliacao.html#frequencia">Obtenção de Frequência</a></li>
+                         <li><a href="avaliacao.html#classificacao">Classificação Final</a></li>
+                         <li><a href="avaliacao.html#testes">Testes/Exame</a></li>
+		 </ul>
+		  <li><a href="apoio.html">Material de Apoio</a></li>
+		  <ul>
+                         <li><a href="apoio.html#slides">Slides</a></li>
+                         <li><a href="apoio.html#praticas">Aulas Práticas</a></li>
+                         <li><a href="apoio.html#livros">Livros Recomendados</a></li>
+                         <li><a href="apoio.html#temas">Temas Específicos</a></li>
+                         <li><a href="apoio.html#cursos">Cursos Relacionados</a></li>
+			 <li><a href="apoio.html#outras">Outras Ligações</a></li>
+		  </ul>
+		</ul>
+
+		<h2>Último update:</h2>
+		<p><script type="text/javascript" LANGUAGE="JavaScript">
+		  update = new Date(document.lastModified)
+		  theMonth = update.getMonth() + 1
+		  theDate = update.getDate()
+		  theYear = update.getFullYear()
+		  document.writeln(theDate + "/" + theMonth + "/" + theYear)
+		</script>
+
+
+	</div>
+
+	<div id="footer">
+		<p><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> (<img src="images/mm.png" height="15">)<br />
+<small><a href="http://andreasviklund.com/templates/" title="Original CSS template design">Original design</a> by <a href="http://andreasviklund.com/" title="Andreas Viklund">Andreas Viklund</a> | Modified by <a href="http://Jasoncole.ca">Jason Cole</a>.</small></p>
+	</div>
+
+</div>
+
+</body>
+</html>

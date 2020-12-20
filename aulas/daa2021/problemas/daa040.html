@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[DAA 040] Estradas romanas</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 3 de Janeiro</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i></small></p>
+
+<hr>
+ 
+<h1><font color="blue">[DAA 040] Estradas romanas</font><br>
+<small><small><small>(este problema é essencialmente uma
+tradução/adaptação
+de um problema do CodeChef)</small></small></small></h1>
+
+<p><img align="right" src="daa040.jpg">Na antiga civilização romanda existiam <b>N</b> cidades e <b>M</b> estradas bidirecionais que as ligavam. À medida que o tempo passou algumas estradas ficaram inutilizáveis, e ninguém as reparou.</p>
+
+<p>Como um estudioso da civilização romana, queres agora fazer um pequeno estudo. Com esse propósito em mente, queres escrever um programa capaz de processar os seguintes tipos de operações:</p>
+
+<ul>
+  <li><b>D K</b>: indicando que a estrada com o número <b>K</b> no input ficou inutilizável. As estradas são numeradas consecutivamente a partir de 1 pela ordem em que aparecem no input.
+  <li><b>P A x</b>: indicando que a população da <b>A</b>-ésima cidade passou a ser <i>x</i>. As cidades são também numeradas a partir de 1.
+</ul>
+
+<p>Chamemos a um subconjunto de cidades uma <b>região</b> se for possível viajar entre qualquer par de cidades do subconjunto usando as estradas ainda usáveis, possivelmente via algumas cidades intermédias do subconjunto. A <b>população</b> de uma região é a soma das populações das regiões que a constituem.</p>
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Recebendo como input o sistema inicial de estradas, a população inicial de cada cidade e <b>Q</b> operações de um dos dois tipos anteriores, a tua tarefa é saber o tamanho da região mais populada depois de cada operação.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>A primeira linha contém três inteiros <b>N M Q</b>, indicando respetivamente o número <b>N</b> de cidades, o número <b>M</b> de estradas e o número <b>Q</b> de operações.</p>
+
+<p>Segue-se uma linha com <b>N</b> inteiros, o <i>i</i>-ésimo dos quais indicando a população inicial da <i>i</i>-ésima cidade.</p>
+
+<p>As <b>M</b> linhas seguintes indicam as estradas existentes no formato <b>X Y</b> indicando que existe uma estrada bidirecional entre as cidades <b>X</b> e <b>Y</b>. No início todas as estradas são usáveis.</p>
+
+<p>As <b>Q</b> linhas seguintes indicam as operações a considerar no formato descrito anteriormente. É garantido que a mesma estrada nunca é indicada como inutilizável duas vezes</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O output deve ser constituído por <b>Q</b> linhas, uma por cada operação. Na <i>i</i>-ésima linha deve vir a população total da região mais populada depois de feitas as primeiras <i>i</i> operações.</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td>1 &le; <b>N</b> &le; 100&nbsp;000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Quantidade de cidades</td>
+</tr>
+<tr>
+<td>1 &le; <b>M</b> &le; 100&nbsp;000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Quantidade de estradas</td>
+</tr>
+<tr>
+  <td>1 &le; <b>Q</b> &le; 100&nbsp;000</td>
+  <td>&nbsp; &nbsp; </td>
+  <td>Quantidade de operações</td>
+</tr>
+<tr>
+  <td>1 &le; <b>P</b> &le; 10&nbsp;000</td>
+  <td>&nbsp; &nbsp; </td>
+  <td>População de uma cidade</td>
+</tr>
+</table>
+  
+<h2><font color="blue">Exemplo de Input</font></h2>
+<pre>
+3 3 6
+1 2 3
+1 2
+2 3
+3 1
+P 1 3
+D 1
+P 2 3
+D 2
+P 3 10
+D 3
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+8
+8
+9
+6
+13
+10
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<ul>
+  <li>Depois da 1ª operação as populações são (3, 2, 3) e a região mais populada é {1, 2, 3}.
+  <li>Depois da 2ª operação as populações e regiões mantêm-se as mesmas
+  <li>Depois da 3ª operação as populações são (3, 3, 3) e a região mais populada é {1, 2, 3}.
+  <li>Depois da 4ª operação as populações são as mesmas, mas temos agora duas regiões: {1, 3} e {2}. A região mais populada é {1, 3}.
+  <li>Depois da 5ª operação as populações são (3, 3, 10) e a região mais populada é novamente {1, 3}.
+  <li>Depois da 6ª e última operação as populações são as mesmas, mas agora cada cidade forma a sua própria região e a região mais populada é {13}.
+</ul>
+
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

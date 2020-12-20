@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #11 - Árvores de Suporte de Custo Mínimo</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">DAA 2020/2021</a> (CC2001) - DCC/FCUP</h3>
+  <h1>Aula Prática #11 - Árvores de Suporte de Custo Mínimo<br>
+    <small><small>(semana de 07/12 a 11/12)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios a submeter desta aula são:<br>
+    
+ <ul>
+  <li><a class="important"  href="../problemas/daa037.html">[DAA 037] Sardas</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+  <li><a class="important"  href="../problemas/daa038.html">[DAA 038] Fibra ótica</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+  <li><a class="important"  href="../problemas/daa039.html">[DAA 039] Bolhas pandémicas</a> (peso 50%)<span style="color:DarkSlateBlue"> (exercício extra)</span>
+  <li><a class="important"  href="../problemas/daa040.html">[DAA 040] Estradas romanas</a> (peso 50%) <span style="color:DarkRed">(exercício de desafio)</span>
+</ul>    
+
+<p><b>Prazo de submissão:</b> 3 de Janeiro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak de DAA</a>)</p>
+
+  <p><b>Não se esqueçam que qualquer ajuda que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota. Relebre que cada aula vale 10% da nota desta componente.<br>
+Para um problema contar tem acertar todos os testes. Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.</p>
+  
+  <hr>
+  
+ <h3>Conteúdos das teóricas</h3>
+
+  <p>Nesta aula iremos abordar conceitos de <b>Pesquisa em Grafos</b>. Será por isso conveniente ver o que foi falado nas teóricas:
+    <ul>
+      <li><a href="../apoio.html#slides">Slides</a> (capítulos "9 - Grafos: Árvores de Suporte de Custo Mínimo")
+      <li><a href="../videos/index.html">Vídeos</a>: (vídeo #22)
+    </ul>
+  </p>
+
+<hr>
+
+<h3>Exercício 1) Uma primeira implementação de árvores de suporte de custo mínimo</h3>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+    
+Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa037.html">[DAA 037] Sardas</a>.</p>
+
+  <p>Dicas:</p>
+  <ul>
+  <li>Neste problema temos de encontrar a árvore de suporte de custo mínimo que liga as sardas.
+  <li>Para saber a distâcia da sarda \((x_1, y_1)\) a \((x_2, y_2)\), basta usar \(\sqrt{(x_1 - x_2)^2 + (y_1 - y_2)^2}\)
+  <li>Tanto pode usar o algoritmo de <b>Prim</b>, como o algoritmo de <b>Kruskal</b>. Uma sugestão é implementar ambos e verificar que dão a mesma resposta.
+  <li>Tendo em conta os limites, não é necessário usar estruturas de dados especializadas, e "qualquer" implementação pasa (mesmo que seja quadrática no tempo e no espaço) passa.
+    <li>Use <b>doubles</b> para os seus cálculos para não perder precisão (e imprima pelo menos com 3 casas decimais).
+</ul>
+
+<hr>
+
+<h3>Exercício 2) Completando uma árvore de suporte de forma eficiente</h3>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa038.html">[DAA 038] Fibra ótica</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>Neste problema tem de completar uma árvore de suporte de custo mínimo que já foi começada. É possível adaptar quer o algoritmo de <b>Prim</b>, quer o algoritmo <b>Kruskal</b> adaptando para que comece já com um conjunto de nós existente. Consegue perceber como? </li>
+  <li>Antes de imprimir tem de ordenar as arestas que adicionou (pode usar a API da sua linguagem)</span>
+<li>Para ter <i>accepted</i> necessita de uma implementação melhor que \(\mathcal{O}(|V|^2)\). A sugestão é usar <b>Prim</b> com filas de prioridade/sets (como foi feito com o Dijkstra na <a href="aula10.html">aula #10</a>) ou <b>Kruskall</b> com <a href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure">disjoint-sets</a> como implementação de <i>union-find</i> como explidada nas teóricas, o que lhe dá em ambos os casos uma complexidade final de \(\mathcal{O}(|E| \log |V|)\).
+  <li><span style="background-color:#ffcccc; color:#990000"><b>Se usar Java, use <a href="fastio.html">Input/Output rápido</a></b> (é possível passar só com Scanner, mas podem existir 40 mil linhas de input)</span>
+</ul>
+
+<hr>
+
+<h3>Exercício extra) Implementando disjoint-sets (union-find)</h3>
+
+<p>Se quiser ter a certeza que implementa corretamente <a href="https://en.wikipedia.org/wiki/Disjoint-set_data_structure">disjoint-sets</a> aqui fica um pequeno problema extra que pede diretamente as operações fornecidas por uma estrutura de dados de <i>union-find</i>.
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa039.html">[DAA 039] Bolhas pandémicas</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>Implemente directamente o pseudo-código dado nos slides para union find, usando <i>path compression</i> e <i>union-by-rank</i> (se usar só uma destas heurísticas também passará no tempo, mas se não usar nenhuma deverá exceder o tempo limite).
+  <li><span style="background-color:#ffcccc; color:#990000"><b>Se usar Java, use <a href="fastio.html">Input/Output rápido</a></b> (podem existir 100 mil linhas de input)</span>
+</ul>
+
+<hr>
+
+<h3>Exercício de Desafio</h3>
+  
+<p>Todas as semanas vou colocar disponível pelo menos mais um exercício um pouco mais desafiante.</p>
+
+<p>Para esta semana o desafio vem do <a href="https://www.codechef.com/">CodeChef</a> e tem natura algorítmica, como seria de esperar! Está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak</a>:
+
+  <ul>
+    <li class="big"><a class="important" href="../problemas/daa040.html">[DAA 040] Estradas romanas</a>
+  </ul>
+
+<p>Se já tiverem feito tudo e estiverem "presos" neste, e quiserem mesmo fazer o desafio, podem contactar-me para eu "dosear" as dicas, sabendo que este problema é mais complicado que os outros desta aula.</p>          
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

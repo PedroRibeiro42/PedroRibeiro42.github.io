@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #03 - Ordenação e Pesquisa Binária</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">DAA 2020/2021</a> (CC2001) - DCC/FCUP</h3>
+  <h1>Aula Prática #03 - Ordenação e Pesquisa Binária<br>
+    <small><small>(semana de 12/10 a 16/10)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios a submeter desta aula são:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problemas/daa009.html">[DAA 009] ADN Alienígena</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/daa010.html">[DAA 010] Somas mais próximas</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/daa011.html">[DAA 011] Viagem de mochila às costas</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/daa012.html">[DAA 012] Sequenciação de ADN</a> (peso 10%)  <span style="color:DarkRed">(exercício de desafio)</span>
+    </ul>
+
+    <p><b>Prazo de submissão:</b> 1 de Novembro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak de DAA</a>)</p>
+
+  <p><b>Não se esqueçam que qualquer ajuda que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota. Relebre que cada aula vale 10% da nota desta componente.<br>
+Para um problema contar tem acertar todos os testes. Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.</p>
+  
+  <hr>
+  
+ <h3>Conteúdos das teóricas</h3>
+
+  <p>Nesta aula iremos abordar conceitos de <b>ordenação e pesquisa binária</b>. Será por isso conveniente ver o que foi falado nas teóricas:
+    <ul>
+      <li><a href="../apoio.html#slides">Slides</a> (capítulo "2 - Ordenação")
+      <li><a href="../videos/index.html">Vídeos</a>: (vídeos #06, #07, #08 e #09)
+
+    </ul>
+  </p>
+
+  <hr>
+  
+<h3>Exercício 1) Usando a biblioteca da sua linguagem para ordenar</h3>
+
+<p>A ordenação é uma operação "básica" essencial em muitos algoritmos. É por isso comum que uma qualquer linguagem de programação tenha disponível na sua bilbioteca padrão uma função de ordenação, O objectivo deste exercício é levá-lo a conhecer como ordenar usando o <tt>sort</tt> disponível na sua linguagem preferida.
+
+<p>Iremos usar as seguintes funções (escolha a da linguagem que pretende usar):
+
+<ul>
+<li> <b>C:</b> <span class="codigo">qsort</span> da stdlib (<a href="http://linux.die.net/man/3/qsort">ver entrada nas manpages</a>)
+<li> <b>C++:</b> <span class="codigo">sort</span> da STL</span> (<a href="http://www.cplusplus.com/reference/algorithm/sort/">ver entrada no cplusplus.com</a>)
+<li> <b>Java:</b> <span class="codigo">Arrays.sort</span> (<a href="http://docs.oracle.com/javase/8/docs/api/java/util/Arrays.html">ver entrada da referência da API do Java</a>)
+</ul>
+
+<ol type="a">
+  <li>Tem ao seu dispor um pequeno programa que mostra como ordenar números inteiros: <a class="important" href="../codigo/sort.c">sort.c</a>, <a class="important" href="../codigo/sort.cpp">sort.cpp</a> ou <a class="important" href="../codigo/Sort.java">Sort.java</a>. Descarregue o código da sua linguagem de eleição e experimente compilar e executar na sua máquina, garantindo que percebe o programa.
+
+  <li>A mesma função de ordenação pode ser usada para quaisquer outros tipo primitivos. Experimente mudar o programa para outro tipo primitivo (ex: <span class="codigo">double</span> ou <span class="codigo">char</span>) e execute para verificar que a ordenação continua a funcionar.
+</ol>
+
+<hr>
+
+<h3>Exercício 2) Ordenação com um critério personalizado</h3>
+
+<p>Por vezes queremos ordenar por um critério diferente do padrão (ex: por ordem decrescente; ordenar primeiro por um campo e depois por outro). Nesses casos queremos poder usar o <i>sort</i> da biblioteca, mas passar-lhe um comparador "customizado" que permita ordenar segundo o critério que desejamos.
+
+  <ol type="a">
+    <li>Tem ao seu dispor um pequeno programa para ordenar pessoas por ordem crescente da idade e em caso de empate por ordem alfabética do nome: <a class="important" href="../codigo/customsort.c">customsort.c</a>, <a class="important" href="../codigo/customsort.cpp">customsort.cpp</a> ou <a class="important" href="../codigo/CustomSort.java">CustomSort.java</a>. Tem também disponível um ficheiro com um exemplo de input para poder testar o programa: <a class="important" href="../codigo/persons.txt">persons.txt</a>. Descarregue o código da sua linguagem de eleição e experimente compilar e executar na sua máquina, garantindo que percebe o programa.
+
+    <li>O que precisaria de alterar no programa para ordenar por ordem decrescente da idade (ao invés da ordem crescente)? Experimente mudar, compilar e executar para testar o que pensou.
+      
+    <li><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+      Usando o que aprendeu, leia, resolva e submeta o problema <a class="important" href="../problemas/daa009.html">[DAA 009] ADN Alienígena </a>.
+  </ol>
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+	<div id="spoiler1" style="display:none">
+	  <ul>
+	    <li>Crie uma classe/estrutura para representar uma letra, contendo como atributos a frequência, a posição da primeira ocorrência e a letra em si</li>
+	    <li>Crie um array de objectos/estruturas do tipo anterior, com espaço para cada uma das 26 letras: na posição 0 o 'A', na posição 1 o 'B', etc; não se esqueça de garantir de inicializar os atributos no início </li>
+	    <li>Depois de ler o fragmento de ADN, basta percorrê-lo e na posição correspondente do array aumentar a frequência (por exemplo, se a letra for <i>c</i>, basta mexer na posição <span class="codigo">c-'A'</span> do array)
+	    <li>Crie uma comparador customizado como no exemplo dado, mas ordenando pelos atributos que o problema pede
+	    <li>Chame o <i>sort</i> e pecorra no final o array para imprimir o resultado :)
+	  </ul>	  
+	</div>
+  
+<hr>
+
+<h3>Exercício 3) Um problema com pesquisa binária "clássica"</h3>
+
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Comece por ler o enunciado do problema <a class="important" href="../problemas/daa010.html">[DAA 010] Somas mais próximas</a>. O objectivo final deste exercício é conseguir submeter com sucesso uma solução. Em vez de considerar que são possíveis <i>spoilers</i>, neste problema queremos mesmo que siga os passos que sugerimos.
+
+  <ol type="a">
+    <li>Vamos começar por calcular todos as somas possíveis de pares de números. Se temos <i>n</i> números guardados num array <span class="codigo">v[]</span>, queremos todos os pares <tt>v[i] + v[j]</tt> com <i>0 &leq; i, j &le; n-1</i>. </li>
+
+      <ol type="i">
+	<li>Exactamente quantos pares existem? (use o seu conhecimento sobre somatórios e progressões aritméticas obtido no capítulo anterior de matéria). Qual a sua ordem de grandeza em termos assintóticos?
+	<li>Implemente dois ciclos para guardar estes pares num novo array <span class="codigo">somas[]</span> e confirme que a quantidade de pares é a que calculou..	    
+      </ol>
+    <li>Para cada uma das <i>Q</i> perguntas vamos querer agora pesquisar no array <span class="codigo">pares[]</span> procurando a(s) soma(s) mais próxima(s).</li>
+
+    <ol type="i">
+      <li>Uma alternativa seria fazer uma simples pesquisa linear (um ciclo percorrendo todos os elementos de pares). Será que isto passaria no tempo necessário? Porquê?
+      <li>O array de somas é igual para todas as perguntas pelo que podemos pré-processar para depois melhorar a pesquisa. Sendo assim, podemos precisamente... ordená-lo! Use a biblioteca padrão da sua linguagem para ordenar o array.
+      <li> Depois de ter ordenado, podemos aplicar... <b>pesquisa binária</b>! É no entanto necessário cuidado porque o número que procuramos pode não estar no array. O que queremos realmente é o número mais próximo do que procuramos. Que versão da pesquisa binária dada nas aulas teóricas será mais útil para esta tarefa? <span class="slides">[ver slides 23 a 26]</span>
+    </ol>
+    <li>No final, o esquema geral do algoritmo para este problema é o seguinte:
+      <ul>
+	<li>Calcular a soma de todos os pares - em tempo <b>O(n<sup>2</sup>)</b>.
+	<li>Ordenar as somas dos pares - em tempo <b>O(n<sup>2</sup> log n<sup>2</sup>)</b>.
+	<li>Para cada uma das <i>Q</i> perguntas, fazer uma pesquisa binária - em tempo <b>O(log n<sup>2</sup>)</b>.
+      </ul>
+  </ol>
+
+<hr>
+  
+<h3>Exercício 4) Um problema com pesquisa binária "indirecta" (<i>binary search the answer</i>)</h3>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa011.html">[DAA 011] Viagem de mochila às costas</a>.
+
+<p>Use o algoritmo explicado nas aulas teóricas: <span class="slides">[ver slides 27 a 36]</span> e vídeo <a href="https://www.youtube.com/watch?v=3tAK-Qw3GAk">#09 - Ordenação: Pesquisa Binária Indirecta</a>.
+
+  <ul>
+    <li>Conseguir perceber se o custo <i>&leq;X</i> pode ser obtido - em tempo <b>O(n)</b>      
+    <li>Fazer pesquisa binária a <i>X</i> (qual o intervalo onde <i>X</i> pode estar?)
+  </ul>
+
+
+  <hr>
+
+<h3>Exercício de Desafio</h3>
+
+<p>Todas as semanas vou colocar disponível pelo menos mais um exercício um pouco mais desafiante.</p>
+
+<p>Para esta semana o desafio é diferente do habitual, sendo um problema de <i>output-only</i>, pelo que pode resolvê-lo usando uma qualquer linguagem de programação (ou até fazendo manualmente). O problema está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak</a>:
+
+  <ul>
+    <li class="big"><a class="important" href="../problemas/daa012.html">[DAA 012] Sequenciação de ADN</a>
+  </ul>
+
+<p>Se já tiverem feito tudo e estiverem "presos" neste, e quiserem mesmo fazer o desafio, podem contactar-me para eu "dosear" as dicas, sabendo que este problema é substancialmente mais difícil os outros desta aula.
+
+<p>Depois de terem submetido não deixem de falar comigo no Slack para explicarem as vossas ideias, uma vez que não vou ter acesso ao código que usaram para gerar a resposta :)</p>
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

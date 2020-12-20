@@ -1,0 +1,353 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Leitura e Escrita Rápida (C vs C++ vs Java)</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+<h1>Leitura e Escrita Rápida (C vs C++ vs Java)</h1>
+
+<hr>
+
+<h2>Versão <a href="https://www.dictionary.com/browse/tldr">TL:DR</a></h2>
+
+<ul>
+  <li>Se usarem Java e o problema exigir muito <i>input</i>, leiam antes com o <a class="important" href="FastScanner.java">FastScanner</a> (essencialmente é só criar com <i>FastScanner</i> em vez de <i>Scanner</i> e tudo o resto é igual)
+  <li>Se usarem Java e o problema exigir muito <i>output</i>, escrevam antes com o <a class="important" href="FastPrint.java">FastPrint</a> (essencialmente é só escrever com <i>FastPrint.out.print</i> em vez de <i>System.out.print</i>, não esquecer de no final fazer <i>FastPrint.out.close()</i> e tudo o resto é igual)
+  <li>Se usarem C++ e cin/cout, não será preciso para DAA, mas podem ler mais rápido se desligarem a sincronização (acrescentar <i><b>std::ios_base::sync_with_stdio(false)</i></b>) e podem escrever mais rápido se evitarem usar <i>std::endl</i> (usar antes um <i>"\n"</i>)
+</ul>
+
+<hr>
+
+<h2>Sobre a leitura</h2>
+
+<p>No Java, devido a vários motivos (como por exemplo o tamanho do seu <i>buffer</i>, ou facto de fazer o <i>parsing</i> do input) a classe <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">Scanner</a> é bastante mais lenta que um <a href="https://linux.die.net/man/3/scanf">scanf</a> do C.</p>
+
+<p>Na maior parte dos problemas colocados em DAA isto não afeta a capacidade de ter Accepted em Java, mas nos casos onde o input é muito grande pode fazer um pouco de diferença, pois o tempo limite de execução no Mooshak tem de ser o mesmo para C, C++ e Java e a margem para separar diferentes classes de complexidade com tempos pequenos é muito curta (1s ou 2s de tempo limite são normalmente usado para que possa ter respostas rápidas ao submeter).</p>
+
+<p>Assim, se o input for já na ordem das dezenas de milhar (use como regra base ser mais do que 50 mil números), aconselhamos fortemente que use um método melhor que o Scanner, nomeadamente um <a href="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedReader.html">BufferedReader</a>.</p>
+
+<p>Para lhe facilitar a vida, disponibilizamos uma classe chamada <b>FastScanner</b>. Para usar basta:</p>
+  <ul>
+    <li>Fazer <b>download do ficheiro <a class="important" href="FastScanner.java">FastScanner.java</a></b> e colocá-lo no mesmo diretório do código que quer compilar.
+    <li>No seu programa basta <b>substituir as occorrências de <span class="codigo">Scanner</span> por <span class="codigo">FastScanner</span></b>.<br>
+      Por exemplo, uma possível inicialização seria <span class="codigo">FastScanner in = new FastScanner(System.in)</span>, e depois poderia chamar <span class="codigo">in.nextInt()</span>, <span class="codigo">in.nextLine()</span>, etc.
+    <li><b>Não precisa de colocar a classe FastScanner no ficheiro a submeter, pois o Mooshak já a tem disponível.</b>
+      </ul>
+
+<p>De seguida apresentamos um pequeno exemplo de utilização e o ganho de eficiência (mostrando também uma melhoria no uso do <span class="codigo">cin</span> no <b>C++</b>, que não é estritamente necessária para DAA, mas torna o seu código mais comparável com o uso do scanf).</p>
+
+<table border="1" bgcolor="black" cellspacing="1" cellpadding="3">
+  <tr bgcolor="#cccccc">
+    <td colspan="4" class="center"><b>Tempo para ler 10 milhão de inteiros gerados aleatoriamente <i>(versões "lentas")</i></b></td>
+  </tr>
+  <tr bgcolor="white">
+    <td>&nbsp;</td>
+    <td><b>C</b></td>
+    <td><b>C++ <i>(versão habitual)</i></b></td>
+    <td><b>Java <i>(versão habitual)</i></b></td>
+  </tr>
+  <tr bgcolor="white">
+    <td>&nbsp;</td>
+    <td valign="top">
+      <!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;stdio.h&gt;</span>
+
+<span style="color: #557799">#define N 10000000</span>
+<span style="color: #333399; font-weight: bold">int</span> v[N];
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>() {
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>N; i<span style="color: #333333">++</span>)
+    scanf(<span style="background-color: #fff0f0">&quot;%d&quot;</span>, <span style="color: #333333">&amp;</span>v[i]);
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre>
+
+    </td>
+    <td valign="top">
+      <!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;iostream&gt;</span>
+
+<span style="color: #557799">#define N 10000000</span>
+<span style="color: #333399; font-weight: bold">int</span> v[N];
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>() {    
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>N; i<span style="color: #333333">++</span>)
+    std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> v[i];
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre>
+
+    </td>
+    <td valign="top">
+      <!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.Scanner</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">read_slow</span> <span style="color: #333333">{</span>
+    <span style="color: #008800; font-weight: bold">static</span> <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">int</span> N <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10000000</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">[]</span> v <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">[</span>N<span style="color: #333333">];</span>
+    
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	Scanner in <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Scanner<span style="color: #333333">(</span>System<span style="color: #333333">.</span><span style="color: #0000CC">in</span><span style="color: #333333">);</span>
+
+	<span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;</span>N<span style="color: #333333">;</span> i<span style="color: #333333">++)</span>
+	    v<span style="color: #333333">[</span>i<span style="color: #333333">]</span> <span style="color: #333333">=</span> in<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">();</span>	    
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre>
+
+      </td>
+  </tr>
+  <tr align="center" bgcolor="white">
+    <td class="center"><b>Tempo</b><br>
+      <i>(no meu<br>portátil)</i>
+    </td>
+    <td valign="middle" class="center"><b>0.828s</b></td>
+    <td valign="middle" class="center"><b>2.418s</b><br><br><i>(~2.9x mais lento que scanf)</i></td>
+    <td valign="middle" class="center"><b>5.727s</b><br><br><i>(~6.9x mais lento que scanf)</i></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table border="1" bgcolor="black" cellspacing="1" cellpadding="3">
+  <tr bgcolor="#cccccc">
+    <td colspan="4" class="center"><b>Tempo para ler 10 milhão de inteiros gerados aleatoriamente <i>(versões "rápidas")</i></b></td>
+  </tr>
+  <tr bgcolor="white">
+    <td>&nbsp;</td>
+    <td><b>C</b></td>
+    <td><b>C++ <i>(versão "rápida")</i></b></td>
+    <td><b>Java <i>(versão "rápida")</i></b></td>
+  </tr>
+  <tr bgcolor="white">
+    <td>&nbsp;</td>
+    <td valign="top">
+      <!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;stdio.h&gt;</span>
+
+<span style="color: #557799">#define N 10000000</span>
+<span style="color: #333399; font-weight: bold">int</span> v[N];
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>() {
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>N; i<span style="color: #333333">++</span>)
+    scanf(<span style="background-color: #fff0f0">&quot;%d&quot;</span>, <span style="color: #333333">&amp;</span>v[i]);
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre>
+
+    </td>
+    <td valign="top">
+<!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;iostream&gt;</span>
+
+<span style="color: #557799">#define N 10000000</span>
+<span style="color: #333399; font-weight: bold">int</span> v[N];
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>() {
+  std<span style="color: #333333">::</span>ios_base<span style="color: #333333">::</span>sync_with_stdio(<span style="color: #007020">false</span>);
+  
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>N; i<span style="color: #333333">++</span>)
+    std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> v[i];
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre>
+
+    </td>
+    <td valign="top">
+      <!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">read_fast</span> <span style="color: #333333">{</span>
+    <span style="color: #008800; font-weight: bold">static</span> <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">int</span> N <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10000000</span><span style="color: #333333">;</span>
+    <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">[]</span> v <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">[</span>N<span style="color: #333333">];</span>
+    
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	FastScanner in <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> FastScanner<span style="color: #333333">(</span>System<span style="color: #333333">.</span><span style="color: #0000CC">in</span><span style="color: #333333">);</span>
+
+	<span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;</span>N<span style="color: #333333">;</span> i<span style="color: #333333">++)</span>
+	    v<span style="color: #333333">[</span>i<span style="color: #333333">]</span> <span style="color: #333333">=</span> in<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">();</span>	    
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre>
+      </td>
+  </tr>
+  <tr align="center" bgcolor="white">
+    <td class="center"><b>Tempo</b><br>
+      <i>(no meu<br>portátil)</i>
+    </td>
+    <td valign="middle" class="center"><b>0.828s</b></td>
+    <td valign="middle" class="center"><b>0.819s</b><br><br><i>(~2.9x mais rápido que versão "lenta")</td>
+    <td valign="middle" class="center"><b>1.119s</b><br><br><i>(~5.1x mais rápido que versão "lenta")</td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Sobre a escrita</h2>
+
+<p>No Java, devido a vários motivos (como por exemplo o tamanho do seu <i>buffer</i>, escrevendo sempre que se muda de linha) a escrita diretamente com o <a href="https://docs.oracle.com/javase/8/docs/api/java/io/PrintStream.html">PrintStream</a> é bastante mais lenta que um <a href="https://linux.die.net/man/3/printf">printf</a> do C.</p>
+
+<p>Na maior parte dos problemas colocados em DAA isto não afeta a capacidade de ter Accepted em Java, mas nos casos onde o output é muito grande pode fazer um pouco de diferença, pois o tempo limite de execução no Mooshak tem de ser o mesmo para C, C++ e Java e a margem para separar diferentes classes de complexidade com tempos pequenos é muito curta (1s ou 2s de tempo limite são normalmente usado para que possa ter respostas rápidas ao submeter).</p>
+
+<p>Assim, se o output for já na ordem das dezenas de milhar (use como regra base ser mais do que 50 mil números), aconselhamos fortemente que use um método melhor, nomeadamente um <a href="https://docs.oracle.com/javase/8/docs/api/java/io/BufferedOutputStream.html">BufferedOutputStream</a>.</p>
+
+<p>Para lhe facilitar a vida, disponibilizamos uma classe chamada <b>FastPrint</b>. Para usar basta:</p>
+  <ul>
+    <li>Fazer <b>download do ficheiro <a class="important" href="FastPrint.java">FastPrint.java</a></b> e colocá-lo no mesmo diretório do código que quer compilar.
+    <li>No seu programa basta <b>substituir as occorrências de <span class="codigo">System.out</span> por <span class="codigo">FastPrint.out</span></b>.<br>
+      Por exemplo, imprimir um inteiro <i>n</i> seria <span class="codigo">FastPrint.out.println(n)</span>, etc.
+    <li><b>Antes de terminar o programa deve chamar <span class="codigo">FastPrint.out.close();</span></b>, para garantir que todo o conteúdo do buffer de escrita é enviado para o output.
+    <li><b>Não precisa de colocar a classe FastPrint no ficheiro a submeter, pois o Mooshak já a tem disponível.</b>
+      </ul>
+
+<p>De seguida apresentamos um pequeno exemplo de utilização e o ganho de eficiência (mostrando também uma melhoria no uso do <span class="codigo">cout</span> no <b>C++</b>, que não é estritamente necessária para DAA, mas torna o seu código mais comparável com o uso do print - basta não usar o <i>std::endl</i>, que força o <i>flush</i> e impede uma escrita com buffer).</p>
+
+<table border="1" bgcolor="black" cellspacing="1" cellpadding="3">
+  <tr bgcolor="#cccccc">
+    <td colspan="4" class="center"><b>Tempo para escrever 10 milhão de inteiros  de 1 a N <i>(versões "lentas")</i></b></td>
+  </tr>
+  <tr bgcolor="white">
+    <td>&nbsp;</td>
+    <td><b>C</b></td>
+    <td><b>C++ <i>(versão habitual)</i></b></td>
+    <td><b>Java <i>(versão habitual)</i></b></td>
+  </tr>
+  <tr bgcolor="white">
+    <td>&nbsp;</td>
+    <td valign="top">
+            <!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;stdio.h&gt;</span>
+
+<span style="color: #557799">#define N 10000000</span>
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">**</span>argv) {
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>N; i<span style="color: #333333">++</span>)
+    printf(<span style="background-color: #fff0f0">&quot;%d</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>, i);
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre>
+
+    </td>
+    <td valign="top">
+     <pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;iostream&gt;</span>
+
+<span style="color: #557799">#define N 10000000</span>
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">**</span>argv) {
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>N; i<span style="color: #333333">++</span>)
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> i <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre>
+    </td>
+    <td valign="top">
+      <!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">print_slow</span> {
+    final <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">int</span> N <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10000000</span>;
+    
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span>(String[] args) {
+	<span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>N; i<span style="color: #333333">++</span>)
+	    System.out.println(i);
+    }
+}
+</pre>
+
+      </td>
+  </tr>
+  <tr align="center" bgcolor="white">
+    <td class="center"><b>Tempo</b><br>
+      <i>(no meu<br>portátil)</i>
+    </td>
+    <td valign="middle" class="center"><b>0.495s</b></td>
+    <td valign="middle" class="center"><b>1.632s</b><br><br><i>(~3.2x mais lento que printf)</i></td>
+    <td valign="middle" class="center"><b>6.969s</b><br><br><i>(~14x mais lento que printf)</i></td>
+  </tr>
+</table>
+
+<p>&nbsp;</p>
+
+<table border="1" bgcolor="black" cellspacing="1" cellpadding="3">
+  <tr bgcolor="#cccccc">
+    <td colspan="4" class="center"><b>Tempo para escrever 10 milhão de inteiros  de 1 a N <i>(versões "rápidas")</i></b></td>
+  </tr>
+  <tr bgcolor="white">
+    <td>&nbsp;</td>
+    <td><b>C</b></td>
+    <td><b>C++ <i>(versão "rápida")</i></b></td>
+    <td><b>Java <i>(versão "rápida")</i></b></td>
+  </tr>
+  <tr bgcolor="white">
+    <td>&nbsp;</td>
+    <td valign="top">
+      <!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;stdio.h&gt;</span>
+
+<span style="color: #557799">#define N 10000000</span>
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">**</span>argv) {
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>N; i<span style="color: #333333">++</span>)
+    printf(<span style="background-color: #fff0f0">&quot;%d</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>, i);
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre>
+    </td>
+    <td valign="top">
+      <!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;iostream&gt;</span>
+
+<span style="color: #557799">#define N 10000000</span>
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>(<span style="color: #333399; font-weight: bold">int</span> argc, <span style="color: #333399; font-weight: bold">char</span> <span style="color: #333333">**</span>argv) {
+  std<span style="color: #333333">::</span>ios_base<span style="color: #333333">::</span>sync_with_stdio(<span style="color: #007020">false</span>);
+  
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>N; i<span style="color: #333333">++</span>)
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> i <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>;
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre>
+
+    </td>
+    <td valign="top">
+      <!-- HTML generated using hilite.me --><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">print_fast</span> {
+    final <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">int</span> N <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10000000</span>;
+    
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span>(String[] args) {
+	<span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>N; i<span style="color: #333333">++</span>)
+	    FastPrint.out.println(i);
+	FastPrint.out.close(); <span style="color: #888888">// Nao esquecer</span>
+    }
+}
+</pre>
+
+      </td>
+  </tr>
+  <tr align="center" bgcolor="white">
+    <td class="center"><b>Tempo</b><br>
+      <i>(no meu<br>portátil)</i>
+    </td>
+    <td valign="middle" class="center"><b>0.495s</b></td>
+    <td valign="middle" class="center"><b>0.501s</b><br><br><i>(~3.2x mais rápido que versão "lenta")</i></td>
+    <td valign="middle" class="center"><b>0.745s</b><br><br><i>(~9.4x mais rápido que versão "lenta")</i></td>
+  </tr>
+</table>
+
+<hr>
+
+<h2>Saber mais</h2>
+
+<p>A máquina onde está instalado o Mooshak de DAA é substancialmente mais lenta que o meu portátil (mas as restrições dos problemas e os tempos limite têm isso em conta, sendo que todos os problemas são resolúveis nas 3 linguagens permitidas).
+
+<p>Se quiser saber mais sobre a parte de input/output pode pesquisar no google, falar com o regente ou espreitar por exemplo as seguintes ligações:
+  <ul>
+    <li><a href="https://www.geeksforgeeks.org/fast-io-for-competitive-programming/">Fast I/O for Competitive Programming</a> (GeeksforGeeks)
+    <li><a href="https://www.geeksforgeeks.org/fast-io-in-java-in-competitive-programming/">Fast I/O in Java in Competitive Programming</a> (GeeksforGeeks)
+    <li><a href="https://stackoverflow.com/questions/31162367/significance-of-ios-basesync-with-stdiofalse-cin-tienull">Significance of ios_base::sync_with_stdio(false); cin.tie(NULL);</a> (StackOverflow)
+  </ul>
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>
+

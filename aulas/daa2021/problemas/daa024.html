@@ -1,0 +1,114 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[DAA 024] Letras distintas</title>
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuída à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 22 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2021/praticas/aula06.html">ler o guião da aula #06</a>]</b></small></p>
+  
+<hr>
+
+<h1><font color="blue">[DAA 024] Letras distintas</font></h1>
+
+<p><img src="daa024.jpg" alt="" align="right" border="1"></p>
+
+<p>Suponha que tem inicialmente uma string <i>s</i> constituída por letras minúsculas do alfabeto inglês {a, b, c, ..., z}. Uma substring <i>s[a,b]</i> da string <i>s</i> é uma subsequência contígua formada pelas letras <i>s<sub>a</sub>, s<sub>ap1</sub>, ..., s<sub>b</sub></i>. Por exemplo, "ritmo", "alg" e "gori" são substrings de "algoritmo", mas "gomo", "alri" ou "imo" não o são.</p>
+
+<p>Neste problema vai receber uma série de <i>queries</i>, de ações a tomar, que podem ser de dois tipos diferentes:</p>
+
+<ul>
+  <li><b>Substituir uma letra</b> numa dada posição de de <i>s</i> por outra letra (que altera a string para as <i>queries</i> a seguir)
+  <li><b>Calcular o número de letras diferentes (distintas)</b> que existem numa dada substring de <i>s</i>
+</ul>
+
+</p><h2><font color="blue">O Problema</font></h2>
+
+<p>Dada uma string inicial <i>s</i> e um lista de <i>queries</i> como atrás descrito, a sua tarefa é indicar o número de letras diferentes para cada uma das <i>queries</i> que pedem o número de diferentes letras numa substring.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha vem uma string <b><i>s</i></b> constituída unicamente por letras minúsculas do alfabeto inglês.</p>
+
+<p>Na segunda linha bem um número <b>Q</b> indicando o número de queries a responder. Seguem-se <b>Q</b> linhas cada uma indicando uma querie num dos dois formatos seguintes:</p>
+
+<ul>
+  <li><b>1 <i>pos c</i></b> indica que deve substituir a letra na posição <i>pos</i> pela letra <i>c</i>, ou seja, <i>s<sub>pos</sub>=c</i>
+  <li><b>2 <i>a b</i></b> indica que deve calcular e escrever o número de letras diferentes na substring <i>s[a,b]</i>
+</ul>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O output deve ter uma linha por cada <i>query</i> do tipo 2 com a resposta correspondente, ou seja o número de letras distintas na substring pedida.
+
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td><b>1 &le; |s| &le; 100&nbsp;000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Tamanho da string <i>s</i></td>
+</tr>
+<tr>
+<td><b>1 &le; Q &le; 100&nbsp;000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de <i>queries</i></td>
+</tr>
+<tr>
+<td><b>1 &le; pos &le; |s|</td>
+<td>&nbsp; &nbsp; </td>
+<td>Posição da letra a substituir numa <i>query</i> de tipo 1</td>
+</tr>
+<tr>
+<td><b>1 &le; a &le; b &le; |s|</td>
+<td>&nbsp; &nbsp; </td>
+<td>Posição inicial e final da substring a considerar numa <i>query</i> de tipo 2</td>
+</tr>
+</table>
+
+<h2><font color="blue">Exemplo de Input</font></h2>
+
+<pre>
+abacaba
+5
+2 1 4
+1 4 b
+1 5 b
+2 4 6
+2 1 7
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+3
+1
+2  
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<ul>
+  <li>A string inicial é "abacaba"
+  <li>1ª query: substring <i>s[1,4]="abac"</i>, pelo que existem 3 letras diferentes (<i>a</i>, <i>b</i> e <i>c</i>)
+  <li>2ª query: modificar 4ª letra para <i>b</i>, ou seja, a string passa a ser "aba<b>b</b>aba"
+  <li>3ª query: modificar 5ª letra para <i>b</i>, ou seja, a string passa a ser "abab<b>b</b>ba"
+  <li>4ª query: substring <i>s[4,6]="bbb"</i>, pelo que existe apenas uma letra  (<i>b</i>)
+  <li>5ª query: substring <i>s[1,7]="ababbba"</i>, pelo que existem 2 letras diferentes (<i>a</i> e <i>b</i>)
+</ul>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

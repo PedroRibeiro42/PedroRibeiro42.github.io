@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[DAA 038] Fibra ótica</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 3 de Janeiro</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i></small></p>
+
+<hr>
+ 
+<h1><font color="blue">[DAA 038] Fibra ótica</font></h1>
+
+<p><img align="right" src="daa038.png">És o responsável pela instalação de fibra ótica da Dados Autênticos e Anónimos (DAA), o <i>Internet service provider</i> mais conhecido do país. Tens a teu cargo a decisão de como passar os cabos para ligar à rede da DAA as novas casas, de modo a minimizar os custos para a empresa.</p>
+
+<p>A figura seguinte exemplifica um processo. A preto estão as casas que já usufruem do serviço das DAA e os cabos já instalados (sendo garantido que as casas a preto foram um único componente conexo). A vermelho estão as casas que querem passar a ter fibra da DAA, sendo que a tracejado estão as possíveis novas ligações e o custo associado a cada uma.</p>
+
+<p><img height="180" src="daa038_1.png"></p>
+
+<p>O teu objectivo é conseguir ligar todas as casas à rede já existente, de modo a que todas as casas passem a fazer parte do mesmo componente, gastando a menor quantia possível. Para isso podes apenas decidir passar cabo em algumas das ligações a tracejado, de modo a minimizar a soma das ligações que usaste. Para a figura anterior, a solução passava por usar as ligações de custo 5, 9 e 2, para um custo total de 16 (5+9+2):</p>
+
+<p><img height="180" src="daa038_2.png"></p>
+  
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dado um conjunto de casas já ligadas, um conjunto de casas a ligar e um conjunto de ligações possíveis e respetivos custos, a tua tarefa é determinar qual o menor custo possível para colocar todas as casas na nova rede, quais ligações deves usar para isso.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>A primeira linha contém três inteiro <b>A B C</b>, respetivamente o número <b>A</b> de casas já na rede, o número <b>B</b> de casas a adicionar a rede e o número <b>C</b> de possiveis novas ligações. É garantido que as <b>A</b> casas já existentes estão ligadas num único componente conexo e que são identificadas por inteiros consecutivos de <b>1</b> a <b>A</b>. As <b>B</b> casas a adicionar são identificadas por inteiros consecutivos de <b>A+1</b> a <b>A+B</b>.</p>
+
+<p>Seguem-se <b>C</b> linhas no formato <i><b>x y p</b></i>, cada uma indicando uma possível ligação com custo <i>p</i> entre as casas <i>x</i> e <i>y</i>. É garantido que é possível usar as ligações para ligar todas as novas casas à rede já existente. As ligações não têm direção associada.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>Na primeira linha deve vir o menor custo possível para ligar todas as novas casas à rede, como atrás indicado. Na segunda linha devem vir <b>B</b> inteiros indicando os custos da ligações usadas (separados por um espaço). Estes custos devem vir por ordem crescente, e se existir mais que uma solução de igual custo mínimo, pode imprimir qualquer uma dessas soluções.</p>
+
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td>1 &le; <b>A</b> &le; 20&nbsp;000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de casas já na rede</td>
+</tr>
+<tr>
+<td>1 &le; <b>B</b> &le; 20&nbsp;000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Quantidade de casas a adicionar</td>
+</tr>
+<tr>
+  <td>B &le; <b>C</b> &le; 40&nbsp;000</td>
+  <td>&nbsp; &nbsp; </td>
+  <td>Quantidade de possíveis novas ligações</td>
+</tr>
+<tr>
+  <td>1 &le; <b>x,y</b> &le; <b>A+B</b></td>
+  <td>&nbsp; &nbsp; </td>
+  <td>Casas de uma ligação</td>
+</tr>
+<tr>
+  <td>1 &le; <b>p</b> &le; 40&nbsp;000</td>
+  <td>&nbsp; &nbsp; </td>
+  <td>Custo de uma ligação</td>
+</tr>
+</table>
+  
+<h2><font color="blue">Exemplo de Input</font></h2>
+<pre>
+5 3 7
+1 6 5
+2 6 42
+4 6 7
+7 3 12
+8 7 2
+8 5 18
+8 3 9
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+16
+2 5 9
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O exemplo de input corresponde ao exemplo do enunciado (sendo que as ligações a preto, as já existentes, não são dadas, por não serem relevantes para o problema).</p>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

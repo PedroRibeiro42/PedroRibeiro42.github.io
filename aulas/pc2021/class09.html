@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+	<title>Competitive Programming (CC3036) - Class #09</title>
+	<link rel=StyleSheet href="style.css" type="text/css">
+</head>
+
+<body>
+  
+<table bgcolor="black" border="0" cellspacing="1" cellpadding="0">
+<tr>
+<td rowspan="3" bgcolor="white"><a href="index.html"><img src="logo_pc2021.png" height="50" border="0"></a></td>
+<td class="h1" valign="middle" align="center">&nbsp; Class #09 &nbsp;</td>
+</tr>
+<tr>
+<td class="h3" valign="middle" align="center">&nbsp;<a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a>&nbsp;</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Main learning outcomes for this class</h2>
+
+<ol>
+  <li><b><i>Shortest Distances</i>:</b>
+    <ul>
+      <li>I understand the <b>Dijkstra algorithm</b>, its complexity, how to implement it, and how I can adapt it to different situations
+      <li>I understand the <b>Bellman-Ford algorithm</b>, its complexity, how to implement it, and how I can adapt it to different situations
+      <li>I understand the <b>Floyd-Warshall algorithm</b>, how to implement it, and how I can adapt it to different situations
+    </ul>
+  <li><b><i>Minimum Spanning Trees</i>:</b>
+    <ul>
+      <li>I understand the concept of a <b>minimum spanning tree</b>
+      <li>I understand the <b>Prim Algorithm</b>, its complexity and how to implement it efficiently with a priority queue.	
+      <li>I understand the <b>Kruskal Algorithm</b>, its complexity and how to implement it efficiently with a disjoint-set data structure.
+    </ul>
+  <li><b><i>Maximum Flows</i>:</b>
+    <ul>
+      <li>I understand the concept of a <b>maximum flow</b>, and how some problems can reduce to it
+      <li>I understand the <b>Ford-Fulkerson method</b>, its complexity and its implementation using the <b>Edmonds-Karp algorithm</b>.	
+      <li>I know that mode efficient solutions exist, such as the <b>Hopcroft–Karp algorithm</b> for maximum bipartite matching and what can be seen as its generalization, <b>Dinic's algorithm</b>.
+    </ul>
+</ol>
+
+<hr>
+
+<h2>Study Material</h2>
+
+<h3>Main References</h3>
+
+<ul>
+  <li><b>Shortest Distances</b></li>
+  <ul>
+    <li>Chapter 13 of <a href="https://cses.fi/book/book.pdf">Competitive Programmer's Handbook</a> book
+    <li>Section 4.5, 4.6 and 4.6 of the <a href="https://www.comp.nus.edu.sg/~stevenha/myteaching/competitive_programming/cp1.pdf">Competitive Programming</a> book
+    <li><b>Visualizations:</b> <a href="https://visualgo.net/en/sssp">Single Source Shortest Paths</a> (VisuAlgo), <a href="https://www.cs.usfca.edu/~galles/visualization/Dijkstra.html">Dijkstra</a>, <a href="https://www.cs.usfca.edu/~galles/visualization/Floyd.html">Floyd-Warshall</a> (Data Structure Visualizations)
+      <li><b>Implementations: <a href="https://cp-algorithms.com/graph/dijkstra_sparse.html">Dijkstra</a>, <a href="https://cp-algorithms.com/graph/bellman_ford.html">Bellman-Ford</a> (E-Maxx Algorithms in English)</b>
+  </ul>
+  <li><b>Minimum Spanning Trees</b></li>
+  <ul>
+    <li>Chapter 15 of <a href="https://cses.fi/book/book.pdf">Competitive Programmer's Handbook</a> book
+    <li>Section 4.4 of the <a href="https://www.comp.nus.edu.sg/~stevenha/myteaching/competitive_programming/cp1.pdf">Competitive Programming</a> book
+    <li><b>Visualizations:</b> <a href="https://visualgo.net/en/mst">Minimum Spanning Tree</a>, <a href="https://visualgo.net/en/ufds">Union-Find Disjoint Sets</a> (VisuAlgo), <a href="https://www.cs.usfca.edu/~galles/visualization/Prim.html">Prim</a>, <a href="https://www.cs.usfca.edu/~galles/visualization/Kruskal.html">Kruskal</a>, <a href="https://www.cs.usfca.edu/~galles/visualization/DisjointSets.html">Disjoint Sets</a> (Data Structure Visualizations)
+    <li><b>Implementations: <a href="https://cp-algorithms.com/graph/mst_prim.html">Prim</a>, <a href="https://cp-algorithms.com/graph/mst_kruskal.html">Kruskal</a> / <a href="https://cp-algorithms.com/graph/mst_kruskal_with_dsu.html">with disjoint-set</a> (E-Maxx Algorithms in English)</b>
+  </ul>
+  <li><b>Maximum Flows</b></li>
+  <ul>
+    <li>Chapter 20 of <a href="https://cses.fi/book/book.pdf">Competitive Programmer's Handbook</a> book
+    <li>Section 4.8 of the <a href="https://www.comp.nus.edu.sg/~stevenha/myteaching/competitive_programming/cp1.pdf">Competitive Programming</a> book
+    <li><b>Visualizations:</b> <a href="https://visualgo.net/en/maxflow">Max Flow / Min Cut</a> (VisuAlgo), <a href="https://www.cs.usfca.edu/~galles/visualization/Prim.html">Prim</a>, <a href="https://www.cs.usfca.edu/~galles/visualization/Kruskal.html">Kruskal</a> (Data Structure Visualizations)
+    <li><b>Implementations: <a href="https://cp-algorithms.com/graph/edmonds_karp.html">Edmonds-Karp</a>, <a href="https://cp-algorithms.com/graph/dinic.html">Dinic</a> (E-Maxx Algorithms in English)</b>
+  </ul>
+</ul>
+
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a> |
+  <b>Último update:</b>
+		<script type="text/javascript" LANGUAGE="JavaScript">
+		  update = new Date(document.lastModified)
+		  theMonth = update.getMonth() + 1
+		  theDate = update.getDate()
+		  theYear = update.getFullYear()
+		  h = update.getHours()
+		  if (h<10) h = "0"+h;
+                  m = update.getMinutes()
+ 		  if (m<10) m = "0"+m;	
+                  s = update.getSeconds()
+  		  if (s<10) s = "0"+s;
+		  document.writeln(theDate + "/" + theMonth + "/" + theYear + " " + h + ":" + m + ":" + s)
+		</script></p>
+
+</body>
+
+</html>

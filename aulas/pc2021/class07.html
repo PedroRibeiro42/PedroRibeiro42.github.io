@@ -1,0 +1,118 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+	<title>Competitive Programming (CC3036) - Class #07</title>
+	<link rel=StyleSheet href="style.css" type="text/css">
+</head>
+
+<body>
+  
+<table bgcolor="black" border="0" cellspacing="1" cellpadding="0">
+<tr>
+<td rowspan="3" bgcolor="white"><a href="index.html"><img src="logo_pc2021.png" height="50" border="0"></a></td>
+<td class="h1" valign="middle" align="center">&nbsp; Class #07 &nbsp;</td>
+</tr>
+<tr>
+<td class="h3" valign="middle" align="center">&nbsp;<a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a>&nbsp;</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Main learning outcomes for this class</h2>
+
+<ol>
+  <li><b><i>String Matching</i>:</b>
+    <ul>
+      <li>I know the <b>Knuth-Morris-Pratt (KMP) algorithm</b>, how it can be used to do string matching in linear time and I understand what its <i>"failure function"</i> stores.
+      <li>I know the concept of <b>prefix tree</b> (<i>trie</i>).
+      <li>I understand the <b>Aho-Corasick</b> algorithm and how it generalizes KMP for multiple strings.
+      <li>I know the concept of <b>suffix trees</b> and the kind of problems they can solve.
+      <li>I know the concept of <b>suffix arrays</b> and how they can be used to solve the "same" problems as a suffix tree, but using less memory.
+    </ul>
+</ol>
+
+<hr>
+
+<h2>Study Material</h2>
+
+<h3>Main References</h3>
+
+<ul>
+  <li><b>Videos from last year TAA course:</b>
+    <ul>
+      <li><a href="https://youtu.be/SFcKJNUgN5o">String Matching I (naive, KMP, Rabin-Karp)</a>
+      <li><a href="https://youtu.be/N0hM8ZPzO7g">String Matching II (suffix trees, suffix arrays)</a>
+    </ul>
+</ul>
+
+<ul>
+  <li><b>KMP Algorithm</b></li>
+  <ul>
+    <li><a href="material/stringmatching.pdf">My slides from Algorithms Class</a> (slides 6 to 16)
+    <li><a href="https://www.geeksforgeeks.org/kmp-algorithm-for-pattern-searching/">KMP Algorithm for Pattern Searching</a> (GeeksforGeeks)</li>
+    <li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/introduction-to-string-searching-algorithms/">Introduction to String Matching Algorithms</a> (TopCoder)</li>
+    <li><a href="http://whocouldthat.be/visualizing-string-matching/">Visualizing String Matching Algorithms</a> (justinj)</li>
+    <li><a href="https://cp-algorithms.com/string/prefix-function.html">Prefix function. Knuth–Morris–Pratt algorithm</a> (E-Maxx Algorithms in English)</li>
+    <li>Other implementations: <a href="https://github.com/jaehyunp/stanfordacm/raw/master/notebook.pdf">Stanford Notebook (secção 6.6)</a> | <a href="http://code-library.herokuapp.com/prefix_function/java">Code Library</a>    
+  </ul>
+  <li><b>Prefix Trees/Tries</b></li>
+  <ul>
+    <li><a href="material/stringmatching.pdf">My slides from Algorithms Class</a> (slides 25 to 28)
+    <li><a href="https://www.geeksforgeeks.org/trie-insert-and-search/">Trie | (Insert and Search)</a> (GeeksforGeeks)
+    <li><a href="https://www.cs.usfca.edu/~galles/visualization/Trie.html">Trie Visualization</a> (Data Structure Visualizations, David Galles)
+    <li>Other implementations: <a href="http://code-library.herokuapp.com/trie/java">Code Library</a>
+  </ul>
+
+  <li><b>Aho-Corasick Algorithm</b></li>
+  <ul>
+    <li><a href="https://www.geeksforgeeks.org/aho-corasick-algorithm-pattern-searching/">Aho-Corasick Algorithm for Pattern Searching</a> (GeeksforGeeks)
+    <li><a href="https://codeforces.com/blog/entry/14854">Aho-Corasick algorithm. Construction</a> (CodeForces)
+    <li><a href="http://blog.ivank.net/aho-corasick-algorithm-in-as3.html">Aho-Corasick – implementation and animation</a> (Algorithms and Stuff - IvanK)
+    <li><a href="https://cp-algorithms.com/string/aho_corasick.html">Aho-Corasick algorithm</a> (E-Maxx Algorithms in English)</li>
+    <li>Other implementations: <a href="http://code-library.herokuapp.com/aho-corasick/java">Code Library</a>
+  </ul>
+  <li><b>Suffix Trees/Suffix arrays</b></li>
+  <ul>
+    <li><a href="material/stringmatching.pdf">My slides from Algorithms Class</a> (slides 29 to 40)
+    <li><a href="https://visualgo.net/en/suffixtree">Visualization of Suffix Trees</a> (VisuAlgo)
+    <li><a href="https://visualgo.net/en/suffixarray">Visualization of Suffix Arrays</a> (VisuAlgo)
+    <li><a href="https://www.geeksforgeeks.org/pattern-searching-using-suffix-tree/">Pattern Searching using Suffix Tree</a> (GeeksforGeeks)
+    <li><a href="https://www.geeksforgeeks.org/suffix-array-set-1-introduction/">Suffix Array | Set 1 (Introduction)</a> (GeeksforGeeks)
+    <li><a href="http://web.stanford.edu/class/cs97si/suffix-array.pdf">Suffix arrays – a programming contest approach</a> (Stanford, A. Vladu and C. Negruseri)
+    <li><a href="https://cp-algorithms.com/string/suffix-array.html">Suffix Array</a> (E-Maxx Algorithms in English)</li>
+  </ul>
+</ul>
+
+<hr>
+
+<h2>Initiation/Reinforcement Problems</h2>
+
+<ul>
+  <li><a href="https://www.spoj.com/problems/NHAY/">SPOJ NHAY</a> - <a href="https://www.spoj.com/problems/NHAY/">A Needle in the Haystack</a> (testing KMP)
+  <li><a href="https://www.spoj.com/problems/ARDA1/">SPOJ ARDA1</a> - <a href="https://www.spoj.com/problems/ARDA1/">The hunt for Gollum</a> (2D KMP/Aho-Corasick or Baker-Bird Algorithm)
+  <li><a href="https://www.spoj.com/problems/PSTRING/">SPOJ PSTRING</a> - <a href="https://www.spoj.com/problems/PSTRING/">Remove The String</a> (KMP + DP)
+</ul>
+
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a> |
+  <b>Último update:</b>
+		<script type="text/javascript" LANGUAGE="JavaScript">
+		  update = new Date(document.lastModified)
+		  theMonth = update.getMonth() + 1
+		  theDate = update.getDate()
+		  theYear = update.getFullYear()
+		  h = update.getHours()
+		  if (h<10) h = "0"+h;
+                  m = update.getMinutes()
+ 		  if (m<10) m = "0"+m;	
+                  s = update.getSeconds()
+  		  if (s<10) s = "0"+s;
+		  document.writeln(theDate + "/" + theMonth + "/" + theYear + " " + h + ":" + m + ":" + s)
+		</script></p>
+
+</body>
+
+</html>

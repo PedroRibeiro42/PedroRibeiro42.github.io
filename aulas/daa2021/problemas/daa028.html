@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[DAA 028] Labirinto de barras</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body bgcolor=white>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 6 de Dezembro</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i></small></p>
+
+<hr>
+  
+<h1><font color="blue">[DAA 028] Labirinto de barras</font><br>
+<small><small><small>(este problema é essencialmente uma
+tradução/adaptação
+de um problema do UVA Online Judge)</small></small></small></h1>
+
+<p><img align=right src="daa028_1.jpg">Já reparaste que se pegares num rectângulo e o encheres com barras ("\" e "/") consegues criar um labirinto muito engraçado?
+
+<p>Repara na seguinte figura: </p>
+
+<p><img src="daa028_2.gif"></p>
+
+<p>Como podes ver, caminhos em labirintos como este não podem ter
+ramificações (dividirem-se em dois ou mais ramos) e como tal todos os
+caminhos dentro do labirinto só podem ser cíclicos ou então começarem
+num sítio e acabarem noutro.</p>
+
+<p>Neste problema estamos apenas interessados nos caminhos
+cíclicos. Recorda que um caminho é cíclico se for possível começar num
+ponto e voltar a ele mesmo através desse caminho.</p>
+
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>A tua tarefa é escrever um programa para <b>contar os ciclos e
+descobrir qual o maior deles</b>. O tamanho de um ciclo é definido como o
+número de pequenos quadrados (os que estão delimitados na figura por
+traços cinzentos) que o ciclo contém. Por exemplo, na figura, temos
+dois ciclos, um com tamanho 16 e outro com tamanho 4.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha vêm dois números inteiros, <b>C</b> e <b>L</b>,
+indicando respectivamente o número de colunas e de linhas do
+labirinto.</p>
+
+<p>Seguem-se <b>L</b> linhas, indicando o formato do labirinto (tal como
+descrito anteriormente), sendo que cada linha contém exactamente <b>C</b>
+caracteres, que só podem ser <tt>"\"</tt> ou <tt>"/"</tt>.</p>
+
+<p>Não te esqueças de verificar o exemplo de input para perceberes melhor a especificação (o primeiro exemplo de input corresponde à figura).</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>Se o labirinto não tiver nenhum caminho cíclico, deve ser impressa
+a frase <tt>"nao tem ciclos"</tt>. Caso contrário, deve ser
+impresso <tt>"NUM_CICLOS MAIOR_TAM"</tt>, onde <tt>NUM_CICLOS</tt> é o
+número total de ciclos e
+<tt>MAIOR_TAM</tt> o tamanho do maior ciclo.</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td>1 &le; <b>L</b> &le; 75</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de linhas</td>
+</tr>
+<tr>
+<td>1 &le; <b>C</b> &le; 75</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de colunas</td>
+</tr>
+</table>
+
+<h2><font color="blue">Exemplo de Input 1</font></h2>
+<pre>
+6 4
+\//\\/
+\///\/
+//\\/\
+\/\///
+</pre>
+
+<h2><font color="blue">Exemplo de Output 1</font></h2>
+<pre>
+2 16
+</pre>
+
+<h2><font color="blue">Exemplo de Input 2</font></h2>
+<pre>
+3 3
+///
+\//
+\\\
+</pre>
+
+<h2><font color="blue">Exemplo de Output 2</font></h2>
+<pre>
+nao tem ciclos
+</pre>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

@@ -1,0 +1,246 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[DAA 008] Um jogo com matrizes</title>
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 25 de Outubro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2021/praticas/aula02.html">ler o guião da aula #02</a>]</b></small></p>
+  
+<hr>
+
+<h1><font color="blue">[DAA 008] Um jogo com matrizes</font></h1>
+
+<p><img align="right" src="daa008.png" border="1"> O Pedro e a Luísa decidiram estender o seu jogo para duas dimensões! Um deles escreve uma matriz de
+números inteiros (positivos ou negativos) e o outro tem de tentar
+descobrir qual a submatriz (um subretângulo contido na matriz) que dá origem à maior soma possível.</p>
+
+<p>Imagina por exemplo que a Luísa escolhe a seguinte matriz:</p>
+
+  <table bgcolor="black" cellspacing="1" cellpadding="3">
+    <tr bgcolor="white">
+      <td align="center">0</td>
+      <td align="center">-2</td>
+      <td align="center">-7</td>
+      <td align="center">0</td>
+    </tr>
+    <tr bgcolor="white">
+      <td align="center">9</td>
+      <td align="center">2</td>
+      <td align="center">-6</td>
+      <td align="center">2</td>
+	</tr>
+    <tr bgcolor="white">
+      <td align="center">-4</td>
+      <td align="center">1</td>
+      <td align="center">-4</td>
+      <td align="center">1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td align="center">-1</td>
+      <td align="center">8</td>
+      <td align="center">0</td>
+      <td align="center">-2</td>
+    </tr>
+  </table>
+
+<p>Alguns exemplos de submatrizes seriam as seguintes (indicadas a <span style="background-color:#ffcccc">vermelho</span>):</p>
+
+<table border="0">
+  <tr>
+    
+    <td>      
+      <table bgcolor="black" cellspacing="1" cellpadding="3">
+	<tr bgcolor="white">
+	  <td align="center">0</td>
+	  <td align="center">-2</td>
+	  <td align="center">-7</td>
+	  <td align="center">0</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center" bgcolor="#ffcccc">9</td>
+	  <td align="center" bgcolor="#ffcccc">2</td>
+	  <td align="center">-6</td>
+	  <td align="center">2</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center" bgcolor="#ffcccc">-4</td>
+	  <td align="center" bgcolor="#ffcccc">1</td>
+	  <td align="center">-4</td>
+	  <td align="center">1</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center" bgcolor="#ffcccc">-1</td>
+	  <td align="center" bgcolor="#ffcccc">8</td>
+	  <td align="center">0</td>
+	  <td align="center">-2</td>
+	</tr>
+      </table>      
+    </td>
+    <td>&nbsp; &nbsp;</td>
+    <td> 
+      <table bgcolor="black" cellspacing="1" cellpadding="3">
+	<tr bgcolor="white">
+	  <td align="center">0</td>
+	  <td align="center" bgcolor="#ffcccc">-2</td>
+	  <td align="center" bgcolor="#ffcccc">-7</td>
+	  <td align="center">0</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center">9</td>
+	  <td align="center" bgcolor="#ffcccc">2</td>
+	  <td align="center" bgcolor="#ffcccc">-6</td>
+	  <td align="center">2</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center">-4</td>
+	  <td align="center">1</td>
+	  <td align="center">-4</td>
+	  <td align="center">1</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center">-1</td>
+	  <td align="center">8</td>
+	  <td align="center">0</td>
+	  <td align="center">-2</td>
+	</tr>
+      </table>      
+    </td>
+    <td>&nbsp; &nbsp;</td>
+    <td>      
+      <table bgcolor="black" cellspacing="1" cellpadding="3">
+	<tr bgcolor="white">
+	  <td align="center" bgcolor="#ffcccc">0</td>
+	  <td align="center" bgcolor="#ffcccc">-2</td>
+	  <td align="center" bgcolor="#ffcccc">-7</td>
+	  <td align="center" bgcolor="#ffcccc">0</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center" bgcolor="#ffcccc">9</td>
+	  <td align="center" bgcolor="#ffcccc">2</td>
+	  <td align="center" bgcolor="#ffcccc">-6</td>
+	  <td align="center" bgcolor="#ffcccc">2</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center" bgcolor="#ffcccc">-4</td>
+	  <td align="center" bgcolor="#ffcccc">1</td>
+	  <td align="center" bgcolor="#ffcccc">-4</td>
+	  <td align="center" bgcolor="#ffcccc">1</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center" bgcolor="#ffcccc">-1</td>
+	  <td align="center" bgcolor="#ffcccc">8</td>
+	  <td align="center" bgcolor="#ffcccc">0</td>
+	  <td align="center" bgcolor="#ffcccc">-2</td>
+	</tr>
+      </table>      
+    </td>
+    <td>&nbsp; &nbsp;</td>
+    <td>      
+      <table bgcolor="black" cellspacing="1" cellpadding="3">
+	<tr bgcolor="white">
+	  <td align="center">0</td>
+	  <td align="center">-2</td>
+	  <td align="center">-7</td>
+	  <td align="center">0</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center">9</td>
+	  <td align="center">2</td>
+	  <td align="center">-6</td>
+	  <td align="center">2</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center">-4</td>
+	  <td align="center">1</td>
+	  <td align="center">-4</td>
+	  <td align="center" bgcolor="#ffcccc">1</td>
+	</tr>
+	<tr bgcolor="white">
+	  <td align="center">-1</td>
+	  <td align="center">8</td>
+	  <td align="center">0</td>
+	  <td align="center">-2</td>
+	</tr>
+      </table>      
+    </td>
+  </tr>
+  <tr>
+    <td align="center"><font color="#990000">soma = 15</font></td>
+    <td>&nbsp;</td>
+    <td align="center"><font color="#990000">soma = -13</font></td>
+    <td>&nbsp;</td>
+    <td align="center"><font color="#990000">soma = 1</font></td>
+    <td>&nbsp;</td>
+    <td align="center"><font color="#990000">soma = -3</font></td>
+  </tr>
+</table>
+
+<p>A última destas submatrizes corresponde precisamente à melhor subretângulo possível que o Pedro poderia escolher, ou seja, o que tem maior soma.
+
+<p>Podes ajudar os dois amigos a jogarem este jogo?
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dada uma matriz de <b>L</b> linhas por <b>C</b> colunas contendo números inteiros, a tua tarefa é calcular a maior soma que uma sua submatriz não vazia pode ter.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha do input vêm dois inteiros <b>L</b> e <b>C</b>, indicando respetivamente a quantidade de linhas e colunas da matriz.</p>
+
+<p>Seguem-se <b>L</b> linhas, cada uma exactamente <b>C</b> números inteiros <b>m<sub>ij</sub></b>, indicando a matriz a considerar.
+      
+<h2><font color="blue">Output</font></h2>
+
+<p>O output é constituído por uma única linha contendo a soma máxima de uma submatriz, como atrás descrito.
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste
+    que irão ser colocados ao programa:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>L,C</b> &le; 300</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Dimensões de matriz</td>
+  </tr>
+  <tr>
+    <td>-2000 &le; <b>m<sub>ij</sub></b> &le; 2000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Os números da matriz</td>
+  </tr>
+</table>
+
+<h2><font color="blue">Exemplo de Input</font></h2>
+
+<pre>
+4 4
+0 -2 -7 0
+9 2 -6 2
+-4 1 -4 1 
+-1 8 0 -2
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+
+<pre>
+15
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O exemplo de input corresponde ao exemplo explicado no enunciado do problema.</p>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

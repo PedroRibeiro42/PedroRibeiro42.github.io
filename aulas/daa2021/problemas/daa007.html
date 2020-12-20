@@ -1,0 +1,100 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[DAA 007] Um jogo com sequências</title>
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 25 de Outubro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2021/praticas/aula02.html">ler o guião da aula #02</a>]</b></small></p>
+  
+<hr>
+
+<h1><font color="blue">[DAA 007] Um jogo com sequências</font></h1>
+
+<p><img align="right" src="daa007.jpg" border="1"> O Pedro e a Luísa estão
+a jogar um novo jogo. Um deles escreve uma sequência de
+números inteiros (positivos ou negativos) e o outro tem de tentar
+descobrir qual a sequência contígua (um ou mais números consecutivos) que dá origem à maior soma possível.
+
+<p>Imagina por exemplo que a Luísa escolhe a seguinte sequência de números:
+
+<pre>
+ -1  4 -2  5 -5  2 -20  6
+</pre>
+
+<p>Alguns exemplos de sequências contíguas seriam as seguintes:
+
+<pre>
+<font color="red"><b>|-1  4 -2  5 -5  2 -20  6|</b></font> (soma=-11)
+ -1  4 -2  5 -5<font color="red"><b> |2 -20  6|</b></font> (soma=-12)
+<font color="red"><b>|-1  4 -2  5 -5  2|</b></font>-20  6  (soma=3)
+ -1  4 -2 <font color="red"><b>|5|</b></font>-5  2 -20  6  (soma=5)
+ -1<font color="red"><b> |4 -2  5|</b></font>-5  2 -20  6  (soma=7)
+</pre>
+
+<p>A última destas sequências corresponde precisamente à melhor sequência contígua possivel que o Pedro poderia escolher, ou seja, a que tem maior soma.
+
+<p>Podes ajudar os dois amigos a jogarem este jogo?
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dada uma sequência de <b>N</b> números inteiros, a tua tarefa é calcular a maior soma que uma sequência contígua de um ou mais números da sequência pode formar.
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha do input vem um inteiro <b>N</b>, a quantidade de números na sequência.
+
+<p>Depois vem uma outra linha contendo
+  exactamente <b>N</b> números inteiros <b>v<sub>i</sub></b>, indicando a sequência a considerar.
+      
+<h2><font color="blue">Output</font></h2>
+
+<p>O output é constituído por uma única linha contendo a soma máxima de uma subsequência contígua, como atrás descrito.
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste
+    que irão ser colocados ao programa:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>N</b> &le; 200&nbsp;000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Quantidade de números</td>
+  </tr>
+  <tr>
+    <td>-2000 &le; <b>v<sub>i</sub></b> &le; 2000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Os números da sequência</td>
+  </tr>
+</table>
+
+<h2><font color="blue">Exemplo de Input</font></h2>
+
+<pre>
+8
+-1 4 -2 5 -5 2 -20 6
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+
+<pre>
+7
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O exemplo de input corresponde ao exemplo explicado no enunciado do problema.</p>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

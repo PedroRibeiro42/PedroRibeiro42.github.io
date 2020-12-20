@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #06 - Árvores Binárias de Pesquisa Equilibradas</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">DAA 2020/2021</a> (CC2001) - DCC/FCUP</h3>
+  <h1>Aula Prática #06 - Árvores Binárias de Pesquisa Equilibradas<br>
+    <small><small>(semana de 02/11 a 06/11)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios a submeter desta aula são:<br>
+     
+<ul>
+  <li><a class="important"  href="../problemas/daa021.html">[DAA 021] Outra vez bakugans </a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+  <li><a class="important"  href="../problemas/daa022.html">[DAA 022] Árvores red-black</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+  <li><a class="important"  href="../problemas/daa023.html">[DAA 023] Palavras numeradas</a>  (peso 50%)<span style="color:DarkSlateBlue"> (exercício extra)</span>
+  <li><a class="important"  href="../problemas/daa024.html">[DAA 024] Letras distintas</a> (peso 50%) <span style="color:DarkRed">(exercício de desafio)</span>
+</ul>
+
+<p><b>Prazo de submissão:</b> 22 de Novembro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak de DAA</a>)</p>
+
+  <p><b>Não se esqueçam que qualquer ajuda que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota. Relebre que cada aula vale 10% da nota desta componente.<br>
+Para um problema contar tem acertar todos os testes. Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.</p>
+  
+  <hr>
+  
+ <h3>Conteúdos das teóricas</h3>
+
+  <p>Nesta aula iremos abordar conceitos de <b>programação dinâmica</b>. Será por isso conveniente ver o que foi falado nas teóricas:
+    <ul>
+      <li><a href="../apoio.html#slides">Slides</a> (capítulo "5 - Árvores Binárias de Pesquisa Equilibradas")
+      <li><a href="../videos/index.html">Vídeos</a>: (vídeos #14 e #15)
+    </ul>
+  </p>
+
+    <hr>
+  
+<h3>Exercício 1) Usando as implementações de árvores de pesquisa da sua linguagem</h3>
+
+  <p>Quase todas as linguagens têm uma implementação de árvores de pesquisa equilibradas que garantem operações logarítmicas para pesquisa, inserção e remoção. O objectivo deste exercício é conhecer duas dessas estruturas, que nas versões actuais dos compiladores respectivos são implementadas usando árvores red-black:</p>
+  <ul>
+    <li>Conjuntos de elementos:
+      <ul>
+	<li><b>C++</b>: <span class="codigo">set</span> (<a href="http://www.cplusplus.com/reference/set/set/">ver documentação</a>)
+	<li><b>Java</b>: <span class="codigo">TreeSet</span> (<a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeSet.html">ver documentação</a>)
+      </ul>
+    <li>Mapa de elementos (associar valores a chaves):
+      <ul>
+	<li><b>C++</b>: <span class="codigo">map</span> (<a href="http://www.cplusplus.com/reference/map/map/">ver documentação</a>)
+	<li><b>Java</b>: <span class="codigo">TreeMap</span> (<a href="http://docs.oracle.com/javase/7/docs/api/java/util/TreeMap.html">ver documentação</a>)
+      </ul>
+  </ul>
+
+<p><b>Para os estudantes que usam C, a ideia neste exercício é verem o código de C++</b>. Vão notar que o código é quase igual, incluindo na maneira de ler e escrever (podem pensar no C como um subset do C++), mas que usa pedaços de C++ quando necessário. Para compilarem basta usar <span class="shell">g++</span> na linha de comando em vez de <span class="shell">gcc</span> (ex: <span class="shell">g++ -Wall -o bst bst.cpp</span>)</p>
+
+<ul>
+  <li>Código exemplo de uso de conjuntos e mapas:
+    <ul>
+      <li><b>C++:</b> <a class="important" href="../codigo/bst.cpp">bst.cpp</a>
+      <li><b>Java:</b> <a class="important" href="../codigo/BST.java">BST.java</a>
+    </ul>
+</ul>
+
+  <p><b>Façam download do programa respectivo, executem-no e procurem perceber o que o programa faz, seguindo a documentação dada quando necessário.</b></p>
+
+  <p><b><i>Nota:</i></b> o código de C++ dado apenas funciona em versões de C++ &geq; 11 (por causa do uso do <span class="codigo">auto</span> e do <a href="http://en.cppreference.com/w/cpp/language/range-for">"range-for"</a>). Se tiverem uma versão antiga do gcc pode ser necessário ativar esse modo (compilar com a flag <span class="shell">-std=c++11</span>). Se tiverem um gcc mesmo antigo que ainda não suporte C++11 fica aqui uma versão do código mais "antiga": <a class="important" href="../codigo/bst_beforecpp11.cpp">bst_beforecpp11.cpp</a>
+    
+<hr>
+
+<h3>Exercício 2) Um problema de estruturas de dados</h3>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa021.html">[DAA 021] Bakugans</a>.</p>
+
+<ul>
+  <li>Basicamente o problema pede-lhe para arranjar maneira eficiente (logarítmica) de suportar três operações:
+    <ul>
+      <li>Inserir elementos num conjunto (podem haver elementos repetidos)
+      <li>Retirar o elemento mínimo
+      <li>Retirar o elemento máximo
+    </ul>
+  <li>As estruturas de dados <span class="codigo">set</span> e <span class="codigo">TreeSet</span> não suportam elementos repetidos, pelo que temos de lidar com isso. Fica a sugestão de usarem uma de duas hipóteses:
+    <ul>
+      <li>Usar um <span class="codigo">multiset</span> de <b>C++</b> que suporta elementos repetidos (<a href="http://www.cplusplus.com/reference/set/multiset/">ver documentação</a>). Para retirar um elemento podem simplesmente chamar a operação <i>erase</i> sobre um iterador "normal" (não invertido - para irem à posição final podem ir ao <span class="codigo">.end()</span> e decrementar uma posição).
+      <li>Usar um <span class="codigo">map</span> (<b>C++</b>) ou <span class="codigo">TreeMap</span> (<b>Java</b>) de inteiros para inteiros onde guardam para cada energia de bakugan o número de elementos com essa energia. Assim, ao adicionar podem incrementar o contador respectivo e ao retirar pode decrementar, apagando-o do mapa se o número chegar a zero.
+      <li><span style="background-color:#ffcccc; color:#990000"><b>Se usar Java, não se esqueça de ler com a classe <a href="fastio.html">FastScanner</a></b> (podem existir 110 mil linhas de input)</span>
+    </ul>
+</ul>
+  
+<hr>
+  
+<h3>Exercício 3) Um problema de implementação de árvores</h3>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa022.html">[DAA 022] Árvores Red-Black</a>.<p>
+
+  <p>Use como ponto de partida o seguinte código base que já tem definida uma estrutura de dados para guardar uma árvore e que já lê o input:
+
+    <ul>
+      <li>Código inicial para o problema "[DAA 022] Árvores Red-Black"
+	<ul>
+	  <li><b>C:</b> <a class="important" href="../codigo/daa022.c">daa022.c</a>
+	  <li><b>C++:</b> <a class="important" href="../codigo/daa022.cpp">daa022.cpp</a>
+	  <li><b>Java</b> <a class="important" href="../codigo/daa022.java">daa022.java</a>
+	</ul>
+    </ul>
+
+  
+    <ul>
+      <li>Concentre-se em criar (e testar) uma função separada para cada uma das propriedades desejadas na árvore:
+      <ul>
+	<li>É uma árvore binária de pesquisa?
+	<li>Obedece à <i>root property</i>?
+	<li>Obedece à <i>red property</i>?
+	<li>Obedece à <i>black property</i>?
+      </ul>
+  </ul>
+
+    <hr>
+    
+    <h3>Exercício extra) Usando mapas</h3>
+
+       <p>Este exercício é um extra, e não é considerado essencial no contexto desta aula. Use-o se quiser consolidar os seus conhecimentos.</p>
+
+   <p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+     Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa023.html">[DAA 023] Palavras Numeradas</a>.</p>
+
+   <p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+
+   <div id="spoiler1" style="display:none">
+      <ul>
+	<li>Como o enunciado mostra, apenas existem 83681 palavras válidas
+	<li>A sugestão é por isso gerar (uma única vez, no início da execução) todas as palavras válidas, e guardá-las numa árvore binária de pesquisa (um mapa que associa uma string ao seu número ordem)
+	<li>Para responder a cada pergunta basta agora ir ao mapa e ver se a palavra existe (como chave), devolvendo o valor correspondente (esta operação tem custo logarítmico, pois a árvore é equilibrada)
+	<li>Vou deixar ficar para já só estas dicas, deixando ficar para vocês pensarem como gerar as palavras válidas (sendo que existem várias maneiras diferentes de o fazer); se tiverem dificuldades contactem-me no Slack
+	<li><span style="background-color:#ffcccc; color:#990000"><b>Se usar Java, não se esqueça de ler com a classe <a href="fastio.html">FastScanner</a></b> e escrever com a classe <a href="fastio.html">FastPrint</a></b> (podem existir 50 mil linhas de input e de output)
+      </ul>
+   </div> 
+    
+<hr>
+  
+<h3>Exercício de Desafio</h3>
+  
+<p>Todas as semanas vou colocar disponível pelo menos mais um exercício um pouco mais desafiante.</p>
+
+<p>Para esta semana o desafio é mais fácil que os das semanas anteriores, e não envolve nenhum tipo de matéria de que não tenhamos já falado. A dificuldade passa unicamente em como ser eficiente na resposta das <i>queries</i> (que podem ser 100 mil), sendo que por isso um algoritmo quadrático não passará no tempo. O problema está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak</a>:
+
+  <ul>
+    <li class="big"><a class="important" href="../problemas/daa024.html">[DAA 024] Letras distintas</a>
+  </ul>
+
+<p>Se já tiverem feito tudo e estiverem "presos" neste, e quiserem mesmo fazer o desafio, podem contactar-me para eu "dosear" as dicas.</p>          
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

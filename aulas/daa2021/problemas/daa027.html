@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+	<title>[DAA 027] Grafos bipartidos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head><body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 6 de Dezembro</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i></small></p>
+
+<hr>
+
+<h1><font color="blue">[DAA 027] Grafos bipartidos</font></h1>
+
+<p><img src="daa027.png" alt="" align="right" border="0">
+
+<p>Uma empresa de alojamento de <i>websites</i> teve um problema de hardware e algumas das suas unidades de armazenamento ficaram com problemas. Um dos seus melhores clientes é uma loja de produtos tecnológicos. A base de dados dessa loja continhm dados sobre as compras, na forma de um grafo onde os nós eram compradores e produtos. Nesse grafo, existiam arestas unicamente entre compradores e produtos.</p>
+  
+<p>Como os dados ficaram corrompidos, os dados sobre o tipo de cada nó (comprador ou produto)  foram perdidos. A empresa quer agora perceber se o grafo ainda armazenado é plausível. Em particular, quer saber se é possível dividir os nós do grafo em dois grupos <b>A</b> e <b>B</b> tal que cada aresta liga um nó de <b>A</b> a um nó de <b>B</b>, ou seja, tal que não existem arestas entre dois nós de <b>A</b>, ou entre dois nós de <b>B</b> (não faria sentido haver uma aresta de um comprador para um comprador, ou de um produto para um produto). Um grafo com esta propriedade diz-se <b>bipartido</b>.</p>
+
+<p>Considere por exemplo o grafo da figura seguinte com 8 nós. O grafo é bipartido, pois a divisão indicada na imagem da direita divide o grafo em dois grupos,  um vermelho e um verde, de tal modo que todas as arestas ligam nós de grupos diferentes.</p>
+
+<p><img src="daa027_2.png" height="110"></p>
+
+<p>Já o grafo da figura de baixo não é bipartido. Os nós 2 e 5 têm de ter cor diferente do nó 1, pois são seis vizinhos. Por sua vez, isto implica que o nó 6 tem de ter cor diferente do nó 5. Em conjunto, isto significa que não é possível colorir o nó 3, pois este é vizinho de dois nós de cor diferente.</p>
+
+<p><img src="daa027_3.png" height="110"></p>
+  
+<p>Podes ajudar a empresa de alojamento a perceber se um grafo é palusível, ou seja, se é bipartido?</p>
+
+  
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dados vários grafos não dirigidos, a tua tarefa é indicar se cada um deles é ou não bipartido.</p>
+
+</p><h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha do <i>input</i> vem um número <b>N</b> indicando o número de casos a considerar. Cada dos casos começa uma linha com um inteiro <b>V</b> indicando o número de nós, seguido de uma linha com um inteiro <b>E</b> indicando o número de arestas. Seguem-se <b>E</b> linhas, cada uma com dois inteiros <b>A</b> e <b>B</b> indicando que existe uma aresta entre <b>A</b> e <b>B</b>. Os nós estão numerados entre <b>1</b> e <b>V</b>, ou seja, <i>1 &le; A, B &le; N</i>. É garantido que os grafos são conexos.</p>
+
+</p><h2><font color="blue">Output</font></h2>
+
+<p>O <i>output</i> deve ser constituido por <b>N</b> linhas, cada uma com a palavra <b>sim</b> se o grafo correspondente for bipartido, ou <b>nao</b>, se o grafo não for bipartido.</p>
+</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td>1 &le; <b>N</b> &le; 10</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de casos</td>
+</tr>
+<tr>
+<td>1 &le; <b>V</b> &le; 50</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de nós</td>
+</tr>
+<tr>
+<td>1 &le; <b>E</b> &le; 500</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de arestas</td>
+</tr>
+</table>
+
+</p><h2><font color="blue">Exemplo de Input</font></h2>
+<pre>
+2
+8
+9
+1 5
+1 2
+1 6
+2 3
+6 3
+3 4
+3 7
+4 8
+7 8
+8
+8
+1 2
+1 5
+5 6
+2 3
+6 3
+3 7
+7 8
+8 4
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+sim
+nao
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O exemplo de input corresponde aos dois grafos das imagens.</p>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

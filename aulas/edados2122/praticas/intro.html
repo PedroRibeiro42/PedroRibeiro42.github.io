@@ -1,0 +1,484 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Breve introdução à linguagem Java</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Breve Introdução à linguagem Java<br>
+  </h1>
+
+<ul>
+  <li><a href="#compile">Compilação e execução de um programa em Java</a>
+  <li><a href="#types">Tipos de dados em Java</a>
+  <li><a href="#operators">Operadores Aritméticos e Relacionais</a>
+  <li><a href="#flow">Instruções de controle de fluxo</a>
+  <li><a href="#classes">Objectos e Classes</a>
+  <li><a href="#access">Acesso às variáveis e métodos de classes</a>
+</ul>
+
+<hr>
+
+<h2 id="compile">Compilação e execução de um programa em Java</h2>
+
+Ficheiro: <b><tt>Hello.java</tt></b>
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #408080; font-style: italic">// Java Hello World</span>
+<span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Hello</span> <span style="color: #666666">{</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String<span style="color: #666666">[]</span> args<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Hello World !&quot;</span><span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></div>
+<ul>
+  <li>Como compilar o programa? <span class="shell">$ javac Hello.java</span>
+  <li>Como executar o programa? <span class="shell">$ java Hello</span>
+  <li>O nome do ficheiro contendo código tem de ter o nome da classe <i>executável</i> mais a extensão <tt>.java</tt>
+  <li>A compilação da classe dá origem a um ficheiro com o mesmo nome, mas com a extensão <tt>.class</tt>   
+  <li>Para executar, chama-se o nome da classe e não o nome do ficheiro (ex: <tt>java Hello</tt> e não <tt>java Hello.class</tt>)
+</ul>
+
+<hr>
+
+<h2 id="types">Tipos de dados em Java<a name="section2">&nbsp;</a></h2>
+
+<p>Os <font color="darkred">tipos primitivos</font> (ou "simples") em Java são (todos os outros tipos são objectos):
+
+<blockquote>
+<table cellPadding="5" class=main border="1">
+    <tr>
+      <th>Tipo</th>
+      <th>Descrição</th>
+      <th>Formato</th>
+    </tr>
+    <tr>
+      <td class=center colspan="3"><i><font color="darkred">Inteiros</font></i></td>
+    </tr>
+    <tr>
+      <td><code><font face="System" color="darkblue">byte</font></code></td>
+      <td>Byte-length integer</td>
+      <td>8-bit two's complement [-2<sup>7</sup>, 2<sup>7</sup>-1]</td>
+    </tr>
+    <tr>
+      <td><code><font face="System" color="darkblue">short</font></code></td>
+      <td>Short integer</td>
+      <td>16-bit two's complement [-2<sup>15</sup>, 2<sup>15</sup>-1]</td>
+    </tr>
+    <tr>
+      <td><code><font face="System" color="darkblue">int</font></code></td>
+      <td>Integer</td>
+      <td>32-bit two's complement [-2<sup>31</sup>, 2<sup>31</sup>-1]</td>
+    </tr>
+    <tr>
+      <td><code><font face="System" color="darkblue">long</font></code></td>
+      <td>Long integer</td>
+      <td>64-bit two's complement [-2<sup>63</sup>, 2<sup>63</sup>-1]</td>
+    </tr>
+    <tr>
+        <td class=center colspan="3"><font color="darkred"><i>Reais</i></font></td>
+    </tr>
+    <tr>
+      <td><code><font face="System" color="darkblue">float</font></code></td>
+      <td>Single-precision floating point</td>
+      <td>32-bit IEEE 754</td>
+    </tr>
+    <tr>
+      <td><code><font face="System" color="darkblue">double</font></code></td>
+      <td>Double-precision floating point</td>
+      <td>64-bit IEEE 754</td>
+    </tr>
+    <tr>
+        <td class=center colspan="3"><font color="darkred"><i>Outros tipos</i></font></td>
+    </tr>
+    <tr>
+      <td><code><font face="System" color="darkblue">char</font></code></td>
+      <td>A single character</td>
+      <td>16-bit Unicode character</td>
+    </tr>
+    <tr>
+      <td><code><font face="System" color="darkblue">boolean</font></code></td>
+      <td>A boolean value (<code>true</code> or <code>false</code>)</td>
+      <td>true or false</td>
+    </tr>
+  </table>
+</blockquote>
+
+<p>As variáveis são declaradas de um modo semelhante ao C (no entanto deve notar-se que, à semelhança do C++, podem ser
+declaradas variáveis a meio do código). Tal como no C, as variáveis têm um âmbito limitado:
+
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MinhaClasse</span> <span style="color: #666666">{</span>
+    <span style="color: #408080; font-style: italic">// variáveis globais - válidas em todos os métodos da classe</span>
+    <span style="color: #666666">...</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">metodoA</span><span style="color: #666666">(</span> argumentos <span style="color: #666666">)</span> <span style="color: #666666">{</span>
+       <span style="color: #408080; font-style: italic">// variáveis locais - validas dentro do método onde estão definidas</span>
+       <span style="color: #008000; font-weight: bold">for</span> <span style="color: #666666">(</span> <span style="color: #666666">...</span> <span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            <span style="color: #408080; font-style: italic">// variáveis temporárias - validas apenas no código dentro do ciclo</span>
+        <span style="color: #666666">}</span>
+        <span style="color: #666666">...</span>
+    <span style="color: #666666">}</span>
+    <span style="color: #666666">...</span>
+<span style="color: #666666">}</span>
+</pre></div>
+
+<p>Exemplo demonstrando os <font color="darkred">limites</font> das variáveis:
+
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">MaxVariablesDemo</span> <span style="color: #666666">{</span>
+    <span style="color: #008000; font-weight: bold">public</span> <span style="color: #008000; font-weight: bold">static</span> <span style="color: #B00040">void</span> <span style="color: #0000FF">main</span><span style="color: #666666">(</span>String args<span style="color: #666666">[])</span> <span style="color: #666666">{</span>
+
+        <span style="color: #408080; font-style: italic">// integers</span>
+        <span style="color: #B00040">byte</span> largestByte <span style="color: #666666">=</span> Byte<span style="color: #666666">.</span><span style="color: #7D9029">MAX_VALUE</span><span style="color: #666666">;</span>
+        <span style="color: #B00040">short</span> largestShort <span style="color: #666666">=</span> Short<span style="color: #666666">.</span><span style="color: #7D9029">MAX_VALUE</span><span style="color: #666666">;</span>
+        <span style="color: #B00040">int</span> largestInteger <span style="color: #666666">=</span> Integer<span style="color: #666666">.</span><span style="color: #7D9029">MAX_VALUE</span><span style="color: #666666">;</span>
+        <span style="color: #B00040">long</span> largestLong <span style="color: #666666">=</span> Long<span style="color: #666666">.</span><span style="color: #7D9029">MAX_VALUE</span><span style="color: #666666">;</span>
+
+        <span style="color: #408080; font-style: italic">// real numbers</span>
+        <span style="color: #B00040">float</span> largestFloat <span style="color: #666666">=</span> Float<span style="color: #666666">.</span><span style="color: #7D9029">MAX_VALUE</span><span style="color: #666666">;</span>
+        <span style="color: #B00040">double</span> largestDouble <span style="color: #666666">=</span> Double<span style="color: #666666">.</span><span style="color: #7D9029">MAX_VALUE</span><span style="color: #666666">;</span>
+
+        <span style="color: #408080; font-style: italic">// other primitive types</span>
+        <span style="color: #B00040">char</span> aChar <span style="color: #666666">=</span> <span style="color: #BA2121">&#39;S&#39;</span><span style="color: #666666">;</span>
+        <span style="color: #B00040">boolean</span> aBoolean <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">;</span>
+
+        <span style="color: #408080; font-style: italic">// display them all</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;The largest byte value is &quot;</span> <span style="color: #666666">+</span> largestByte<span style="color: #666666">);</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;The largest short value is &quot;</span> <span style="color: #666666">+</span> largestShort<span style="color: #666666">);</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;The largest integer value is &quot;</span> <span style="color: #666666">+</span> largestInteger<span style="color: #666666">);</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;The largest long value is &quot;</span> <span style="color: #666666">+</span> largestLong<span style="color: #666666">);</span>
+
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;The largest float value is &quot;</span> <span style="color: #666666">+</span> largestFloat<span style="color: #666666">);</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;The largest double value is &quot;</span> <span style="color: #666666">+</span> largestDouble<span style="color: #666666">);</span>
+
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>Character<span style="color: #666666">.</span><span style="color: #7D9029">isUpperCase</span><span style="color: #666666">(</span>aChar<span style="color: #666666">))</span> <span style="color: #666666">{</span>
+            System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;The character &quot;</span> <span style="color: #666666">+</span> aChar <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; is upper case.&quot;</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;The character &quot;</span> <span style="color: #666666">+</span> aChar <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; is lower case.&quot;</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+        System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;The value of aBoolean is &quot;</span> <span style="color: #666666">+</span> aBoolean<span style="color: #666666">);</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></div>
+
+<p>Resultado da execução:<br>
+<span class="shell">
+   The largest byte value is 127<br>
+   The largest short value is 32767<br>
+   The largest integer value is 2147483647<br>
+   The largest long value is 9223372036854775807<br>
+   The largest float value is 3.40282e+38<br>
+   The largest double value is 1.79769e+308<br>
+   The character S is upper case.<br>
+   The value of aBoolean is true
+</span>
+
+<p>Em Java as <font color="darkred">constantes</font> são variáveis declaradas como <tt>final</tt>.
+
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">final</span> <span style="color: #B00040">int</span> a <span style="color: #666666">=</span> <span style="color: #666666">10;</span>
+<span style="color: #B00040">int</span> b <span style="color: #666666">=</span> <span style="color: #666666">15;</span>
+
+<span style="color: #408080; font-style: italic">// a = 11; -&gt; iria dar um erro</span>
+b <span style="color: #666666">=</span> <span style="color: #666666">11;</span> <span style="color: #408080; font-style: italic">// atribuição válida</span>
+</pre></div>
+
+<p>Em Java a <font color="darkred">conversão</font> de dados entre variáveis é <font color="darkred">automática</font> quando:</p>
+<ul>
+  <li>As variáveis são de tipo compatível
+  <li>A variável de destino é "maior" do que a de origem 
+</ul>
+<p>Quando isso não acontece, temos de usar uma conversão explícita, denominada <font color="darkred">cast</font>:</p>
+<ul>
+  <li><tt>var = (tipo-var-destino) var2</tt>
+</ul>
+<p>Exemplos:</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #B00040">long</span> a <span style="color: #666666">=</span> <span style="color: #666666">1;</span>
+<span style="color: #B00040">int</span> b <span style="color: #666666">=</span> <span style="color: #666666">2;</span>
+
+a <span style="color: #666666">=</span> b<span style="color: #666666">;</span> <span style="color: #408080; font-style: italic">// Conversão válida</span>
+<span style="color: #408080; font-style: italic">//b = a   Conversão inválida</span>
+b <span style="color: #666666">=</span> <span style="color: #666666">(</span><span style="color: #B00040">int</span><span style="color: #666666">)</span> a<span style="color: #666666">;</span> <span style="color: #408080; font-style: italic">// Conversão válida</span>
+</pre></div>
+
+<p>Em Java os <font color="darkred">arrays</font> são objectos, mas o acesso aos seus valores é idêntico ao C.
+
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #B00040">int</span> nr_dias_mes<span style="color: #666666">[]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[12];</span>
+<span style="color: #B00040">int</span> matriz<span style="color: #666666">[][]</span> <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> <span style="color: #B00040">int</span><span style="color: #666666">[100][10];</span>
+<span style="color: #B00040">char</span> vogais<span style="color: #666666">[]={</span><span style="color: #BA2121">&#39;a&#39;</span><span style="color: #666666">,</span><span style="color: #BA2121">&#39;e&#39;</span><span style="color: #666666">,</span><span style="color: #BA2121">&#39;i&#39;</span><span style="color: #666666">,</span><span style="color: #BA2121">&#39;o&#39;</span><span style="color: #666666">,</span><span style="color: #BA2121">&#39;u&#39;</span><span style="color: #666666">};</span>
+
+<span style="color: #408080; font-style: italic">// Exemplo de alteração de valores</span>
+nr_dias_mes<span style="color: #666666">[0]=31;</span>
+nr_dias_mes<span style="color: #666666">[1]=28;</span>
+</pre></div>
+
+<p>Tal como os arrays, em Java as <font color="darkred">strings</font> são objectos, e têm uma série de <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">métodos</a> já definidos.
+
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">String s <span style="color: #666666">=</span> <span style="color: #BA2121">&quot;Hello World&quot;</span><span style="color: #666666">;</span>
+
+s <span style="color: #666666">=</span> s <span style="color: #666666">+</span> <span style="color: #BA2121">&quot; !&quot;</span><span style="color: #666666">;</span>
+System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span>s<span style="color: #666666">);</span>
+System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Posicao 4 = &quot;</span> <span style="color: #666666">+</span> s<span style="color: #666666">.</span><span style="color: #7D9029">charAt</span><span style="color: #666666">(4));</span>
+System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;Tamanho = &quot;</span> <span style="color: #666666">+</span> s<span style="color: #666666">.</span><span style="color: #7D9029">length</span><span style="color: #666666">());</span>
+</pre></div>
+
+<hr>
+
+<h2 id="operators">Operadores Aritméticos e Relacionais<a name="section3">&nbsp;</a></h2>
+
+<p>São usados operadores semelhantes ao C:
+
+<blockquote>
+<table class=main border=1>
+  <tr>
+  <th>Operador</th>
+  <th>Explicação</th>
+  </tr>
+  <tr><td class=center colspan=2><font color="darkred"><i>Operadores matemáticos</i></font></td></tr>
+  <tr><td><b><tt><font color="darkblue">+</font></tt></b></td><td>Soma</td></tr>
+  <tr><td><b><tt><font color="darkblue">-</font></tt></b></td><td>Subtracção</td></tr>
+  <tr><td><b><tt><font color="darkblue">*</font></tt></b></td><td>Multiplicação</td></tr>
+  <tr><td><b><tt><font color="darkblue">/</font></tt></b></td><td>Divisão</td></tr>
+  <tr><td><b><tt><font color="darkblue">%</font></tt></b></td><td>Módulo (resto da divisão inteira)</td></tr>
+  <tr><td class=center colspan=2><font color="darkred"><i>Operadores unários</i></font></td></tr>
+  <tr><td><b><tt><font color="darkblue">-</font></tt></b></td><td>Complemento binário</td></tr>
+  <tr><td><b><tt><font color="darkblue">&</font></tt></b></td><td>AND binário</td></tr>
+  <tr><td><b><tt><font color="darkblue">|</font></tt></b></td><td>OR binário</td></tr>
+  <tr><td><b><tt><font color="darkblue">^</font></tt></b></td><td>XOR binário</td></tr>
+  <tr><td><b><tt><font color="darkblue"><<, >></font></tt></b></td><td>shift binário</td></tr>
+  <tr><td class=center colspan=2><font color="darkred"><i>Operadores relacionais</i></font></td></tr>
+  <tr><td><b><tt><font color="darkblue">==</font></tt></b></td><td>... igual a ...</td></tr>
+  <tr><td><b><tt><font color="darkblue">!=</font></tt></b></td><td>... diferente de ...</td></tr>
+  <tr><td><b><tt><font color="darkblue"><</font></tt></b></td><td>... menor que ...</td></tr>
+  <tr><td><b><tt><font color="darkblue"><=</font></tt></b></td><td>... menor ou igual a ...</td></tr>
+  <tr><td><b><tt><font color="darkblue">></font></tt></b></td><td>... maior que ...</td></tr>
+  <tr><td><b><tt><font color="darkblue">>=</font></tt></b></td><td>... maior ou igual a ...</td></tr>
+  <tr><td class=center colspan=2><font color="darkred"><i>Operadores lógicos</i></font></td></tr>
+  <tr><td><b><tt><font color="darkblue">!</font></tt></b></td><td>Negação (NOT)</td></tr>
+  <tr><td><b><tt><font color="darkblue">&</font></tt></b></td><td>Conjunção (AND)</td></tr>
+  <tr><td><b><tt><font color="darkblue">|</font></tt></b></td><td>Disjunção (OR)</td></tr>
+  <tr><td><b><tt><font color="darkblue">&&, ||</font></tt></b></td><td>AND e OR antecipados<br>(expressão lógica é avaliada antes de terminar)</td></tr>
+</table>
+</blockquote>
+
+<p>Tal como no C, são válidas construções como <b><tt>++var</tt></b>, <b><tt>var++</tt></b> ou <b><tt>var1+=var2</tt></b><br>&nbsp;
+
+<hr>
+  
+<h2 id="flow">Instruções de controle de fluxo<a name="section4">&nbsp;</a></h2>
+
+<p>As instruções são em tudo semelhantes ao C:
+
+<blockquote>
+<table class=main border=1 cellpadding=5>
+<tr>
+  <th>Expressão</th>
+  <th>Tipo</th>
+  <th>Sintaxe</th>
+  <th>Exemplo</th>
+</tr>
+<tr>
+  <td><font color="darkred">while</font></td>
+  <td>ciclo</td>
+  <td class=left><tt><b>while (</b>expressão-de-teste<b>)</b> {<br><i> &nbsp; código</i><br><b>};</b></tt></td>
+  <td class=code>
+  <pre>
+<FONT COLOR="DARKRED"><B>int</B></FONT> i <FONT COLOR="DARKBLUE" SIZE=+1>=</FONT> <FONT COLOR=BROWN>5</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+<FONT COLOR="DARKRED"><B>while</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1>&gt;</FONT><FONT COLOR=BROWN>0</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>{</B></FONT>
+  i<FONT COLOR="DARKBLUE" SIZE=+1><FONT COLOR="DARKBLUE" SIZE=+1>-</FONT><FONT COLOR="DARKBLUE" SIZE=+1>-</FONT></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+<FONT COLOR="DARKBLUE" SIZE=+1><B>}</B></FONT></pre></td>
+</tr>
+<tr>
+  <td><font color="darkred">do while</font></td>
+  <td>ciclo</td>
+  <td class=left><tt><b>do {</b><br><i> &nbsp; código</i><br><b>} while (</b>expressão-de-teste<b>);</b></tt></td>
+  <td class=code>
+  <pre>
+<FONT COLOR="DARKRED"><B>int</B></FONT> i <FONT COLOR="DARKBLUE" SIZE=+1>=</FONT> <FONT COLOR=BROWN>5</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+<FONT COLOR="DARKRED"><B>do</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>{</B></FONT>
+  i<FONT COLOR="DARKBLUE" SIZE=+1><FONT COLOR="DARKBLUE" SIZE=+1>-</FONT><FONT COLOR="DARKBLUE" SIZE=+1>-</FONT></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+<FONT COLOR="DARKBLUE" SIZE=+1><B>}</B></FONT> <FONT COLOR="DARKRED"><B>while</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1>&gt;</FONT><FONT COLOR=BROWN>0</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT></pre>
+  </td>
+</tr>
+<tr>
+  <td><font color="darkred">for</font></td>
+  <td>ciclo</td>
+  <td class=left><tt><b>for (</b>código-inicial;expr-de-teste;código-entre-iterações<b>) {</b><br> &nbsp; código <br><b>};</b></tt></td>
+  <td class=code>
+  <pre>
+<FONT COLOR="DARKRED"><B>for</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1>=</FONT><FONT COLOR=BROWN>0</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT> i<FONT COLOR="DARKBLUE" SIZE=+1>&lt;</FONT><FONT COLOR=BROWN>5</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT> i<FONT COLOR="DARKBLUE" SIZE=+1><FONT COLOR="DARKBLUE" SIZE=+1>+</FONT><FONT COLOR="DARKBLUE" SIZE=+1>+</FONT></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>{</B></FONT>
+  System<FONT COLOR="DARKBLUE" SIZE=+1><B>.</B></FONT>out<FONT COLOR="DARKBLUE" SIZE=+1><B>.</B></FONT>println<FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+<FONT COLOR="DARKBLUE" SIZE=+1><B>}</B></FONT></pre>
+  </td>
+</tr>
+<tr>
+  <td><font color="darkred">if</font></td>
+  <td>decisão</td>
+  <td class=left><tt><b>if (</b>expressao-de-teste<b>) {</b><br> &nbsp; código <br><b>};</b></tt></td>
+  <td class=code>
+  <pre>
+<FONT COLOR="DARKRED"><B>if</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>a<FONT COLOR="DARKBLUE" SIZE=+1>&gt;</FONT>max<FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>{</B></FONT>
+  max<FONT COLOR="DARKBLUE" SIZE=+1>=</FONT>a
+<FONT COLOR="DARKBLUE" SIZE=+1><B>}</B></FONT></pre>
+  </td>
+</tr>
+<tr>
+  <td><font color="darkred">?</font></td>
+  <td>decisão</td>
+  <td class=left><tt>expressão-de-teste <b>?</b> valor-verdadeira <b>:</b> valor-falsa</tt></td>
+  <td class=code>
+  <pre>
+max <FONT COLOR="DARKBLUE" SIZE=+1>=</FONT> a<FONT COLOR="DARKBLUE" SIZE=+1>&gt;</FONT>b <FONT COLOR="DARKBLUE" SIZE=+1>?</FONT> a <FONT COLOR="DARKBLUE" SIZE=+1>:</FONT> b</pre>
+  </td>
+</tr>
+<tr>
+  <td><font color="darkred">switch</font></td>
+  <td>decisão</td>
+  <td class=left><tt><b>switch (</b>variável<b>) {<br> &nbsp; case</b> c1<b>:</b> /* Bloco variável==c1 */<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; código<br>
+  &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+  &nbsp; (...)<br>
+  &nbsp; <b>default:</b> /* Bloco por defeito */<br>
+    &nbsp; &nbsp; &nbsp; &nbsp; código<br>
+    &nbsp; &nbsp; &nbsp; &nbsp; break;<br>
+  <b>}</b>
+  </tt></td>
+  <td class=code>
+  <pre>
+<FONT COLOR="DARKRED"><B>switch</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>{</B></FONT>
+  <FONT COLOR="DARKRED"><B>case</B></FONT> <FONT COLOR=BROWN>1</FONT><FONT COLOR="DARKBLUE" SIZE=+1>:</FONT>
+    System<FONT COLOR="DARKBLUE" SIZE=+1><B>.</B></FONT>out<FONT COLOR="DARKBLUE" SIZE=+1><B>.</B></FONT>println<FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT><FONT COLOR=PURPLE>"um"</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT> <FONT COLOR="DARKRED"><B>break</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+  <FONT COLOR="DARKRED"><B>case</B></FONT> <FONT COLOR=BROWN>2</FONT><FONT COLOR="DARKBLUE" SIZE=+1>:</FONT>
+    System<FONT COLOR="DARKBLUE" SIZE=+1><B>.</B></FONT>out<FONT COLOR="DARKBLUE" SIZE=+1><B>.</B></FONT>println<FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT><FONT COLOR=PURPLE>"dois"</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT> <FONT COLOR="DARKRED"><B>break</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+  <FONT COLOR="DARKRED"><B>default</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1>:</FONT>
+    System<FONT COLOR="DARKBLUE" SIZE=+1><B>.</B></FONT>out<FONT COLOR="DARKBLUE" SIZE=+1><B>.</B></FONT>println<FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT><FONT COLOR=PURPLE>"outro numero"</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT> <FONT COLOR="DARKRED"><B>break</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+<FONT COLOR="DARKBLUE" SIZE=+1><B>}</B></FONT></pre></td>
+</tr>
+<tr>
+  <td><font color="darkred">break</font></td>
+  <td>salto</td>
+  <td><tt><b>break</b> [nome-label] <b>;</b></tt></td>
+  <td class=code rowspan=4>
+  <pre><font color="#408080"><I>/* supondo que v1 e v2 estão ordenados,
+vê se algum número de v1 está em v2*/</I></FONT>
+<FONT COLOR="DARKRED"><B>boolean</B></FONT> numberInArray<FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT><FONT COLOR="DARKRED"><B>int</B></FONT> v1<FONT COLOR="DARKBLUE" SIZE=+1><B>[</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>]</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>,</B></FONT> <FONT COLOR="DARKRED"><B>int</B></FONT> v2<FONT COLOR="DARKBLUE" SIZE=+1><B>[</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>]</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>{</B></FONT>
+    <FONT COLOR="DARKRED"><B>int</B></FONT> i<FONT COLOR="DARKBLUE" SIZE=+1><B>,</B></FONT> j<FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+    ciclo1<FONT COLOR="DARKBLUE" SIZE=+1>:</FONT>
+    <FONT COLOR="DARKRED"><B>for</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1>=</FONT><FONT COLOR=BROWN>0</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT> i<FONT COLOR="DARKBLUE" SIZE=+1>&lt;</FONT>v1.length<FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT> i<FONT COLOR="DARKBLUE" SIZE=+1><FONT COLOR="DARKBLUE" SIZE=+1>+</FONT><FONT COLOR="DARKBLUE" SIZE=+1>+</FONT></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>{</B></FONT>
+	<FONT COLOR="DARKRED"><B>if</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1>&gt;</FONT><FONT COLOR=BROWN>1</FONT> <FONT COLOR="DARKBLUE" SIZE=+1><FONT COLOR="DARKBLUE" SIZE=+1>&amp;</FONT><FONT COLOR="DARKBLUE" SIZE=+1>&amp;</FONT></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>v1<FONT COLOR="DARKBLUE" SIZE=+1><B>[</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1><B>]</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1>=</FONT><FONT COLOR="DARKBLUE" SIZE=+1>=</FONT>v1<FONT COLOR="DARKBLUE" SIZE=+1><B>[</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1>-</FONT><FONT COLOR=BROWN>1</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>]</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT> <FONT COLOR="DARKRED"><B>continue</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+	<FONT COLOR="DARKRED"><B>for</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>j<FONT COLOR="DARKBLUE" SIZE=+1>=</FONT><FONT COLOR=BROWN>0</FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT> j<FONT COLOR="DARKBLUE" SIZE=+1>&lt;</FONT>v2.length<FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT> j<FONT COLOR="DARKBLUE" SIZE=+1><FONT COLOR="DARKBLUE" SIZE=+1>+</FONT><FONT COLOR="DARKBLUE" SIZE=+1>+</FONT></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT>
+	    <FONT COLOR="DARKRED"><B>if</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>v1<FONT COLOR="DARKBLUE" SIZE=+1><B>[</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1><B>]</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1>=</FONT><FONT COLOR="DARKBLUE" SIZE=+1>=</FONT> v2<FONT COLOR="DARKBLUE" SIZE=+1><B>[</B></FONT>j<FONT COLOR="DARKBLUE" SIZE=+1><B>]</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT> <FONT COLOR="DARKRED"><B>break</B></FONT> ciclo1<FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+	    <FONT COLOR="DARKRED"><B>else</B></FONT> <FONT COLOR="DARKRED"><B>if</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>v1<FONT COLOR="DARKBLUE" SIZE=+1><B>[</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1><B>]</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1>&gt;</FONT> v2<FONT COLOR="DARKBLUE" SIZE=+1><B>[</B></FONT>j<FONT COLOR="DARKBLUE" SIZE=+1><B>]</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT> <FONT COLOR="DARKRED"><B>break</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+    <FONT COLOR="DARKBLUE" SIZE=+1><B>}</B></FONT>    <FONT COLOR="DARKRED"><B>return</B></FONT> <FONT COLOR="DARKBLUE" SIZE=+1><B>(</B></FONT>i<FONT COLOR="DARKBLUE" SIZE=+1>&lt;</FONT>v1.length<FONT COLOR="DARKBLUE" SIZE=+1><B>)</B></FONT><FONT COLOR="DARKBLUE" SIZE=+1><B>;</B></FONT>
+<FONT COLOR="DARKBLUE" SIZE=+1><B>}</B></FONT></pre></td>
+</tr>
+<tr>
+  <td><font color="darkred">continue</font></td>
+  <td>salto</td>
+  <td><tt><b>continue</b> [nome-label] <b>;</b></tt></td>
+</tr>
+<tr>
+  <td><font color="darkred">label</font></td>
+  <td>salto</td>
+  <td><tt>nome-label<b>:</b></tt></td>
+</tr>
+<tr>
+  <td><font color="darkred">return</font></td>
+  <td>salto</td>
+  <td><tt><b>return</b> valor<b>;</b></tt></td>
+</tr>
+</table>
+nota: <tt>[ expr ]</tt> significa que <tt>expr</tt> é opcional
+</blockquote>
+
+<hr>
+
+<h2 id="classes">Objectos e Classes<a name="section5">&nbsp;</a></h2>
+
+<p>Uma classe é definida usando a palavra reservada <font color="darkred">class</font> com a seguinte sintaxe:
+
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">NomeDaClasse</span> <span style="color: #666666">{</span>
+    declaração<span style="color: #666666">-</span>de<span style="color: #666666">-</span>variáveis<span style="color: #666666">;</span>
+    declaração<span style="color: #666666">-</span>de<span style="color: #666666">-</span>métodos<span style="color: #666666">;</span>
+<span style="color: #666666">}</span>
+</pre></div>
+
+<p>Veja-se o exemplo de uma classe muito simples, contendo apenas dois métodos.<br>
+A classe Interruptor pretende modelar um vulgar comutador que tenha duas posições: "ligado" e "desligado":
+
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008000; font-weight: bold">class</span> <span style="color: #0000FF; font-weight: bold">Interruptor</span> <span style="color: #666666">{</span>
+    <span style="color: #B00040">boolean</span> ligado<span style="color: #666666">;</span>
+
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">actuar</span><span style="color: #666666">(</span><span style="color: #B00040">boolean</span> estado<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+        ligado<span style="color: #666666">=</span>estado<span style="color: #666666">;</span>
+    <span style="color: #666666">}</span>
+
+    <span style="color: #B00040">void</span> <span style="color: #0000FF">mostrarEstado</span><span style="color: #666666">()</span> <span style="color: #666666">{</span>
+        <span style="color: #008000; font-weight: bold">if</span> <span style="color: #666666">(</span>ligado<span style="color: #666666">)</span> <span style="color: #666666">{</span>
+            System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;O interruptor está LIGADO&quot;</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span> <span style="color: #008000; font-weight: bold">else</span> <span style="color: #666666">{</span>
+            System<span style="color: #666666">.</span><span style="color: #7D9029">out</span><span style="color: #666666">.</span><span style="color: #7D9029">println</span><span style="color: #666666">(</span><span style="color: #BA2121">&quot;O interruptor está DESLIGADO&quot;</span><span style="color: #666666">);</span>
+        <span style="color: #666666">}</span>
+    <span style="color: #666666">}</span>
+<span style="color: #666666">}</span>
+</pre></div>
+
+<p>Veja-se também um exemplo de uso dessa classe:
+
+<!-- HTML generated using hilite.me --><div style="background: #f8f8f8; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">Interruptor i <span style="color: #666666">=</span> <span style="color: #008000; font-weight: bold">new</span> Interruptor<span style="color: #666666">();</span>
+i<span style="color: #666666">.</span><span style="color: #7D9029">Actuar</span><span style="color: #666666">(</span><span style="color: #008000; font-weight: bold">true</span><span style="color: #666666">);</span>
+i<span style="color: #666666">.</span><span style="color: #7D9029">MostrarEstado</span><span style="color: #666666">();</span>
+</pre></div>
+
+<hr>
+
+<h2 id="access">Acesso às variáveis e métodos de classes<a name="section6">&nbsp;</a></h2>
+
+<p>Em Java, podem estar os seguintes qualificadores antes de um método ou variável de uma classe:<br>&nbsp;
+<table class=main>
+<tr>
+  <th>Accessível em:</th>
+  <th>public</th>
+  <th>protected</th>
+  <th>default</th>
+  <th>private</th>
+</tr>
+<tr>
+  <td>mesma classe</td>
+  <td>Sim</td>
+  <td>Sim</td>
+  <td>Sim</td>
+  <td>Sim</td>
+</tr>
+<tr>
+  <td>classe do mesmo package</td>
+  <td>Sim</td>
+  <td>Sim</td>
+  <td>Sim</td>
+  <td>Não</td>
+</tr>
+<tr>
+  <td>sub-classe num package diferente</td>
+  <td>Sim</td>
+  <td>Sim</td>
+  <td>Não</td>
+  <td>Não</td>
+</tr>
+<tr>
+  <td>não sub-classe me package diferente</td>
+  <td>Sim</td>
+  <td>Não</td>
+  <td>Não</td>
+  <td>Não</td>
+</tr>
+</table>
+
+<hr>
+
+<p class=footer>Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+
+</div>
+
+</body>
+</html>
+

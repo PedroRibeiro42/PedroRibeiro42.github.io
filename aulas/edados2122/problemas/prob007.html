@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Estruturas de Dados - Problemas</title>
+	<link rel=StyleSheet href="style.css" type="text/css">
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 11 de Dezembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula07.html">ler o guião da aula #07</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[ED007] Entre Parênteses</h2>
+
+<font color="red"><p>Neste problema deverá submeter uma classe <b>ED007</b> contendo um programa completo para resolver o problema (ou seja, com o método main).<br>
+Pode assumir que no Mooshak terá acesso às classes de listas, pilhas e filas como dadas nas aulas (ou seja, não precisa de as incluir no código submetido).
+</font>
+
+<h3>O problema</h3>
+
+<p><img align=right src="prob007.jpg" width="205" height="300" alt="" border="1">A
+Joana estava a fazer um exercício de matemática quando se deparou com a seguinte expressão:
+<pre>( 1 + ( 2 + 3 * [ 4 + 5 * ( 6 * ( 7 ) ) ] ) )</pre>
+<p>"Tantos parênteses!", pensou ela. E antes de começar a fazer exercício pensou também: "E
+se o professor pensou mal antes de começar a fazer o exercício e não colocou bem os
+parênteses. Se assim for nem vale a pena fazer o exerício". É tão preguiçosa esta Joana.
+
+<p>Como a Joana acredita em ti, tens de tentar fazer um programa que indique que a expressão
+matemática está mesmo bem formada, para que ela tenha vontade de fazer o exercício.
+
+<p>A tua tarefa é portanto fazer um analisador de expressões que ligue apenas aos parênteses.
+Tens de conseguir dizer se os parênteses estão bem formados, e caso contrário, indicar
+qual a posição onde foi encontrado o primeiro erro. E não é preciso explicar quando uma
+expressão com parênteses está bem formada, pois não? 
+
+<h3>Input</h3>
+
+<p>A primeira linha contém um número <b>N</b>, indicando o número de expressões a analisar.
+<p>As seguintes <b>N</b> linhas definem expressões matemáticas contendo:
+<ul>
+  <li> Dígitos, representando números inteiros
+  <li> Caracteres, representando operações: <b>+</b>, <b>-</b>, <b>*</b> ou <b>/</b>
+  <li> Parênteses curvos ou rectos: <b>(</b>, <b>)</b>, <b>[</b> ou <b>]</b>
+  <li> Espaços separando as várias partes da expressão
+</ul>
+<p>Não podes assumir nenhum tamanho máximo para a expressão, mas é garantido que existem
+espaços a separar todas as componentes da expressão.
+ 
+<h3>Output</h3>
+
+<p>Uma linha para cada expressão, indicando <b><tt>Expressao bem formada</tt></b> caso todos
+os parenteses estejam bem emparelhados, <b><tt>Erro na posicao <i>POS</i></tt></b>,
+caso seja descoberto um parênteses que não poderia aparecer naquele sítio (onde <b>POS</b> indica a posição na linha, começando a contar de zero,
+desse mesmo parênteses que está incorrecto) ou <b><tt>Ficam parenteses por fechar</tt></b> caso chegando ao fim da expressão
+fiquem ainda parênteses por fechar.
+
+<p>Note-se que por posição entende-se o número de caracteres até chegar ao
+sítio em causa. Por exemplo, na linha "<tt>( 1 + 2 )</tt>", o <tt>(</tt> está na posicao 0, o <tt>+</tt> na posição
+4 e o <tt>)</tt> na posição 8.  
+
+<p>Lembra-te que podes ignorar todo o conteúdo da expressão que não sejam parenteses, pois para este
+problema em particular, é irrelevante.
+
+<h3>Exemplo de input/output</h3>
+
+<table class=main cellpadding=4 border=1>
+<tr>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+<tr>
+       <td valign=top class=left>
+<pre>5
+( 1 )
+( 1 + 2 ) )
+[ ( ] )
+( 1 + ( 2 )
+( 1 + ( 2 + 3 * ( 4 + 5 * ( 6 * ( 7 ) ) ) ) )</pre>
+	   </td>
+       <td valign=top class=left>
+<pre>Expressao bem formada
+Erro na posicao 10
+Erro na posicao 4
+Ficam parenteses por fechar
+Expressao bem formada
+<pre></td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

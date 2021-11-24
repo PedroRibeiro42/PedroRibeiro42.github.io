@@ -1,0 +1,100 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[AED 06] Somas mais próximas</title>
+</head>
+
+<body bgcolor="white">
+
+<h1><font color="blue">[AED 06] Somas mais próximas</font></h1>
+
+<img align="right" src="aed06.jpg" border="1">
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dada um conjunto <b>S</b> de <b>N</b> números inteiros, e uma sequência de <b>Q</b> perguntas (<i>queries</i>), cada uma indicando um número <b>P<sub>i</sub></b>, a tua tarefa é descobrir qual é a soma de dois números diferentes de <b>S</b> que está mais próxima do número <b>P<sub>i</sub></b> de cada pergunta.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha do input vem um único número indicando <b>N</b>, o tamanho do conjunto <b>S</b> de números. Na segunda linha vêm os números <b>S<sub>i</sub></b> do conjunto.</p>
+
+<p>Na terceira linha vem um número <b>Q</b>,
+indicando quantidade de perguntas, seguindo-se na quarta linha os
+números <b>P<sub>i</sub></b> de cada pergunta.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O output deve ser constituído por <b>Q</b> linhas, uma por cada
+pergunta, na mesma ordem em que vinham no input. Cada uma das linhas
+deve indicar a soma mais próxima da respectiva pergunta. No caso de
+existirem várias somas à mesma distância mínima, devem vir todas, por
+ordem crescente e separadas por um espaço.
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste
+    que irão ser colocados ao programa:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>N</b> &le; 1&nbsp;000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Tamanho do conjunto de números</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>S<sub>i</sub></b> &le; 1&nbsp;000&nbsp;000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Números do conjunto</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>Q</b> &le; 2&nbsp;000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Quantidade de perguntas</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>P<sub>i</sub></b> &le; 1&nbsp;000&nbsp;000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Números de cada pergunta</td>
+  </tr>
+</table>
+  
+<h2><font color="blue">Exemplo de Input</font></h2>
+
+<pre>
+6
+12 3 17 5 34 33
+4
+1 51 41 21
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+
+<pre>
+8
+51
+39
+20 22
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+Neste caso temos S = {3,5,12,17,33,34} e 4 perguntas.<br>
+Para a pergunta 1, a resposta é 8 (3+5), a soma de um par mais próxima de 1.<br>
+Para a pergunta 51, a resposta é 51 (17+34).<br>
+Para a pergunta 41, a resposta é 39 (5+34).<br>
+Finalmente, para a pergunta 21, a resposta é 20 (3+17) e 22 (5+17), ambos à mesma distância de 21.
+
+<hr>
+
+<p align="center">
+Algoritmos e Estruturas de Dados (L.EIC011)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto<br>
+DEI/FEUP - Faculdade de Engenharia da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+
+
+
+</html>

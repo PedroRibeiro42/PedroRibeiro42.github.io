@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Estruturas de Dados - Problemas</title>
+	<link rel=StyleSheet href="style.css" type="text/css">
+	<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 11 de Dezembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula07.html">ler o guião da aula #07</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[ED005] Notação Polaca Invertida</h2>
+
+<font color="red"><p>Neste problema deverá submeter uma classe <b>ED005</b> contendo um programa completo para resolver o problema (ou seja, com o método main).<br>
+Pode assumir que no Mooshak terá acesso às classes de listas, pilhas e filas como dadas nas aulas (ou seja, não precisa de as incluir no código submetido).
+</font>
+
+<h3>O problema</h3>
+
+<p><img align=right src="prob005.jpg" width="182" height="128" alt="" border="1">
+Quando andaste na escola primária, aprendeste que os diferentes operadores aritméticos têm diferentes precedências.
+Isso acontece em todos os países, e por exemplo os ingleses usam a mnemónica: <i>"<b>P</b>lease <b>E</b>xcuse <b>M</b>y <b>D</b>ear <b>A</b>unt <b>S</b>ally"</i>, que indica a ordem dos operadores (<b>P</b>arenteses, <b>E</b>xponenciação, <b>M</b>ultiplicação, <b>D</b>ivisão, <b>A</b>dição, <b>S</b>ubtração).
+
+<p>Por exemplo, a expressão:
+<pre>1 + 2 x 3 = ?</pre>
+dá como resultado <tt>7</tt>, pois o operador multiplicação tem precedência.
+
+<p>Se quiseremos avaliar primeiro a soma a expressão tem de ser:
+<pre>(1 + 2) x 3 = ?</pre>
+No entanto, nos tempos iniciais das calculadoras electrónicas, revelou-se complicado analisar
+este tipo de expressões.
+
+<p>Por isso mesmo, em 1920, o matemático polaco <b>Jan Lukasiewicz</b> criou uma notação que
+tornava desnecessário o uso de parenteses, garantindo sempre que as operações eram efectuadas como
+desejado. A notação consistia basicamente em escrever os operadores antes dos números e não no meio deles.
+
+<p>Já em 1950, o <i>computer scientist</i> <b>Charles L. Hamblin</b> propôs um esquema onde os operadores
+apareciam a seguir aos números, em vez de ser antes. Esta notação acbou por ser muito usada, devido entre
+outras coisas à sua fácil implementação num sistema automático usando uma pilha, e ficou conhecida como
+<b>Notação Polaca Invertida (RPN)</b> (ou <i>postfix</i>). Em RPN, uma expressão arbitrariamente
+complexa pode ser escrita sem o uso de parenteses.<br>&nbsp;
+
+<table class=main>
+<tr>
+       <th>Notação Normal</th>
+       <th>Notação Polaca Invertida (RPN)</th>
+</tr>
+<tr>
+       <td>1 + 1</td>
+       <td>1 1 +</td>
+</tr>
+<tr>
+       <td>3 * (4 + 5)</td>
+       <td>3 4 5 + *</td>
+</tr>
+<tr>
+       <td>3 + 4 * 5</td>
+       <td>3 4 5 * +</td>
+</tr>
+</table>
+
+<p>A tua tarefa é criar um programa capaz de calcular o valor final de expressões dadas em RPN, sabendo que
+um algoritmo para as analisar é:
+
+<ul>
+  <li>Criar uma pilha 
+  <li>Ir da esquerda para a direita lendo elemento a elemento e:
+  <ul>
+    <li>Se o elemento for um número, inseri-lo na pilha
+	<li>Se for um operador, retirar dois valores da pilha, aplicar esse operador, e inserir o resultado na pilha
+  </ul>
+  <li>No final, fica apenas um valor na pilha, que é o resultado da expressão
+  <li>Se a pilha não corresponder a alguma das coisas que foi dita atrás (por exemplo, ficar vazia), então a expressão é incorrecta.
+</ul>
+
+<h3>Input</h3>
+
+<p>A primeira linha contém um número <b>N</b>, indicando o número de expressões a analisar.
+<p>As seguintes <b>N</b> linhas contêm expressões RPN, contendo
+<ul>
+  <li> Dígitos, representando números inteiro
+  <li> Caracteres, representando operações (+, -, * , /)
+</ul>
+<p>Podes assumir que os números são sempre inteiros, que os cálculos intermédios vão dar sempre números
+inteiros, e que só aparecem os quatro tipos básicos de operações atrás citados.
+ 
+<h3>Output</h3>
+
+<p>Uma linha para cada expressão, indicando o resultado final caso a expressão seja correcta,
+ou <tt><b>Expressao Incorrecta</b></tt>, caso contrário.
+
+<h3>Exemplo de input/output</h3>
+
+<table class=main cellpadding=4 border=1>
+<tr>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+<tr>
+       <td valign=top class=left>
+<pre>6
+1 1 +
+3 4 5 + *
+3 4 5 * +
+1 +
+1 1 1 +
+2 3 8 2 / - 1 + *</pre>
+	   </td>
+       <td valign=top class=left>
+<pre>2
+27
+23
+Expressao Incorrecta
+Expressao Incorrecta
+0<pre>
+	   </td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

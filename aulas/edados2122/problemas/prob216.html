@@ -1,0 +1,103 @@
+<html>
+<head>
+<title>[ED216] Contando Cardinais</title>
+<link rel="StyleSheet" href="style.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 13 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula03.html">ler o guião da aula #03</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[ED216] Contando Cardinais</h2>
+
+<h3>O problema</h3>
+
+<p>Dada uma matriz de caracteres (<tt>'.'</tt> ou <tt>'#'</tt>), a sua tarefa é indicar o tamanho do maior segmento contíguo (horizontal ou vertical) de caracteres <tt>'#'</tt>, bem como o número de segmentos desse tamanho.
+
+<p>Considera por exemplo a seguinte matriz de 4 linhas por 8 colunas:
+
+<pre>
+.....#..
+##...#..
+.#..###.
+####.#..
+</pre>
+
+<p>Nesta matriz o maior segmento contíguo tem tamanho 4. A figura seguinte ilustra alguns dos segmentos contíguos de cardinais na matriz, sendo que os dois últimos são os únicos de tamanho máximo:
+
+<pre>
+.....<span style="color:red;font-weight:bold;">#</span>..        .....#..        .....#..        .....#..        .....#..        .....<span style="color:red;font-weight:bold;">#</span>..
+## ..#..        <span style="color:red;font-weight:bold;">##</span>...#..        ##...#..        #<span style="color:red;font-weight:bold;">#</span>...#..        ##...#..        ##...<span style="color:red;font-weight:bold;">#</span>..
+.#..###.        .#..###.        .#..<span style="color:red;font-weight:bold;">###</span>.        .<span style="color:red;font-weight:bold;">#</span>..###.        .#..###.        .#..#<span style="color:red;font-weight:bold;">#</span>#.
+####.#..        ####.#..        ####.#..        #<span style="color:red;font-weight:bold;">#</span>##.#..        <span style="color:red;font-weight:bold;">####</span>.#..        ####.<span style="color:red;font-weight:bold;">#</span>..
+
+
+Exemplo de      Exemplo de      Exemplo de      Exemplo de      Exemplo de      Exemplo de
+um segmento     um segmento     um segmento     outro segmento  um segmento     outro segmento
+de tamanho 1    de tamanho 2    de tamanho 3    de tamanho 3    de tamanho 4    de tamanho 4
+</pre>
+
+<h3>Input</h3>
+
+<p>A primeira linha contém dois inteiros <b>L</b> (1&le;L&le;50) e <b>C</b> (1&le;C&le;50), o número de linhas e colunas da matriz. Segue-se a matriz em si, representada por <b>L</b> linhas, cada uma com <b>C</b> caracteres, que serão sempre <tt>'.'</tt> ou <tt>'#'</tt>.
+
+<h3>Output</h3>
+
+<p>O output deverá ser uma única linha com dois inteiros separados por um espaço: o primeiro inteiro deve indicar o tamanho do segmento máximo e o segundo inteiro deve indicar o número de segmentos com esse tamanho máximo.
+
+<h3>Exemplo de input/output 1</h3>
+
+
+<table class="main" cellpadding="4" border="1">
+<tr>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+       <td class="left" valign="top">
+<pre>
+4 8
+.....#..
+##...#..
+.#..###.
+####.#..
+</pre>
+</td>
+<td class="left" valign="top"><tt>4 2</tt></td>
+</tr>
+</table>
+
+<h3>Exemplo de input/output 2</h3>
+
+
+<table class="main" cellpadding="4" border="1">
+<tr>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+       <td class="left" valign="top">
+<pre>
+3 3
+#..
+##.
+.#.
+</pre>
+</td>
+<td class="left" valign="top"><tt>2 3</tt></td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

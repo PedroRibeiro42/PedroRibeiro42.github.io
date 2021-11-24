@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<html>
+<head>
+	<title>[ED006] Pim, Pam, Pum</title>
+	<link rel=StyleSheet href="style.css" type="text/css">
+</head>
+
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 11 de Dezembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula07.html">ler o guião da aula #07</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[ED006] Pim, Pam, Pum</h2>
+
+<font color="red"><p>Neste problema deverá submeter uma
+  classe <b>ED006</b> contendo um programa completo para resolver o
+  problema (ou seja, com o método main).<br>
+Pode assumir que no Mooshak terá acesso às
+  classes <b>Node&lt;T&gt;</b> e <b>CircularLinkedList&lt;T&gt;</b>
+  como dadas nas aulas (ou seja, não precisa de as incluir no código submetido).
+
+</font>
+
+<h3>O problema</h3>
+
+<p><img align=right src="prob6f1.jpg" width="200" height="140" alt="" border="1">
+<i><b>"Pim, Pam, Pum, cada bola mata um, p'ra galinha e para o peru quem se livra és mesmo tu"</b></i>
+
+<p>Quem não se lembra de ter feito este jogo quando era pequeno? A ideia é muito simples.
+A frase atrás descrita tem 19 palavras:
+
+<pre>
+"Pim, Pam, Pum, cada bola mata um, p'ra galinha e para o peru quem se livra és mesmo tu"
+  1    2     3    4   5    6   7    8      9    10 11  12 13   14  15  16   17  18   19
+</pre>
+
+<p>3 crianças resolveram jogar este jogo, o Paulo, a Raquel e o Carlos, que estão dispostas
+por esta ordem. O Paulo começa a dizer a frase, e em cada palavra vai apontando para as pessoas.
+Ao chegar ao fim da lista de pessoas, volta ao início, a ele mesmo, como exemplificado.
+
+<p class=center><img src="prob6f2.jpg" width="262" height="200" alt="" border="1"><br>
+<b>Figura 1</b> - Exemplo do jogo do "Pim, Pam, Pum" com 3 crianças. 
+
+<p>Quem se livrava no início era o Paulo. Agora imagina que o jogo continuava. A pessoa que se livrou
+sai da lista, e a contagem recomeça na próxima pessoa (neste caso a Raquel). Quem se livrava a seguir era a
+Raquel e o Carlos, coitado, era o que não se livrava.
+
+<p>Descontente com isto, o Carlos, sabendo que és um bom programador, resolveu
+pedir-te ajuda. O que ele quer saber é, dada uma configuração inicial, se ele irá perder o jogo. O pior
+é que ele não sabe que frase vai ser usada. Por vezes e aquela frase comprida, outras vezes é uma mais pequena
+(como por exemplo, "Pim, Pam, Pum, quem se livra és tu", que neste caso teria 8 palavras). Podes ajudá-lo?
+
+<h3>Input</h3>
+
+<p>A primeira linha contém um número <b>N</b> indicando o número de casos a analisar-
+<p>De seguida vêm N casos, cada um definido por duas linhas:
+<ul>
+  <li> Na primeira vez a frase que vai ser usada para a contagem (com não mais do que 50 palavras)
+  <li> Na segunda vem um número <b>K</b> (<b>0&lt;K&lt;100</b>), indicando o número de crianças que vão jogar o jogo,
+       logo seguido de <b>K</b> nomes, indicando o nome das crianças.
+</ul>
+<p>Podes assumir que um dos nomes (que são sempre formados por uma única palavra)
+será sempre <tt>"Carlos"</tt> e que a frase será <b>apenas</b> constituída
+por letras (maísculas ou minúsculas, mas sem acentos) e espaços (para efeitos de contagem, uma palavra é uma sequência
+de caracteres delimitada por espaços ou mudanças de linha).
+ 
+<h3>Output</h3>
+
+Para cada caso, vem uma linha de output:
+<ul>
+<li><tt>"O Carlos nao se livrou"</tt>, indicando que o Carlos perde o jogo
+<li><tt>"O Carlos livrou-se (coitado do NomeX!)"</tt>, onde <tt><b>NomeX</b></tt> indica a pessoa que perde o jogo.
+</ul>
+
+<h3>Exemplo de input/output</h3>
+
+<table class=main cellpadding=4 border=1>
+<tr>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+<tr>
+       <td valign=top class=left>
+<pre>2
+Pim Pam Pum cada bola mata um pra galinha e para o peru quem se livra es mesmo tu
+3 Paulo Raquel Carlos
+Pim Pam Pum quem se livra es tu
+4 Fernando Eduardo Pedro Carlos
+</pre>
+	   </td>
+       <td valign=top class=left>
+<pre>O Carlos nao se livrou
+O Carlos livrou-se (coitado do Pedro!)</pre>
+	   </td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>
+

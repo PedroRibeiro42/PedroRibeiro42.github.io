@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="generator" content="hevea 2.18">
+<style type="text/css">
+.li-itemize{margin:1ex 0ex;}
+.li-enumerate{margin:1ex 0ex;}
+.dd-description{margin:0ex 0ex 1ex 4ex;}
+.dt-description{margin:0ex;}
+.toc{list-style:none;}
+.footnotetext{margin:0ex; padding:0ex;}
+div.footnotetext P{margin:0px; text-indent:1em;}
+.thefootnotes{text-align:left;margin:0ex;}
+.dt-thefootnotes{margin:0em;}
+.dd-thefootnotes{margin:0em 0em 0em 2em;}
+.footnoterule{margin:1em auto 1em 0px;width:50%;}
+.caption{padding-left:2ex; padding-right:2ex; margin-left:auto; margin-right:auto}
+.title{margin:2ex auto;text-align:center}
+.titlemain{margin:1ex 2ex 2ex 1ex;}
+.titlerest{margin:0ex 2ex;}
+.center{text-align:center;margin-left:auto;margin-right:auto;}
+.flushleft{text-align:left;margin-left:0ex;margin-right:auto;}
+.flushright{text-align:right;margin-left:auto;margin-right:0ex;}
+div table{margin-left:inherit;margin-right:inherit;margin-bottom:2px;margin-top:2px}
+td table{margin:auto;}
+table{border-collapse:collapse;}
+td{padding:0;}
+.cellpadding0 tr td{padding:0;}
+.cellpadding1 tr td{padding:1px;}
+pre{text-align:left;margin-left:0ex;margin-right:auto;}
+blockquote{margin-left:4ex;margin-right:4ex;text-align:left;}
+td p{margin:0px;}
+.boxed{border:1px solid black}
+.textboxed{border:1px solid black}
+.vbar{border:none;width:2px;background-color:black;}
+.hbar{border:none;height:2px;width:100%;background-color:black;}
+.hfill{border:none;height:1px;width:200%;background-color:black;}
+.vdisplay{border-collapse:separate;border-spacing:2px;width:auto; empty-cells:show; border:2px solid red;}
+.vdcell{white-space:nowrap;padding:0px; border:2px solid green;}
+.display{border-collapse:separate;border-spacing:2px;width:auto; border:none;}
+.dcell{white-space:nowrap;padding:0px; border:none;}
+.dcenter{margin:0ex auto;}
+.vdcenter{border:solid #FF8000 2px; margin:0ex auto;}
+.minipage{text-align:left; margin-left:0em; margin-right:auto;}
+.marginpar{border:solid thin black; width:20%; text-align:left;}
+.marginparleft{float:left; margin-left:0ex; margin-right:1ex;}
+.marginparright{float:right; margin-left:1ex; margin-right:0ex;}
+.theorem{text-align:left;margin:1ex auto 1ex 0ex;}
+.part{margin:2ex auto;text-align:center}
+</style>
+<title>probC</title>
+</head>
+<body>
+<!--HEVEA command line is: /usr/bin/hevea probC.tex -->
+<!--CUT STYLE book--><!--CUT DEF chapter 1 -->
+<!--TOC section id="sec1" Problem C: The Golden Permit -->
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 11 de Dezembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula07.html">ler o guião da aula #07</a>]</b></small></p>
+  
+<hr>
+
+<h2 id="sec1" class="section">[ED251] The Golden Permit </h2>
+<p><img align="right" src="prob251.jpg">The Interior Ministry has decided to develop a new more exciting and <span style="font-style:italic">fairer</span> system for awarding the fabled Golden Resident Permits, whilst also giving less wealthy candidates a possibility of winning. The idea is that candidates for a permit buy lottery tickets which are numbered 1 up to some maximum number. The lottery system then consists of a series of rounds where certain numbers are eliminated or knocked out until only some remain. 
+<br>
+The basic idea of the elimination system in the lottery is similar to the old Roman imperial legion system of decimating. Here the system is not quite so brutal, the lottery system consists of simply eliminating every <span style="font-weight:bold"><span style="font-style:italic">K</span></span>’th ticket and then repeating the process until there are only <span style="font-weight:bold"><span style="font-style:italic">K</span></span>−1 tickets remaining. These are the winning tickets. 
+<br>
+On a live TV show the elimination factor is announced and then candidates can watch the process evolve over time and see if they win the desired golden resident permit. Of course any system is open to abuse and this is no exception. Your job is, given the right insider information, to advise certain clients what number they should buy.</p><!--TOC subsection id="sec2" Task-->
+<h3 id="sec2" class="subsection">Task</h3><!--SEC END --><p>You will be given the number <span style="font-weight:bold"><span style="font-style:italic">N</span></span> of the tickets which are initially ordered 1..<span style="font-style:italic">N</span>. In fact they are arranged logically in a circle so that counting continues in a circular fashion. You are also given the value <span style="font-weight:bold"><span style="font-style:italic">K</span></span>, the elimination factor. Your job is to calculate the lowest or highest numbered winning ticket.
+<br>
+The following example for <span style="font-style:italic">N</span>=10 and <span style="font-style:italic">K</span>=3 illustrates the process.
+<br>
+In the first round the tickets 3,6,9 are eliminated leaving 1 2 4 5 7 8 10
+<br>
+The next round eliminates 2 and 7 leaving 1 4 5 8 10
+<br>
+The next round eliminates 1 and 8 leaving 4 5 10. 
+<br>
+The next round eliminates 5 leaving 4 and 10 hence the lowest winning ticket is 4 and the highest winning ticket is 10.</p><!--TOC subsection id="sec3" Input-->
+<h3 id="sec3" class="subsection">Input</h3><!--SEC END --><p>
+The input consists of three integer values, on separate lines, namely the number of tickets <span style="font-weight:bold">N</span>, the elimination factor <span style="font-weight:bold">K</span>, and an integer <span style="font-weight:bold">M</span>, zero or one (1 for the lowest ticket and 0 for the highest).</p><!--TOC subsection id="sec4" Output-->
+<h3 id="sec4" class="subsection">Output</h3><!--SEC END --><p>
+The output is a line with one integer value. If M is 1 the answer is the number of the winning lowest ticket an if M is zero the answer is the number of the winning highest ticket.</p><!--TOC subsection id="sec5" Constraints-->
+<h3 id="sec5" class="subsection">Constraints</h3><!--SEC END --><table style="border-spacing:6px;border-collapse:separate;" class="cellpading0"><tr><td style="text-align:left;white-space:nowrap">4 ≤ <span style="font-weight:bold"><span style="font-style:italic">N</span></span> ≤ 10,000,000</td><td style="text-align:left;white-space:nowrap">Number of tickets </td></tr>
+<tr><td style="text-align:left;white-space:nowrap">2 ≤ <span style="font-weight:bold"><span style="font-style:italic">K</span></span> ≤ 15</td><td style="text-align:left;white-space:nowrap">Elimination factor
+</td></tr>
+</table><!--TOC subsection id="sec6" Input Example 1-->
+<h3 id="sec6" class="subsection">Input Example 1</h3><!--SEC END --><pre class="verbatim">98
+11
+0
+</pre><!--TOC subsection id="sec7" Output Example 1-->
+<h3 id="sec7" class="subsection">Output Example 1</h3><!--SEC END --><pre class="verbatim">90
+</pre><p><br>
+</p><!--TOC subsection id="sec8" Input Example 2-->
+<h3 id="sec8" class="subsection">Input Example 2</h3><!--SEC END --><pre class="verbatim">9876543
+13
+1
+</pre><!--TOC subsection id="sec9" Output Example 2-->
+<h3 id="sec9" class="subsection">Output Example 2</h3><!--SEC END --><pre class="verbatim">534335
+</pre><!--CUT END -->
+<!--HTMLFOOT-->
+<!--ENDHTML-->
+<!--FOOTER-->
+
+<hr size=2>
+<center><i>(adaptação para a UC de Estruturas de Dados - CC1007 - DCC/FCUP)</i><br><br>
+  
+<center><b>MIUP'2015</b> <i>(31/10/2015)</i></center>
+<hr size=2>
+
+
+</body>
+</html>

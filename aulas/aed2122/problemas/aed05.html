@@ -1,0 +1,82 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[AED 05] ADN Alienígena</title>
+</head>
+
+<body bgcolor="white">
+
+<h1><font color="blue">[AED 05] ADN Alienígena</font></h1>
+
+<p><img align="right" src="aed05.jpg" border="1">A vida tal como a conhecemos depende do ADN (ácido desoxirribonucleico), um composto orgânico cujas moléculas contêm as instruções genéticas que controlam todo o funcionamento dos seres vivos. De um ponto de vista simplista, um fragmento de ADN humano pode ser pensado como uma palavra que usa um alfabeto de quatro letras: A, G, C e T (que correspondem às quatro base azotadas Adenina (A), Guanina (G), Citosina (C) e Timina (T).</p>
+
+<p>Recente foi descoberto pela primeira vez um fragmento de ADN que parece ter origem extra-terreste. De facto este ADN tem 26 diferente bases azotadas, que podem ser representadas pelas 26 diferentes letras maiúsculas do alfabeto. Por exemplo, a seguinte palavra é um possível fragmento de ADN alienígena:</p>
+
+<tt>JSHNSHQSHDGNSYHNSJAHSSA</tt>
+
+<p>Para compreender melhor a composição deste ADN, os cientistas querem perceber qual é a letra mais frequente. Serás capaz de ajudá-los?</p>
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dado um fragmento de ADN alienígena, a tua tarefa é produzir uma listagem das letras que aparecem em pelo menos uma vez, ordenada por ordem decrescente da sua frequência (número de occorrências) e em caso de empate pela ordem em que aparecem primeiro no fragmento (ou seja, tendo em conta a primeira ocorrência de cada letra).</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>O input contém uma única linha contendo o fragmento a considerar. Este fragmento tem tamanho <b>T</b> e é constituído apenas por letras maiúsculas.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O output deve listar todas as letras que aparecem pelo menos uma vez. Deve aparecer uma letra por linha, no formato  "LETRA FREQUENCIA", onde FREQUENCIA é um inteiro indicando o número total de ocorrências dessa letra. As letras devem vir por ordem decrescente de frequência e em caso de empate pela ordem em que aparecem primeiro no input.
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste
+    que irão ser colocados ao programa:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>T</b> &le; 10&nbsp;000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Tamanho da palavra representando ADN alienígena</td>
+  </tr>
+</table>
+
+<h2><font color="blue">Exemplo de Input</font></h2>
+
+<pre>
+JSHYNSHQSHDGNSHNSJAHSSA
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+
+<pre>
+S 7
+H 5
+N 3
+J 2
+A 2
+Y 1
+Q 1
+D 1
+G 1
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>A letra mais frequente é o 'S' que aparece 7 vezes.<br>
+A 2ª letra mais frequente é o 'H', que aparece 5 vezes.<br>
+A 3ª letra mais frequente é o 'N', que aparece 3 vezes.<br>
+A seguir estão o 'J' e o 'A', e o 'J' aparece antes do que o 'A' no output porque também aparece primeiro que o 'A' no input.<br>
+'Y', 'Q', 'D' e 'G' aparecem uma vez e vêm por esta ordem porque é também a ordem onde aparecem no input.<br>
+Mais nenhuma letra aparece no input.</p>
+
+<hr>
+
+<p align="center">
+Algoritmos e Estruturas de Dados (L.EIC011)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto<br>
+DEI/FEUP - Faculdade de Engenharia da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

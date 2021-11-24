@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<html>
+<head>
+	<title>[ED004] Jogo do Galo </title>
+	<link rel=StyleSheet href="style.css" type="text/css">
+</head>
+
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 20 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula04.html">ler o guião da aula #04</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[ED004] Jogo do Galo</h2>
+
+<h3>O problema</h3>
+
+
+<p align="justify">
+<img src="prob004.jpg" align="right" border="1">
+Quem não conhece o famoso jogo do galo? Neste problema é-lhe pedido
+que dado um tabuleiro de um jogo do galo, com algumas jogadas
+possivelmente já feitas, o analise e diga se algum dos jogadores
+ganhou. Para complicar um pouco as coisas, imagine uma generalização
+do jogo, sempre num tabuleiro quadrado, mas que pode ser de dimensão
+diferente de 3x3. Tal como no original, os jogadores jogam à vez e
+ganham se conseguirem preencher completamente uma linha, uma coluna ou
+uma diagonal.
+
+<h3>Input</h3>
+
+<p>Na primeira linha vem um número <b>N</b>, indicando a dimensão do tabuleiro (que é sempre quadrado).
+
+<p>Seguem-se <b>N</b> Linhas, cada uma com <b>N</b> caracteres (<b><tt>'X'</tt></b>, <b><tt>'O'</tt></b> ou <b><tt>'.'</tt></b>) indicando o estado actual do jogo.
+
+<p>Tal como esperado, <b><tt>X</tt></b> e <b><tt>O</tt></b> representam uma casa ocupada por um dos dois jogadores, e <b><tt>.</tt></b> representa uma casa vazia.
+
+<p>Pode assumir que será sempre um estado de jogo válido (por exemplo, nunca acontecerá haver dois vencedores).
+
+<h3>Output</h3>
+
+O output deverá ser uma única linha indicando qual o estado do jogo:
+<ul>
+  <li><b><tt>Ganhou o X</tt></b> - Caso o jogador X consiga ter preenchido uma linha, coluna, ou diagonal
+  <li><b><tt>Ganhou o O</tt></b> - Caso o jogador O consiga ter preenchido uma linha, coluna, ou diagonal
+  <li><b><tt>Empate</tt></b> - Nenhum dos jogadores ganhou, e o jogo já terminou
+  <li><b><tt>Jogo incompleto</tt></b> - Nenhum dos jogadores ganhou, mas o jogo ainda não terminou
+</ul> 
+
+<h3>Exemplo de input/output</h3>
+
+<table class="main" cellpadding="4" border="1">
+<tr>
+       <th> </th>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+<tr>
+       <th>Exemplo 1</th>
+       <td class="left" valign="top">
+	   <pre>
+3
+...
+...
+...
+</pre>
+	   </td>
+       <td class="left" valign="top"><tt>Jogo incompleto</tt></td>
+</tr>
+<tr>
+       <th>Exemplo 2</th>
+       <td class="left" valign="top">
+	   <pre>
+4
+XXXX
+OOO.
+....
+....
+</pre>
+	   </td>
+       <td class="left" valign="top"><tt>Ganhou o X</tt></td>
+</tr>
+<tr>
+       <th>Exemplo 3</th>
+       <td class="left" valign="top">
+	   <pre>
+2
+XO
+O.
+</pre>
+	   </td>
+       <td class="left" valign="top"><tt>Ganhou o O</tt></td>
+</tr>
+<tr>
+       <th>Exemplo 4</th>
+       <td class="left" valign="top">
+	   <pre>
+3
+XOX
+OOX
+XXO
+</pre>
+	   </td>
+       <td class="left" valign="top"><tt>Empate</tt></td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

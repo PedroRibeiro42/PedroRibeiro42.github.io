@@ -1,0 +1,254 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #04 - Programação Estruturada</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Aula Prática #04 - Programação Estruturada<br>
+    <small><small>(3 de Novembro)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios que pode submeter desta aula são:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problemas/prob004.html">[ED004] Jogo do Galo</a> (peso 10%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/prob088.html">[ED088] Jogo da Vida</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/prob015.html">[ED015] Sopa de Letras</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/prob101.html">[ED101] O Mundo da Tartaruga</a> (peso 25%) <span style="color:DarkSlateBlue">(exercício extra)</span></li>
+      <li><a class="important" href="../problemas/prob246.html">[ED246] Caderno Quadriculado</a> (peso 25%) <span style="color:DarkRed">(exercício de desafio)</span>
+    </ul>
+
+    <p><b>Prazo de submissão:</b> 20 de Novembro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a>)</p>
+
+  <p><b>É encorajado que vão falando com os docentes e outros colegas se tiverem dificuldades. No entanto, qualquer ajuda mais direta que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota.<br>
+    Cada aula vale 10% da nota desta componente. Como existem 12 aulas com submissões, pode ter pontuação máxima mesmo sem ter feito tudo.<br>
+    Para um problema contar tem acertar todos os testes (ou seja, ter <i>accepted</i>). Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.<br>
+  Para ter 100% bastará sempre resolver os exercícios do guião principal.</p>
+
+  <hr>
+  
+
+<h3>Exercício 1) Jogo do Galo</h3>
+
+<ul>
+<li><b>Conselhos sobre como criar um programa.</b><br>
+  Veja o <a href="https://youtu.be/jSWH4k_HQyk">vídeo</a> e/ou leia cuidadosamente <a href="../slides/2_estruturada_2610.pdf">slides</a> disponibilizados no <a href="../slides/2_estruturada_2610.pdf">Capítulo 2 - Sobre Programação Estruturada</a><br>
+  Para acompanhar pode usar:
+  <ul>
+    <li>O enunciado do problema <a href="../problemas/prob004.html">[ED004] Jogo do Galo</a>
+    <li>O código completo do programa descrito nos slides para resolver o problema: <a href="../codigo/ED004.html">versão HTML</a> | <a href="../codigo/ED004.java">versão para download</a>
+  </ul>
+<li><b>Submissão para o Mooshak</b><br>
+  <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+  Depois de garantir que percebeu bem todo o programa dado (em particular a maneira como foi generalizada a verificação das linhas) submeta o código dado para o <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak</a> (o problema <a href="../problemas/prob004.html">[ED004] Jogo do Galo</a> está disponível no Volume 1).
+</ul>
+<hr>
+
+<h3>Exercício 2) Jogo da Vida</h3>
+
+<p>O <a href="https://pt.wikipedia.org/wiki/Jogo_da_vida">Jogo da Vida</a> é talvez o mais conhecido autómato celular e foi criado para simular, através de regras simples e vai ser o tema do principal exercício desta aula prática. O objectivo é submeter com sucesso o problema <a href="../problemas/prob088.html">[ED088] Jogo da Vida</a> criando um código adequado e estruturado.
+
+<ul>
+<li>Comece por ler o enunciado do problema, prestando especial atenção às regras que definem como é criada uma nova geração a partir do estado actual do jogo: <a href="../problemas/prob088.html">[ED088] Jogo da Vida</a>
+<li>Depois de ler, experimente interagir um pouco com o jogo, para garantir que percebeu as regras:
+<ul>
+  <li>Vá por exemplo a este simulador: <a href="https://playgameoflife.com/">https://playgameoflife.com/</a>.
+  <li>Experimente usar o botão <i>Next</i> para ir vendo como aparece cada nova geração (e verifique que percebeu as regras)
+  <li>Usando o botão <i>Start</i> pode ver as várias gerações a irem aparecendo sem ter de carregar num botão para cada nova geração (pode também usar o interface para mudar a velocidade das iterações)
+  <li>No "lexicon" pode ver outras formas de vida inciais (estados do tabuleiro) que dão origem resultados interessantes (carregando na figura consegue colocá-las no simulador)
+</ul>
+<li>Para este problema vamos sugerir que use o seguinte esqueleto de código (que contém funções que deverá completar).<br>
+<b>[Depois do código vem explicado um conjunto de passos para completar este exercício!]</b><br>&nbsp;
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">/* -----------------------------------</span>
+<span style="color: #888888">  Estruturas de Dados 2021/2022</span>
+<span style="color: #888888">  Jogo da Vida [ED088]  </span>
+<span style="color: #888888">----------------------------------- */</span>
+
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.Scanner</span><span style="color: #333333">;</span>
+
+<span style="color: #888888">// Classe para representar um jogo</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Game</span> <span style="color: #333333">{</span>
+    <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">char</span> DEAD  <span style="color: #333333">=</span> <span style="color: #0044DD">&#39;.&#39;</span><span style="color: #333333">;</span>  <span style="color: #888888">// Constante que indica uma celula morta</span>
+    <span style="color: #008800; font-weight: bold">final</span> <span style="color: #333399; font-weight: bold">char</span> ALIVE <span style="color: #333333">=</span> <span style="color: #0044DD">&#39;O&#39;</span><span style="color: #333333">;</span>  <span style="color: #888888">// Constante que indica uma celula viva</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> rows<span style="color: #333333">,</span> cols<span style="color: #333333">;</span>  <span style="color: #888888">// Numero de linhas e colunas</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">char</span> m<span style="color: #333333">[][];</span>      <span style="color: #888888">// Matriz para representar o estado do jogo</span>
+
+    <span style="color: #888888">// Construtor: inicializa as variaveis tendo em conta a dimensao dada</span>
+    Game<span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> r<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> c<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	rows <span style="color: #333333">=</span> r<span style="color: #333333">;</span>
+	cols <span style="color: #333333">=</span> c<span style="color: #333333">;</span>
+	m <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #333399; font-weight: bold">char</span><span style="color: #333333">[</span>r<span style="color: #333333">][</span>c<span style="color: #333333">];</span>
+    <span style="color: #333333">}</span>
+
+    <span style="color: #888888">// Metodo para ler o estado inicial para a matriz m[][]</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">read</span><span style="color: #333333">(</span>Scanner in<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	<span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;</span>rows<span style="color: #333333">;</span> i<span style="color: #333333">++)</span>
+	    m<span style="color: #333333">[</span>i<span style="color: #333333">]</span> <span style="color: #333333">=</span> in<span style="color: #333333">.</span><span style="color: #0000CC">next</span><span style="color: #333333">().</span><span style="color: #0000CC">toCharArray</span><span style="color: #333333">();</span>
+    <span style="color: #333333">}</span>
+    
+    <span style="color: #888888">// Metodo para escrever a matriz m[][]</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">write</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+	<span style="color: #888888">// ... por completar</span>
+    <span style="color: #333333">}</span>
+
+    <span style="color: #888888">// Deve devolver o numero de celulas vivas que sao vizinhas de (y,x)</span>
+    <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">countAlive</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> y<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> x<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	<span style="color: #333399; font-weight: bold">int</span> count <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+	<span style="color: #888888">// ... por completar</span>
+	<span style="color: #008800; font-weight: bold">return</span> count<span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
+
+    <span style="color: #888888">// Deve fazer uma iteracao: cria nova geracao a partir da actual</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">iterate</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+	<span style="color: #888888">// ... por completar</span>
+    <span style="color: #333333">}</span>
+
+<span style="color: #333333">}</span>
+
+<span style="color: #888888">// Classe principal com o main()</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ED088</span> <span style="color: #333333">{</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	Scanner in <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Scanner<span style="color: #333333">(</span>System<span style="color: #333333">.</span><span style="color: #0000CC">in</span><span style="color: #333333">);</span>
+
+	<span style="color: #888888">// Ler linhas, colunas e numero de iteracoes</span>
+	<span style="color: #333399; font-weight: bold">int</span> rows <span style="color: #333333">=</span> in<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">();</span>
+	<span style="color: #333399; font-weight: bold">int</span> cols <span style="color: #333333">=</span> in<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">();</span>
+	<span style="color: #333399; font-weight: bold">int</span> n    <span style="color: #333333">=</span> in<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">();</span>
+
+	<span style="color: #888888">// Criar objecto para conter o jogo e ler estado inicial</span>
+	Game g <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Game<span style="color: #333333">(</span>rows<span style="color: #333333">,</span> cols<span style="color: #333333">);</span>
+	g<span style="color: #333333">.</span><span style="color: #0000CC">read</span><span style="color: #333333">(</span>in<span style="color: #333333">);</span>
+	
+	<span style="color: #888888">//... por completar</span>
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+
+<li> Passos sugeridos:
+<ul>
+<li>Começe por completar o método <span class="codigo">write()</span> da classe <span class="codigo">Game</span>, que deverá escrever a matriz <span class="codigo">m[][]</span> para a saída padrão. Deverá chamar <span class="codigo">g.write()</span> no método main para testar se o que fez está a funcionar.<br>
+<b>[Sempre que implementa novos método deve testar o seu funcionamento individual!]</b>
+<li>Agora deverá implementar o método <span class="codigo">int countAlive(int y, int x)</span>. Este método deve percorrer todas as oito células vizinhas da posição <i>(y,x)</i> e contar quantas são iguais a <span class="codigo">ALIVE</span> (ou sejam iguais a <tt>'O'</tt>). Não se esqueça de testar o funcionamento depois de implementar!
+<li>O próximo passo é implementar o método <span class="codigo">void iterate()</span> que deverá fazer uma iteração do jogo da vida, ou seja, produzir a nova geração a partir da actual. Para isso pode criar uma nova matriz (por exemplo com <span class="codigo">char m2[][] = new char[rows][col];</span> e depois percorrer todas as posições possíveis e colocar em <span class="codigo">DEAD</span> ou <span class="codigo">ALIVE</span> consoante o número de vizinhos (aqui deve chamar a função <span class="codigo">countAlive(y,x)</span> que implementou anteriormente. Finalmente deve copiar o conteúdo da nova matriz (<tt>m2[][]</tt>) para a matriz que contém o estado actual (<tt>m[][]</tt>). Note que é fundamental não escrever logo na matriz <tt>m[][]</tt> enquanto quando vai criando a nova geração por causa da regra indicada no enunciado: <i>"todos os nascimentos e mortes de células têm lugar em simultâneo, isto é as alterações têm por base o estado actual e nunca o estado futuro"</i>.
+<li>Para finalizar o problema basta completar o método <span class="codigo">main</span>: chamar <i>n</i> vezes função anterior que faz uma iteração (<span class="codigo">g.iterate()</span>) e no final escrever (<span class="codigo">g.write()</span>)
+</ul>
+<li><b>Submissão para o Mooshak</b><br>
+  <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+  Depois de ter testado o seu programa deverá submetê-lo no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak</a>, verificando se está correcto (o problema <a href="../problemas/prob088.html">[ED088] Jogo da Vida</a> está disponível no Volume 1).
+</ul>
+
+<hr>
+
+<h3>Exercício 3) Sopa de Letras</h3>
+
+<p>
+  <a href="meme04_01.jpg"><img border="0" src="meme04_01.jpg" height="200"></a>
+  &nbsp; &nbsp;
+  <a href="meme04_02.jpg"><img border="0" src="meme04_02.jpg" height="200"></a>
+</p>
+
+<p>Neste exercício a ideia é <b>fazer um problema de forma organizada e estruturada</b> sem a nossa ajuda. O problema em questão é o <a href="../problemas/prob015.html">[ED015] Sopa de Letras</a>.
+  <ul>
+  <li><b>Antes</b> de começar a implementar, não se esqueça que deve:
+    <ul>
+      <li>Ler todo o enunciado com atenção, e perceber as tarefas e as restrições (limites do input)
+      <li>Pensar como vai organizar o código: como dividir as tarefas em blocos pequenos? que classes usar? onde guardar os dados? que métodos criar?
+    </ul>
+  <li><b>Durante</b> a implementação, não se esqueça de:
+    <ul>
+      <li>Criar métodos - <b><font color="red">é expressamente proibido fazer tudo no main :)</font></b>
+      <li>Escrever <b>código para humanos</b> (a melhor documentação é um código bem escrito)
+      <li>Adicionar <b>comentários</b> a partes não triviais (para que daqui a um mês ainda percebem o vosso próprio código)
+      <li><b>Generalizar:</b> evitar <i>copy+paste</i> e ter código que generaliza uma tarefa e pode ser reutilizado
+      <li><b><font color="red">Testem o vosso programa à medida que vão implementando.</font></b> Cada vez que criam um método, testem o seu funcionamento chamando-o e imprimindo os resultados.
+      <li><b>Testem o vosso programa no final de implementarem e antes de submeterem.</b> Usem não só os exemplos do enunciado, mas experimentem com outros casos feitos por vocês. Não criem dependência do Mooshak para testar o vosso código porque no futuro não terão a "papinha feita" e os testes já preparados para vocês.
+    </ul>
+  <li><b>Submissão para o Mooshak</b><br>
+  <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+  Depois de ter testado o seu programa deverá submetê-lo no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak</a>, verificando se está correcto (o problema <a href="../problemas/prob015.html">[ED015] Sopa de Letras</a> está disponível no Volume 1).
+  </ul>
+  
+
+<hr>
+
+<h3>Exercícios extra para consolidação de conhecimentos</h3>
+
+<ul>
+<li><b>O Mundo da Tartaruga</b><br>
+  Para cimentar os seus conhecimentos sobre uma programação bem estruturada, tem mais um problema disponível no Mooshak (no volume 1):<br>
+  <ul>
+    <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    <li>Resolva e <a href="https://mooshak.dcc.fc.up.pt/~edados/">submeta</a> com sucesso o problema <a href="../problemas/prob101.html">[ED101] O Mundo da Tartaruga</a><br>&nbsp;
+    </ul>
+<li><b>O Mundo da Tartaruga... gráfico!</b><br>
+  Se já tiver feito todos os outros exercícios e quiser "brincar" um pouco com interfaces gráficos no seguimento do problema anterior, pode usar um TAD de desenho chamado <span class="codigo">StdDraw</span>, implementando por docentes da Universidade de Princeton. Comece por fazer download do ficheiro <a href="StdDraw.java">StdDraw.java</a>, compile-o e execute-o. Deverá ver uma janela como a que se segue:
+
+<p><img src="stddraw.png" height="160">
+
+<p>Espreite o método <tt>main</tt> para ver como as imagens da janela foram geradas. Como referência, e se necessário, pode consultar a <a href="http://introcs.cs.princeton.edu/java/stdlib/javadoc/StdDraw.html">documentação da classe StdDraw</a>.
+
+<p>A ideia deste exercício vai ser criar uma classe para <a href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle Graphics</a>, um termo que designa um tipo de criação de desenhos usando um "cursor" que vai "andando" por um plano. A ideia é portanto desenhar num plano cartesiano (com tamanho a ser dado na construção do objecto) e ter um "cursor", a tartaruga, com uma dada posição e orientação, sendo possível andar na direção actual e ter um lápis que pode estar ou não levantado.
+
+  <ol>
+    <li><b>Classe e construtores.</b><br>
+      Crie uma classe <span class="Turtle">Turtle</span> que consegue guardar a posição da tartaruga (coordenadas x e y), a orientação actual (uma direção em graus) e o estado do lápis (pousado/levantado). A classe deve também guardar o tamanho da área de desenho. Crie um construtor padrão que coloca a tartaruga na posição (0,0), orientação a 0 graus, com o lápis pousado.
+
+    <li><b>Métodos iniciais.</b><br>
+      Crie os seguintes métodos numa classe <span class="codigo">LibTurtle</span>:</li>
+      <ul>
+	<li>Um método para pousar e outro para levantar o lápis
+	<li>Um método para rodar <i>x</i> graus (pode ser um número positivo ou negativo)
+	<li>Um método para andar para a "frente" (consoante a direção) <i>x</i> pixeis. Se o lápis estiver pousado, isto deve dar origem a uma linha.
+      </ul>
+    <li>Crie métodos para desenhar:</li>
+      <ul>
+	<li>Um quadrado com um lado de <i>x</i> pixeis  (será algo como andar <i>x</i> para a frente, rodar 90 graus, andar <i>x</i> para a frente, rodar 90 graus e assim mais duas vezes até fechar o quadrado).
+	<li>Um polígono regular de <i>n</i> lados, cada um com <i>x</i> pixeis (uma generalização do quadrado)  
+	<li>Uma espiral
+      </ul>
+    <li>Crie um método para <a href="https://en.wikipedia.org/wiki/Brownian_motion">movimento browniano</a>: uma tartaruga desorientada, que executa ciclicamente (<i>n</i> vezes) os seguintes passos: rodar para uma direção aleatória, andar para a frente <i>x</i> pixeis (e depois voltar a rodar aleatoriamente, andar para a frente  <i>x</i> e assim continuaamente).
+    <li>Crie código para ler de um ficheiro comandos para "dirigir" a tartaruga. Um exemplo seria algo como:
+      <pre>
+forward 50
+rotate 90
+penUp
+forward 100
+rotate 20
+penDown
+forward 30
+      </pre>
+  </ol>
+</ul>
+
+<hr>
+
+<h3>Exercício de Desafio</h3>
+
+<p>Para esta semana o desafio tem novamente a ver com a eficiência algorítmica. Deve tentar resolver o seguinte problema, que está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak</a> (o volume de Desafios):
+
+  <ul>
+     <li><big><a href="../problemas/prob246.html">[ED246] Caderno Quadriculado</a></b> (Prova de Qualficação para as Olimpíadas Internacionais de Informática'2016)
+  </ul>
+
+<p>Tal como o <a href="../problemas/prob245.html">[ED245] Regras Quadriculadas</a>, este é um problema da minha autoria que foi usado nas Olimpíadas e para ambos não é necessário nenhum tipo de estruturas de dados avançadas, mas antes é necessário ter um bom pensamento algorítmico. Não são de todo problemas triviais, mas por isso mesmo dão mais gozo fazer, não?
+
+<p>O limite de tempo de execução para cada caso de teste é de 3 segundos, pelo que a solução só será aceite e com pontuação máxima no Mooshak se for eficiente.
+  
+<p>Para estes problemas de desafios não vou dar logo dicas, para vos deixar pensar, mas se quiserem mesmo resolver o problema e não estejam a conseguir (mesmo depois de terem realmente tentado), podem falar comigo para obter pistas, ou ter uma ideia de como os "atacar".
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

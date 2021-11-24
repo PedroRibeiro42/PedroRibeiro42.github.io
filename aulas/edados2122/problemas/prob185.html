@@ -1,0 +1,88 @@
+<html>
+<head>
+<title>[ED185] TAD Números Arbitrariamente Grandes (BigNumber)</title>
+<link rel="StyleSheet" href="style.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 27 de novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula05.html">ler o guião da aula #05</a>]</b></small></p>
+
+<hr>
+
+<h2>[ED185] TAD Números Arbitrariamente Grandes (BigNumber)</h2>
+
+<p><font color="red">Neste problema deverá apenas submeter uma classe <b>BigNumber</b> (e não um programa completo).</font>
+
+<h3>O problema</h3>
+
+<p><img src="prob185.jpg" align="right" border="1">A sua tarefa é criar uma classe <b>BigNumber</b>, que implementa um número arbitrariamente grande (com tantos dígitos quanto o necessário). A classe deverá suportar quaisquer números inteiros positivos, e deverá implementar os seguintes métodos:
+
+  <ul>
+    <li><b>Construtores:</b>
+      <ul>
+	<li><b>BigNumber(String n)</b> - Inicializa o número a partir da String <i>n</i> (supondo que a String só contém dígitos e não tem zeros à esquerda)
+      </ul>
+    <li><b>Métodos padrão:</b>
+      <ul>
+	<li><b>public boolean equals(BigNumber n)</b> - devolve <i>true</i> caso o número seja igual a n, ou <i>false</i> caso contrário
+	<li><b>public String toString()</b> - devolve uma String representando o número (os dígitos em si)
+      </ul>
+    <li><b>Operações:</b>
+      <ul>
+	<li><b>public BigNumber add(BigNumber n)</b> - devolve um novo BigNumber igual à soma de <i>n</i> com o próprio objecto (<i>this + n</i>).
+	<li><b>public BigNumber multiply(BigNumber n)</b> - devolve um novo BigNumber igual à multiplicação de <i>n</i> com o próprio objecto (<i>this * n</i>).
+      </ul>
+  </ul>
+
+<p>Um exemplo de utilização seria:
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">TestBigNumber</span> <span style="color: #333333">{</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      BigNumber n1 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> BigNumber<span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;1234567890&quot;</span><span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>n1<span style="color: #333333">);</span> <span style="color: #888888">// Escreve &quot;1234567890&quot;</span>
+
+      BigNumber n2 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> BigNumber<span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;42&quot;</span><span style="color: #333333">);</span>
+      BigNumber n3 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> BigNumber<span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;1234567890&quot;</span><span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>n1<span style="color: #333333">.</span><span style="color: #0000CC">equals</span><span style="color: #333333">(</span>n2<span style="color: #333333">));</span> <span style="color: #888888">// Escreve &quot;false&quot;</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>n1<span style="color: #333333">.</span><span style="color: #0000CC">equals</span><span style="color: #333333">(</span>n3<span style="color: #333333">));</span> <span style="color: #888888">// Escreve &quot;true&quot;</span>
+      
+      BigNumber n4 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> BigNumber<span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;46711237126582920746212&quot;</span><span style="color: #333333">);</span>
+      BigNumber n5 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> BigNumber<span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;8765432110&quot;</span><span style="color: #333333">);</span>
+      BigNumber n6 <span style="color: #333333">=</span> n1<span style="color: #333333">.</span><span style="color: #0000CC">add</span><span style="color: #333333">(</span>n3<span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>n6<span style="color: #333333">);</span> <span style="color: #888888">// Escreve &quot;2469135780&quot;</span>
+      BigNumber n7 <span style="color: #333333">=</span> n1<span style="color: #333333">.</span><span style="color: #0000CC">add</span><span style="color: #333333">(</span>n4<span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>n7<span style="color: #333333">);</span> <span style="color: #888888">// Escreve &quot;46711237126584155314102&quot;</span>
+      BigNumber n8 <span style="color: #333333">=</span> n1<span style="color: #333333">.</span><span style="color: #0000CC">add</span><span style="color: #333333">(</span>n5<span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>n8<span style="color: #333333">);</span> <span style="color: #888888">// Escreve &quot;10000000000&quot;</span>
+
+      BigNumber n9 <span style="color: #333333">=</span> n1<span style="color: #333333">.</span><span style="color: #0000CC">multiply</span><span style="color: #333333">(</span>n3<span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>n9<span style="color: #333333">);</span> <span style="color: #888888">// Escreve &quot;1524157875019052100&quot;</span>
+      BigNumber n10 <span style="color: #333333">=</span> n1<span style="color: #333333">.</span><span style="color: #0000CC">multiply</span><span style="color: #333333">(</span>n4<span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>n10<span style="color: #333333">);</span> <span style="color: #888888">// Escreve &quot;57668193458655139375688174332680&quot;</span>
+   <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+  
+<h3>Input e Output</h3>
+
+<p>Deverá apenas submeter a classe <b>BigNumber</b>. O Mooshak irá chamar criar várias instâncias da sua classe usando o construtores definido e irá fazer uma série de testes aos métodos por si implementados (como mostrado no exemplo de utilização).</p>
+
+<p>É garantido que o números guardados serão sempre positivos e que nunca terão mais do que 1000 dígitos.</p>
+
+<p>É garantido que os métodos são chamados de forma correcta (os argumentos fazem sentido e não geram excepções).</p>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

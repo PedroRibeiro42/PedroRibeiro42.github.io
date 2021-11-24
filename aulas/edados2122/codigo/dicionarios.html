@@ -1,0 +1,243 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Dicionarios</title>
+	<link rel="StyleSheet" href="style.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h3>Voltar a <a href="index.html">Lista de Codigo de Exemplo</a></h3>
+  <hr>
+  
+  <h1>Dicionarios (com arvores binarias)</h1>
+
+  <p>
+
+  <h3>No da arvore (BTSMapNode.java)</h3>
+
+  <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Estruturas de Dados 2021/2022 (CC1007) - DCC/FCUP</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// No de uma arvore binaria de pesquisa - versao dicionario</span>
+<span style="color: #888888">// Ultima alteracao: 13/05/2018</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+
+<span style="color: #888888">// K e o tipo da chave (key) e V o tipo do valor (value)</span>
+<span style="color: #888888">// O tipo K tem de implementar o interface Comparable</span>
+<span style="color: #888888">// (ou te-lo herdado de uma super classe).</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">BSTMapNode</span><span style="color: #333333">&lt;</span>K <span style="color: #008800; font-weight: bold">extends</span> Comparable<span style="color: #333333">&lt;?</span> <span style="color: #008800; font-weight: bold">super</span> K<span style="color: #333333">&gt;,</span> V<span style="color: #333333">&gt;</span> <span style="color: #333333">{</span>
+   <span style="color: #008800; font-weight: bold">private</span> K key<span style="color: #333333">;</span>                 <span style="color: #888888">// chave</span>
+   <span style="color: #008800; font-weight: bold">private</span> V value<span style="color: #333333">;</span>               <span style="color: #888888">// valor</span>
+   <span style="color: #008800; font-weight: bold">private</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> left<span style="color: #333333">;</span>  <span style="color: #888888">// Filho esquerdo</span>
+   <span style="color: #008800; font-weight: bold">private</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> right<span style="color: #333333">;</span> <span style="color: #888888">// Filho direito</span>
+
+   <span style="color: #888888">// Construtor</span>
+   BSTMapNode<span style="color: #333333">(</span>K k<span style="color: #333333">,</span> V v<span style="color: #333333">,</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> l<span style="color: #333333">,</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> r<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      key <span style="color: #333333">=</span> k<span style="color: #333333">;</span>
+      value <span style="color: #333333">=</span> v<span style="color: #333333">;</span>
+      left <span style="color: #333333">=</span> l<span style="color: #333333">;</span>
+      right <span style="color: #333333">=</span> r<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Getters e Setters</span>
+   <span style="color: #008800; font-weight: bold">public</span> K <span style="color: #0066BB; font-weight: bold">getKey</span><span style="color: #333333">()</span> <span style="color: #333333">{</span><span style="color: #008800; font-weight: bold">return</span> key<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> V <span style="color: #0066BB; font-weight: bold">getValue</span><span style="color: #333333">()</span> <span style="color: #333333">{</span><span style="color: #008800; font-weight: bold">return</span> value<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> getLeft<span style="color: #333333">()</span> <span style="color: #333333">{</span><span style="color: #008800; font-weight: bold">return</span> left<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> getRight<span style="color: #333333">()</span> <span style="color: #333333">{</span><span style="color: #008800; font-weight: bold">return</span> right<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setKey</span><span style="color: #333333">(</span>K k<span style="color: #333333">)</span> <span style="color: #333333">{</span>key <span style="color: #333333">=</span> k<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setValue</span><span style="color: #333333">(</span>V v<span style="color: #333333">)</span> <span style="color: #333333">{</span>value <span style="color: #333333">=</span> v<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setLeft</span><span style="color: #333333">(</span>BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> l<span style="color: #333333">)</span> <span style="color: #333333">{</span>left <span style="color: #333333">=</span> l<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setRight</span><span style="color: #333333">(</span>BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> r<span style="color: #333333">)</span> <span style="color: #333333">{</span>right <span style="color: #333333">=</span> r<span style="color: #333333">;}</span>   
+<span style="color: #333333">}</span>
+</pre></div>
+    
+  <hr>
+
+  <h3>Dicionario (BSTMap.java)</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Estruturas de Dados 2021/2022 (CC1007) - DCC/FCUP</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Arvore binaria de pequisa - versao dicionario</span>
+<span style="color: #888888">// Ultima alteracao: 13/05/2018</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.LinkedList</span><span style="color: #333333">;</span>
+
+<span style="color: #888888">// K e o tipo da chave (key) e V o tipo do valor (value)</span>
+<span style="color: #888888">// O tipo K tem de implementar o interface Comparable</span>
+<span style="color: #888888">// (ou te-lo herdado de uma super classe).</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">BSTMap</span><span style="color: #333333">&lt;</span>K <span style="color: #008800; font-weight: bold">extends</span> Comparable<span style="color: #333333">&lt;?</span> <span style="color: #008800; font-weight: bold">super</span> K<span style="color: #333333">&gt;,</span>V<span style="color: #333333">&gt;</span> <span style="color: #333333">{</span>   
+   <span style="color: #008800; font-weight: bold">private</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> root<span style="color: #333333">;</span> <span style="color: #888888">// raiz da arvore</span>
+
+   <span style="color: #888888">// Construtor</span>
+   BSTMap<span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      root <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Getter e Setter para a raiz</span>
+   <span style="color: #008800; font-weight: bold">public</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> getRoot<span style="color: #333333">()</span> <span style="color: #333333">{</span><span style="color: #008800; font-weight: bold">return</span> root<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setRoot</span><span style="color: #333333">(</span>BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> r<span style="color: #333333">)</span> <span style="color: #333333">{</span>root <span style="color: #333333">=</span> r<span style="color: #333333">;}</span>
+   
+   <span style="color: #888888">// Verificar se o dicionario esta vazio</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">isEmpty</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> root <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Limpa o dicionario (torna-o vazia)</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">clear</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      root <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   <span style="color: #888888">// Tamanho do dicionario (numero de chaves guardadas)</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">size</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0066BB; font-weight: bold">size</span><span style="color: #333333">(</span>root<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">size</span><span style="color: #333333">(</span>BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> n<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">+</span> size<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">())</span> <span style="color: #333333">+</span> size<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">());</span>
+   <span style="color: #333333">}</span>
+   
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   <span style="color: #888888">// Devolver o valor associado a uma chave (ou null caso nao exista)</span>
+   <span style="color: #008800; font-weight: bold">public</span> V <span style="color: #0066BB; font-weight: bold">get</span><span style="color: #333333">(</span>K key<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0066BB; font-weight: bold">get</span><span style="color: #333333">(</span>root<span style="color: #333333">,</span> key<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> V <span style="color: #0066BB; font-weight: bold">get</span><span style="color: #333333">(</span>BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> n<span style="color: #333333">,</span> K key<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">==</span><span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>key<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getKey</span><span style="color: #333333">())</span> <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span> get<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">(),</span> key<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>key<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getKey</span><span style="color: #333333">())</span> <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span> get<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">(),</span> key<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">return</span> n<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">();</span> <span style="color: #888888">// se nao e menor ou maior, e porque e igual</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   <span style="color: #888888">// Adicionar par (chave,valor) ao dicionario</span>
+   <span style="color: #888888">// Se chave ja existir, substitui o valor antigo pelo novo</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">put</span><span style="color: #333333">(</span>K key<span style="color: #333333">,</span> V value<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      root <span style="color: #333333">=</span> put<span style="color: #333333">(</span>root<span style="color: #333333">,</span> key<span style="color: #333333">,</span> value<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> put<span style="color: #333333">(</span>BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> n<span style="color: #333333">,</span> K key<span style="color: #333333">,</span> V value<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">==</span><span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span>
+         <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;(</span>key<span style="color: #333333">,</span> value<span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> <span style="color: #333333">(</span>key<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getKey</span><span style="color: #333333">())</span> <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span> 
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setLeft</span><span style="color: #333333">(</span>put<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">(),</span> key<span style="color: #333333">,</span> value<span style="color: #333333">));</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> <span style="color: #333333">(</span>key<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getKey</span><span style="color: #333333">())</span> <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setRight</span><span style="color: #333333">(</span>put<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">(),</span> key<span style="color: #333333">,</span> value<span style="color: #333333">));</span>
+      <span style="color: #008800; font-weight: bold">else</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setValue</span><span style="color: #333333">(</span>value<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">return</span> n<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+   
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   <span style="color: #888888">// Remover uma chave do dicionario</span>
+   <span style="color: #888888">// Devolve true se conseguiu remover, false caso contrario</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">remove</span><span style="color: #333333">(</span>K key<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>get<span style="color: #333333">(</span>key<span style="color: #333333">)==</span><span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">;</span>
+      root <span style="color: #333333">=</span> remove<span style="color: #333333">(</span>root<span style="color: #333333">,</span> key<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Assume-se que elemento existe (foi verificado antes)</span>
+   <span style="color: #008800; font-weight: bold">private</span> BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> remove<span style="color: #333333">(</span>BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> n<span style="color: #333333">,</span> K key<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>key<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getKey</span><span style="color: #333333">())</span> <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setLeft</span><span style="color: #333333">(</span>remove<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">(),</span> key<span style="color: #333333">));</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> <span style="color: #333333">(</span>key<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getKey</span><span style="color: #333333">())</span> <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setRight</span><span style="color: #333333">(</span>remove<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">(),</span> key<span style="color: #333333">));</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">()</span> <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #888888">// Nao tem filho esquerdo</span>
+         n <span style="color: #333333">=</span> n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">();</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">()</span> <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #888888">// Nao tem filho direito</span>
+         n <span style="color: #333333">=</span> n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">();</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #333333">{</span> <span style="color: #888888">// Dois fihos: ir buscar maximo do lado esquerdo</span>
+         BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> max <span style="color: #333333">=</span> n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">();</span>
+         <span style="color: #008800; font-weight: bold">while</span> <span style="color: #333333">(</span>max<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">()</span> <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> max <span style="color: #333333">=</span> max<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">();</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setKey</span><span style="color: #333333">(</span>max<span style="color: #333333">.</span><span style="color: #0000CC">getKey</span><span style="color: #333333">());</span>     <span style="color: #888888">// Substituir chave removida</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setValue</span><span style="color: #333333">(</span>max<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">());</span> <span style="color: #888888">// Substituir valor removido</span>
+         <span style="color: #888888">// Apagar valor que foi para lugar do removido</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setLeft</span><span style="color: #333333">(</span>remove<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">(),</span> max<span style="color: #333333">.</span><span style="color: #0000CC">getKey</span><span style="color: #333333">()));</span>
+      <span style="color: #333333">}</span>
+      <span style="color: #008800; font-weight: bold">return</span> n<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   <span style="color: #888888">// Devolver lista ligada das chaves (usando listas do Java)</span>
+   <span style="color: #008800; font-weight: bold">public</span> LinkedList<span style="color: #333333">&lt;</span>K<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">keys</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      LinkedList<span style="color: #333333">&lt;</span>K<span style="color: #333333">&gt;</span> list <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> LinkedList<span style="color: #333333">&lt;</span>K<span style="color: #333333">&gt;();</span>
+      keys<span style="color: #333333">(</span>root<span style="color: #333333">,</span> list<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">return</span> list<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">keys</span><span style="color: #333333">(</span>BSTMapNode<span style="color: #333333">&lt;</span>K<span style="color: #333333">,</span>V<span style="color: #333333">&gt;</span> n<span style="color: #333333">,</span> LinkedList<span style="color: #333333">&lt;</span>K<span style="color: #333333">&gt;</span> l<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">==</span><span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span><span style="color: #333333">;</span>
+      keys<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">(),</span> l<span style="color: #333333">);</span>
+      l<span style="color: #333333">.</span><span style="color: #0000CC">addLast</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getKey</span><span style="color: #333333">());</span>
+      keys<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">(),</span> l<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+   
+<span style="color: #333333">}</span>
+</pre></div>  
+
+  <hr>
+  
+  <h3>Exemplo de teste dos dicionarios (TestBSTMap.java)</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Estruturas de Dados 2021/2022 (CC1007) - DCC/FCUP</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Exemplo de utilizacao da um dicionario</span>
+<span style="color: #888888">// Ultima alteracao: 13/05/2018</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.LinkedList</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">TestBSTMap</span> <span style="color: #333333">{</span>
+   
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      
+      <span style="color: #888888">// Criacao de um dicionario     </span>
+      BSTMap<span style="color: #333333">&lt;</span>String<span style="color: #333333">,</span>Integer<span style="color: #333333">&gt;</span> map <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> BSTMap<span style="color: #333333">&lt;</span>String<span style="color: #333333">,</span>Integer<span style="color: #333333">&gt;();</span>
+      
+      <span style="color: #888888">// Inserindo alguns pares (chave,valor)</span>
+      map<span style="color: #333333">.</span><span style="color: #0000CC">put</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Life&quot;</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">42</span><span style="color: #333333">);</span>
+      map<span style="color: #333333">.</span><span style="color: #0000CC">put</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Zero&quot;</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">);</span>
+      map<span style="color: #333333">.</span><span style="color: #0000CC">put</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Infinity&quot;</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">999</span><span style="color: #333333">);</span>
+      
+      <span style="color: #888888">// Tamanho e conteudo</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;size = &quot;</span> <span style="color: #333333">+</span> map<span style="color: #333333">.</span><span style="color: #0000CC">size</span><span style="color: #333333">());</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Value of \&quot;Life\&quot; = &quot;</span> <span style="color: #333333">+</span> map<span style="color: #333333">.</span><span style="color: #0000CC">get</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Life&quot;</span><span style="color: #333333">));</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Value of \&quot;Data\&quot; = &quot;</span> <span style="color: #333333">+</span> map<span style="color: #333333">.</span><span style="color: #0000CC">get</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Data&quot;</span><span style="color: #333333">));</span>
+
+      <span style="color: #888888">// Imprimindo todas chaves      </span>
+      LinkedList<span style="color: #333333">&lt;</span>String<span style="color: #333333">&gt;</span> keys <span style="color: #333333">=</span> map<span style="color: #333333">.</span><span style="color: #0000CC">keys</span><span style="color: #333333">();</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;keys = &quot;</span> <span style="color: #333333">+</span> keys<span style="color: #333333">);</span>
+      
+      <span style="color: #888888">// Percorrendo todas as chaves para imprimir os pares (chave,valor)</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;All (key,value) pairs:&quot;</span><span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span>String k <span style="color: #333333">:</span> map<span style="color: #333333">.</span><span style="color: #0000CC">keys</span><span style="color: #333333">())</span>
+         System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;- (&quot;</span> <span style="color: #333333">+</span> k <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;,&quot;</span> <span style="color: #333333">+</span> map<span style="color: #333333">.</span><span style="color: #0000CC">get</span><span style="color: #333333">(</span>k<span style="color: #333333">)</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;)&quot;</span><span style="color: #333333">);</span>
+      
+      <span style="color: #888888">// Modificando um valor</span>
+      map<span style="color: #333333">.</span><span style="color: #0000CC">put</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Life&quot;</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">22</span><span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Value of \&quot;Life\&quot; = &quot;</span> <span style="color: #333333">+</span> map<span style="color: #333333">.</span><span style="color: #0000CC">get</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Life&quot;</span><span style="color: #333333">));</span>
+      
+      <span style="color: #888888">// Apagando um valor</span>
+      map<span style="color: #333333">.</span><span style="color: #0000CC">remove</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Life&quot;</span><span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Value of \&quot;Life\&quot; = &quot;</span> <span style="color: #333333">+</span> map<span style="color: #333333">.</span><span style="color: #0000CC">get</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Life&quot;</span><span style="color: #333333">));</span>
+   <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>  
+    
+  <hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Ultima actualizacao: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

@@ -1,0 +1,242 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+    <title>Padrões Geométricos</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    
+<small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 27 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula05.html">ler o guião da aula #05</a>]</b></small></p>
+
+<hr>
+
+    
+    <h1>[ED249] Padrões Geométricos</h1>
+
+    <img src="prob249.jpg" alt="" border="1" align="right">
+
+    <p>
+     A Alice adora todo o tipo de figuras e padrões geométricos. Num
+     certo dia, ao observar o caderno quadriculado do Bernardo,
+     reparou num belíssimo padrão que ele lá tinha
+     desenhado. Intrigada, perguntou-lhe como o tinha obtido. O
+     Bernardo, com um sorriso de orelha a orelha, explicou-lhe todo o
+     processo. Inicialmente, ele escolhe um quadrado de <b>NxN</b>
+     quadrículas, pintando algumas delas, sendo este o padrão
+     inicial. Um exemplo seria o seguinte quadrado de 3x3:</p>
+
+    <p><img src="prob249_1.png" alt="" border="0">
+
+     </p><p>De seguida, o Bernardo inicia um processo de replicação. Para
+     isso ela pega num novo quadrado
+     de <b>N<sup>2</sup>xN<sup>2</sup></b> e divide-o em <b>NxN</b>
+     "super-quadrículas", cada um delas com <b>NxN</b> quadrículas
+     pequenas. Se no padrão inicial uma quadrícula está vazia, a
+     super-quadrícula correspondente no novo quadrado fica vazia. Se
+     no padrão inicial essa quadrícula está pintada, então a
+     super-quadrícula fica com um cópia exata do padrão inicial. A
+     figura seguinte ilustra este processo:</p>
+
+    <p><img src="prob249_2.png" alt="" border="0">
+
+    </p><p>Para identificar o padrão inicial dizemos que é da 1ª
+    geração. O padrão seguinte, de <b>N<sup>2</sup>xN<sup>2</sup></b>, é
+    de 2ª geração. O padrão de 3ª geração tem
+    dimensões <b>N<sup>4</sup>xN<sup>4</sup></b> e pode ser obtido
+    aplicando o mesmo processo de replicação ao padrão de 2ª geração
+    como se fosse ele o inicial. De um modo geral, a geração <i>i</i>
+    de um dado padrão pode ser obtida usando o processo de replicação
+    descrito e considerando o padrão de geração <i>i-1</i> como sendo
+    o inicial. Se o padrão inicial tem dimensões <b>NxN</b>, o padrão respetivo de geração <b>G</b> tem dimensões <b>N<sup>2<sup>(G-1)</sup></sup>xN<sup>2<sup>(G-1)</sup></sup></b>. A figura seguinte ilustra três gerações sucessivas de
+    um padrão inicial de 2x2:
+ 
+    </p><p><img src="prob249_3.png" alt="" border="0">
+
+    </p><p>A Alice ficou fascinada e decidiu começar a desenhar esses
+    padrões no seu próprio caderno. Para passar o tempo enquanto
+    espera pelo autocarro que a leva à escola, a Alice resolveu
+    começar a contar o número de quadrículas pintadas num dado
+    padrão. Como são muitas quadrículas e o autocarro está quase a
+    chegar, ela decidiu contar apenas as quadrículas num dado
+    subretângulo do padrão. Por exemplo, a figura seguinte ilustra um
+    subretângulo - com cantos nas posições (8,5) e (12,14) - contendo
+    exatamente 17 quadrículas pintadas.
+
+    </p><p><img src="prob249_4.png" alt="" border="0">
+      
+    </p><p>Será que podes ajudar a Alice a contar as quadrículas pintadas?
+
+    </p><h2>O Problema</h2>
+
+    <p>
+      Dado um padrão inicial de <b>NxN</b> quadrículas (umas pintadas,
+      outra vazias) e um número <b>G</b> indicando em que geração do
+      padrão estamos interessados, a tua tarefa é responder a <b>P</b>
+      perguntas, cada uma delas indicando um subretângulo dentro do
+      padrão de geração <b>G</b>, sendo que desejamos saber quantas
+      quadrículas estão pintadas dentro desse subretângulo.
+    </p>
+
+    <h2>Input</h2>
+
+    <p>Na primeira linha vêm dois inteiros <b>N</b> e <b>G</b>,
+      indicando que estamos interessados na geração <b>G</b> de um
+      padrão inicial de <b>NxN</b>.
+    </p>
+
+    <p>Seguem-se exatamente <b>N</b> linhas, cada uma com <b>N</b>
+      caracteres, descrevendo o padrão inicial. Um
+      caracter <tt>'#'</tt> indica uma quadrícula pintada e um
+      caracter <tt>'.'</tt> indica uma quadrícula vazia.
+    </p>
+
+    <p>Na linha seguinte vem um inteiro <b>P</b>, indicando o número
+    de perguntas, seguido de <b>P</b> linhas, cada uma com quatro
+    inteiros <b>y1 x1 y2 x2</b> indicando o subretângulo da pergunta
+    respetiva, sendo que <b>(y1,x1)</b> é o canto superior esquerdo
+    e <b>(y2,x2)</b> é o canto inferior direito.
+   </p>
+
+    <h2>Output</h2>
+
+    <p>O output deve ser constituído por <b>P</b> linhas, cada uma com
+    um único inteiro indicando o número de quadrículas do retângulo
+    da pergunta respetiva.
+    </p>
+
+    <h2>Restrições</h2>
+
+    <p>São garantidos os seguintes limites em todos os casos de teste:</p>
+
+    <table>
+      <tbody><tr>
+        <td><b>2 ≤ N ≤ 7</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Lado do quadrado do padrão inicial</td>
+      </tr>
+      <tr>
+        <td><b>1 ≤ G ≤ 5</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Geração do padrão</td>
+      </tr>
+      <tr>
+        <td><b>1 ≤ N<sup>2<sup>(G-1)</sup></sup> &lt; 2<sup>31</sup></b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Lado do quadrado do padrão de geração G</td>
+      </tr>
+      <tr>
+        <td><b>1 ≤ P ≤ 500</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Número de perguntas</td>
+      </tr>
+      <tr>
+        <td><b>0 ≤ y1 ≤ y2 &lt; N<sup>2<sup>(G-1)</sup></sup></b> </td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td rowspan="2">Coordenadas X e Y dos retângulos das perguntas</td>
+      </tr>
+      <tr>
+        <td><b>0 ≤ x1 ≤ x2 &lt; N<sup>2<sup>(G-1)</sup></sup></b> </td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+      </tr>
+      <tr>
+        <td><b>1 ≤ y2 - y1 ≤ 10<sup>6</sup></b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td rowspan="2">Lado do subretângulo de uma pergunta</td>
+      </tr>
+      <tr>
+        <td><b>1 ≤ x2 - x1 ≤ 10<sup>6</sup></b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+      </tr>
+    </tbody></table>
+
+    <p>É também garantido que número de quadrículas pintadas do padrão
+    inicial é inferior ou igual a 10.
+
+    </p><h2>Nota sobre a avaliação</h2>
+
+    <p>
+      Para um conjunto de casos de teste valendo 25% dos pontos,
+      acontece sempre
+      que <b>N<sup>2<sup>(G-1)</sup></sup></b>≤100 e <b>P</b>≤50.
+    </p>
+
+    <p>Para um conjunto de casos de teste valendo 50% dos pontos,
+      acontece sempre que <b>N<sup>2<sup>(G-1)</sup></sup></b>≤2500.
+    </p>
+
+    <p>Para um outro conjunto de casos de teste valendo mais 25% dos pontos,
+      <b>N<sup>2<sup>(G-1)</sup></sup></b>&gt;10<sup>6</sup> mas os
+      subretângulos são no máximo de 50x50, ou
+      seja <b>(y2-y1)</b>≤50 e <b>(x2-x1)</b>≤50.
+    </p>
+
+    <h2>Exemplo de Input 1</h2>
+<pre>2 3
+##
+.#
+3
+8 5 12 14
+2 4 10 15
+3 0 13 5
+</pre>
+
+    <h2>Exemplo de Output 1</h2>
+<pre>17
+43
+4
+</pre>
+
+    <h2>Explicação do Input/Output 1</h2>
+
+    <p>Um padrão inicial de 2x2 que dá origem a um padrão de 3ª
+    geração de 16x16. Os subretângulos das 3 perguntas são os
+    indicados a seguir e têm respetivamente 17, 43 e 4 quadrículas
+    pintadas:
+    </p>
+
+    <p><img src="prob249_4.png" alt="" border="0">
+   <img src="prob249_5.png" alt="" border="0">
+   <img src="prob249_6.png" alt="" border="0">
+   </p>
+
+    <h2>Exemplo de Input 2</h2>
+<pre>3 2
+#.#
+.#.
+#.#
+4
+2 2 6 6
+0 0 8 8
+1 1 4 7
+3 2 7 3
+</pre>
+
+    <h2>Exemplo de Output 2</h2>
+<pre>9
+25
+7
+3
+</pre>
+
+    <h2>Explicação do Input/Output 2</h2>
+
+    <p>Um padrão inicial de 3x3 que dá origem a um padrão de 2ª
+    geração de 9x9. Os subretângulos das 4 perguntas são os
+    indicados a seguir e têm respetivamente 9, 25, 7 e 3 quadrículas
+    pintadas:</p>
+
+    <p><img src="prob249_7.png" alt="" border="0">
+
+    </p><hr size="2">
+    <center><i>(adaptação para a UC de Estruturas de Dados - CC1007 - DCC/FCUP)</i><br><br>
+    
+    <center><b>Prova de Seleção para as IOI'2015</b><br>
+      Departamento de Ciência de Computadores<br>
+      Faculdade de Ciências da Universidade do Porto<br>
+      <i>(23 de Maio de 2015)</i></center>
+    <hr size="2">
+  
+
+</body>
+</html>

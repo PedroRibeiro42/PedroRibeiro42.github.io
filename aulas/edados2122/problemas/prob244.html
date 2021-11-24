@@ -1,0 +1,89 @@
+<html>
+<head>
+<title>[ED244] Primos</title>
+<link rel="StyleSheet" href="style.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 6 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula02.html">ler o guião da aula #02</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[ED244] Primos</h2>
+
+<h3>O problema</h3>
+
+<p align="justify">
+  <img src="prob244.jpg" align="right" border="1">
+  O Professor Pardal está fascinado com os números primos. <i>Relembra que um primo é um número positivo maior que um que só é divisível por si próprio e por 1.</i> Ele precisa da tua ajuda para saber quantos números primos existem num dado intervalo <b>[A,B]</b>, ou seja, números primos maiores ou iguais a <b>A</b> e menores ou iguais a <b>B</b>. Será que podes ajudá-lo?</p>
+
+<p>Nota que uma solução <i>naive</i> que passe por todos os números entre <b>A</b> e <b>B</b> e para cada um deles faça um ciclo para procurar os divisores não passa no tempo e precises de algo mais eficiente. A sugestão neste problema é que uses o <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Crivo de Eratóstenes</a>.</p>
+
+<h3>Input</h3>
+
+<p>Uma linha contendo dois inteiros <b>A</b> e <b>B</b> (<i>2 &le; A &le; B &le; 10&nbsp;000&nbsp;000</i>).</p>
+
+<h3>Output</h3>
+
+<p>Uma linha com um inteiro indicando a quantidade de números primos no intervalo <b>[A,B]</b>.</p>
+
+</ul>
+
+<h3>Exemplo de input/output 1</h3>
+
+<table class=main cellpadding=4 border=1>
+<tr>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+<tr>
+  <td class="left" valign="top">
+<pre>
+2 100
+</pre>
+</td>
+       <td class="left" valign="top">
+<pre>
+25
+</pre>
+</td>
+</tr>
+</table>
+
+<h3>Exemplo de input/output 2</h3>
+
+<table class=main cellpadding=4 border=1>
+<tr>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+<tr>
+  <td class="left" valign="top">
+<pre>
+123 4567
+</pre>
+  </td>
+       <td class="left" valign="top">
+<pre>
+589
+</pre>
+</td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+
+
+</body>
+</html>

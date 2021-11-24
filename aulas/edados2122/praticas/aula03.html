@@ -1,0 +1,345 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #03 - Introdução a Classes</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Estruturas de Dados 2021/2021</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Aula Prática #03 - Introdução a Classes<br>
+    <small><small>(27 de Outubro)</small></small>
+  </h1>
+<hr>
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios que pode submeter desta aula são:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problemas/prob186.html">[ED186] TAD Rectângulo (Rectangle)</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/prob187.html">[ED187] TAD Matriz (Matrix)</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/prob216.html">[ED216] Contando Cardinais</a> (peso 25%) <span style="color:DarkSlateBlue">(exercício extra)</span></li>
+      <li><a class="important" href="../problemas/prob245.html">[ED245] Regras Quadriculadas</a> (peso 25%) <span style="color:DarkRed">(exercício de desafio)</span>
+    </ul>
+
+    <p><b>Prazo de submissão:</b> 13 de Novembro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a>)</p>
+
+  <p><b>É encorajado que vão falando com os docentes e outros colegas se tiverem dificuldades. No entanto, qualquer ajuda mais direta que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota.<br>
+    Cada aula vale 10% da nota desta componente. Como existem 12 aulas com submissões, pode ter pontuação máxima mesmo sem ter feito tudo.<br>
+    Para um problema contar tem acertar todos os testes (ou seja, ter <i>accepted</i>). Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.<br>
+  Para ter 100% bastará sempre resolver os exercícios do guião principal.</p>
+
+  <hr>
+  
+<h3>Exercício 1) "Brincando" com classes</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// Uma classe simples para representar um aluno</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Aluno</span> <span style="color: #333333">{</span>
+   <span style="color: #888888">// Atributos da classe (variáveis para conter informação)</span>
+   String nome<span style="color: #333333">;</span>
+   <span style="color: #333399; font-weight: bold">int</span> numero<span style="color: #333333">;</span>
+
+   <span style="color: #888888">// Construtor &quot;padrão&quot;</span>
+   Aluno<span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      nome   <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;indefinido&quot;</span><span style="color: #333333">;</span>
+      numero <span style="color: #333333">=</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+
+<span style="color: #888888">// Classe principal contendo o main para testar a classe Aluno</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">TestAluno</span> <span style="color: #333333">{</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      Aluno a <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Aluno<span style="color: #333333">();</span>
+      
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;a.nome = &quot;</span> <span style="color: #333333">+</span> a<span style="color: #333333">.</span><span style="color: #0000CC">nome</span><span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;a.numero = &quot;</span> <span style="color: #333333">+</span> a<span style="color: #333333">.</span><span style="color: #0000CC">numero</span><span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+<ol>
+<li><b>Várias classes num ficheiro.</b><br>
+  Copie o código de cima para um ficheiro <tt>TestAluno.java</tt>. Compile o código. Quantos ficheiros <tt>.class</tt> foram criados?<br>
+  <i>(usualmente temos um ficheiro para cada classe, mas também é possível ter várias classes num só ficheiro)</i>
+<li><b>Executar uma classe.</b><br>
+Experimente executar a classe Aluno (<span class="shell">$ java Aluno</span>). O que acontece? Porquê? Experimentar agora executar a classe <tt>TestAluno</tt> e verifique que tal já é possível, pois esta classe contém um método main com a assinatura esperada.
+<li><b>Referências.</b>
+<ol type="a">
+  <li>Adicione a seguinte linha na parte final método main:
+
+<pre class="nomargin">
+<span class="codigo">System.out.println("a = " + a);   
+</span></pre>
+Experimente compilar e executar. O que acontece? Note que está a imprimir... a referência ao objecto!
+  <li>Sem apagar a linha que imprimia a referência, adicione agora o seguinte método à classe <span class="codigo">Aluno:</span><br>
+<pre class="nomargin">
+<span class="codigo">public String toString() {
+   return "(" + nome + "," + numero + ")";
+}
+</span></pre>
+Compile e execute. O que acontece? De um modo geral, se quiser modificar o que é escrito quando imprimir uma referência a um objecto, basta implementar um método <span class="codigo">public String toString()</span> que devolva uma String que represente o objecto.<br>
+<i>Quero saber mais:</i> tecnicamente, estamos a fazer <b><i>override</i></b> do método <span class="codigo">toString()</span> padrão de todos os objectos. O que é usualmente imprimido é fruto da <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#toString--">implementação padrão</a> que pode ser vista <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Object.html#toString--">aqui</a>.
+
+<li>Acrescente o seguinte código ao main:
+<pre class="nomargin">
+<span class="codigo">Aluno b = new Aluno();
+Aluno c = b;
+b.nome = "modificado";
+System.out.println("b = " + b);
+System.out.println("c = " + c)
+</span></pre>
+Compile e execute. O que é mostrado? Uma referência é "quase como um apontador" e ao usarmos o operador <tt>=</tt> não estamos a copiar todos os atributos (variáveis) da classe, mas sim a colocar a referência a apontar para a mesma instância do objecto.
+</ol>
+
+<li><b>Construtores e <i>overload</i> de métodos.</b><br>
+Seria útil poder dar valores diferentes aos atributos de um aluno quando o criamos. Vamos criar um construtor para isso. Acrescente o seguinte código à classe <tt>Aluno</tt>:
+<pre class="nomargin">
+<span class="codigo">Aluno(String n, int mec) {
+   nome = n;
+   numero = mec;
+}
+</span></pre>
+Já no método main acrescente o seguinte pedaço de código para testar:
+<pre class="nomargin">
+<span class="codigo">Aluno d = new Aluno();
+Aluno e = new Aluno("Manuel", 201506234);
+System.out.println("d = " + d);
+System.out.println("e = " + e);
+</span></pre>
+Compile e execute. O que é mostrado? No Java podem existir várias funções com o mesmo nome mas com argumentos diferentes. Quando o código é executado é chamada a função que corresponde aos argumentos utilizados. Experimente por exemplo tentar criar um objecto com <span class="codigo">Aluno f = new Aluno("Maria");</span>. O que acontece? Porquê?
+
+
+<li><b>Criando um novo método.</b><br>
+Para além dos atributos (variáveis contendo dados) e de métodos construtores, uma classe pode conter métodos implementando quaisquer funções que necessite. Assumindo que um número mecanográfico tem sempre 9 dígitos e que os primeiros 4 indicam o ano de entrada na universidade, vamos criar um método para devolver o ano de um aluno. Acrescente o seguinte código à classe <tt>Aluno</tt>:
+<pre class="nomargin">
+<span class="codigo">int ano() {
+   return numero / 100000;
+}</pre>
+</span></pre>
+Já no main acrescente o seguinte para testar:
+<pre class="nomargin">
+<span class="codigo">Aluno g = new Aluno("Ana", 201408762);
+Aluno h = new Aluno("Bruno", 201508145);
+System.out.println(g.ano() + " " + h.ano());
+</span></pre>
+Compile e execute para verificar o funcionamento.
+<li><b>Arrays de objectos e o "meu primeiro <i>NullPointerException</i>"</b><br>
+Experimente adicionar o seguinte código ao seu main:
+<pre class="nomargin">
+<span class="codigo">int n = 3;
+Aluno[] v = new Aluno[n];
+for (int i=0; i&lt;n; i++)
+   System.out.println("v[" + i + "] = " + v[i]);
+v[0].nome = "Pedro";
+</span></pre>
+Compile e execute. O que acontece?<br><br>
+Quando cria um array de objectos, cada uma das suas posições fica com uma referência. No entanto as referências ainda estão todas a apontar para <i>null</i>, que é o valor padrão de uma referência, ou seja, ainda não foram criadas as instâncias correspondentes a cada um dos objectos. E quando se tenta aceder ao atributo <i>nome</i> de uma referência nula, obtém-se... um <i>NullPointerException</i>! Para inicializar podia fazer algo como <span class="codigo">for (int i=0; i&lt;n; i++) v[i] = new Aluno();</span> a seguir a declarar o array (experimente essa adição e verifique que já não obtém nenhum erro na execução).
+<li><b>Variáveis e métodos estáticos.</b><br>
+Cada instância de um objecto tem uma cópia diferente de todos as suas variáveis. E se quisermos ter uma variável comum a todas as instâncias de um Aluno? Para isso podemos usar o qualificador <span class="codigo">static</span>.
+<ul>
+<li class="small">Adicione a linha <span class="codigo">public static int contador = 0;</span> logo a seguir à linha <span class="codigo">class Aluno {</span>.
+<li class="small">Acrescente também a linha <span class="codigo">contador++;</span> aos dois construtores que criou.
+<li class="small">Na função <tt>main</tt> acrescente a linha <span class="codigo">System.out.println("contador = " + Aluno.contador);</span> logo no início e também no final, depois de criados todos os alunos.
+</ul>
+O que é imprimido? Que valor tinha o contador no início e que valor tem no final depois de todas as chamadas a <span class="codigo">new Aluno</span>? Note também como pode chamar a variável mesmo antes de criar um qualquer objecto desse tipo (usando para isso <tt>NomeDaClasse.VariavelEstatica</tt>).<br>&nbsp;<br>
+Do mesmo modo que uma variável pode ser estática, também um método o pode ser, e nesse caso só poderá chamar variáveis estáticas, pois as outras variáveis estão associados a uma única instância de um objecto.
+</ol>
+
+<hr>
+
+<h3>Exercício 2) Objectos Geométricos</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// Uma classe simples para representar um ponto 2D</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Point</span> <span style="color: #333333">{</span>
+   <span style="color: #333399; font-weight: bold">int</span> x<span style="color: #333333">,</span> y<span style="color: #333333">;</span>
+
+   Point<span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      x <span style="color: #333333">=</span> y <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+   
+   Point<span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> x0<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> y0<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      x <span style="color: #333333">=</span> x0<span style="color: #333333">;</span>
+      y <span style="color: #333333">=</span> y0<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Devolve uma representação em texto do conteúdo de um Ponto</span>
+   <span style="color: #008800; font-weight: bold">public</span> String <span style="color: #0066BB; font-weight: bold">toString</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;(&quot;</span> <span style="color: #333333">+</span> x <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;,&quot;</span> <span style="color: #333333">+</span> y <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;)&quot;</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+
+<span style="color: #888888">// Classe principal com a função main</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">TestGeometry</span> <span style="color: #333333">{</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span> <span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">){</span>
+      Point p1 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Point<span style="color: #333333">();</span>
+	
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;p1 original: &quot;</span> <span style="color: #333333">+</span> p1<span style="color: #333333">);</span>
+      p1<span style="color: #333333">.</span><span style="color: #0000CC">x</span> <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;p1 modificado: &quot;</span> <span style="color: #333333">+</span> p1<span style="color: #333333">);</span>
+
+      Point p2 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Point<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">,</span><span style="color: #0000DD; font-weight: bold">3</span>);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;p2: &quot;</span> <span style="color: #333333">+</span> p2<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+<p>
+<ol>
+  <li><b>Criando pontos.</b><br>
+    Compile e execute este código. Procure perceber o que fazem cada uma das linhas de código dadas.
+
+  <li><b>Criação de uma nova classe e métodos associados.</b><br>
+    O objectivo deste exercício é a criação de uma nova classe <span class="codigo"><b>Rectangle</b></span> para representar um rectângulo.<br>
+    <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+Resolva e <a href="https://mooshak.dcc.fc.up.pt/~edados/">submeta</a> com sucesso o problema <a href="../problemas/prob186.html">[ED186] TAD Rectângulo (Rectangle)</a>, disponível no "Volume 2 (TADs)".<br>
+	 Notas/Dicas:</li>
+	 <ul>
+	   <li>TAD é o acrónimo de "Tipo Abstracto de Dados" e vamos falar nele nas próximas semanas nas teóricas.
+	   <li>Deve submeter um ficheiro apenas com a classe <i>Rectangle</i>. O Mooshak já tem implementada a classe <i>Point</i> e irá criar várias instâncias da sua classe <i>Rectangle</i> usando os construtores definidos e irá fazer uma série de testes aos métodos por si implementados.
+	   <li>O enunciado no Mooshak inclui <b>exemplo de utilização</b> de utilização que poderá usar para testar o seu programa.
+	   <li><span style="color:red">Deve implementar um método de cada vez e ir testando o seu funcionamento para garantir que está a funcionar como desejado.</span>
+	   <li>Este volume do Mooshak inclui pontuação parcial, o que significa que poderá ver que métodos é que já estão correctamente implementados, mesmo que não os tenha ainda feito todos<br> (para efeitos de avaliação, o problema apenas conta se estiver 100% aceite).
+	 </ul>
+  <li><b>Generalizando uma classe.</b><br>
+Como poderia modificar a classe <tt>Point</tt> para passar a aceitar pontos a 3 dimensões? E para aceitar pontos com <i>N</i> dimensões? Consegue modificar a classe para que aceitar também a dimensão como parâmetro de criação do ponto?
+</ol>
+
+<hr>
+
+<h3>Exercício 3) Uma classe para representar matrizes</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.Scanner</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Matrix</span> <span style="color: #333333">{</span>
+   <span style="color: #333399; font-weight: bold">int</span> data<span style="color: #333333">[][];</span> <span style="color: #888888">// os elementos da matriz em si</span>
+   <span style="color: #333399; font-weight: bold">int</span> rows<span style="color: #333333">;</span>     <span style="color: #888888">// numero de linhas</span>
+   <span style="color: #333399; font-weight: bold">int</span> cols<span style="color: #333333">;</span>     <span style="color: #888888">// numero de colunas</span>
+
+   <span style="color: #888888">// construtor padrao de matriz</span>
+   Matrix<span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> r<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> c<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      data <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">[</span>r<span style="color: #333333">][</span>c<span style="color: #333333">];</span>
+      rows <span style="color: #333333">=</span> r<span style="color: #333333">;</span>
+      cols <span style="color: #333333">=</span> c<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Ler os rows x cols elementos da matriz</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">read</span><span style="color: #333333">(</span>Scanner in<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;</span>rows<span style="color: #333333">;</span> i<span style="color: #333333">++)</span>
+         <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> j<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> j<span style="color: #333333">&lt;</span>cols<span style="color: #333333">;</span> j<span style="color: #333333">++)</span>
+            data<span style="color: #333333">[</span>i<span style="color: #333333">][</span>j<span style="color: #333333">]</span> <span style="color: #333333">=</span> in<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">();</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Representacao em String da matrix</span>
+   <span style="color: #008800; font-weight: bold">public</span> String <span style="color: #0066BB; font-weight: bold">toString</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      String ans <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;&quot;</span><span style="color: #333333">;</span>
+      <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;</span>rows<span style="color: #333333">;</span> i<span style="color: #333333">++)</span> <span style="color: #333333">{</span>
+         <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> j<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> j<span style="color: #333333">&lt;</span>cols<span style="color: #333333">;</span> j<span style="color: #333333">++)</span>
+            ans <span style="color: #333333">+=</span> data<span style="color: #333333">[</span>i<span style="color: #333333">][</span>j<span style="color: #333333">]</span> <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; &quot;</span><span style="color: #333333">;</span>
+         ans <span style="color: #333333">+=</span> <span style="background-color: #fff0f0">&quot;\n&quot;</span><span style="color: #333333">;</span>
+      <span style="color: #333333">}</span>
+      <span style="color: #008800; font-weight: bold">return</span> ans<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+   
+<span style="color: #333333">}</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">TestMatrix</span> <span style="color: #333333">{</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      Scanner stdin <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Scanner<span style="color: #333333">(</span>System<span style="color: #333333">.</span><span style="color: #0000CC">in</span><span style="color: #333333">);</span>
+      Matrix m <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Matrix<span style="color: #333333">(</span>stdin<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">(),</span> stdin<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">());</span>
+      m<span style="color: #333333">.</span><span style="color: #0000CC">read</span><span style="color: #333333">(</span>stdin<span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span>m<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>    
+<span style="color: #333333">}</span>
+</pre></div>
+
+<p>
+<ol>
+  <li><b>Executando o programa.</b><br>
+    Compile e execute este código, redirecionando o input a partir do ficheiro <a href="matrix.txt"><tt>matrix.txt</tt></a><br>
+    <span class="shell">$ java TestMatrix < matrix.txt</span><br>
+   Procure compreender todas as partes do código.</li>
+
+  <li><b>Lançando uma excepção</b><br>
+    Acrescente no final (mas dentro) do método <tt>main</tt> o seguinte código:<br>
+    <span class="codigo">throw new RuntimeException("My very first custom error.");</span><br>
+    Execute o programa e verifique que agora uma excepção é gerado com a mensagem que foi indicada.
+
+      <li><b>Criação de alguns métodos associados.</b><br>
+	O objectivo deste exercício é a criação vários métodos estáticos que acrescentam funcionalidades a esta classe de matrizes.<br>
+    <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+Resolva e <a href="https://mooshak.dcc.fc.up.pt/~edados/">submeta</a> com sucesso o problema <a href="../problemas/prob187.html">[ED187] TAD Matriz (Matrix)</a>, disponível no "Volume 2 (TADs)".<br>
+	 Notas/Dicas:</li>
+	 <ul>
+	   <li>O funcionamento deste problema é igual ao dos rectângulos. Deverá apenas submeter a classe <i>Matrix</i> e tem disponível um exemplo de utilização no enunciado do problema.
+	   <li>Caso esteja esquecido das definições de matrizes necessárias (ex: o que é uma matriz identidade ou transposta) o enunciado disponibiliza links para as páginas respectivas na Wikipedia.
+	 </ul>
+</ol>
+</div>
+
+<hr>
+
+<h3>Exercícios extra para consolidação de conhecimentos</h3>
+
+<ol>
+  <li><b>Uma classe para frações.</b>
+<ul>
+<li>Crie uma classe <span class="codigo"><b>Fraction</b></span> para representar <b>frações</b>, que deverá conter como atributos dois inteiros: o <i>numerador</i> e o <i>denominador</i>. Não se esqueça de criar os respectivos construtores.
+</li>
+<li>Adicione à classe os seguintes metódos:</tt></li>
+<ol type="a">
+  <li><span class="codigo">public String toString()</span><br>
+    Devolva uma representação em texto no formato <i>u + n/d</i> onde <i>u</i> são
+    unidades e <i>n/d</i> uma fração menor que 1<br>
+    Exemplo: a fração 7/3 seria descrita como <tt>"2 + 1/3"</tt>
+    
+    <li><span class="codigo">public Fraction add(Fraction f)</span><br>
+  Devolve uma nova fração que é o resultado de adicionar <i>f</i> à fração 
+<li><span class="codigo">public Fraction multiply(Fraction f)</span><br>
+  Devolve uma nova fração que é o resultado de multiplicar <i>f</i> pela fração 
+<li><span class="codigo">public void simplify()</span><br>
+  Simplifica a fração
+  dividindo o numerador e o denominador pelo seu máximo divisor comum
+  (MDC).<br> Exemplo: 18/48 ficaria simplificada para 3/8, sendo que
+  MDC(18,48)=6.<br> Para calcular o máximo divisor comum pode usar o
+  <a href="https://pt.wikipedia.org/wiki/Algoritmo_de_Euclides">Algoritmo
+  de Euclides</a>.
+</ol>
+<li>Teste a sua classe.<br>&nbsp;
+</ul>
+
+<li><b>Ciclos e Matrizes.</b><br>
+  Para cimentar os seus conhecimentos sobre ciclos e matrizes tem mais um exercício disponível no Mooshak (no volume 01):<br>
+  <ul>
+    <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    <li>Resolva e <a href="https://mooshak.dcc.fc.up.pt/~edados/">submeta</a> com sucesso o problema <a href="../problemas/prob216.html">[ED216] Contando Cardinais</a><br>&nbsp;
+    </ul>
+	
+<li><b>Números aleatórios.</b><br>
+  Adicione um construtor novo à classe <span class="codigo">Matrix</span> que dadas as dimensões e dois inteiros <b>min</b> e <b>max</b> cria uma nova matriz preenchida com números aleatórios entre <b>min</b> e <b>max</b>. A única dica que vamos dar é que existe uma classe <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Random.html">java.util.Random</a> para lidar com geração de números (pseudo)aleatórios.
+
+</ol>
+
+<hr>
+
+<h3>Exercício de Desafio</h3>
+
+<p>Para esta semana o desafio tem a ver com a eficiência algorítmica. Deve tentar resolver o seguinte problema, que está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak</a> (o volume de Desafios):
+
+  <ul>
+     <li><big><a href="../problemas/prob245.html">[ED245] Regras Quadriculadas</a></b> (Prova de Seleção para as Olimpíadas Internacionais de Informática'2016)
+  </ul>
+
+<p>Devem submeter para verificar se a solução não só está correcta do ponto de vista do que calcula, mas também se está suficientemente eficiente e consegue responder em menos de dois segundos seja qual for o input dentro das restrições dadas. Um programa correcto, mas não eficiente, irá obter apenas uma pontuação parcial (passa nos testes "pequenos", mas excede o limite de tempo nos testes "grandes").
+
+<p>Notem que este problema é substancialmente mais complicado que os exercícios de desafio anteriores. É um problema que foi usado como o primeiro problema numa prova que ajudou a determinar quais os 4 portugueses que nos representaram nas Olimpíadas Internacionais de Informática'2016, que se realizaram na Rússia. As Olimpíadas são um concurso de programação para alunos do secundário.
+
+<p>Para este problema não vou dar nenhuma dica, ficando à espera de ver os vossos programas :)
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

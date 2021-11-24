@@ -1,0 +1,65 @@
+<html>
+<head>
+	<title>Mooshak #02 - Ordenação</title>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// Exemplo de ordenacao customizada de pessoas</span>
+<span style="color: #888888">// Primeiro por ordem crescente da idade, e em caso de empate por</span>
+<span style="color: #888888">// ordem crescente alfabetica do nome</span>
+<span style="color: #888888">// -------------------------------------</span>
+<span style="color: #888888">// Pedro Ribeiro (DCC/FCUP) - 13/11/2021</span>
+<span style="color: #888888">// -------------------------------------</span>
+
+<span style="color: #557799">#include &lt;iostream&gt;</span>
+<span style="color: #557799">#include &lt;vector&gt;</span>
+<span style="color: #557799">#include &lt;string&gt;</span>
+<span style="color: #557799">#include &lt;algorithm&gt;</span>
+
+<span style="color: #008800; font-weight: bold">using</span> <span style="color: #008800; font-weight: bold">namespace</span> std;
+
+<span style="color: #888888">// Tipo para guardar uma pessoa</span>
+<span style="color: #008800; font-weight: bold">typedef</span> <span style="color: #008800; font-weight: bold">struct</span> {
+  <span style="color: #333399; font-weight: bold">int</span> age;
+  string name;
+} Person;
+
+<span style="color: #888888">// Funcao para comparar dois elementos de um array (necessaria para o sort)</span>
+<span style="color: #888888">// Esta funcao deve devolver:</span>
+<span style="color: #888888">//  - true se elemento p1&quot; for menor que elemento &quot;p2&quot;</span>
+<span style="color: #888888">//  - false se elemento &quot;p1&quot; for maior ou igual ao elemento &quot;p2&quot;</span>
+<span style="color: #008800; font-weight: bold">struct</span> comparePerson {
+  <span style="color: #333399; font-weight: bold">bool</span> <span style="color: #008800; font-weight: bold">operator</span>()(<span style="color: #008800; font-weight: bold">const</span> Person p1, <span style="color: #008800; font-weight: bold">const</span> Person p2) {
+    <span style="color: #008800; font-weight: bold">if</span> (p1.age <span style="color: #333333">&lt;</span> p2.age) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">true</span>;
+    <span style="color: #008800; font-weight: bold">if</span> (p1.age <span style="color: #333333">&gt;</span> p2.age) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">false</span>;
+    <span style="color: #888888">// compare e uma funcao que ja existe no C++ - veja o manual se nao conhece</span>
+    <span style="color: #008800; font-weight: bold">return</span> p1.name.compare(p2.name)<span style="color: #333333">&lt;</span><span style="color: #0000DD; font-weight: bold">0</span>;
+  }
+};
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>() {
+  <span style="color: #333399; font-weight: bold">int</span> n;
+
+  cin <span style="color: #333333">&gt;&gt;</span> n;
+
+  vector<span style="color: #333333">&lt;</span>Person<span style="color: #333333">&gt;</span> v;
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">++</span>) {
+    Person p;
+    cin <span style="color: #333333">&gt;&gt;</span> p.age <span style="color: #333333">&gt;&gt;</span> p.name;
+    v.push_back(p);
+  }
+
+  <span style="color: #888888">// Chamada ao sort padrao da linguagem C++</span>
+  sort(v.begin(), v.end(), comparePerson());
+
+  <span style="color: #008800; font-weight: bold">for</span> (Person p <span style="color: #333333">:</span> v)
+  cout <span style="color: #333333">&lt;&lt;</span> p.age <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">&lt;&lt;</span> p.name <span style="color: #333333">&lt;&lt;</span> endl;
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+
+</body>
+</html>

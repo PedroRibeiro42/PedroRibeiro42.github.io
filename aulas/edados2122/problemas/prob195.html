@@ -1,0 +1,75 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[ED195] Expressões bem balanceadas</title>
+</head>
+
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 11 de Dezembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula07.html">ler o guião da aula #07</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[ED195] Expressões bem balanceadas</h2>
+
+<p><img src="prob195.jpg" align="right"><font color="red">Neste problema deverá apenas submeter uma classe <b>ED195</b> contendo um método estático <b>balanced</b> como a seguir descrito (não é necessário um programa completo).</font>
+
+<p>Pode assumir que terá acesso no Mooshak às <a target="_new" href="http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/codigo/pilhas.html">classes de pilhas</a> como dadas nas aulas.
+
+<hr>
+
+<h3>Método a submeter</h3>
+
+<p><li><b><tt>public static boolean balanced(String s)</tt></b> da
+  classe <b><tt>ED195</tt></b>
+
+    <p>Recebe uma string formada apenas por parenteses rectos e curvos, e devolve <i>true</i> caso a expressão esteja bem formada e <i>false</i> caso contrário.</p>
+
+    <p>Por exemplo, <tt>"([()])"</tt> e <tt>"[()()]"</tt> são expressões bem formadas, ao passo que <tt>"(()]"</tt>, <tt>"[()[])"</tt> ou <tt>"[()[]"</tt> não estão balanceadas (faltam parenteses por fechar ou fecham os parenteses errados).</p>
+
+<hr>
+
+<h3>Exemplos de input/output</h3>
+
+<table class=main cellpadding=4 border=1>
+<tr>
+       <th>Chamada</th>
+       <th>Resultado</th>
+</tr>
+<tr>
+  <td valign=top class=left>ED195.balanced(<tt>"([()])"</tt>)</td>
+  <td valign=top class=left>true</td>
+</tr>
+<tr>
+  <td valign=top class=left>ED195.balanced(<tt>"[()()]"</tt>)</td>
+  <td valign=top class=left>true</td>
+</tr>
+<tr>
+  <td valign=top class=left>ED195.balanced(<tt>"(()]"</tt>)</td>
+  <td valign=top class=left>false</td>
+</tr>
+<tr>
+  <td valign=top class=left>ED195.balanced(<tt>"[()[])"</tt>)</td>
+  <td valign=top class=left>false</td>
+</tr>
+<tr>
+  <td valign=top class=left>ED195.balanced(<tt>"[()[]"</tt>)</td>
+  <td valign=top class=left>false</td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+
+</html>

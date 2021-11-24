@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #06 - Listas Ligadas Simples</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Aula Prática #06 - Listas Ligadas Simples<br>
+    <small><small>(17 de novembro)</small></small>
+  </h1>
+  <hr>
+<h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios que pode submeter desta aula são:<br>
+     
+    <ul>
+      <li><a class="important" href="../problemas/prob188.html">[ED188] Devolver elemento numa dada posição </a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob189.html">[ED189] Remover elemento numa dada posição </a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob190.html">[ED190] Cópia de uma lista</a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob191.html">[ED191] Duplicando elementos</a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob192.html">[ED192] Contando elementos</a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob193.html">[ED193] Removendo todas as ocorrências de um elemento</a> (peso 20%) <span style="color:DarkSlateBlue">(exercício extra)</span></li>
+      <li><a class="important" href="../problemas/prob250.html">[ED250] Pequenos Alfabetos</a> (peso 20%) <span style="color:DarkRed">(exercício de desafio)</span></li>
+    </ul>
+
+    <p><b>Prazo de submissão:</b> 4 de Dezembro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a>)</p>
+
+  <p><b>É encorajado que vão falando com os docentes e outros colegas se tiverem dificuldades. No entanto, qualquer ajuda mais direta que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota.<br>
+    Cada aula vale 10% da nota desta componente. Como existem 12 aulas com submissões, pode ter pontuação máxima mesmo sem ter feito tudo.<br>
+    Para um problema contar tem acertar todos os testes (ou seja, ter <i>accepted</i>). Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.<br>
+  Para ter 100% bastará sempre resolver os exercícios do guião principal.</p>
+
+  <hr>
+  
+  <h3>Conteúdos das teóricas</h3>
+
+  <p>Nesta e nas próximas aulas práticas iremos usar <b>listas ligadas</b>. Será por isso conveniente ver o que foi falado nas teóricas:
+    <ul>
+      <li><a href="../apoio.html#slides">Slides sobre Listas:</a> 4 - Listas Ligadas
+      <li><a href="../videos/index.html">Vídeos das teóricas</a>: 4 - Listas Ligadas
+    </ul>
+  </p>
+
+  <p><img src="linkedlist.png" border="1" height="60">
+
+  <hr>
+
+  <h3>Sobre as dicas em cada problema</h3>
+
+  <p>A partir desta aula, as dicas passaram normalmente a estar escondidas atrás de um botão do tipo <i>"spoiler"</i>: só carregando é que aparecem. Assim, se preferirem, podem optar por primeiro pensar um pouco no problema "sozinhos" (sendo que podem também carregar logo para ver).
+
+  <hr>
+
+  <h3>Exercício 1) Compreender listas ligadas</h3>
+
+<ol>
+  <li><b>Código de listas.</b><br>
+    Faça download do código dado nas teóricas e compile-o (precisa de ter os 3 ficheiros):
+    <ul>
+      <li><a href="../codigo/lista_ligada_simples.html">SinglyLinkedList</a> - lista ligada simples (ex operações: tamanho, adicionar no início e no fim, retirar no início e no fim)</li>
+      <ul>
+	<li>Download: <a href="../codigo/Node.java">Node.java</a> | <a href="../codigo/SinglyLinkedList.java">SinglyLinkedList.java</a> | <a href="../codigo/TestSinglyLinkedList.java">TestSinglyLinkedList.java</a> 
+      </ul>
+    </ul>
+      
+  <li><b>Um primeiro teste.</b><br>
+    Abra o ficheiro <tt>TestSinglyLinkedList.java</tt> no seu
+    editor. Execute o código desse ficheiro (<span class="shell">$
+      java TestSinglyLinkedList</span>) e procure acompanhar cada uma das linhas de código e o seu efeito.<br>
+    Abra também o ficheiro <tt>SinglyLinkedList.java</tt> para espreitar como os métodos referidos no <tt>TestSinglyLinkedList.java</tt> são implementados.
+  </li>
+
+  <li><b>Genéricos, <i>wrappers</i> e <i>autoboxing</i>.</b><br>
+    Tal como explicado nas aulas, a implementação de listas ligadas usa a noção de genéricos e por isso suporta qualquer qualquer tipo de objectos (não apenas inteiros). Para usar inteiros o exemplo do <tt>TestSinglyLinkedList</tt> usou o tipo <span class="codigo">Integer</span> que é uma classe cujo objectivo é conter um inteiro (e com isso poder ser usada onde o Java espera um Objecto, como é o caso aqui).</li>
+      <ul>
+	<li>Este é um exemplo das classes que encapsulam tipos primitivos (os <a href="https://en.wikipedia.org/wiki/Primitive_wrapper_class"><i>wrappers</i></a>), que são as seguintes: 
+	  <span class="codigo">Byte</span>, <span class="codigo">Short</span>, <span class="codigo">Integer</span>, <span class="codigo">Long</span>, <span class="codigo">Float</span>, <span class="codigo">Double</span>, <span class="codigo">Character</span>, <span class="codigo">Boolean</span>. Estas classes suportam a noção de <a href="https://docs.oracle.com/javase/tutorial/java/data/autoboxing.html"><i>autoboxing</i></a>.
+	<li>Para testar pelo menos um outro wrapper, adicione ao <tt>main</tt> um pedaço de código para criar uma lista com as vogais <tt>'a'</tt>, <tt>'e'</tt>, <tt>'i'</tt>, <tt>'o'</tt>, <tt>'u'</tt>e imprima-a para se certificar que a criou correctamente.
+      </ul>
+
+  <li><b>Lista de tipos customizados: um exemplo com uma lista de pares.</b><br>
+    Crie uma lista para conter em cada posição um par de números, adicione-lhe todas as coordenadas inteiras entre (1,1) e (3,3) e imprima a lista. O output deverá ser algo como: {(1,1),(1,2),(1,3),(2,1),(2,2),(2,3),(3,1),(3,2),(3,3)}
+    <ul>
+      <li>Deverá criar uma nova classe <span class="codigo">Pair</span>
+	para representar um par de inteiros.
+      <li>Deverá criar uma <span class="codigo">SinglyLinkedList</span> de... <span class="codigo">Pair</span>!
+      <li>Para poder simplesmente mandar imprimir a lista deverá criar o método <span class="codigo">toString</span> na classe <span class="codigo">Pair</span> (que define o que a classe devolve quando é esperada uma String).
+    </ul>
+</ol>
+
+<hr>
+
+  <h3>Exercício 2) Vários exercícios de listas no Mooshak</h3>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    Este exercício consiste na implementação de vários métodos para manipular listas. Todos eles são para serem integrados na classe <span class="codigo">SinglyLinkedList</span> e estão disponíveis para submissão no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a> no <b>"Volume 3 (Listas Ligadas)"</b>, problemas 188 a 193.
+
+  <p>Para testar as implementações no seu computador deve chamar os métodos no <tt>main</tt> depois de ter criado as listas com os exemplos que quiser verificar.
+  
+    <ol>
+      <li>Resolva e submeta o problema <a href="../problemas/prob188.html">[ED188] Devolver elemento numa dada posição </a><br>
+	<button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas</button>
+    
+	<div id="spoiler1" style="display:none">
+	  <ul>
+	    <li>Tem de percorrer <i>pos</i> posições e depois devolver o atributo <i>value</i> do nó nessa posição
+	    <li>Cuidado com os casos onde a posição é inválida (menor que zero ou maior ou igual ao tamanho)
+	  </ul>	  
+	</div>
+	<br>&nbsp;
+	
+      <li>Resolva e submeta o problema <a href="../problemas/prob189.html">[ED189] Remover elemento numa dada posição </a><br>
+
+	<button title="Dicas" type="button" onclick="if(document.getElementById('spoiler2') .style.display=='none') {document.getElementById('spoiler2') .style.display=''}else{document.getElementById('spoiler2') .style.display='none'}">Mostrar/Esconder Dicas</button>
+
+	<div id="spoiler2" style="display:none">
+	  <ul>
+	    <li>Tem de conseguir parar antes de chegar ao elemento que quer remover para actualizar o <i>next</i> do anterior
+	    <li>Cuidado com os casos excepcionais: qual é o nó anterior ao primeiro?
+	    <li>Não se esqueça de actualizar o <i>size</i>
+	  </ul>
+	</div>
+	<br>&nbsp;
+      
+      <li>Resolva e submeta o problema <a href="../problemas/prob190.html">[ED190] Cópia de uma lista</a><br>
+	<button title="Dicas" type="button" onclick="if(document.getElementById('spoiler3') .style.display=='none') {document.getElementById('spoiler3') .style.display=''}else{document.getElementById('spoiler3') .style.display='none'}">Mostrar/Esconder Dicas</button>
+	
+	<div id="spoiler3" style="display:none">
+	  <ul>
+	    <li>Comece por criar uma nova lista de tipo... <tt>SinglyLinkedList&lt;T&gt;</tt>!
+	    <li>Depois só tem ir percorrendo a lista e ir chamando <tt>addLast</tt> numa nova lista
+	    <li>No final retorne essa nova lista
+	  </ul>
+	</div>
+	<br>&nbsp;
+
+	  
+      <li>Resolva e submeta o problema <a href="../problemas/prob191.html">[ED191] Duplicando elementos</a><br>
+	<button title="Dicas" type="button" onclick="if(document.getElementById('spoiler4') .style.display=='none') {document.getElementById('spoiler4') .style.display=''}else{document.getElementById('spoiler4') .style.display='none'}">Mostrar/Esconder Dicas</button>
+
+	<div id="spoiler4" style="display:none">
+	  <ul>
+	    <li>Para cada elemento da lista tem de criar um novo <tt>Node</tt> e modificar os atributos <tt>next</tt> em consonância.
+	  </ul>
+	</div>
+	<br>&nbsp;
+		
+      <li>Resolva e submeta o problema <a href="../problemas/prob192.html">[ED192] Contando elementos</a><br>
+	<button title="Dicas" type="button" onclick="if(document.getElementById('spoiler5') .style.display=='none') {document.getElementById('spoiler5') .style.display=''}else{document.getElementById('spoiler5') .style.display='none'}">Mostrar/Esconder Dicas</button>
+
+	<div id="spoiler5" style="display:none">
+	  <ul>
+	    <li>Não se esqueça de usar o método equals para comparar (ex: <i>var1.equals(var2)</i> compara o conteúdo de var1 com var2 e retorna true se forem iguais, ou false caso contrário). Um == apenas compara se as referências "apontam" para o mesmo endereço de memória.
+	  </ul>
+	  </div>	  
+</ol>
+
+<hr>
+
+<h3>Exercícios extra para consolidação de conhecimentos</h3>
+
+<ol>
+  <li><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>Resolva e submeta o problema <a href="../problemas/prob193.html">[ED193] Removendo todas as ocorrências de um elemento</a><br>
+	<button title="Dicas" type="button" onclick="if(document.getElementById('spoiler6') .style.display=='none') {document.getElementById('spoiler6') .style.display=''}else{document.getElementById('spoiler6') .style.display='none'}">Mostrar/Esconder Dicas</button>
+
+	<div id="spoiler6" style="display:none">
+	  <ul>
+	    <li>Cuidado com a remoção de vários números seguidos...
+	  </ul>
+	  <div>
+
+  
+  <li><b>Implementando um .equals</b><br>
+    Experimente tentar usar o método <span class="codigo">count</span> numa lista de pares como atrás definiiu (objectos do tipo <span class="codigo">Pair</span>). O que acontece? Os objectos têm um <i>.equals</i> padrão que é equivalente ao ==. Para ter o comportamento desejado (comparar os dois números do par) é necessário implementar esse método. Faça <i>override</i> do método padrão e implemente um <i>equals</i> correcto para a sua classe <span class="codigo">Pair</span>. Teste a sua implementação fazendo contagens e verificando a correção do resultado.
+  <li><b>Mais métodos de listas</b><br>
+    Implemente mais alguns métodos de listas fazendo operações que julgue serem úteis, treinando também a parte de perceber como deve ser a assinatura do método. Aqui ficam algumas sugestões para métodos:    
+      <ul>
+	<li>Devolver a posição da primeira (ou última) ocorrência de um dado elemento na lista
+	<li>Retirar todos os elementos que estão numa posição ímpar (ou par)
+	<li>Concatenar (juntar) duas listas
+      </ul>
+  <li><b>Acesso eficiente ao último elemento</b><br>
+    Para melhorar a eficiência dos métodos que necessitam de aceder ao final da lista (<span class="codigo">getLast</span> e <span class="codigo">addLast</span>) adicione um atributo  <span class="codigo">private Node&lt;T&gt; last</span> à sua classe de lista ligada. Faça as devidas modificações em todos os métodos implementados (no final têm que deixar correctos não só os valores de <i>first</i> e <i>size</i>, mas também de <i>last</i>). Este é um <i>tradeoff</i> típico: melhorar a eficiência tornando (ligeiramente) mais complexa a implementação.
+
+</ol>
+
+<hr>
+
+<h3>Desafio</h3>
+
+  <p>Para esta semana vou colocar um problema diferente dos anteriores e um pouco mais fácil, na esperança de que mais alunos voltem a tentar fazer (e a conseguir). É novamente um problema da minha autoria que foi usado nas Olimpíadas de Informática, mas neste caso na qualificação (uma fase mais preliminar) e vários miúdos do secundário conseguiram resolvê-lo completamente:
+
+  <ul>
+     <li><big><a href="../problemas/prob250.html">[ED250] Pequenos Alfabetos</a></b> (Prova de Qualificação para as Olimpíadas Nacionais de Informática'2009)
+  </ul>
+
+<p>O limite de tempo de execução para cada caso de teste é de 1 segundo, pelo que a solução só será aceite e com pontuação máxima no Mooshak se for eficiente (note que a frase pode ter um milhão de caracteres).
+
+<p>Para estes problemas de desafios não vou dar logo dicas, para vos deixar pensar, mas se quiserem mesmo resolver o problema e não estejam a conseguir (mesmo depois de terem realmente tentado), podem falar comigo para obter pistas, ou ter uma ideia de como os "atacar" 
+  
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

@@ -1,0 +1,126 @@
+<html>
+<head>
+<title>[ED015] Sopa de Letras</title>
+<link rel="StyleSheet" href="style.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 20 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula04.html">ler o guião da aula #04</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[ED015] Sopa de Letras</h2>
+
+<h3>O problema</h3>
+
+<p>Todos conhecem o puzzle da "Sopa de Letras", que consiste basicamente em encontrar palavras, num
+emaranhado de letras.
+
+<p>Uma sopa de letras é basicamente um quadriculado de letras, sempre maiúsculas, e uma palavra pode ser
+encontrada apenas na horizontal (da direita para a esquerda ou da esquerda para a direita) ou na vertical
+(de cima para baixo, ou de baixo para cima). Para este problema, <b>as
+    palavras não podem vir na diagonal</b>.
+
+<p>A tua tarefa é resolver uma sopa de letras.
+
+<p>Por exemplo, imagina que tinhas de procurar as seguintes palavras na sopa de letras da figura:
+
+<pre>SOPA
+LETRA
+EDA</pre>
+
+<img src="prob015.jpg" width="700" height="178" alt="" border="0">
+
+<p>A ideia é que o teu programa descubra onde estão as palavras. Para que mostres que realmente as
+descobriste, todas as letras que não pertencem a palavras devem ser substituidas por um ponto, como
+exemplificado na figura. Consulta o exemplo de input e output para clarificares o que deves fazer.
+
+<h3>Input</h3>
+
+<p>Um ficheiro de input contém vários casos de teste.
+<p>A primeira linha de teste contém dois números <tt>LINS COLS</tt>, indicando respectivamente
+o número de linhas e colunas da sopa de letras (<tt>1 &#8804; LINS,COLS &#8804; 100</tt>).
+<p>Seguem-se LINS linhas de input, cada uma contendo COLS letras maiúsculas, sem espaços a separá-las.
+<p>De seguida vem <tt>N</tt> (<tt>1 &#8804; N &#8804; 50</tt>), o número de palavras a pesquisar, sendo que as N linhas
+seguintes contêm precisamente as palavras, também apenas representadas por letras maiúsculas (cada palavra
+tem o tamanho máximo de 50 letras). É garantido que todas estas palavras aparecem no input apenas uma só vez
+(numa das quatro direcções válidas)
+<p>Um caso com 0 linhas e 0 colunas sinaliza o final do input, e não deve ser processado.
+
+<h3>Output</h3>
+
+<p>Para cada caso deve começar por ser imprimida uma linha de output, <tt>"Input #NUM"</tt>, onde
+<tt>NUM</tt> representa o número do caso, seguido da impressão da sopa de letras, no formato pedido,
+com as palavras destacadas.
+
+<p>Vê o exemplo para clarificar a maneira como deve ser feito o output.<br>
+
+<h3>Exemplo de input/output</h3>
+
+<table class=main cellpadding=8 border=1>
+<tr>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+<tr>
+       <td valign=top class=left>
+<pre>4 5
+SBCDA
+OFGHD
+PJKLE
+ARTEL
+3
+SOPA
+LETRA
+EDA
+8 10
+EABDFGHJNM
+SASDDFOCVB
+TXSCSFTCAQ
+EZVFACILSD
+AQWUHNUFSV
+PROBLEMADA
+HCVDASEFVB
+WMLFACIFSD
+5
+ESTE
+PROBLEMA
+FICA
+MUITO
+FACIL
+0 0
+</pre>
+	   </td>
+       <td valign=top class=left>
+<pre>Input #1
+S...A
+O...D
+P...E
+ARTEL
+Input #2
+E.........
+S.....O...
+T.....T...
+E..FACIL..
+......U...
+PROBLEMA..
+..........
+....ACIF..
+</pre></td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

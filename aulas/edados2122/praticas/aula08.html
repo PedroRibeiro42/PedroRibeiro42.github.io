@@ -1,0 +1,158 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #08 - Revisões/Preparação para o 1º Teste Prático</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Aula Prática #08 - Revisões/Preparação para o 1º Teste Prático<br>
+    <small><small>(1 de dezembro - aula opcional, para fazer em casa com apoio no Slack)</small></small>
+  </h1>
+  <hr>
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios que pode submeter desta aula são:<br>
+  
+    <ul>
+      <li><a class="important" href="../problemas/prob231.html">[ED231] Estatísticas Epidemiológicas</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span> - <span style="color:purple">disponível no "Volume 1 (Ciclos, Arrays, Matrizes, Strings)"</span></li>
+      <li><a class="important" href="../problemas/prob232.html">[ED232] O Senhor das Listas</a> (peso 50%)  <span style="color:DarkGreen">(exercício do guião principal)</span> - <span style="color:purple">disponível no "Volume 3 (Listas Ligadas)"</span></li>
+      <li><a class="important" href="../problemas/prob235.html">[ED235] Triângulo Retângulo</a> (peso 30%) <span style="color:DarkSlateBlue">(exercício extra)</span> - <span style="color:purple">disponível no "Volume 1 (Ciclos, Arrays, Matrizes, Strings)"</span></li>
+      <li><a class="important" href="../problemas/prob236.html">[ED236] Métodos para Listas Ligadas Simples</a> (peso 50%) <span style="color:DarkSlateBlue">(exercício extra)</span> - <span style="color:purple">disponível no "Volume 3 (Listas Ligadas)"</span></li>
+      <li><a class="important" href="../problemas/prob237.html">[ED237] Round-Robin </a> (peso 50%) <span style="color:DarkSlateBlue">(exercício extra)</span> - <span style="color:purple">disponível no "Volume 4 (Pilhas e Filas)"</span></li>
+      <li><a class="important" href="../problemas/prob238.html">[ED238] Código Binário </a> (peso 50%) <span style="color:DarkRed">(exercício de desafio)</span> - <span style="color:purple">disponível no "Volume de Desafios"</span></li>
+    </ul>
+
+  <p><b>Prazo de submissão:</b> 18 de Dezembro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a>)</p>
+
+  <p><b>É encorajado que vão falando com os docentes e outros colegas se tiverem dificuldades. No entanto, qualquer ajuda mais direta que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota.<br>
+    Cada aula vale 10% da nota desta componente. Como existem 12 aulas com submissões, pode ter pontuação máxima mesmo sem ter feito tudo.<br>
+    Para um problema contar tem acertar todos os testes (ou seja, ter <i>accepted</i>). Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.<br>
+  Para ter 100% bastará sempre resolver os exercícios do guião principal.</p>
+    
+    <hr>
+
+  <h3>Aula de Revisões/Preparação para o 1º Teste Prático</h3>
+
+  <p>Esta aula prática é essencialmente de revisões e preparação para o <a href="teste1.html">1º teste prático</a> (podem também relembrar as <a href="../avaliacao.html">regras de avaliação</a> desta unidade curricular). Cobre matéria já dada e versa problemas usados nos anos anteriores como exercícios de avaliação.</p>
+
+  <hr>
+
+  <h3>Exercício 1) Ciclos e epidemiologia</h3>
+
+  <p>O primeiro problema aqui proposto foi usado em 2019/2020 como exercício de submissão das aulas e é essencialmente sobre a primeira parte da matéria, de fundamentos de Java. Para o resolver basta no fundo saber usar ciclos.</p>
+    
+    <p><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+      Resolva e submeta o problema <a href="../problemas/prob231.html">[ED231] Estatísticas Epidemiológicas</a> - <span style="color:purple">disponível no "Volume 1 (Ciclos, Arrays, Matrizes, Strings)"</span><br>
+
+	<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas para a Flag 1</button>
+    
+    <div id="spoiler1" style="display:none">
+        <ul>
+	  <li>Basta fazer um simples ciclo onde \(i\) vai tomando à vez todas as posições (exceto a primeira) e em cada passo obter \(valor[i] - valor[i-1]\).
+	  <li>Depois basta guardar o mínimo e máximo de desses incrementos e no final imprimir
+  </ul>
+    </div>
+
+    <p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler2') .style.display=='none') {document.getElementById('spoiler2') .style.display=''}else{document.getElementById('spoiler2') .style.display='none'}">Mostrar/Esconder Dicas para a Flag 2</button>
+    
+    <div id="spoiler2" style="display:none">
+        <ul>
+	  <li>Comece por fazer um ciclo como a da flag anterior para calcular a subida percentual em cada dia. Tenha cuidado com a divisão (se dividir dois inteiros vai obter apenas uma divisão inteira: pode fazer um cast para ober um valor com casas decimais, por exemplo)
+	  <li>O problema é resolúvel sem necessitar de variáveis auxiliares, mas se desejar pode por exemplo guardar as subidas num novo array de \(doubles\); chamemos a esse array \(subidas[]\)
+	  <li>Um período de baixa propagação <b>começa</b> numa posição \(i\) se \(subidas[i] \leq 5\%\) e \(subidas[i-1] \gt 5\%\) (ou se \(i=0\), ou seja se \(i\) for a primeira posição do array)
+	  <li>Um período de baixa propagação <b>termina</b> numa posição \(j\) se \(subidas[j] \leq 5\%\) e \(subidas[j+1] \gt 5\%\) (ou se \(j\) for última posição do array)
+	  <li>Se um período de baixa propagação começa na posição \(i\) e termina na posição \(j\), então o seu tamanho é igual a \(j-i+1\)
+	  <li>Cada vez que terminar um período de baixa propagação, incremente uma variável que conta quantos períodos existem e compare com a maior até agora (para que no final tenha o tamanho máximo)
+	</ul>
+    </div>
+
+    <p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler3') .style.display=='none') {document.getElementById('spoiler3') .style.display=''}else{document.getElementById('spoiler3') .style.display='none'}">Mostrar/Esconder Dicas para a Flag 3</button>
+    
+    <div id="spoiler3" style="display:none">
+        <ul>
+	  <li>Pode optar por imprimir logo ou criar uma variável (matriz de caracteres) para conter o resultado e só depois imprimir
+	  <li>A altura (nº linhas) do output é igual ao maior valor a dividir por 100
+	  <li>Depois é preciso percorrer todas as linhas e em cada linha percorrer as respetivas colunas (como saber se a <i>j</i>-ésima coluna da <i>i</i>-ésima linha tem um '.' ou um '#'?)
+  </ul>
+    </div>
+
+      <hr>
+
+  <h3>Exercício 2) Gollum e listas ligadas</h3>
+
+  <p>O segundo problema aqui proposto foi também usadoem 2019/2020 como exercício de submissão das aulas e implica fazer alguns métodos de listas ligadas simples. </p>
+    
+    <p><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+      Resolva e submeta o problema <a href="../problemas/prob232.html">[ED232] O Senhor das Listas</a> - <span style="color:purple">disponível no "Volume 3 (Listas Ligadas)"</span><br>
+
+	<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler4') .style.display=='none') {document.getElementById('spoiler4') .style.display=''}else{document.getElementById('spoiler4') .style.display='none'}">Mostrar/Esconder Dicas para o reverse</button>
+    
+    <div id="spoiler4" style="display:none">
+        <ul>
+	  <li>Note que não pode modificar a lista original, ou seja, não pode remover os seus elementos (ou se o fizer tem de voltar a colocá-los na lista, pela mesma ordem)
+	  <li>Existem várias maneiras de inverter, mas a mais fácil passar por ir percorrendo os nós um a um da lista original (do primeiro para o último, usando um simples ciclo) e ir inserindo os valores deles numa nova lista na ordem correcta (para ficar invertido, cada valor deve ser inserido... no início (com que método pode fazer isso?) Assim, o último valor inserido, será o primeiro da nova lista (e por aí adiante...)
+	</ul>
+    </div>
+
+    <p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler5') .style.display=='none') {document.getElementById('spoiler5') .style.display=''}else{document.getElementById('spoiler5') .style.display='none'}">Mostrar/Esconder Dicas para o occurrences</button>
+    
+    <div id="spoiler5" style="display:none">
+        <ul>
+	  <li>Primeiro deve fazer um ciclo pela lista para contar o número de ocorrências, para criar um array com o tamanho respetivo (que será no final devolvido como retorno do método)
+	  <li>Se o número de ocorrências for zero, pode devolver \(null\)	    
+	  <li>Faça um segundo ciclo pela lista onde mantém também o índice da posição atual e se um valor de um nó for igual ao desejado (comparar com equals), então basta adicionar a posição atual ao array de posições que criou
+	</ul>
+    </div>
+
+    <p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler6') .style.display=='none') {document.getElementById('spoiler6') .style.display=''}else{document.getElementById('spoiler6') .style.display='none'}">Mostrar/Esconder Dicas para o remove</button>
+    
+    <div id="spoiler6" style="display:none">
+        <ul>
+	  <li>Existem várias maneiras de fazer e aqui estão descritas duas hipóteses
+	  <li>Hipótese 1) fazer um método para retirar todas as cópias de um valor (é o ED193, se já o fez!); percorrer a lista \(toRemove\) e chamar o método criado anteriormente para cada um deles
+	  <li>Hipótese 2) percorrer a lista original e para cada um dos seus valores verificar se está contido em \(toRemove\) (e nesse caso remover)
+	</ul>
+    </div>
+	
+	
+<hr>
+
+<h3>Exercícios extra para consolidação de conhecimentos</h3>
+
+<p>Para ter ainda mais problemas se quiser treinar, ficam aqui os problemas usados no equivalente ao 1º teste prático em 2019/2020. 
+
+    <p><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+      Resolva e submeta os seguintes problemas:</p>
+  
+<ul>
+  <li><a href="../problemas/prob235.html">[ED235] Triângulo Retângulo</a> <i>(ciclos)</i> - <span style="color:purple">disponível no "Volume 1 (Ciclos, Arrays, Matrizes, Strings)"</span></li>
+  <li><a href="../problemas/prob236.html">[ED236] Métodos para Listas Ligadas Simples</a> <i>(métodos de listas ligadas simples)</i> - <span style="color:purple">disponível no "Volume 3 (Listas Ligadas)"</span></li>
+  <li><a href="../problemas/prob237.html">[ED237] Round-Robin</a> <i>(uso de API de listas, filas e pilhas)</i> - <span style="color:purple">disponível no "Volume 4 (Pilhas e Filas)"</span></li>
+  
+</ul>
+
+<hr>
+
+<h3>Exercício de Desafio</h3>
+
+ <p>Para esta semana disponibilizo um problema não muito complicado que foi usado como o 4º problema (o de valorização) no equivalente ao 1º teste prático de 2019/2020 (para distinguir na gama cimeira das notas).
+
+  <ul>
+     <li><big><a href="../problemas/prob238.html">[ED238] Código Binário</a></b> - <span style="color:purple">disponível no "Volume de Desafios"</span>
+  </ul>
+
+<p>A solução só será aceite e com pontuação máxima no Mooshak se for algoritmicamente eficiente.
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

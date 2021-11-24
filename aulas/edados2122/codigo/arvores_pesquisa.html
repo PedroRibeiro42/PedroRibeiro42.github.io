@@ -1,0 +1,311 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Arvores Binarias de Pesquisa</title>
+	<link rel="StyleSheet" href="style.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h3>Voltar a <a href="index.html">Lista de Codigo de Exemplo</a></h3>
+  <hr>
+  
+  <h1>Arvores Binarias de Pesquisa</h1>
+
+  <p>
+
+  <h3>No da arvore binaria de pesquisa(BSTNode.java)</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Estruturas de Dados 2021/2022 (CC1007) - DCC/FCUP</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// No de uma arvore binaria de pesquisa</span>
+<span style="color: #888888">// Ultima alteracao: 13/05/2018</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+
+<span style="color: #888888">// O tipo T tem de implementar o interface Comparable</span>
+<span style="color: #888888">// (ou te-lo herdado de uma super classe).</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">BSTNode</span><span style="color: #333333">&lt;</span>T <span style="color: #008800; font-weight: bold">extends</span> Comparable<span style="color: #333333">&lt;?</span> <span style="color: #008800; font-weight: bold">super</span> T<span style="color: #333333">&gt;&gt;</span> <span style="color: #333333">{</span>
+   <span style="color: #008800; font-weight: bold">private</span> T value<span style="color: #333333">;</span>          <span style="color: #888888">// Valor guardado no no</span>
+   <span style="color: #008800; font-weight: bold">private</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> left<span style="color: #333333">;</span>  <span style="color: #888888">// Filho esquerdo</span>
+   <span style="color: #008800; font-weight: bold">private</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> right<span style="color: #333333">;</span> <span style="color: #888888">// Filho direito</span>
+
+   <span style="color: #888888">// Construtor</span>
+   BSTNode<span style="color: #333333">(</span>T v<span style="color: #333333">,</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> l<span style="color: #333333">,</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> r<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      value <span style="color: #333333">=</span> v<span style="color: #333333">;</span>
+      left <span style="color: #333333">=</span> l<span style="color: #333333">;</span>
+      right <span style="color: #333333">=</span> r<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Getters e Setters</span>
+   <span style="color: #008800; font-weight: bold">public</span> T <span style="color: #0066BB; font-weight: bold">getValue</span><span style="color: #333333">()</span> <span style="color: #333333">{</span><span style="color: #008800; font-weight: bold">return</span> value<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">getLeft</span><span style="color: #333333">()</span> <span style="color: #333333">{</span><span style="color: #008800; font-weight: bold">return</span> left<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">getRight</span><span style="color: #333333">()</span> <span style="color: #333333">{</span><span style="color: #008800; font-weight: bold">return</span> right<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setValue</span><span style="color: #333333">(</span>T v<span style="color: #333333">)</span> <span style="color: #333333">{</span>value <span style="color: #333333">=</span> v<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setLeft</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> l<span style="color: #333333">)</span> <span style="color: #333333">{</span>left <span style="color: #333333">=</span> l<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setRight</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> r<span style="color: #333333">)</span> <span style="color: #333333">{</span>right <span style="color: #333333">=</span> r<span style="color: #333333">;}</span>   
+<span style="color: #333333">}</span>
+</pre></div>
+  
+  <hr>
+
+  <h3>Arvore binaria de pesquisa (BSTree.java)</h3>
+
+  <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Estruturas de Dados 2021/2022 (CC1007) - DCC/FCUP</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Arvore binaria de pequisa</span>
+<span style="color: #888888">// Ultima alteracao: 13/05/2018</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+
+<span style="color: #888888">// O tipo T tem de implementar o interface Comparable</span>
+<span style="color: #888888">// (ou te-lo herdado de uma super classe).</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">BSTree</span><span style="color: #333333">&lt;</span>T <span style="color: #008800; font-weight: bold">extends</span> Comparable<span style="color: #333333">&lt;?</span> <span style="color: #008800; font-weight: bold">super</span> T<span style="color: #333333">&gt;&gt;</span> <span style="color: #333333">{</span>   
+   <span style="color: #008800; font-weight: bold">private</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> root<span style="color: #333333">;</span> <span style="color: #888888">// raiz da arvore</span>
+
+   <span style="color: #888888">// Construtor</span>
+   BSTree<span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      root <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+
+   <span style="color: #888888">// Getter e Setter para a raiz</span>
+   <span style="color: #008800; font-weight: bold">public</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">getRoot</span><span style="color: #333333">()</span> <span style="color: #333333">{</span><span style="color: #008800; font-weight: bold">return</span> root<span style="color: #333333">;}</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">setRoot</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> r<span style="color: #333333">)</span> <span style="color: #333333">{</span>root <span style="color: #333333">=</span> r<span style="color: #333333">;}</span>
+   
+   <span style="color: #888888">// Verificar se arvore esta vazia</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">isEmpty</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> root <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Limpa a arvore (torna-a vazia)</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">clear</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      root <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   <span style="color: #888888">// Numero de nos da arvore</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">numberNodes</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0066BB; font-weight: bold">numberNodes</span><span style="color: #333333">(</span>root<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">numberNodes</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> n<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">+</span> numberNodes<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">())</span> <span style="color: #333333">+</span> numberNodes<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">());</span>
+   <span style="color: #333333">}</span>
+   
+   <span style="color: #888888">// --------------------------------------------------------   </span>
+   <span style="color: #888888">// O elemento value esta contido na arvore?</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">contains</span><span style="color: #333333">(</span>T value<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0066BB; font-weight: bold">contains</span><span style="color: #333333">(</span>root<span style="color: #333333">,</span> value<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">contains</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> n<span style="color: #333333">,</span> T value<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">==</span><span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">;</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>value<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">())</span> <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span> <span style="color: #888888">// menor? sub-arvore esquerda</span>
+         <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0066BB; font-weight: bold">contains</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">(),</span> value<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>value<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">())</span> <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span> <span style="color: #888888">// maior? sub-arvore direita</span>
+         <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0066BB; font-weight: bold">contains</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">(),</span> value<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">;</span> <span style="color: #888888">// se nao e menor ou maior, e porque e igual</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   <span style="color: #888888">// Adicionar elemento a uma arvore de pesquisa</span>
+   <span style="color: #888888">// Devolve true se conseguiu inserir, false caso contrario</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">insert</span><span style="color: #333333">(</span>T value<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>contains<span style="color: #333333">(</span>value<span style="color: #333333">))</span> <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">;</span>
+      root <span style="color: #333333">=</span> insert<span style="color: #333333">(</span>root<span style="color: #333333">,</span> value<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">insert</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> n<span style="color: #333333">,</span> T value<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">==</span><span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span>
+         <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;(</span>value<span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">,</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> <span style="color: #333333">(</span>value<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">())</span> <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span> 
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setLeft</span><span style="color: #333333">(</span>insert<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">(),</span> value<span style="color: #333333">));</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> <span style="color: #333333">(</span>value<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">())</span> <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setRight</span><span style="color: #333333">(</span>insert<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">(),</span> value<span style="color: #333333">));</span>
+      <span style="color: #008800; font-weight: bold">return</span> n<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   <span style="color: #888888">// Remover elemento de uma arvore de pesquisa</span>
+   <span style="color: #888888">// Devolve true se conseguiu remover, false caso contrario</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">remove</span><span style="color: #333333">(</span>T value<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(!</span>contains<span style="color: #333333">(</span>value<span style="color: #333333">))</span> <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">false</span><span style="color: #333333">;</span>
+      root <span style="color: #333333">=</span> remove<span style="color: #333333">(</span>root<span style="color: #333333">,</span> value<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Assume-se que elemento existe (foi verificado antes)</span>
+   <span style="color: #008800; font-weight: bold">private</span> BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #0066BB; font-weight: bold">remove</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> n<span style="color: #333333">,</span> T value<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>value<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">())</span> <span style="color: #333333">&lt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setLeft</span><span style="color: #333333">(</span>remove<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">(),</span> value<span style="color: #333333">));</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> <span style="color: #333333">(</span>value<span style="color: #333333">.</span><span style="color: #0000CC">compareTo</span><span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">())</span> <span style="color: #333333">&gt;</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">)</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setRight</span><span style="color: #333333">(</span>remove<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">(),</span> value<span style="color: #333333">));</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">()</span> <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #888888">// Nao tem filho esquerdo</span>
+         n <span style="color: #333333">=</span> n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">();</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">()</span> <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #888888">// Nao tem filho direito</span>
+         n <span style="color: #333333">=</span> n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">();</span>
+      <span style="color: #008800; font-weight: bold">else</span> <span style="color: #333333">{</span> <span style="color: #888888">// Dois fihos: ir buscar maximo do lado esquerdo</span>
+         BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> max <span style="color: #333333">=</span> n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">();</span>
+         <span style="color: #008800; font-weight: bold">while</span> <span style="color: #333333">(</span>max<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">()</span> <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> max <span style="color: #333333">=</span> max<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">();</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setValue</span><span style="color: #333333">(</span>max<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">());</span> <span style="color: #888888">// Substituir valor removido</span>
+         <span style="color: #888888">// Apagar valor que foi para lugar do removido</span>
+         n<span style="color: #333333">.</span><span style="color: #0000CC">setLeft</span><span style="color: #333333">(</span>remove<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">(),</span> max<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">()));</span>
+      <span style="color: #333333">}</span>
+      <span style="color: #008800; font-weight: bold">return</span> n<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   <span style="color: #888888">// Altura da arvore</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">depth</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0066BB; font-weight: bold">depth</span><span style="color: #333333">(</span>root<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">depth</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> n<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">+</span> Math<span style="color: #333333">.</span><span style="color: #0000CC">max</span><span style="color: #333333">(</span>depth<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">()),</span> depth<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">()));</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+
+   <span style="color: #888888">// Imprimir arvore em PreOrder</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">printPreOrder</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;PreOrder:&quot;</span><span style="color: #333333">);</span>
+      printPreOrder<span style="color: #333333">(</span>root<span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">();</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">printPreOrder</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> n<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">==</span><span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span><span style="color: #333333">;</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">+</span> n<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">()</span> <span style="color: #333333">);</span>
+      printPreOrder<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">());</span>
+      printPreOrder<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">());</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   
+   <span style="color: #888888">// Imprimir arvore em InOrder</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">printInOrder</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;InOrder:&quot;</span><span style="color: #333333">);</span>
+      printInOrder<span style="color: #333333">(</span>root<span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">();</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">printInOrder</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> n<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">==</span><span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span><span style="color: #333333">;</span>
+      printInOrder<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">());</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">+</span> n<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">());</span>
+      printInOrder<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">());</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+
+   <span style="color: #888888">// Imprimir arvore em PostOrder</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">printPostOrder</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;PostOrder:&quot;</span><span style="color: #333333">);</span>
+      printPostOrder<span style="color: #333333">(</span>root<span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">();</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">printPostOrder</span><span style="color: #333333">(</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> n<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>n<span style="color: #333333">==</span><span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #008800; font-weight: bold">return</span><span style="color: #333333">;</span>
+      printPostOrder<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">());</span>
+      printPostOrder<span style="color: #333333">(</span>n<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">());</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">+</span> n<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">());</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+
+   <span style="color: #888888">// Imprimir arvore numa visita em largura (usando TAD Fila)</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">printBFS</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;BFS:&quot;</span><span style="color: #333333">);</span>
+      
+      MyQueue<span style="color: #333333">&lt;</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;&gt;</span> q <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> LinkedListQueue<span style="color: #333333">&lt;</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;&gt;();</span>
+      q<span style="color: #333333">.</span><span style="color: #0000CC">enqueue</span><span style="color: #333333">(</span>root<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">while</span> <span style="color: #333333">(!</span>q<span style="color: #333333">.</span><span style="color: #0000CC">isEmpty</span><span style="color: #333333">())</span> <span style="color: #333333">{</span>
+         BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> cur <span style="color: #333333">=</span> q<span style="color: #333333">.</span><span style="color: #0000CC">dequeue</span><span style="color: #333333">();</span>
+         <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>cur <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">+</span> cur<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">());</span>
+            q<span style="color: #333333">.</span><span style="color: #0000CC">enqueue</span><span style="color: #333333">(</span>cur<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">());</span>
+            q<span style="color: #333333">.</span><span style="color: #0000CC">enqueue</span><span style="color: #333333">(</span>cur<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">());</span>
+         <span style="color: #333333">}</span>
+      <span style="color: #333333">}</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">();</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// --------------------------------------------------------</span>
+   
+   <span style="color: #888888">// Imprimir arvore numa visita em largura (usando TAD Pilha)</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">printDFS</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;DFS:&quot;</span><span style="color: #333333">);</span>
+      
+      MyStack<span style="color: #333333">&lt;</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;&gt;</span> q <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> LinkedListStack<span style="color: #333333">&lt;</span>BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;&gt;();</span>
+      q<span style="color: #333333">.</span><span style="color: #0000CC">push</span><span style="color: #333333">(</span>root<span style="color: #333333">);</span>
+      <span style="color: #008800; font-weight: bold">while</span> <span style="color: #333333">(!</span>q<span style="color: #333333">.</span><span style="color: #0000CC">isEmpty</span><span style="color: #333333">())</span> <span style="color: #333333">{</span>
+         BSTNode<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> cur <span style="color: #333333">=</span> q<span style="color: #333333">.</span><span style="color: #0000CC">pop</span><span style="color: #333333">();</span>
+         <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>cur <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">null</span><span style="color: #333333">)</span> <span style="color: #333333">{</span>
+            System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">+</span> cur<span style="color: #333333">.</span><span style="color: #0000CC">getValue</span><span style="color: #333333">());</span>
+            q<span style="color: #333333">.</span><span style="color: #0000CC">push</span><span style="color: #333333">(</span>cur<span style="color: #333333">.</span><span style="color: #0000CC">getLeft</span><span style="color: #333333">());</span>
+            q<span style="color: #333333">.</span><span style="color: #0000CC">push</span><span style="color: #333333">(</span>cur<span style="color: #333333">.</span><span style="color: #0000CC">getRight</span><span style="color: #333333">());</span>
+         <span style="color: #333333">}</span>
+      <span style="color: #333333">}</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">();</span>
+   <span style="color: #333333">}</span>
+
+<span style="color: #333333">}</span>
+</pre></div>
+
+
+  <hr>
+  
+  <h3>Exemplo de teste das arvores binarias de pesquisa(TestBSTree.java)</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Estruturas de Dados 2021/2022 (CC1007) - DCC/FCUP</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Exemplo de utilizacao da uma arvore binaria de pesquisa</span>
+<span style="color: #888888">// Ultima alteracao: 02/05/2018</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">TestBSTree</span> <span style="color: #333333">{</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+
+      <span style="color: #888888">// Criacao da Arvore</span>
+      BSTree<span style="color: #333333">&lt;</span>Integer<span style="color: #333333">&gt;</span> t <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> BSTree<span style="color: #333333">&lt;</span>Integer<span style="color: #333333">&gt;();</span>
+
+      <span style="color: #888888">// Inserindo 11 elementos na arvore binaria de pesquisa</span>
+      <span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">[]</span> data <span style="color: #333333">=</span> <span style="color: #333333">{</span><span style="color: #0000DD; font-weight: bold">14</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">4</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">18</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">3</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">9</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">16</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">20</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">7</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">15</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">17</span><span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">5</span><span style="color: #333333">};</span>
+      <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;</span>data<span style="color: #333333">.</span><span style="color: #0000CC">length</span><span style="color: #333333">;</span> i<span style="color: #333333">++)</span> t<span style="color: #333333">.</span><span style="color: #0000CC">insert</span><span style="color: #333333">(</span>data<span style="color: #333333">[</span>i<span style="color: #333333">]);</span>
+
+      <span style="color: #888888">// Escrever resultado de chamada a alguns metodos</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;numberNodes = &quot;</span> <span style="color: #333333">+</span> t<span style="color: #333333">.</span><span style="color: #0000CC">numberNodes</span><span style="color: #333333">());</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;depth = &quot;</span> <span style="color: #333333">+</span> t<span style="color: #333333">.</span><span style="color: #0000CC">depth</span><span style="color: #333333">());</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;contains(2) = &quot;</span> <span style="color: #333333">+</span> t<span style="color: #333333">.</span><span style="color: #0000CC">contains</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">));</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;contains(3) = &quot;</span> <span style="color: #333333">+</span> t<span style="color: #333333">.</span><span style="color: #0000CC">contains</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">3</span><span style="color: #333333">));</span>
+
+      <span style="color: #888888">// Escrever nos da arvore seguindo varias ordens possiveis</span>
+      t<span style="color: #333333">.</span><span style="color: #0000CC">printPreOrder</span><span style="color: #333333">();</span>
+      t<span style="color: #333333">.</span><span style="color: #0000CC">printInOrder</span><span style="color: #333333">();</span>
+      t<span style="color: #333333">.</span><span style="color: #0000CC">printPostOrder</span><span style="color: #333333">();</span>
+
+      <span style="color: #888888">// Experimentando remocao</span>
+      t<span style="color: #333333">.</span><span style="color: #0000CC">remove</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">14</span><span style="color: #333333">);</span>
+      t<span style="color: #333333">.</span><span style="color: #0000CC">printPreOrder</span><span style="color: #333333">();</span>
+      t<span style="color: #333333">.</span><span style="color: #0000CC">printInOrder</span><span style="color: #333333">();</span>
+      t<span style="color: #333333">.</span><span style="color: #0000CC">printPostOrder</span><span style="color: #333333">();</span>
+   <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>  
+    
+  <hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Ultima actualizacao: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

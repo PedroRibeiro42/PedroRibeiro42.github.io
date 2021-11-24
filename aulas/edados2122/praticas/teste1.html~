@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Informações para o 1º Teste Prático</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Estruturas de Dados 2020/2021</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Informações para o 1º Teste Prático<br></h1>
+<hr>
+
+<h3>Informações Gerais</h3>
+
+<ul>
+  <li><b>Data:</b> 9 de dezembro de 2021
+  <li><b>Hora:</b> 18:15
+  <li><b>Local:</b> Laboratórios <a href="https://sigarra.up.pt/fcup/pt/instal_geral.espaco_view?pv_id=69108">FC6 155</a>, <a href="https://sigarra.up.pt/fcup/pt/instal_geral.espaco_view?pv_id=69045">FC6 157</a> e <a href="https://sigarra.up.pt/fcup/pt/instal_geral.espaco_view?pv_id=69183">FC6 163</a>
+  <li><b>Duração:</b> 2h (exercícios dimensionados para menos tempo)
+  <li><b>Método:</b> o teste será presencial (nos laboratórios do DCC, que têm Linux e os editores habituais) e irão ter acesso a computador, documentação do Java, código base (essencialmente o que está na <a href="../codigo/index.html">lista de código exemplo</a>) e irão submeter no Mooshak, sendo que poderão ver alguns casos de teste quando falham, tal como nas aulas práticas.
+  <li><b>Pontuação:</b> este teste vale 2.5 valores (ver descrição da <a href="../avaliacao.html#classificacao">fórmula de cálculo da vossa classificação nesta unidade curricular</a>)<br>
+    São 4 pequenos exercícios cotados com 34%+33%+33%+20%.<br>
+    Em cada exercício podem existir cotações parciais (ex: passa nalguns testes, falha noutros). Só em casos muito excepcionais a pontuação será diferente da atribuida pelo Mooshak. Podem acontecer casos onde recebem mais pontos do que o Mooshak atribuiu (ex: está tudo certo e falta apenas um ponto e vírgula :)) ou menos pontos (ex: não fizeram o pedido ou tentaram fazer "batota"). Se tentarem genuinamente fazer os problemas não vão ter nenhum "chatice".
+</ul>
+
+<hr>
+    
+<h3>Objectivos específicos para cada exercício e problemas de treino</h3>
+
+<ol>
+  <li>[34%] <b>Exercício 1: problemas simples com ciclos</b><br>
+    Terão de implementar um programa pequeno que lê da entrada padrão um ou mais números e imprime algo. O exercício será de dificuldade simples e passará na sua essência por saber ler, criar variáveis (e possivelmente arrays) e saber usar ciclos.
+
+    <ul>
+      <li><b>Problemas de treino:</b> <a href="../problemas/prob183.html">[ED183]</a> <a href="../problemas/prob120.html">[ED120]</a> <a href="../problemas/prob243.html">[ED243]</a> <a href="../problemas/prob231.html">[ED231]</a> <a href="../problemas/prob235.html">[ED235]</a>
+    </ul>
+    &nbsp;
+    <br>
+
+  <li>[33%] <b>Exercício 2: implementação de métodos para listas ligadas simples.</b><br>
+  Terão de adicionar um ou mais pequenos métodos à classe <b>SinglyLinkedList</b>. Será dada como base a implementação dada nas aulas (<a href="../apoio.html#slides">ver slides</a> | <a href="../codigo/lista_ligada_simples.html">ver implementação</a>) e serão descritos o métodos a implementar, incluindo a assinatura do método (qual o tipo de retorno e o tipo dos argumentos). Irão submeter a classe como nas aulas (com os novos métodos adicionados). 
+    <ul>
+      <li><b>Problemas de treino:</b> <a href="../problemas/prob188.html">[ED188]</a> <a href="../problemas/prob189.html">[ED189]</a> <a href="../problemas/prob190.html">[ED190]</a> <a href="../problemas/prob191.html">[ED191]</a> <a href="../problemas/prob192.html">[ED192]</a> <a href="../problemas/prob193.html">[ED193]</a> <a href="../problemas/prob232.html">[ED232]</a> <a href="../problemas/prob236.html">[ED236]</a> 
+    </ul>
+    &nbsp;
+    <br>
+    
+  <li>[33%] <b>Exercício 3: programa completo (incluindo ler e escrever) que usa listas, pilhas e/ou filas</b><br>
+    Problema com base do algoritmo a usar descrito no enunciado. O tema do problema implicará que é conveniente usar listas, pilhas ou filas, mas poderão usar qualquer implementação (ex: usar a base de código dada nas aulas, usar TADs do próprio Java, ou usar uma qualquer implementação vossa).
+    <ul>
+    <li><b>Problemas de treino:</b>
+	      <a href="../problemas/prob005.html">[ED005]</a>
+	      <a href="../problemas/prob006.html">[ED006]</a>
+	      <a href="../problemas/prob007.html">[ED007]</a>
+	      <a href="../problemas/prob237.html">[ED237]</a>
+	      (outros problemas de dificuldade maior mas do tipo do que pode ser pedido:
+	      <a href="../problemas/prob095.html">[ED095]</a>
+	      <a href="../problemas/prob098.html">[ED098]</a>
+	      <a href="../problemas/prob115.html">[ED115]</a>
+	      ) 	  
+    </ul>
+    &nbsp;
+    <br>
+
+  <li>[20%] <b>Exercício 4: problema de valorização</b><br>
+    Este problema pode dar 20% adicionais (0.5 valores), ou seja, é possível ter nota acima dos 2.5 valores (por exemplo para compensar algo que corra menos bem noutro componente da avaliação). Não serão dadas dicas e terão de pensar no algoritmo adequado. O problema não será completamente resolúvel com uma solução exaustiva de "força bruta" e será necessário ser eficiente. A complexidade esperada será dada no enunciado e não será dado nenhum código base. Este exercício será um pouco mais complicado que os outros e aconselhamos a apenas tentarem depois de terem feito os três primeiros exercícios.
+    
+    <ul>
+      <li><b>Problemas de treino:</b>
+	<a href="../problemas/prob122.html">[ED122]</a>
+	<a href="../problemas/prob250.html">[ED250]</a>
+	<a href="../problemas/prob252.html">[ED252]</a>
+	<a href="../problemas/prob238.html">[ED238]</a>
+	<a href="../problemas/prob198.html">[ED198]</a>
+	<a href="../problemas/prob199.html">[ED199]</a>
+	<a href="../problemas/prob222.html">[ED222]</a>
+    </ul>
+    &nbsp;
+    <br>
+ 
+</ol>
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

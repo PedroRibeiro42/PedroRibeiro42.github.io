@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Competitive Programming (CC3036) - Prefix Sums</title>
+	<link rel=StyleSheet href="../style.css" type="text/css">
+</head>
+
+<body>
+  
+<table bgcolor="black" border="0" cellspacing="1" cellpadding="0">
+<tr>
+<td rowspan="3" bgcolor="white"><a href="../index.html"><img src="../logo_pc2021.png" height="50" border="0"></a></td>
+<td class="h1" valign="middle" align="center">&nbsp; Prfix Sums &nbsp;</td>
+</tr>
+<tr>
+<td class="h3" valign="middle" align="center"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Prefix Sums (1D)</h2>
+
+<p>A very useful concept is that of <a href="http://en.wikipedia.org/wiki/Prefix_sum">"prefix sums"</a>, also known as "cumulative sums".
+
+<p>Imagine for instance an array of integers. The cumulative sums are the total sums up to the respective position. For example: 
+  
+<pre>
+<b>    Position <i>i</i>:</b>  0  1  2  3  4  5  6  7
+<b>         Array:</b>     3  7  2  4  5  7  6
+<b> Cumulaive Sum:</b>  0  3 10 12 16 21 28 34
+</pre>
+
+<p>If we have the cumulative sum stores, which can be linearly
+calculated - <b>O(N)</b> - finding the sum of a certain interval can be done in constant time - <b>O(1)</b>. For example, if <i>cs[]</i> keeps the cumulative sums, the sum between positions <i>a</i> and <i>b</i> is equal to <i>cs[b]-cs[a-1]</i>.
+
+<p>This can be done to solve many problems in an efficient way. Here's a simple example:
+
+<li><a href="https://vjudge.net/problem/UVA-10324">[UVA 10324]</a> - <a href="https://uva.onlinejudge.org/external/103/10324.pdf">Zeros and Ones</a> (testing range query on a cumulative sums array)
+
+<hr>
+  
+  
+<h2>Prefix Sums (2D) e Inclusion-Exclusion Principle</h2>
+
+<p>The idea of cumulative sums to compute sums of intervals uses a principle known as <a href="http://en.wikipedia.org/wiki/Inclusion%E2%80%93exclusion_principle">"inclusion-exclusion"</a>. In simple terms, this principle tells us how we can relate the sizes of two sets ant their union:
+
+<p><img src="ie2.png">
+
+<p>If we had 3 sets:
+
+<p><img src="ie3.png">
+
+<p>This principle might be very useful in counting problems, but for
+know we will apply it to find the sum in two dimensions.
+
+<p>In the same way we define it for 1 dimension, let's define <i>cs[i][j]</i> ash the cumulative sum matrix (the sum of all positions that are less than <i>i,j</i>):
+
+<pre>
+
+    matrix      cumulative sums
+
+<font color="#4444cc">    1  2  3          0  1  2  3
+                 0</font>   0  0  0  0
+<font color="#4444cc">1</font>   2  3  5      <font color="#4444cc">1</font>   0  2  5 10
+<font color="#4444cc">2</font>   4  6  7      <font color="#4444cc">2</font>   0  6 15 27
+<font color="#4444cc">3</font>   2  7  8      <font color="#4444cc">3</font>   0 10 24 44
+</pre>
+
+<p>This can be computd in <b>O(N^2)</b> if N is one largest side of the matrix. Let <i>v[i][j]</i> be the value of the number contained in <i>i,j</i>. Then:
+
+<pre>cs[i][j] = v[i][j] + cs[i-1][j] + cs[i][j-1] - cs[i-1][j-1]
+<i>(using the inclusion-exclusion principle)</i></pre>
+
+<p>With this, from now on, if we want to compute the sum of the rectangle with corners <i>a,b</i> and <i>c,d</i> (with <i>a&lt;c</i> and <i>b&lt;d</i>):
+
+<pre>sum(a,b,c,d) = cs[c][d] - cs[a-1][d] - cs[c][b-1] + cs[a-1][b-1]
+<i>(using the inclusion-exclusion principle)</i></pre>
+
+<p>For example, if we know all the rectangle of a given matriz, we can do it in <b>O(N^4)</b>, with N beong the largest side of the matrix. All we need to do is test every possible pair of corners of the rectangle (two cycles for bottom corner, two cycles for top corner) and then we can obtain the sum of that rectangle in constant time using cumulative sums.
+
+
+<p>Here is an example problem solvable directly with this:
+
+  <li><a href="https://vjudge.net/problem/UVA-836">[UVA 836]</a> - <a href="https://uva.onlinejudge.org/external/8/836.pdf">Largest Submatrix</a> (testing cumulative sums for 2D - O(n<sup>4</sup> still passes))
+
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro
+Ribeiro</a> - CRACS & INESC-TEC, DCC/FCUP
+
+</body>
+
+</html>

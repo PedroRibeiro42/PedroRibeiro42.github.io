@@ -1,0 +1,77 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[ED194] Invertendo uma pilha</title>
+</head>
+
+<body>
+  
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 11 de Dezembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula07.html">ler o guião da aula #07</a>]</b></small></p>
+  
+<hr>
+
+<h2>[ED194] Invertendo uma pilha</h2>
+
+<p><img src="prob194.jpg" align="right"><font color="red">Neste problema deverá apenas submeter uma classe <b>ED194</b> contendo um método estático <b>reverse</b> como a seguir descrito (não é necessário um programa completo).</font>
+
+<p>Pode assumir que terá acesso no Mooshak às <a target="_new" href="http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/codigo/pilhas.html">classes de pilhas</a> como dadas nas aulas.
+
+<hr>
+
+<h3>Método a submeter</h3>
+
+<p><li><b><tt>public static void reverse(MyStack&lt;Integer&gt; s, int n)</tt></b> da
+  classe <b><tt>ED194</tt></b>
+
+<p>Deve inverter, na pilha, os seus primeiros <i>n</i> elementos. Por exemplo, se <tt>s</tt> for {1,2,3,4,5} (com 1 no topo da pilha), então uma chamada a <tt>reverse(s, 3)</tt> deve transformar <tt>s</tt> em {3,2,1,4,5}.
+
+<p>Pode assumir que <i>n</i> é um valor entre 1 e o tamanho da pilha.
+
+<hr>
+
+<h3>Exemplos de input/output</h3>
+
+<table class=main cellpadding=4 border=1>
+<tr>
+       <th>Pilha inicial</th>
+       <th>Chamada</th>
+       <th>Estado da pilha depois da chamada</th>
+</tr>
+<tr>
+  <td valign=top class=left>s = {1,2,3,4,5}</td>
+  <td valign=top class=left>ED194.reverse(s, 3)</td>
+  <td valign=top class=left>s = {3,2,1,4,5}</td>
+</tr>
+<tr>
+  <td valign=top class=left>s = {2,4,6,8}</td>
+  <td valign=top class=left>ED194.reverse(s, 4)</td>
+  <td valign=top class=left>s = {8,6,4,2}</td>
+</tr>
+<tr>
+  <td valign=top class=left>s = {1,2,3}</td>
+  <td valign=top class=left>ED194.reverse(s, 1)</td>
+  <td valign=top class=left>s = {1,2,3}</td>
+</tr>
+<tr>
+  <td valign=top class=left>s = {11,12,13,14,15,16,17,18,19,20}</td>
+  <td valign=top class=left>ED194.reverse(s, 6)</td>
+  <td valign=top class=left>s = {16,15,14,13,12,11,17,18,19,20}</td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+
+</body>
+
+</html>

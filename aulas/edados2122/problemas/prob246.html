@@ -1,0 +1,311 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>Caderno Quadriculado</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 20 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula04.html">ler o guião da aula #04</a>]</b></small></p>
+  
+<hr>
+
+    
+    <h1>[ED246] Caderno Quadriculado</h1>
+
+    <p><img src="prob246.jpg" alt="" align="right" border="1">A Sara
+      adora o seu caderno quadriculado de matemática. Para passar o
+      tempo começou a escrever os números inteiros
+      consecutivamente. Achou, contudo, que fazê-lo de esquerda para a
+      direita e de cima para baixo era muito aborrecido!  Resolveu por
+      isso preencher os números pelas diagonais usando o seguinte
+      padrão:</p>
+
+    <p><img src="prob246_padrao.jpg" alt="" border="o" >
+
+    <p>Isto resulta num preenchimento das quadrículas como
+    representado a seguir, onde se vê parte do caderno da Sara (as
+    outras linhas e colunas que não aparecem na figura estão
+    preenchidas com números também):</p>
+
+    <table border="0" bgcolor="black">
+      <tr bgcolor="white">
+	<td align="center">1</td><td align="center">3</td><td align="center">6</td><td align="center">10</td><td align="center">15</td><td align="center">21</td><td align="center">28</td><td align="center">36</td>
+      </tr>
+      <tr bgcolor="white">
+	<td align="center">2</td><td align="center">5</td><td align="center">9</td><td align="center">14</td><td align="center">20</td><td align="center">27</td><td align="center">35</td><td align="center">44</td>
+      </tr>
+      <tr bgcolor="white">
+	<td align="center">4</td><td align="center">8</td><td align="center">13</td><td align="center">19</td><td align="center">26</td><td align="center">34</td><td align="center">43</td><td align="center">53</td>
+      </tr>
+      <tr bgcolor="white">
+	<td align="center">7</td><td align="center">12</td><td align="center">18</td><td align="center">25</td><td align="center">33</td><td align="center">42</td><td align="center">52</td><td align="center">63</td>
+      </tr>
+      <tr bgcolor="white">
+	<td align="center">11</td><td align="center">17</td><td align="center">24</td><td align="center">32</td><td align="center">41</td><td align="center">51</td><td align="center">62</td><td align="center">74</td>
+      </tr>
+      <tr bgcolor="white">
+	<td align="center">16</td><td align="center">23</td><td align="center">31</td><td align="center">40</td><td align="center">50</td><td align="center">61</td><td align="center">73</td><td align="center">86</td>
+      </tr>
+    </table>
+
+    <p>A Sara acha que ficou um padrão muito giro! Como na sua escola
+    está na fase de aprender a operação de adição, resolveu começar a somar os
+    números contidos dentro de retângulos. Por exemplo, se
+    considerasse o retângulo da figura seguinte (com cantos nos
+    números 13 e 51), a soma seria igual a
+    358 <nobr>(13+19+26+34+18+25+33+42+24+32+41+51)</nobr>:</p>
+
+        <table border="0" bgcolor="black">
+      <tr bgcolor="white">
+	<td align="center">1</td><td align="center">3</td><td align="center">6</td><td align="center">10</td><td align="center">15</td><td align="center">21</td><td align="center">28</td><td align="center">36</td>
+      </tr>
+      <tr bgcolor="white">
+	<td align="center">2</td><td align="center">5</td><td align="center">9</td><td align="center">14</td><td align="center">20</td><td align="center">27</td><td align="center">35</td><td align="center">44</td>
+      </tr>
+      <tr bgcolor="white">
+	<td align="center">4</td><td align="center">8</td><td align="center" bgcolor="#ffbbbb">13</td><td align="center" bgcolor="#ffbbbb">19</td><td align="center" bgcolor="#ffbbbb">26</td><td align="center" bgcolor="#ffbbbb">34</td><td align="center">43</td><td align="center">53</td>
+      </tr>
+      <tr bgcolor="white">
+	<td align="center">7</td><td align="center">12</td><td align="center" bgcolor="#ffbbbb">18</td><td align="center" bgcolor="#ffbbbb">25</td><td align="center" bgcolor="#ffbbbb">33</td><td align="center" bgcolor="#ffbbbb">42</td><td align="center">52</td><td align="center">63</td>
+      </tr>
+      <tr bgcolor="white">
+	<td align="center">11</td><td align="center">17</td><td align="center" bgcolor="#ffbbbb">24</td><td align="center" bgcolor="#ffbbbb">32</td><td align="center" bgcolor="#ffbbbb">41</td><td align="center" bgcolor="#ffbbbb">51</td><td align="center">62</td><td align="center">74</td>
+      </tr>
+      <tr bgcolor="white">
+	<td align="center">16</td><td align="center">23</td><td align="center">31</td><td align="center">40</td><td align="center">50</td><td align="center">61</td><td align="center">73</td><td align="center">86</td>
+      </tr>
+	</table>
+
+    <p>A Sara gostava de poder verificar se as somas estão
+    corretas. Claro que ela gostava de saber a soma de um qualquer
+    retângulo dado. Será que podes ajudá-la?
+     
+    <h2>O Problema</h2>
+
+    <p>Dado um conjunto de <b>N</b> retângulos, cada um indicado
+    pelos números nos seus cantos <b>A<sub>i</sub></b>
+    e <b>B<sub>i</sub></b>, determina a soma dos números contidos em
+    cada retângulo, supondo que o caderno quadriculado foi preenchido
+    pelas diagonais como atrás descrito. Podes assumir que o caderno
+    tem um tamanho tão grande que a Sara tem sempre uma quadrícula disponível
+    quando precisa de escrever um novo número.
+    </p>
+
+    <h2>Input</h2>
+
+    <p>Na primeira linha vem um inteiro <b>N</b>, indicando o número
+      de retângulos a considerar. Seguem-se <b>N</b> linhas, cada uma
+      com dois inteiros <b>A<sub>i</sub></b> e <b>B<sub>i</sub></b>
+      indicando os cantos superior esquerdo e inferior direito,
+      respectivamente, do <i>i</i>-ésimo retângulo.
+
+    <h2>Output</h2>
+
+    <p>O output deve contar <b>N</b> linhas, uma para cada retângulo,
+    contendo a soma do dos números nele contidos.
+    </p>
+
+    <h2>Restrições</h2>
+
+    <p>São garantidos os seguintes limites em todos os casos de teste que
+      irão ser colocados ao programa:</p>
+
+    <table>
+      <tr>
+        <td><b>1 &le; N &le; 1&nbsp;000</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Número de retângulos</td>
+      </tr>
+      <tr>
+        <td><b>1 &le; A<sub>i</sub> &le; B<sub>i</sub> &le; 10<sup>9</sup></b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Cantos de cada retângulo</td>
+      </tr>
+      <tr>
+      <tr>
+        <td><b>1 &le; Linhas, Colunas &le; 10&nbsp;000</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Número de linhas e colunas de cada retângulo</td>
+      </tr>
+        <td><b>1 &le; Resposta &le; 10<sup>18</sup></b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Soma de cada retângulo (a resposta)</td>
+      </tr>
+    </table>
+
+    <p>Os casos de teste deste problema estão organizados em 3 grupos
+    com restrições adicionais diferentes:</p>
+
+    <table>
+      <tr>
+        <th>Grupo</th>
+        <th>Número de Pontos</th>
+        <th align="left">Restrições adicionais</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>40</td>
+        <td>1 &le; A<sub>i</sub> &le; B<sub>i</sub> &le; 500</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>30</td>
+        <td>Os retângulos não têm mais do que 50 linhas e 50 colunas</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>30</td>
+        <td>-</td>
+      </tr>
+    </table>
+
+    <h2>Input do Exemplo</h2>
+    <pre>
+4
+13 51
+5 31
+28 44
+25 245
+    </pre>
+
+    <h2>Output do Exemplo</h2>
+<pre>
+358
+160
+143
+7480
+</pre>
+
+    <h2>Explicação do Exemplo</h2>
+
+    <p>Os quatro retângulos do exemplo correspondem aos retângulos das figuras seguintes:</p>
+    <ul>
+      <li>o primeiro (a vermelho) tem cantos 13 e 51 e uma soma de 358;
+      <li>o segundo (a verde) tem cantos 5 e 31 e uma soma de 160;
+      <li>o terceiro (a azul) tem cantos 28 e 44  e uma soma de 143;
+      <li>o quarto (a amarelo) tem cantos 25 e 245  e uma soma de 7480.
+    </ul>
+
+    <table border="0">
+      <tr>
+	<td>
+ <table border="0" bgcolor="black">
+<tr bgcolor="white">
+<td align="center">1</td><td align="center">3</td><td align="center">6</td><td align="center">10</td><td align="center">15</td><td align="center">21</td><td align="center">28</td><td align="center">36</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">2</td><td align="center">5</td><td align="center">9</td><td align="center">14</td><td align="center">20</td><td align="center">27</td><td align="center">35</td><td align="center">44</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">4</td><td align="center">8</td><td align="center" bgcolor="#ffbbbb">13</td><td align="center" bgcolor="#ffbbbb">19</td><td align="center" bgcolor="#ffbbbb">26</td><td align="center" bgcolor="#ffbbbb">34</td><td align="center">43</td><td align="center">53</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">7</td><td align="center">12</td><td align="center" bgcolor="#ffbbbb">18</td><td align="center" bgcolor="#ffbbbb">25</td><td align="center" bgcolor="#ffbbbb">33</td><td align="center" bgcolor="#ffbbbb">42</td><td align="center">52</td><td align="center">63</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">11</td><td align="center">17</td><td align="center" bgcolor="#ffbbbb">24</td><td align="center" bgcolor="#ffbbbb">32</td><td align="center" bgcolor="#ffbbbb">41</td><td align="center" bgcolor="#ffbbbb">51</td><td align="center">62</td><td align="center">74</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">16</td><td align="center">23</td><td align="center">31</td><td align="center">40</td><td align="center">50</td><td align="center">61</td><td align="center">73</td><td align="center">86</td>
+</tr>
+</table>
+   
+	</td>
+	<td>&nbsp; &nbsp;</td>
+	<td>
+<table border="0" bgcolor="black">
+<tr bgcolor="white">
+<td align="center">1</td><td align="center">3</td><td align="center">6</td><td align="center">10</td><td align="center">15</td><td align="center">21</td><td align="center">28</td><td align="center">36</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">2</td><td align="center" bgcolor="#bbffbb">5</td><td align="center" bgcolor="#bbffbb">9</td><td align="center">14</td><td align="center">20</td><td align="center">27</td><td align="center">35</td><td align="center">44</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">4</td><td align="center" bgcolor="#bbffbb">8</td><td align="center" bgcolor="#bbffbb">13</td><td align="center">19</td><td align="center">26</td><td align="center">34</td><td align="center">43</td><td align="center">53</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">7</td><td align="center" bgcolor="#bbffbb">12</td><td align="center" bgcolor="#bbffbb">18</td><td align="center">25</td><td align="center">33</td><td align="center">42</td><td align="center">52</td><td align="center">63</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">11</td><td align="center" bgcolor="#bbffbb">17</td><td align="center" bgcolor="#bbffbb">24</td><td align="center">32</td><td align="center">41</td><td align="center">51</td><td align="center">62</td><td align="center">74</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">16</td><td align="center" bgcolor="#bbffbb">23</td><td align="center" bgcolor="#bbffbb">31</td><td align="center">40</td><td align="center">50</td><td align="center">61</td><td align="center">73</td><td align="center">86</td>
+</tr>
+</table>
+	  
+	</td>
+	<td>&nbsp; &nbsp;</td>
+	<td>
+<table border="0" bgcolor="black">
+<tr bgcolor="white">
+<td align="center">1</td><td align="center">3</td><td align="center">6</td><td align="center">10</td><td align="center">15</td><td align="center">21</td><td align="center" bgcolor="#66ffff">28</td><td align="center" bgcolor="#66ffff">36</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">2</td><td align="center">5</td><td align="center">9</td><td align="center">14</td><td align="center">20</td><td align="center">27</td><td align="center" bgcolor="#66ffff">35</td><td align="center" bgcolor="#66ffff">44</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">4</td><td align="center">8</td><td align="center">13</td><td align="center">19</td><td align="center">26</td><td align="center">34</td><td align="center">43</td><td align="center">53</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">7</td><td align="center">12</td><td align="center">18</td><td align="center">25</td><td align="center">33</td><td align="center">42</td><td align="center">52</td><td align="center">63</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">11</td><td align="center">17</td><td align="center">24</td><td align="center">32</td><td align="center">41</td><td align="center">51</td><td align="center">62</td><td align="center">74</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">16</td><td align="center">23</td><td align="center">31</td><td align="center">40</td><td align="center">50</td><td align="center">61</td><td align="center">73</td><td align="center">86</td>
+</tr>
+</table>
+	  
+	</td>
+      </tr>
+      
+    </table>
+
+    <br>
+
+<table border="0" bgcolor="black">
+<tr bgcolor="white">
+<td align="center">1</td><td align="center">3</td><td align="center">6</td><td align="center">10</td><td align="center">15</td><td align="center">21</td><td align="center">28</td><td align="center">36</td><td align="center">45</td><td align="center">55</td><td align="center">66</td><td align="center">78</td><td align="center">91</td><td align="center">105</td><td align="center">120</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">2</td><td align="center">5</td><td align="center">9</td><td align="center">14</td><td align="center">20</td><td align="center">27</td><td align="center">35</td><td align="center">44</td><td align="center">54</td><td align="center">65</td><td align="center">77</td><td align="center">90</td><td align="center">104</td><td align="center">119</td><td align="center">135</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">4</td><td align="center">8</td><td align="center">13</td><td align="center">19</td><td align="center">26</td><td align="center">34</td><td align="center">43</td><td align="center">53</td><td align="center">64</td><td align="center">76</td><td align="center">89</td><td align="center">103</td><td align="center">118</td><td align="center">134</td><td align="center">151</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">7</td><td align="center">12</td><td align="center">18</td><td align="center" bgcolor="#ffffaa">25</td><td align="center" bgcolor="#ffffaa">33</td><td align="center" bgcolor="#ffffaa">42</td><td align="center" bgcolor="#ffffaa">52</td><td align="center" bgcolor="#ffffaa">63</td><td align="center" bgcolor="#ffffaa">75</td><td align="center" bgcolor="#ffffaa">88</td><td align="center" bgcolor="#ffffaa">102</td><td align="center" bgcolor="#ffffaa">117</td><td align="center" bgcolor="#ffffaa">133</td><td align="center" bgcolor="#ffffaa">150</td><td align="center">168</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">11</td><td align="center">17</td><td align="center">24</td><td align="center" bgcolor="#ffffaa">32</td><td align="center" bgcolor="#ffffaa">41</td><td align="center" bgcolor="#ffffaa">51</td><td align="center" bgcolor="#ffffaa">62</td><td align="center" bgcolor="#ffffaa">74</td><td align="center" bgcolor="#ffffaa">87</td><td align="center" bgcolor="#ffffaa">101</td><td align="center" bgcolor="#ffffaa">116</td><td align="center" bgcolor="#ffffaa">132</td><td align="center" bgcolor="#ffffaa">149</td><td align="center" bgcolor="#ffffaa">167</td><td align="center">186</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">16</td><td align="center">23</td><td align="center">31</td><td align="center" bgcolor="#ffffaa">40</td><td align="center" bgcolor="#ffffaa">50</td><td align="center" bgcolor="#ffffaa">61</td><td align="center" bgcolor="#ffffaa">73</td><td align="center" bgcolor="#ffffaa">86</td><td align="center" bgcolor="#ffffaa">100</td><td align="center" bgcolor="#ffffaa">115</td><td align="center" bgcolor="#ffffaa">131</td><td align="center" bgcolor="#ffffaa">148</td><td align="center" bgcolor="#ffffaa">166</td><td align="center" bgcolor="#ffffaa">185</td><td align="center">205</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">22</td><td align="center">30</td><td align="center">39</td><td align="center" bgcolor="#ffffaa">49</td><td align="center" bgcolor="#ffffaa">60</td><td align="center" bgcolor="#ffffaa">72</td><td align="center" bgcolor="#ffffaa">85</td><td align="center" bgcolor="#ffffaa">99</td><td align="center" bgcolor="#ffffaa">114</td><td align="center" bgcolor="#ffffaa">130</td><td align="center" bgcolor="#ffffaa">147</td><td align="center" bgcolor="#ffffaa">165</td><td align="center" bgcolor="#ffffaa">184</td><td align="center" bgcolor="#ffffaa">204</td><td align="center">225</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">29</td><td align="center">38</td><td align="center">48</td><td align="center" bgcolor="#ffffaa">59</td><td align="center" bgcolor="#ffffaa">71</td><td align="center" bgcolor="#ffffaa">84</td><td align="center" bgcolor="#ffffaa">98</td><td align="center" bgcolor="#ffffaa">113</td><td align="center" bgcolor="#ffffaa">129</td><td align="center" bgcolor="#ffffaa">146</td><td align="center" bgcolor="#ffffaa">164</td><td align="center" bgcolor="#ffffaa">183</td><td align="center" bgcolor="#ffffaa">203</td><td align="center" bgcolor="#ffffaa">224</td><td align="center">246</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">37</td><td align="center">47</td><td align="center">58</td><td align="center" bgcolor="#ffffaa">70</td><td align="center" bgcolor="#ffffaa">83</td><td align="center" bgcolor="#ffffaa">97</td><td align="center" bgcolor="#ffffaa">112</td><td align="center" bgcolor="#ffffaa">128</td><td align="center" bgcolor="#ffffaa">145</td><td align="center" bgcolor="#ffffaa">163</td><td align="center" bgcolor="#ffffaa">182</td><td align="center" bgcolor="#ffffaa">202</td><td align="center" bgcolor="#ffffaa">223</td><td align="center" bgcolor="#ffffaa">245</td><td align="center">268</td>
+</tr>
+<tr bgcolor="white">
+<td align="center">46</td><td align="center">57</td><td align="center">69</td><td align="center">82</td><td align="center">96</td><td align="center">111</td><td align="center">127</td><td align="center">144</td><td align="center">162</td><td align="center">181</td><td align="center">201</td><td align="center">222</td><td align="center">244</td><td align="center">267</td><td align="center">291</td>
+</tr>
+</table>
+
+<hr size="2">
+
+    <center><i>(adaptação para a UC de Estruturas de Dados - CC1007 - DCC/FCUP)</i><br><br>
+
+    <center><b>Qualificação para a final das ONI'2016</b><br><i>(07/04 a 09/04 de 2016)</i></center>
+    <hr size="2">
+  </body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Mooshak #03 - Listas, Pilhas e Filas</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">AED 2021/2022</a> (L.EIC011)</h3>
+  <h1>Mooshak #03 - Listas Pilhas e Filas<br>
+    <small><small>(semana de 22/11 a 26/11)</small></small>
+  </h1>
+  
+  <hr>
+  
+  <h2>Nota Inicial</h2>
+  
+  <p>Os exercício do Mooshak desta aula não contam para nota e são completamente opcionais <i>(a vossa prioridade deve ser primeiro completar os exercícios base das aulas práticas)</i>. Os exercícios aqui colocados destinam-se a quem quer ir mais além do que requisitos mínimos e quiser ter uma camada de submissão com avaliação automática, sendo que todas as semanas iremos colocar disponíveis novos problemas.</p>
+
+  <p>Para tornar tudo um pouco mais interessante, eu (Pedro Ribeiro) deixo desde já prometido que irei pagar uma refeição na minha companhia (uma francesinha no Capa Negra II) a três estudantes desta UC:
+    <ul>
+      <li>Os 2 estudantes com mais problemas corretamente submetidos no final do semestre (sob um código de conduta de não tentarem simplesmente "copiar código").
+      <li>Um outro estudante que se tenha destacado nesta componente, segundo a minha avaliação (ex: resolveu os problemas mais difíceis, teve o código mais criativo, etc).
+    </ul>
+
+  <p>Espero para ver os vosses "dotes" algorítmicos ao longo destas semanas! :)
+
+<hr>
+    
+  <h2>Problemas para submissão</h2>
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed/"><img src="mooshak.gif" border="0"></a><br>
+    Nesta unidade curricular vamos usar o sistema <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a> como uma maneira opcional e adicional para avaliar automaticamente código.</p>
+    
+  <p>Nesta aula foram disponibilizados os seguintes problemas:
+     
+    <ul>      
+      <li><a class="important" href="../problemas/aed09.html">[AED 09] Pim, Pam, Pum</a> <span style="color:DarkGreen">(dificuldade: fácil)</span>
+      <li><a class="important" href="../problemas/aed10.html">[AED 10] Notação Polaca Invertida</a> <span style="color:DarkGreen">(dificuldade: fácil)</span>
+      <li><a class="important" href="../problemas/aed11.html">[AED 11] Confusão no Aeroporto</a> <span style="color:DarkBlue">(dificuldade: média)</span>
+      <li><a class="important" href="../problemas/aed12.html">[AED 12] The Golden Permit</a> <span style="color:DarkRed">(dificuldade: desafio)</span>
+    </ul>
+  
+<hr>
+
+<h3>Exercício 1) Um problema simples com listas</h3>
+
+<p>O primeiro problema é semelhante ao pedido na 5ª aula prática e envolve o conhecido jogo do "Pim Pam Pam" (<a href="https://en.wikipedia.org/wiki/Eeny,_meeny,_miny,_moe">Eeny, meeny, miny, moe</a>, em inglês).</p>
+
+<ul>
+  <li>Resolva e submeta no <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a> o problema <a class="important" href="../problemas/aed09.html">[AED 09] Pim, Pam, Pum</a>.
+</ul>
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+<div id="spoiler1" style="display:none">
+  <ul>
+    <li>Pode ler a frase usando por exemplo a função <a href="https://en.cppreference.com/w/cpp/string/basic_string/getline">getline</a> para ler uma linha inteira(não se esqueça de "escapar" o resto da linha anterior).</li>
+    <li>Para saber quantas palavras tem a linha pode por exemplo usar a função <a href="https://en.cppreference.com/w/cpp/string/byte/strtok">strtok</a> ou criar uma <a href="https://www.geeksforgeeks.org/stringstream-c-applications/">stringstream</a> com a linha lida para depois ler as palavras correspondentes (ou pode até contar os espaços, pois existe um único espaço entre palavras).</li>
+    <li>Agora é só simular o jogo a acontecer, e dados os limites baixos pode mesmo simulá-lo de forma <i>naive</i>. Entre várias maneiras sugerimos a seguinte:
+      <ul>
+        <li>Crie uma <span class="codigo">list&lt;string&gt;</span> para conter os nomes das crianças
+        <li>Para cada palavra que "contar" pode fazer a lista "avançar" retirando o primeiro nome e adicionando-o novamente no final.<br>
+          Por exemplo, <tt>Paulo Raquel Carlos</tt> ficaria <tt>Raquel Carlos Paulo</tt><br>
+          Isto mantém na primeira posição da lista o nome "atual"
+        <li>Depois contar o número correto de passos, retire o primeiro nome e volte a repetir o mesmo processo até a lista ficar com tamanho 1
+        <li>No final é só verificar se a última criança é ou não o Carlos :)
+      </ul>
+  </ul>	  
+</div>  
+
+<hr>
+
+<h3>Exercício 2) Um problema com pilhas</h3>
+
+<p>O segundo problema é semelhante ao que foi explicado nas aulas téoricas e pede para implementarem um pequeno interpretador de <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">RPN - Reverse Polish Notation)</a></p>
+
+<ul>
+  <li>Resolva e submeta no <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a> o problema <a class="important" href="../problemas/aed10.html">[AED 10] Notação Polaca Invertida</a>.
+</ul>
+
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler2') .style.display=='none') {document.getElementById('spoiler2') .style.display=''}else{document.getElementById('spoiler2') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+<div id="spoiler2" style="display:none">
+  <ul>
+    <li>Literalmente o algoritmo para resolver é dado no enunciado :)
+    <li>Para ler uma linha pode usar a função <a href="https://en.cppreference.com/w/cpp/string/basic_string/getline">getline</a>, como no problema anterior, e depois processar passo a passo usando por exemplo uma <a href="https://www.geeksforgeeks.org/stringstream-c-applications/">stringstream</a>
+    <li>Pode usar a implementação de pilhas do próprio C++ e usar por exemplo uma <span class="codigo">stack&lt;int&gt;</span>
+    <li>Para converter a string lida num inteiro a ser armazenado na stack pode usar por exemplo a função <a href="https://en.cppreference.com/w/cpp/string/basic_string/stol">stoi</a>
+    <li>Não se esqueça de validar sempre o estado da pilha, quer durante (para uma operação ser aplicada é preciso que existam dois valores), quer após (no final é suposto só existir um número na pilha)
+  </ul>	  
+</div>  
+
+<hr>
+  
+<h3>Exercício 3) Um problema com filas um "pouco" mais complicado (mas não muito)</h3>
+
+<ul>
+  <li>Resolva e submeta no <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a> o problema <a class="important" href="../problemas/aed11.html">[AED 11] Confusão no Aeroporto</a>.
+</ul>
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler3') .style.display=='none') {document.getElementById('spoiler3') .style.display=''}else{document.getElementById('spoiler3') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+<div id="spoiler3" style="display:none">
+  <ul>
+    <li>Pode por exemplo criar uma classe ou estrutura para guardar cada avião: o nome, o minuto de chegada e o seu atraso (para depois poder imprimir)
+    <li>Pode simular o processo e em cada passo seguir o que pede o enunciado
+    <li>Tenha cuidado com a maneira como o tempo avança na sua simulação: se avançar apenas de 1 em 1 minuto poderá exceder o limite de tempo; note como como o número de aviões em si (máximo de 100 a levantar e 100 a aterrar) é baixo em relação aos seus tempos de chegada (que podem chegar ao limite do <i>int</i>); a ideia é que avance sempre para o próximo evento a considerar: se estiver em tempo=42 minutos e não acontecer nada até ao tempo 10<sup>8</sup>, não vale a pena avançar de 1 em 1 minuto, certo? :)
+  </ul>	  
+</div>  
+  
+<hr>
+
+<h3>Exercício de Desafio</h3>
+
+
+<p>Para esta semana o desafio tem a ver com a eficiência algorítmica. Deve tentar resolver o seguinte problema, que está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a> (enunciado em inglês):
+
+  </p><ul>
+     <li><big><a class="important" href="../problemas/aed12.html">[AED 12] The Golden Permit</a> (Maratona Inter-Universitária de Programação'2015)
+  </big></li></ul><big>
+
+  <p>Este problema é semelhante ao <b>[AED 09] Pim, Pam, Pum</b>, mas com uma grande diferença que o torna (muito) mais complicado: o tamanho do círculo com pessoas a eliminar chega a 10 milhões, pelo que uma solução "bruta", que simule todos os passos, não irá ser suficientemente eficiente  (passaria nos testes "pequenos", mas excederia o limite de tempo nos testes "grandes").</p>
+
+  <p>A Maratona Inter-Universitária de Programação (<b>MIUP</b>) é um concurso de programação universitário. A edição deste problema, a de <a href="http://miup2015.dcc.fc.up.pt/">2015</a>, foi ganha por uma <a href="https://noticias.up.pt/estudantes-da-faculdade-de-ciencias-vencem-maratona-de-programacao/">equipa de alunos do DCC treinados pelo Prof. Pedro Ribeiro</a>. A edição deste ano (<a href="https://miup20.tecnico.ulisboa.pt/">2021</a>) foi também <a href="https://noticias.up.pt/equipa-da-fcup-vence-maratona-inter-universitaria-de-programacao/">ganha por alunos treinados pelo Prof. Pedro Ribeiro</a> :)</p>
+
+<p>Para este problema, vou apenas dizer que este estilo de "eliminação" é conhecida como <b>Josephus problem</b>. Se precisarem de mais dicas avisem. Fico à espera de ver os vossos programas :)
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

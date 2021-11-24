@@ -1,0 +1,94 @@
+<html>
+<head>
+<title>[ED247] TAD Conjunto (ArrayListIntSet)</title>
+<link rel="StyleSheet" href="style.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 27 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula05.html">ler o guião da aula #05</a>]</b></small></p>
+
+<hr>
+
+<h2>[ED247] TAD Conjunto (ArrayListIntSet)</h2>
+
+<p><font color="red">Neste problema deverá apenas submeter uma classe <b>ArrayListIntSet</b> (e não um programa completo).</font>
+
+<h3><img src="prob247.png" align="right" border="0">O problema</h3>
+
+<p>Para este problema deve usar como base a classe <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/codigo/ArrayListIntSet.java">ArrayListIntSet</a> dada nas aulas.</p>
+
+<p>A sua tarefa é criar uma classe <b>ArrayListIntSet</b>, que representa um conjunto de números inteiros, implementando o seguinte interface:
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// Interface que define o TAD conjunto de numeros inteiros</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">interface</span> <span style="color: #BB0066; font-weight: bold">IntSet</span> <span style="color: #333333">{</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">contains</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> x<span style="color: #333333">);</span>       <span style="color: #888888">// Retorna true se x esta no conjunto</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">add</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> x<span style="color: #333333">);</span>            <span style="color: #888888">// Adiciona x ao conjunto (devolve true se conseguir)</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">remove</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> x<span style="color: #333333">);</span>         <span style="color: #888888">// Remove x do conjunto (devolve true se conseguir)</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">int</span>     <span style="color: #0066BB; font-weight: bold">size</span><span style="color: #333333">();</span>                <span style="color: #888888">// Retorna o numero de elementos do conjunto</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">void</span>    <span style="color: #0066BB; font-weight: bold">clear</span><span style="color: #333333">();</span>               <span style="color: #888888">// Limpa o conjunto (torna-o vazio)</span>
+
+    <span style="color: #888888">// Metodos a adicionar (nao existentes na classe base)</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">equals</span><span style="color: #333333">(</span>IntSet s<span style="color: #333333">);</span>      <span style="color: #888888">// Retorna true se ambos os conjuntos sao iguais</span>
+    <span style="color: #008800; font-weight: bold">public</span> IntSet <span style="color: #0066BB; font-weight: bold">intersection</span><span style="color: #333333">(</span>IntSet s<span style="color: #333333">);</span> <span style="color: #888888">// devolve um novo conjunto: a intersecao de ambos</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+<p>Note que pode manter todo o código existente e apenas precisa de implementar dois novos métodos (<tt>equals</tt> e <tt>intersection</tt>) que deverá acrescentar à classe. Um exemplo de utilização seria:
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">TestED247</span> <span style="color: #333333">{</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	IntSet s1 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> ArrayListIntSet<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">100</span><span style="color: #333333">);</span>
+	IntSet s2 <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> ArrayListIntSet<span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">100</span><span style="color: #333333">);</span>
+
+	<span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;=</span><span style="color: #0000DD; font-weight: bold">5</span><span style="color: #333333">;</span> i<span style="color: #333333">++)</span>
+	    s1<span style="color: #333333">.</span><span style="color: #0000CC">add</span><span style="color: #333333">(</span>i<span style="color: #333333">);</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;s1 = &quot;</span> <span style="color: #333333">+</span> s1 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; | tamanho = &quot;</span> <span style="color: #333333">+</span> s1<span style="color: #333333">.</span><span style="color: #0000CC">size</span><span style="color: #333333">());</span>
+
+	<span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">3</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;=</span><span style="color: #0000DD; font-weight: bold">7</span><span style="color: #333333">;</span> i<span style="color: #333333">++)</span>
+	    s2<span style="color: #333333">.</span><span style="color: #0000CC">add</span><span style="color: #333333">(</span>i<span style="color: #333333">);</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;s2 = &quot;</span> <span style="color: #333333">+</span> s2 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; | tamanho = &quot;</span> <span style="color: #333333">+</span> s2<span style="color: #333333">.</span><span style="color: #0000CC">size</span><span style="color: #333333">());</span>
+
+	IntSet s3 <span style="color: #333333">=</span> s1<span style="color: #333333">.</span><span style="color: #0000CC">intersection</span><span style="color: #333333">(</span>s2<span style="color: #333333">);</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;s3 = &quot;</span> <span style="color: #333333">+</span> s3 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; | tamanho = &quot;</span> <span style="color: #333333">+</span> s3<span style="color: #333333">.</span><span style="color: #0000CC">size</span><span style="color: #333333">());</span>
+
+	IntSet s4 <span style="color: #333333">=</span> s2<span style="color: #333333">.</span><span style="color: #0000CC">intersection</span><span style="color: #333333">(</span>s1<span style="color: #333333">);</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;s4 = &quot;</span> <span style="color: #333333">+</span> s4 <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot; | tamanho = &quot;</span> <span style="color: #333333">+</span> s4<span style="color: #333333">.</span><span style="color: #0000CC">size</span><span style="color: #333333">());</span>
+
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;s1.equals(s2) = &quot;</span> <span style="color: #333333">+</span> s1<span style="color: #333333">.</span><span style="color: #0000CC">equals</span><span style="color: #333333">(</span>s2<span style="color: #333333">));</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;s3.equals(s4) = &quot;</span> <span style="color: #333333">+</span> s3<span style="color: #333333">.</span><span style="color: #0000CC">equals</span><span style="color: #333333">(</span>s4<span style="color: #333333">));</span>
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+<p>Quando executado este código deverá dar o seguinte output:</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%">s1 = {1,2,3,4,5} | tamanho = 5
+s2 = {3,4,5,6,7} | tamanho = 5
+s3 = {3,4,5} | tamanho = 3
+s4 = {3,4,5} | tamanho = 3
+s1.equals(s2) = false
+s3.equals(s4) = true
+</pre></div>
+
+<h3>Input e Output</h3>
+
+<p>Deverá apenas submeter a classe <b>ArrayListIntSet</b>. O Mooshak irá criar várias instâncias da sua classe usando o construtor (como mostrado no exemplo de utilização) e irá fazer uma série de testes aos métodos por si implementados.</p>
+
+<p>É garantido que o conjunto nunca terá mais do que 100 números diferentes, e que todos os números serão inteiros positivos entre 1 e 1000 (inclusive).</p>
+
+<p>É garantido que os métodos são chamados de forma correcta (os argumentos fazem sentido e não geram excepções).</p>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

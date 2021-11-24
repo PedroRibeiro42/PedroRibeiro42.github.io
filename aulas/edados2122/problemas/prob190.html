@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>[ED190] Cópia de uma lista</title>
+<link rel="StyleSheet" href="style.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 4 de Dezembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula06.html">ler o guião da aula #06</a>]</b></small></p>
+
+<hr>
+  
+<h2>[ED190] Cópia de uma lista</h2>
+
+<p><img src="linkedlist.png" align="right" border="0" width="500"><font color="red">Neste problema deverá apenas submeter uma classe <b>SinglyLinkedList&lt;T&gt;</b> (e não um programa completo).</font>
+
+<h3>Código Base</h3>
+  
+<p>Use como base a classe <b>SinglyLinkedList&lt;T&gt;</b> (<a href="http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/codigo/lista_ligada_simples.html" target="_blank">ver código</a> | download de <a href="http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/codigo/Node.java" target="_blank">Node.Java</a> e <a href="http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/codigo/SinglyLinkedList.java" target="_blank">SinglyLinkedList.Java</a>), que representa uma lista ligada simples e tem disponíveis métodos para adicionar ou remover um elemento no início ou no final, devolver o tamanho, saber se a lista está vazia ou retornar representação em <i>string</i> para escrita (tal como dado nas aulas).
+
+<h3>O problema</h3>
+
+<p>Acrescente à classe dada um novo método <b>public SinglyLinkedList&lt;T&gt; copy()</b> que <b>cria e devolve uma nova lista que é uma cópia exacta da lista para a qual foi chamado o método</b>. Note que o retorno tem de ser uma <b>nova lista</b>, contendo um novo conjunto de objectos do tipo Node&lt;T&gt; que guardam valores iguais aos da lista inicial (não precisa de criar cópias dos valores, cada nó da nova lista deve apontar para a referência respectiva da lista inicial).
+
+<h3>Submissão</h3>
+
+<p>Deverá submeter apenas a classe <b>SinglyLinkedList&lt;T&gt;</b>, acrescentando o método <b>copy</b> como pedido <b>(e sem apagar nenhum dos outros métodos dados como base)</b>. Pode assumir que terá acesso no Mooshak à classe Node&lt;T&gt; (não a pode mudar) e se precisar pode criar outros métodos auxiliares. O Mooshak irá criar várias instâncias da sua classe e irá fazer uma série de testes ao método por si implementado.
+
+<h3>Exemplos de Input/Output</h3>
+
+<table border="1">
+  <tr>
+    <th>Lista inicial</th>
+    <th>&nbsp; Chamada &nbsp; </th>
+    <th>Nova Lista</th>
+  </tr>
+  <tr>
+    <td align="center">list = {2,4,6,8}</td>
+    <td align="center">newList = list.copy()</td>
+    <td align="center">newList = {2,4,6,8}</td>
+  </tr>
+  <tr>
+    <td align="center">list = {}</td>
+    <td align="center">newList = list.copy()</td>
+    <td align="center">newList = {}</td>
+  </tr>
+  <tr>
+    <td align="center">list = {"estruturas","de","dados"}</td>
+    <td align="center">newList = list.copy()</td>
+    <td align="center">newList = {"estruturas","de","dados"}</td>
+  </tr>
+</table>
+
+</p>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

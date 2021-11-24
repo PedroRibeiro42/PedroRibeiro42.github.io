@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Pequenos Alfabetos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body bgcolor=white>
+
+<small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 4 de Dezembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula06.html">ler o guião da aula #06</a>]</b></small></p>
+
+<hr>
+
+<h1>[ED250] Pequenos Alfabetos</h1>
+
+<p><img align=right src="prob250.jpg" alt="" border="1">O Professor
+A.B.C. (António Barroso Carvalho) estava a ler um recente livro de
+programação quando reparou numa frase que, apesar de usar 22
+caracteres (incluindo espaços e pontuação), apenas continha 11 letras
+diferentes:
+
+<pre>"Programar é divertido!"</pre>
+
+<p>Nota que as letras usadas são precisamente <tt>'A', 'D', 'E', 'G',
+  'I', 'M', 'O', 'P', 'R', 'T' e 'V'</tt>. O professor começou então a
+  pensar qual seria a maior subsequência desta frase que continha
+  apenas um determinado número de letras (por maior entenda-se a mais
+  comprida, ou seja, a que tem maior quantidade de caracteres). Por
+  exemplo, se apenas forem permitidas 6 letras diferentes, a maior
+  subsequência que se consegue construir é:
+
+<pre>"r e divertid"</pre>
+
+<p>Esta sequência tem 12 caracteres e apenas usa 6 letras
+  diferentes: <tt>'D', 'E', 'I', 'R', 'T' e 'V'</tt>.
+
+<p>E se em vez de 6 for um outro número máximo de letras diferentes? E
+  se a frase for outra? Tens de ajudar o professor!
+
+<h2>O Problema</h2>
+
+<p>Dada um número inteiro <b>M</b> e uma frase constituída por letras,
+  espaços e respectiva pontuação, a tua tarefa é descobrir qual a
+  maior subsequencia consecutiva de caracteres da frase que usa no
+  máximo <b>M</b> letras diferentes. Em caso de empate, deves escolher
+  a subsequência que aparecer primeiro.
+
+<h2>Input</h2>
+
+<p>Na primeira linha do <i>input</i> vem um único número
+  inteiro <b>M</b> indicando a máxima quantidade de letras diferentes
+  permitida (<i>1≤M≤26</i>).
+
+<p>Na segunda linha vem uma frase constituida unicamente por letras,
+  espaços e pontuação. As letras nunca são acentuadas nem cedilhadas e
+  tanto podem ser maiúsculas como mínusculas (sendo que um 'A' é a
+  mesma letra que um 'a', por exemplo). Os espaços vêm representados
+  no <i>input</i> pelo caracter <i>underscore</i> ('_'). Os sinais de
+  pontuação que podem acontecer são os seguintes: '!', '?', '.', ':',
+  ';' e ','. A frase nunca terá mais do que 1 000 000
+  caracteres.
+
+<h2>Output</h2>
+
+<p>Na primeira linha do <i>output</i> deve vir um único número inteiro
+  indicando o tamanho da maior subsequência encontrada que apenas usa
+  um máximo de <b>M</b> letras diferentes. Nota que para o cálculo do
+  tamanho de uma subsequência contam todos os caracters, mesmo os que
+  não são letras. Já para efeitos de limitação, interessam-nos as
+  subsequência que no seu interior não tenham mais do que <b>M</b>
+  letras diferentes.
+
+<p>Na segunda linha deve vir reproduzida a subsequência em si, tal
+  como aparecia na frase. Caso existam várias subsequências máximas
+  deves colocar aqui aquela que começa primeiro.
+
+<h2>Nota sobre a avaliação</h2>
+
+<p>Para um conjunto de casos de teste valendo 40% dos pontos, o
+  tamanho da frase é inferior ou igual a 300.
+
+<br> 
+
+<h2>Exemplo de Input 1</h2>
+<pre>
+6
+Programar_e_divertido!
+</pre>
+
+<h2>Exemplo de Output 1</h2>
+<pre>
+12
+r_e_divertid
+</pre>
+
+<br>
+
+<h2>Exemplo de Input 2</h2>
+<pre>
+11
+Programar_e_divertido!
+</pre>
+
+<h2>Exemplo de Output 2</h2>
+<pre>
+22
+Programar_e_divertido!
+</pre>
+
+<br>
+
+<h2>Exemplo de Input 3</h2>
+<pre>
+3
+Olimpiadas_Nacionais_de_Informatica
+</pre>
+
+<h2>Exemplo de Output 3</h2>
+<pre>
+5
+adas_
+</pre>
+
+<hr size=2>
+<center><i>(adaptação para a UC de Estruturas de Dados - CC1007 - DCC/FCUP)</i><br><br>
+  
+<center><b>Qualificação para a final das ONI'2009</b><br><i>(07/05 a 09/05 de 2009)</i></center>
+<hr size=2>
+
+</body>
+</html>

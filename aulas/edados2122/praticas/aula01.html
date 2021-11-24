@@ -1,0 +1,358 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #01 - Introdução ao Java</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Aula Prática #01 - Introdução ao Java<br>
+    <small><small>(13 de Outubro)</small></small>
+  </h1>
+  <hr>
+
+<p>Nesta e noutras aulas, quando for indicado um comando para correr na shell, verá algo como o seguinte (onde <tt>$</tt> é apenas o símbolo da <i>prompt</i> e não deverá ser introduzido):
+
+<p><span class="shell">$ ls -l</span>
+
+<p>Um pedaço de código no meio de uma alínea de um exercício vem indicado do seguinte modo:
+
+<p><span class="codigo">int i = 0;</span>
+
+<p>Para apoiar as aulas práticas disponibilizamos outros recursos online que podem também servir de referência, nomeadamente:
+  <ul>
+    <li><big><a href="instalacao.html">Breve manual de instalação do Java</a></big>
+    <li><big><a href="intro.html">Breve introdução à Linguagem Java</a></big>
+    <li><big><a href="../codigo/index.html">Exemplos de código Java</a></big>
+    <li><big><a href="https://docs.oracle.com/javase/8/docs/api/">Documentação oficial da linguagem Java</a></big>
+  </ul>
+
+<p>Note que o horário das aulas práticas deve ser interpretado como <b>horas de contacto</b>, onde pode tirar dúvidas com o seu docente. É no entanto muito importante e expectável que <b>trabalhem fora da hora das aulas práticas</b>. Iremos sempre divulgar o guião da aula antecipadamente, para que possam ir trabalhando nele antes da aula. Para tirar dúvidas e comunicar com os docentes iremos usar o <a href="https://edados2122.slack.com">Slack</a>, onde qualquer um dos dois docentes (ou até mesmo outros alunos) lhe poderá responder.</p>
+  
+<hr>
+
+<h3>Exercício 1) Instalando o Java</h3>
+
+  <p>A primeira coisa que deverá fazer é garantir que tem um compilador e um interpretador de Java instalado na sua máquina. Deve por isso seguir o pequeno manual que disponibilizamos:
+
+    <ul>
+      <li><big><a href="instalacao.html">Breve manual de instalação do Java</a></big>
+    </ul>
+
+  <p><font color="red">Depois de conseguir compilar e executar o pequeno programa dado no manual de instalação deve ir ao <a href="https://edados2122.slack.com">Slack</a> ao canal <span class="codigo">#install</span> e clicar na poll que lá está indicando que já conseguiu fazer esta primeira tarefa.</font><br>(isto permite-nos perceber quantos de vocês já tem o essencial para começar as aulas: já chegaram ao site para lerem isto, já estão no Slack e já conseguem compilar e executar).</p>
+
+
+<hr>
+
+<h3>Exercício 2) O meu primeiro programa "a sério" em Java</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// Uma classe muito simples que usa um ciclo para imprimir numeros entre 1 e n</span>
+
+<span style="color: #888888">// O ficheiro tem de ter o mesmo nome da classe + a extensão &#39;.java&#39;</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Numbers</span> <span style="color: #333333">{</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	<span style="color: #333399; font-weight: bold">int</span> n <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">;</span> <span style="color: #888888">// limite dos numeros</span>
+	
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Numeros de 1 a &quot;</span> <span style="color: #333333">+</span> n <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;:&quot;</span><span style="color: #333333">);</span> <span style="color: #888888">// + é o operador de concatenação de strings</span>
+	<span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;=</span>n<span style="color: #333333">;</span> i<span style="color: #333333">++)</span>
+	    System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>i<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+<p>
+<ol>
+  <li><b>A minha primeira execução de código Java.</b><br>
+     Copie este pedaço de código para um ficheiro, compile-o e execute o programa (ver <a href="intro.html#compile">secção de compilação e execução</a> da introdução).</li>
+     <ol type="a">
+	   <li>Como se deve chamar o ficheiro? O que diz o compilador se o ficheiro tiver outro nome?
+	   <li>Com que nome fica o ficheiro resultante da compilação?
+	   <li>Qual o resultado da sua execução? Experimente mesmo executar o programa
+     </ol>
+  <li><b>Case Sensitive?</b><br>
+    Experimente mudar logo na primeira linha a palavra <span class="codigo">class</span>, alterando-a para <span class="codigo">Class</span>. O que acontece se voltar a compilar? Porquê?</li>
+  <li><b>Erros de compilação</b><br>
+    Experimente retirar o ';' na declaração da variável <i>n</i> e compile. O que acontece? 
+  <li><b>Escrevendo código.</b><br>
+Modifique o programa para que passe a escrever os números todos na mesma linha, separados por vírgulas (sem nenhuma vírgula a mais no final, mas com mudança de linha)
+    <ul>
+      <li class="small">A função <span class="codigo">System.out.println()</span> coloca sempre no final uma mudança de linha. O que fará a função <span class="codigo">System.out.print()</span>?
+    </ul>
+      Exemplo de execução pretendida:<br>
+<pre class="nomargin">
+<span class="shell">$ java Numbers
+Numeros de 1 a 10: 1,2,3,4,5,6,7,8,9,10
+$
+</span></pre>
+  <li><b>Somando números.</b><br>
+    Acrescente ao programa código para somar todos os números entre 1 e <i>n</i> e no final imprimir a soma.
+    <ul>
+      <li>Vamos precisar de uma variável para ir contendo a soma. De que tipo deve ser? (ver <a href="intro.html#types">secção de tipos</a> da introdução).
+      <li>Embora seja possível saber a soma usando uma <a href="https://pt.wikipedia.org/wiki/Progress%C3%A3o_aritm%C3%A9tica#Soma_dos_termos_de_uma_progress%C3%A3o_aritm%C3%A9tica">fórmula fechada</a>, aqui queremos mesmo ir somando os valores à medida que o ciclo vai avançando.
+      <li>O resultado da execução deverá acrescentar ao output uma linha com <span class="shell">Soma = 55</span> (com <i>n=10</i>). Experimente colocar <i>n=500</i> para verificar se a soma dá 125250.
+    </ul>
+</ol>
+
+<hr>
+
+<h3>Exercício 3) Procedimentos</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Square</span> <span style="color: #333333">{</span>
+    <span style="color: #888888">// Desenha uma linha de n caracteres onde:</span>
+    <span style="color: #888888">// - o primeiro e o último caracteres são o caracter da variável &#39;a&#39;</span>
+    <span style="color: #888888">// - todos os outros caracteres são o caracter da variável &#39;b&#39;</span>
+    <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">line</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">char</span> a<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">char</span> b<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> n<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span>a<span style="color: #333333">);</span>
+	<span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;=</span>n<span style="color: #333333"><span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">2</span>;</span> i<span style="color: #333333">++)</span>
+	    System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">print</span><span style="color: #333333">(</span>b<span style="color: #333333">);</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>a<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+
+    <span style="color: #888888">// O procedimento executado inicialmente é sempre o main</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>	
+	line<span style="color: #333333">(</span><span style="color: #0044DD">&#39;*&#39;</span><span style="color: #333333">,</span><span style="color: #0044DD">&#39;-&#39;</span><span style="color: #333333">,</span><span style="color: #0000DD; font-weight: bold">5</span><span style="color: #333333">);</span>	    
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+<p>
+<ol>
+  <li><b>Um procedimento simples.</b><br>
+    Copie este pedaço de código para um ficheiro, compile-o e execute o programa.
+    <ul>
+      <li>Qual o resultado da execução?
+      <li>Consegue perceber a chamada ao procedimento <span class="codigo">line</span>?
+    </ul>
+  <li><b>Criando um novo procedimento.</b><br>
+    O objectivo deste exercício é criar um novo procedimento <span class="codigo">square(int n)</span> que quando chamado desenha um quadrado de tamanho <i>n</i>. Por exemplo, uma chamada a  <span class="codigo">square(6)</span> deve resultar na escrita de:
+    <pre class="nomargin">
+<span class="shell">+----+
+|....|
+|....|
+|....|
+|....|
++----+</span></pre>
+    
+    <ul>
+      <li>Tal como <span class="codigo">line</span>, o procedimento a criar deve ser <span class="codigo">static</span> (estático - vamos falar disto depois nas aulas) e <span class="codigo">void</span> (pois não devolve nada)
+      <li>Tal como <span class="codigo">line</span>, o procedimento a criar só deve conter 4 linhas de código:
+	<ul>
+	  <li>Como desenhar a primeira linha (ou a última linha) usando uma única chamada a <span class="codigo">line</span>?
+	  <li>Como desenhar a segunda linha (ou a terceira, ou quarta, ...) usando uma única chamada a <span class="codigo">line</span>?
+	  <li>Um quadrado não é mais do que uma ocorrência da primeira linha, seguida por uma série de ocorrências das linhas do meio, seguidas pela linha final...
+	</ul>
+    </ul>
+</ol>
+
+
+<hr>
+
+<div id="section">
+
+<h3>Exercício 4) Funções e instruções condicionais</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Primes</span> <span style="color: #333333">{</span>
+    <span style="color: #888888">// Verifica se o número n é primo (apenas divisível por 1 e por si próprio)</span>
+    <span style="color: #888888">// [função ainda por completar]</span>
+    <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">boolean</span> <span style="color: #0066BB; font-weight: bold">isPrime</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> n<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	<span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">true</span><span style="color: #333333">;</span>
+    <span style="color: #333333">}</span>
+    
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	
+	<span style="color: #333399; font-weight: bold">int</span> n<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1000</span><span style="color: #333333">;</span> <span style="color: #888888">// Limite dos números</span>
+	
+	<span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;=</span>n<span style="color: #333333">;</span> i<span style="color: #333333">++)</span>
+	    <span style="color: #008800; font-weight: bold">if</span> <span style="color: #333333">(</span>isPrime<span style="color: #333333">(</span>i<span style="color: #333333">))</span>
+		System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>i<span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+<p>
+<ol>
+  <li><b>Testando o código base.</b><br>
+    Compile e execute este código. Qual o resultado?
+    <ul>
+      <li>Se quisesse saber o número de linhas escrito poderia por exemplo usar o comando <a href="https://linux.die.net/man/1/wc">wc</a> de Linux. Por exemplo, a seguinte linha de comandos envia o output do seu programa (usando um <a href="https://en.wikipedia.org/wiki/Pipeline_%28Unix%29">pipe</a>) para o <span class="shell">wc</span> no modo <span class="shell">-l</span> (contagem de linhas).
+<pre class="nomargin">
+<span class="shell">$ java Primes | wc -l
+999
+$</span></pre>	
+    </ul>
+  <li><b>Função isPrime.</b><br>
+    Preencha agora o conteúdo da função <span class="codigo">isPrime</span>para o código ficar correcto.
+    <ul>
+      <li>Um número é primo se apenas for divisível por 1 e por si próprio
+      <li>A função deve retornar <span class="codigo">true</span> se o número for primo e <span class="codigo">false</span> caso contrário.
+      <li>Faça um ciclo entre 2 e <i>n</i> e se algum outro número dividir <i>n</i>, então indique que ele não é primo, <b>saindo logo da função</b>.<br>
+	(sim, é possivel fazer melhor que testar todos os números, e nos próximos exercícios vamos fazer evoluir o código para algo mais eficiente).
+      <li>Como saber se um número divide outro? Que tipo de operador é necessário? (ver <a href="intro.html#operators">secção de operadores</a> da introdução)
+      <li>Se o programa estiver correcto, para <i>n=1000</i> deverá encontrar 168 números primos (use o comando <span class="shell">wc</span> como atrás descrito para verificar).
+    </ul>
+    
+  <li><b>Medindo o tempo.</b><br>
+    Neste exercício vamos querer ver quanto tempo o seu programa demora. Para isso vamos usar o comando <a href="https://linux.die.net/man/1/time">time</a> de Linux.
+    <ol type="a">
+      <li>Comece por usar <tt>time</tt> com o seu programa para verificar quanto tempo demora. Deverá ver algo como:
+	
+<pre class="nomargin">
+<span class="shell">$ time java Primes | wc -l
+168
+
+real	0m0.079s
+user	0m0.076s
+sys	0m0.008s
+$</span></pre>	
+
+      <li>Experimente agora mudar <i>n</i> para cem mil e veja quanto tempo demora (nao se esqueça de recompilar antes de voltar a executar).
+      <li>Se <i>n</i> for um milhão quanto tempo demora?<br>
+	(se ficar cansado de esperar pode parar a execução fazendo <i>Control+C</i>)
+    </ol>
+
+  <li><b>Melhorando a eficiência</b>.
+    Vamos agora melhorar a eficiência da função <span class="codigo">isPrime</span> para melhorar o tempo de execução. <br>
+    Em vez de testar como divisores todos números entre 2 e <i>n</i>, basta testar entre 2 e 
+	&radic;<span style="text-decoration:overline;"><i>n</i></span>. (Porquê?)
+    Modifique o seu programa para fazer isso (não precisa de saber como calcular raízes quadradas em Java, pois não?) e meça o tempo de execução para verificar se melhorou.
+<br>&nbsp;<br><i>(Existiam ainda muitas outras melhorias possíveis à função e outras maneiras de calcular primos).</i>
+    
+</ol>
+
+<hr>
+
+<h3>Exercício 5) Strings, e alguns erros de execução e compilação</h3>
+
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// Exemplos de uso de Strings</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Strings</span> <span style="color: #333333">{</span>
+
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+
+	String a <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">1007</span><span style="color: #333333">;</span>     <span style="color: #888888">// A tentar atribuir um número inteiro a uma String</span>
+	String b <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;1007&quot;</span><span style="color: #333333">;</span>   <span style="color: #888888">// Colocar &quot;1007&quot; na variável b</span>
+	String c <span style="color: #333333">=</span> <span style="background-color: #fff0f0">&quot;CC&quot;</span><span style="color: #333333">;</span>     <span style="color: #888888">// Colocar &quot;CC&quot; na variável c</span>
+	String d <span style="color: #333333">=</span> c <span style="color: #333333">+</span> b<span style="color: #333333">;</span>    <span style="color: #888888">// Concatenar &quot;CC&quot; com &quot;1007&quot; e colocar resultado na variável d</span>
+	String e <span style="color: #333333">=</span> c <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1007</span><span style="color: #333333">;</span> <span style="color: #888888">// Concatenar &quot;CC&quot; com número 1007 e colocar resultado na variável e</span>
+
+	<span style="color: #888888">// Escrever conteúdo das duas strings criadas</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;d = &quot;</span> <span style="color: #333333">+</span> d<span style="color: #333333">);</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;e = &quot;</span> <span style="color: #333333">+</span> e<span style="color: #333333">);</span>
+
+	<span style="color: #888888">// Como comparar duas strings</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;d==e? &quot;</span> <span style="color: #333333">+</span> <span style="color: #333333">(</span>d<span style="color: #333333">==</span>e<span style="color: #333333">));</span>             <span style="color: #888888">// Não está correcto (compara referências)</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;d.equals(e)? &quot;</span> <span style="color: #333333">+</span> d<span style="color: #333333">.</span><span style="color: #0000CC">equals</span><span style="color: #333333">(</span>e<span style="color: #333333">));</span> <span style="color: #888888">// Maneira correcta de comparar o conteúdo de duas strings</span>
+
+	<span style="color: #888888">// Como calcular o tamanho de uma string</span>
+	<span style="color: #333399; font-weight: bold">int</span> size <span style="color: #333333">=</span> d<span style="color: #333333">.</span><span style="color: #0000CC">length</span><span style="color: #333333">();</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;tamanho de d = &quot;</span> <span style="color: #333333">+</span> size<span style="color: #333333">);</span>
+
+	<span style="color: #888888">// Como ir buscar o caracter numa dada posição da string</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;d.charAt(0) = &quot;</span> <span style="color: #333333">+</span> d<span style="color: #333333">.</span><span style="color: #0000CC">charAt</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">));</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;d.charAt(2) = &quot;</span> <span style="color: #333333">+</span> d<span style="color: #333333">.</span><span style="color: #0000CC">charAt</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">));</span>
+	<span style="color: #888888">//System.out.println(&quot;d.charAt(10) = &quot; + d.charAt(10));</span>
+
+	<span style="color: #888888">// Como ir buscar parte de uma string entre duas dadas posições</span>
+	String sub <span style="color: #333333">=</span> d<span style="color: #333333">.</span><span style="color: #0000CC">substring</span><span style="color: #333333">(</span><span style="color: #0000DD; font-weight: bold">1</span><span style="color: #333333">,</span><span style="color: #0000DD; font-weight: bold">4</span><span style="color: #333333">);</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;d.substring(1,4) = &quot;</span> <span style="color: #333333">+</span> sub<span style="color: #333333">);</span>
+
+	<span style="color: #888888">// Procurando a primeira ocorrência de um dado caracter</span>
+	<span style="color: #333399; font-weight: bold">char</span> ch  <span style="color: #333333">=</span> <span style="color: #0044DD">&#39;7&#39;</span><span style="color: #333333">;</span>
+	<span style="color: #333399; font-weight: bold">int</span> pos <span style="color: #333333">=</span> d<span style="color: #333333">.</span><span style="color: #0000CC">indexOf</span><span style="color: #333333">(</span>ch<span style="color: #333333">);</span>
+	System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;d.indexOf(&quot;</span> <span style="color: #333333">+</span> ch <span style="color: #333333">+</span><span style="background-color: #fff0f0">&quot;) = &quot;</span> <span style="color: #333333">+</span> pos<span style="color: #333333">);</span>	
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span> 
+</pre></div>
+
+<p>
+  <ol>
+    <li><b>Um erro de compilação.</b><br>
+      Compile o programa. Que tipo de erro dá? Consegue "ler" e interpretar o que o compilador de Java escreve?<br>
+    <li><b>Verificando o programa.</b><br>
+      Comente a linha que deu erro, compile e execute, procurando perceber todas as suas linhas e o <i>output</i> obtido.
+      <ul>
+	<li>Ao contrário do C, em Java uma String é um tipo específico (uma classe) e não um mero <i>array</i> de caracteres.
+	<li>Note como o operador concatenação funciona conforme os operandos: se tiver dois números, soma, se tiver pelo menos uma string, interpreta ambos como strings e concatena;
+	<li>Uma simples comparação com <span class="codigo">==</span> compara as referências e não o conteúdo dos objectos <i>string</i> e por isso devolve que são diferentes (vamos falar sobre objectos e referências noutras aulas)
+	<li>Para podermos operar sobre objectos do tipo <span class="codigo">String</span>, o Java disponibiliza toda uma biblioteca. Espreite a <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">documentação oficial da classe String</a> para ver quais os métodos existentes (as funções que operam sobre objectos do tipo <span class="codigo">String</span>). Lá pode encontrar uma explicação detalhada do funcionamento dos vários métodos aqui usados.
+      </ul>
+    <li><b>Erro durante a execução.</b><br>
+      Descomente a linha que tenta escrever <span class="codigo">d.charAt(10)</span>. Que erro é dado? O Java comunica os erros de execução através de excepções com nomes que indicam o tipo de erro.
+    <li><b>Procurando um método.</b><br>
+      Use a documentação para descobrir um método para converter uma String em minúsculas. Teste o método no código, compilando e executando para ver o resultado obtido.
+    <li><b>Criando uma função.</b><br>
+      Crie um método que recebe uma <span class="codigo">String</span> e devolve se esta é ou não um palíndromo (ou seja, se a string é igual à sua versão invertida). Por exemplo:
+      <ul>
+	<li><span class="codigo">isPalindrome("hello")</span> deve devolver <span class="codigo">false</span> porque "hello" não é igual a "olleh"
+	<li><span class="codigo">isPalindrome("bob")</span> deve devolver <span class="codigo">true</span>
+      </ul>
+      Qual deve ser o tipo do argumento da função? E do seu valor de retorno?
+  </ol>
+  
+<hr>
+  
+<h3>Exercícios extra para consolidação de conhecimentos</h3>
+
+<p>Estes exercícios não são "obrigatórios" mas permitem-lhe ir ganhando mais experiência e consolidar o que já sabe.</p>
+
+<ol>
+  <li><b>Mais ciclos e procedimentos.</b><br>
+    Crie um procedimento que, dado um <i>n</i> ímpar, escreva um losango de tamanho <i>n</i> no ecrã. Por exemplo, se <i>n=5</i>, o <i>output</i> deve ser:
+<pre class="nomargin">
+<span class="shell">  #
+ ###
+#####
+ ###
+  #</span></pre>
+
+  <li><b>Mais sobre números primos.</b><br>
+    Crie um procedimento que, dado um inteiro <i>n</i>, escreva a sua decomposição em factores primos. Por exemplo, se <i>n=20</i>, o <i>output</i> deve ser:
+    <pre class="nomargin">
+<span class="shell">20 = 2 * 2 * 5</span></pre>
+
+  <li><b>Mais sobre strings I.</b><br>
+    Crie um procedimento <span class="codigo">count</span> que receba um string <i>s</i> e um caracter <i>c</i> e devolva o número de ocorrências da letra <i>c</i> na string <i>c</i> (por exemplo, <span class="codigo">count("algoritmo", 'o')</span> deve devolver 2, o número de vezes que a letra 'o' aparece)</li> 
+    
+  <li><b>Mais sobre strings II.</b><br>
+    Crie um procedimento que receba um inteiro <i>n</i> e escreva as primeiras <i>n</i> linhas do <a href="https://en.wikipedia.org/wiki/L-system#Examples_of_L-systems">L-system original de Lindenmayer</a>, que usa as seguintes regras:
+    <ul>
+      <li>A primeira linha é "A"
+      <li>Para se obter uma nova linha pega-se na linha anterior e substitui-se todos os "A" por "AB" e todos os "B" por "A".
+	</ul>
+    Por exemplo, se o procedimento for chamado com <i>n=7</i> o output deverá ser:
+<pre class="nomargin">
+<span class="shell">A
+AB
+ABA
+ABAAB
+ABAABABA
+ABAABABAABAAB
+ABAABABAABAABABAABABA</span></pre>
+</ol>
+
+<hr>
+  
+<h3>Exercício de Desafio</h3>
+
+<p>Todas as semanas vou colocar disponível pelo menos mais um exercício um pouco mais desafiante.
+
+<p>Para esta semana, como é apenas a primeira aula e ainda introdutória, o desafio é de <b>organização e estruturação de código</b>. A ideia é resolver o seguinte problema:
+
+  <ul>
+    <li class="big"><a href="../problemas/desafio1.html">Visor de Calculadora</a>
+  </ul>
+
+<p>Se o conseguirem resolver enviem-me a solução no Slack (mensagem directa para <b>@Pedro Ribeiro)</b> para vos dizer se vai de encontro ao pedido.</p>
+  
+<p>Para além da correção (escrever o que é pedido), o que queremos aqui é algo <b>estruturado e generalizável</b>, com o código bem compartimentado em várias funções. Por exemplo, até que ponto seria fácil mudar o tamanho ou usar um "tipo de fonte" diferente?</p>
+
+<p>Ficamos à espera de ver os vossos programas :)</p>
+  
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

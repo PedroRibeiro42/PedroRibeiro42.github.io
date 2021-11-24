@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Competitive Programming (CC3032) - Week #05</title>
+	<link rel=StyleSheet href="style.css" type="text/css">
+</head>
+
+<body>
+  
+<table bgcolor="black" border="0" cellspacing="1" cellpadding="0">
+<tr>
+<td rowspan="3" bgcolor="white"><a href="index.html"><img src="logo_pc2122.png" height="50" border="0"></a></td>
+<td class="h1" valign="middle" align="center">&nbsp; Week #05 &nbsp;</td>
+</tr>
+<tr>
+<td class="h3" valign="middle" align="center">&nbsp;<a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a>&nbsp;</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Main learning outcomes for this class</h2>
+
+<ol>
+  <li><b>Dynamic Programming (DP) Concepts:</b>
+    <ul>
+      <li>I know the <b>Dynamic Programming</b> algorithmic technique and the type of problems where it is usually applied
+      <li>I know the characteristics of a problem where DP is applicable: <b>optimal substructure</b> and <b>overlapping substructure</b>
+      <li>I know that DP can be applied <b>bottom-up</b> (finding the right order of the subproblems) or in <b>top-down</b> fashion (using more directly the recursive formula and <b>memoization</i></b> to store the already calculated values)
+    </ul>
+  <li><b>Classical Dynamic Programming Problems:</b>
+    <ul>
+      <li>I know the <b>longest increasing subsequence (LIS)</b> problem, its DP formulation, how it can be solved more naively in O(n^2) ir in O(n log n) using binary search.
+      <li>I know the <b>longest common subsequence (LCS)</b> problem, its DP formulation, and how it can be seen as a specific case of <b>edit distance</b>
+      <li>I know the <b>0-1 knapsack</b> problem and its DP formulation
+      <li>I know the <b>coin change</b> problem and its DP formulation
+      <li>I know the <b>matrix chain multiplication (MCM)</b> and its DP formulation
+	
+    </ul>
+</ol>
+
+<hr>
+
+<h2>Study Material</h2>
+
+<h3>Main references</h3>
+
+<ul>
+  <li><b>DP concepts</b></li>
+  <ul>
+    <li><b>Slides used in class:</b> <a href="material/dp.pdf">Dynamic Programming</a>
+    <li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/dynamic-programming-from-novice-to-advanced/">Dynamic Programming: From Novice to Advanced</a> (TopCoder)
+    <li><a href="http://wcipeg.com/wiki/Dynamic_programming">Dynamic programming
+      </a> (PEG Wiki)
+    <li>Chapter 7 of <a href="https://cses.fi/book/book.pdf">Competitive Programmer's Handbook</a> book
+    <li>Section 3.4 of the <a href="https://www.comp.nus.edu.sg/~stevenha/myteaching/competitive_programming/cp1.pdf">Competitive Programming</a> book
+  </ul>
+  <li><b>Classical DP Problems</b></li>
+  <ul>
+    <li>LIS - Longest Increasing Subsequence: <a href="https://en.wikipedia.org/wiki/Longest_increasing_subsequence">Wikipedia</a> | <a href="https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/">GeeksforGeeks</a></li>
+    <li>LCS - Longest Common Subsequence <a href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem">Wikipedia</a> | <a href="https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/">GeeksforGeeks</a> </li>
+    <li>ED - Edit Distance: <a href="https://en.wikipedia.org/wiki/Edit_distance">Wikipedia</a> | <a href="https://www.geeksforgeeks.org/edit-distance-dp-5/">GeeksforGeeks</a> </li>
+    <li>0-1 Knapsack: <a href="https://en.wikipedia.org/wiki/Knapsack_problem">Wikipedia</a> | <a href="https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/">GeeksforGeeks</a> </li>
+    <li>Coin Change: <a href="https://en.wikipedia.org/wiki/Change-making_problem">Wikipedia</a> | <a href="https://www.geeksforgeeks.org/coin-change-dp-7/">GeeksforGeeks</a> </li>
+    <li>MCM - Matrix Chain Multiplication: <a href="https://en.wikipedia.org/wiki/Matrix_chain_multiplication">Wikipedia</a> | <a href="https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/">GeeksforGeeks</a> </li>
+  </ul>
+</ul>
+
+<hr>
+
+<h2>Initiation/Reinforcement Problems</h2>
+
+<ul>
+  <li><a href="https://vjudge.net/problem/UVA-497">[UVA 497]</a> - <a href="https://uva.onlinejudge.org/external/4/497.pdf">Strategic Defense Initiative</a> (testing simple LIST with quadratic time)
+  <li><a href="https://vjudge.net/problem/UVA-10405">[UVA 10405]</a> - <a href="https://uva.onlinejudge.org/external/104/10405.pdf">Longest Common Subsequence</a> (testing simple and direct LCS)
+  <li><a href="https://vjudge.net/problem/SPOJ-EDIST">[SPOJ EDIST]</a> - <a href="https://www.spoj.com/problems/EDIST/">Edit Distance</a> (testing simple and direct edit distance)
+  <li><a href="https://vjudge.net/problem/SPOJ-KNAPSACK">[SPOJ KNAPSACK]</a> - <a href="https://www.spoj.com/problems/KNAPSACK/">The Knapsack Problem</a> (testing simple and direct 0-1)
+  <li><a href="https://vjudge.net/problem/UVA-11137">[UVA 11137]</a> - <a href="https://uva.onlinejudge.org/external/111/11137.pdf">Ingenuous Cubrency</a> (testing simple and direct coin change)
+  <li><a href="https://vjudge.net/problem/UVA-348">[UVA 348]</a> - <a href="https://uva.onlinejudge.org/external/3/348.pdf">Optimal Array Multiplication Sequence</a> (testing simple and direct MCM)
+</ul>
+  
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a> |
+  <b>Último update:</b>
+		<script type="text/javascript" LANGUAGE="JavaScript">
+		  update = new Date(document.lastModified)
+		  theMonth = update.getMonth() + 1
+		  theDate = update.getDate()
+		  theYear = update.getFullYear()
+		  h = update.getHours()
+		  if (h<10) h = "0"+h;
+                  m = update.getMinutes()
+ 		  if (m<10) m = "0"+m;	
+                  s = update.getSeconds()
+  		  if (s<10) s = "0"+s;
+		  document.writeln(theDate + "/" + theMonth + "/" + theYear + " " + h + ":" + m + ":" + s)
+		</script></p>
+
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Estruturas de Dados 2020/2021 (CC1007) - DCC/FCUP</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2021/</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+<span style="color: #888888">// Implementa o TAD Vector</span>
+<span style="color: #888888">// Ultima alteracao: 10/03/2018</span>
+<span style="color: #888888">// -----------------------------------------------------------</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Vector</span> <span style="color: #333333">{</span>
+   <span style="color: #888888">// Atributos</span>
+   <span style="color: #008800; font-weight: bold">private</span> <span style="color: #333399; font-weight: bold">double</span> x<span style="color: #333333">,</span> y<span style="color: #333333">;</span>
+
+   <span style="color: #888888">// Construtor</span>
+   Vector<span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">double</span> x0<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">double</span> y0<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      x <span style="color: #333333">=</span> x0<span style="color: #333333">;</span>
+      y <span style="color: #333333">=</span> y0<span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">//Conversao de um vector para String</span>
+   <span style="color: #555555; font-weight: bold">@Override</span> 
+   <span style="color: #008800; font-weight: bold">public</span> String <span style="color: #0066BB; font-weight: bold">toString</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;(&quot;</span> <span style="color: #333333">+</span> x <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;,&quot;</span> <span style="color: #333333">+</span> y <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;)&quot;</span><span style="color: #333333">;</span>
+   <span style="color: #333333">}</span>
+   
+   <span style="color: #008800; font-weight: bold">public</span> Vector <span style="color: #0066BB; font-weight: bold">add</span><span style="color: #333333">(</span>Vector v<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #0066BB; font-weight: bold">Vector</span><span style="color: #333333">(</span>x <span style="color: #333333">+</span> v<span style="color: #333333">.</span><span style="color: #0000CC">x</span><span style="color: #333333">,</span> y <span style="color: #333333">+</span> v<span style="color: #333333">.</span><span style="color: #0000CC">y</span><span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">public</span> Vector <span style="color: #0066BB; font-weight: bold">sub</span><span style="color: #333333">(</span>Vector v<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #0066BB; font-weight: bold">Vector</span><span style="color: #333333">(</span>x <span style="color: #333333">-</span> v<span style="color: #333333">.</span><span style="color: #0000CC">x</span><span style="color: #333333">,</span> y <span style="color: #333333">-</span> v<span style="color: #333333">.</span><span style="color: #0000CC">y</span><span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #333399; font-weight: bold">double</span> <span style="color: #0066BB; font-weight: bold">magnitude</span><span style="color: #333333">()</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> Math<span style="color: #333333">.</span><span style="color: #0000CC">sqrt</span><span style="color: #333333">(</span>x<span style="color: #333333">*</span>x <span style="color: #333333">+</span> y<span style="color: #333333">*</span>y<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #008800; font-weight: bold">public</span> Vector <span style="color: #0066BB; font-weight: bold">scale</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">double</span> c<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #0066BB; font-weight: bold">Vector</span><span style="color: #333333">(</span>x<span style="color: #333333">*</span>c<span style="color: #333333">,</span>y<span style="color: #333333">*</span>c<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span> 
+<span style="color: #333333">}</span>
+</pre></div>

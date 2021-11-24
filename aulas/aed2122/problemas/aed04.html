@@ -1,0 +1,96 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[AED 04] Números arranjadinhos (versão desafio)</title>
+</head>
+
+<body bgcolor="white">
+
+<h1><font color="blue">[AED 04] Números arranjadinhos (versão desafio)</font></h1>
+
+<p><img src="aed04.jpg" border="1" align="right">
+  O Pedro reparou que por baixo do seu portátil estava escrito o número 95726184. Curioso como é, não conseguiu deixar de reparar que a soma dos seus dígitos era 42! De facto, 9+5+7+2+6+1+8+4=42, o que fez o Pedro pensar que esta era um número mesmo "arranjadinho".
+
+<p>Felicíssimo, foi a correr ter com o Luciano contar a sua descoberta. No entanto, o Luciano não achou a descoberta assim tão fascinante, pois achou que existiam mesmo muitos números com essa propriedade. O Pedro começou a contar a partir do  95726184 e de facto 9 números depois vem o 95726193, cuja soma dos dígitos também é 42. Mas nem sempre a distância é tão curta...</p>
+
+<p>Depois de pensarem mais um pouco, o Pedro e o Luciano acharam que podiam daqui criar um jogo para desafiarem a Ana, o António, a Filipa, o Rosaldo e a Sofia, que consiste em encontrar o primeiro número "arranjadinho" maior que um dado número. Para impedir que simplesmente eles tentem decorar respostas, eles decidiram que estavam interessados em números cuja soma dos dos dígitos fosse um número também à escolha e não apenas 42.
+
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dados vários pares de inteiros <b>N<sub>i</sub></b> e <b>K<sub>i</sub></b>, a tua tarefa é descobrir, para cada par, qual o menor número maior que <b>N<sub>i</sub></b> tal que a soma dos seus dígitos seja exactamente <b>K<sub>i</sub></b>.
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha do input vem um inteiro <b>T</b> indicando o número de casos de teste, ou seja, o número de pares de inteiros a considerar.
+
+<p>Seguem-se <b>T</b> linhas, cada uma com os dois inteiros <b>N<sub>i</b> <b>K<sub>i</b> correspondentes.
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O output deve conter <b>T</b> linhas. A <i>i</i>-ésima linha deve conter um único inteiro <b>R<sub>i</sub></b> indicando a resposta para o par correspondente, ou seja, qual o número mais pequeno que é simultaneamente maior que <b>N<sub>i</b> e com a soma dos seus dígitos a ser <b>K<sub>i</b>.</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste
+    que irão ser colocados ao programa:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>T</b> &le; 1&nbsp;000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Casos de teste</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>N<sub>i</sub></b> &le; 10<sup>16</sup></td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Número inicial</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>K<sub>i</sub></b> &le; 100</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Soma dos dígitos desejada</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>R<sub>i</sub></b> - <b>N<sub>i</sub></b> &le; 10<sup>18</sup></td></td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Diferença entre número inicial e o número a procurar</td>
+  </tr>
+</table>
+
+<h2><font color="blue">Exemplo de Input</font></h2>
+
+<pre>
+7
+100000599988 50
+100000599989 50
+100000599998 50
+987654321098 100
+12121678909876 42
+12121128909876 42
+1 92
+</pre>
+
+</p>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+
+<pre>100000599989
+100000599998
+100000679999
+987679999999
+12121678910004
+12121128910059
+29999999999
+</pre>
+
+<hr>
+
+<p align="center">
+Algoritmos e Estruturas de Dados (L.EIC011)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto<br>
+DEI/FEUP - Faculdade de Engenharia da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

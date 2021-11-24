@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Breve manual de instalação do Java</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Breve manual de instalação do Java</h1>
+
+<hr>
+
+<h2>Uso do Java</h2>
+
+  <p>Nesta unidade curricular iremos usar unicamente Java, sendo que por isso é imprescindível que tenha instalado na sua máquina uma versão da <a href="https://en.wikipedia.org/wiki/Java_Development_Kit">JDK</a> que lhe permita ter essencialmente duas coisas:</p>
+  
+  <ul>
+    <li>um <b>compilador</b> de java (comando <span class="codigo">javac</span>), que permite compilar um ficheiro com código fonte (<tt>.java</tt>) para bytecode (<tt>.class</tt>)
+    <li>um <b>loader/interpretador</b> de java (comando <span class="codigo">java</span>), que permite executar os ficheiros bytecode gerados pelo interpretador
+  </ul>
+
+<hr>
+  
+<h2>Uso da shell/linha de comandos e escolha de editores</h2>
+
+  <p>Não iremos formalmente impedir o uso de <a href="https://en.wikipedia.org/wiki/Integrated_development_environment">IDEs</a> integrados (ex: VSCode, Eclipse, Netbeans, IntelliJ), mas <b>é suposto que saibam compilar manualmente via linha de comandos, que compreendam esse processo</b>, e isso pode ser objecto de avaliação.</p>
+
+  <p>É por isso muito conveniente que saibam usar a linha de comandos e as aulas (práticas e teóricas) incluirão o seu uso. Nos guiões das práticas serão dadas dicas sobre o uso de uma shell de linux, e quando for dicado um comando para correr na shell, verá algo como o seguinte (onde <tt>$</tt> é apenas o símbolo da <i>prompt</i> e não deverá ser introduzido):
+
+  <p><span class="shell">$ ls -l</span> 
+    
+  <p>Para criar o código pode usar um qualquer editor à sua escolha, sendo que não iremos obrigar a nenhuma escolha em particular, apenas aconselhando que se escolham e o aprendam a usar, aproveitando todas as suas capacidades. Uma lista de editores possíveis e que estará em princípio disponível nos testes práticos é:
+
+    <ul>
+      <li>Emacs</li>
+      <li>Vi/ViM</li>
+      <li>Atom</li>
+      <li>Sublime</li>
+      <li>VSCode</li>
+      <li>IntelliJ</li>
+    </ul>
+    
+<hr>
+
+  <h2>Verificando se tem Java instalado</h2>
+
+<p>Para verificar se tem o Java disponível na linha de comandos (e saber que versão tem instalada) basta executar os seguinte comandos
+
+<p><span class="shell">$ javac -version</span>  (para ver a versão do compilador)
+
+<p><span class="shell">$ java -version</span>  (para ver a versão do interpretador)
+
+<p>Nesta unidade curricular, para efeitos de avaliação, iremos compilar o seu código com a versão 8 do <a href="https://en.wikipedia.org/wiki/OpenJDK">OpenJDK</a>, pelo que é sugerido que instale uma versão >= 8 (sendo que, de um modo geral, apenas serão usadas coisas que já estavam disponíveis na versão 8).</p>
+
+  <p>Para confirmar que está tudo ok deve conseguir compilar e executar um pequeno programa.</p>
+
+  <p><b>1)</b> Comece por colocar o seguinte texto num ficheiro com o nome <span class="codigo">Hello.java</span> (usando um qualquer editor):
+
+    
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Hello</span> <span style="color: #333333">{</span>
+    <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+        System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;Hello pandemic world!&quot;</span><span style="color: #333333">);</span>
+    <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+  <p><b>2)</b> Abra uma shell e verifique que está no diretório correcto, contendo o ficheiro que acabou de criar:
+
+  <p><span class="shell">$ pwd</span>  (para ver o directório onde está)
+
+  <p><span class="shell">$ ls -l *.java</span>  (para listar com detalhes todos os ficheiros que tenham extensão <tt>.java</tt>)
+
+  <p><b>3)</b> Compile o código:
+
+  <p><span class="shell">$ javac Hello.java</span>  (compila o código para um bytecode, um ficheiro <tt>.class</tt>)
+
+  <p>Verifique que foi gerado um ficheiro <span class="codigo">Hello.class</span> contendo o código compilado.
+
+  <p><span class="shell">$ ls -l *.class</span>  (para listar com detalhes todos os ficheiros que tenham extensão <tt>.class</tt>)
+    
+  <p><b>4)</b> Execute o código:
+
+  <p><span class="shell">$ java Hello</span>  (executa a função main da classe Hello)
+
+  <p>Deverá aparecer na shell o resultado da execução contendo a frase pedida:
+
+  <p><span class="shell">Hello pandemic world!</span>
+
+<hr>
+
+<h2>Instalando o Java</h2>
+
+  <p>Se não tiver a JDK instalada (para poder compilar e executar programas), deve começar por fazê-lo. As instruções específicas dependem do sistema operativo que tiver:
+
+    <h3>Linux</h3>
+
+  <p>Qualquer distribuição atual tem pacotes já preparados com o java. Por exemplo, usando <a href="https://snapcraft.io/">snap</a> (<a href="https://en.wikipedia.org/wiki/Snap_(package_manager)">um gestor de pacotes "universal"</a>):</p>
+
+    <ul>
+      <li><a href="https://snapcraft.io/openjdk">Instalação de Java usando o snap</a>
+    </ul>
+
+  <p>Ou se usar <b>apt</b>:
+
+    <ul>
+      <li><a href="https://linuxconfig.org/how-to-install-java-on-ubuntu-20-04-lts-focal-fossa-linux">Instalando Java no Ubuntu usando apt</a>
+    </ul>
+
+  <p>Ou se usar <b>yum</b>:
+
+    <ul>
+      <li><a href="https://developers.redhat.com/openjdk-install">Instalando Java no RedHat usando yum</a>
+    </ul>
+
+    <h3>Usando Linux numa máquina com outro sistema operativo</h3>
+
+    <p>Se não tiver Linux pode optar por usar uma imagem virtualizada com o <a href="https://www.virtualbox.org/">Virtual Box</a>:
+    
+    <ul>
+      <li><a href="https://drive.google.com/open?id=1v1-T6R2pzfjG8UxeQQAQzL_FJD4SHeJR" target="_blank">Imagem Linux dos laboratórios do DCC</a></p>
+  <li><a href="https://www.youtube.com/watch?v=93lM4OLyytE" target="_blank">Vídeo com instruções de utilização da imagem no Virtual Box</a>.</p>
+  </ul>
+
+  <p>Caso esteja em Windows 10 pode também ter acesso ao <b>WSL</b>,  um subsistema de Linux que lhe dá o "equivalente" a uma distribuição de Linux, incluindo uma shell:
+
+    <ul>
+      <li><a href="https://docs.microsoft.com/en-us/windows/wsl/install-win10">Windows Subsystem for Linux Installation Guide for Windows 10</a>
+    </ul>
+
+    <h3>Outras soluções e ajuda na instalação</h3>
+
+  <p>Pode usar outra solução além das sugeridas, e se precisarem de ajuda não hesitem em perguntar no <a href="https://edados2122.slack.com">Slack</a> (canal <span class="codigo">#install</span>)</p>
+
+  <p>Em último recurso como solução temporária pode usar um <a href="https://www.google.com/search?q=online+java+compiler">compilador de java online</a>, usando apenas um browser.
+    
+<hr>
+
+<p class=footer>Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+
+</div>
+
+</body>
+</html>
+

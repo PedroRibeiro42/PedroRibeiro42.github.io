@@ -1,0 +1,109 @@
+<html>
+<head>
+<title>[ED121] Palíndromos</title>
+<link rel="StyleSheet" href="style.css" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 6 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula02.html">ler o guião da aula #02</a>]</b></small></p>
+  
+<hr>
+  
+  <h2>[ED121] Palíndromos</h2>
+
+<h3>O problema</h3>
+
+<p align="justify">
+<img src="prob121.jpg" align="right" border="1" width="400">
+Um palíndromo é uma palavra ou frase número cuja leitura é a mesma,
+quer se faça da esquerda para a direita. Num palíndromo consideramos
+apenas as letras e desconsideramos quaisquer outros caracteres (como
+por exemplo sinais de pontuação ou espaços). É também considerado que
+uma letra minúscula é igual à sua equivalente maiúscula (por
+exemplo <tt>'a'</tt> é igual a <tt>'A'</tt>.
+
+<p>A título de exemplo as seguintes linhas são todas palíndromos:
+
+<pre>
+Madam, I'm Adam
+reviver
+ato idiota
+O bolo do lobo
+Socorram Marrocos
+A base do teto desaba
+Anotaram a data da maratona
+</pre>
+
+<p>A tua tarefa é descobrir quais as linhas do input que são palíndromos.
+
+<h3>Input</h3>
+
+<p>A primeira linha de input contém um número <b>N</b> (<i>1 ≤ N ≤ 100</i>), que corresponde ao número de linhas a processar.
+
+<p>Seguem-se exactamente <i>N</i> linhas, contendo cada uma com um
+máximo de 100 caracteres, sendo que nenhuma das letras do input tem acentos.
+
+<h3>Output</h3>
+
+<p>A primeira linha do output deve conter o número <b>N</b>. Devem seguir-se <b>N</b> linhas, contendo cada uma:
+
+<ul>
+<li><b>sim</b>, caso a linha correspondente no input seja um palíndromo
+<li><b>nao</b>, caso contrário
+</ul>
+
+<h3>Exemplo de input/output</h3>
+
+<table class=main cellpadding=4 border=1>
+<tr>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+<tr>
+  <td class=left valign=top>
+    <pre>
+10
+reviver
+ana
+abca
+abbc
+ato idiota
+palindromo
+Socorram Marrocos
+A base do teto desaba
+o bolo d lobo
+Madam, I'm Adam
+</pre>
+  </td>
+       <td class=left valign=top>
+<pre>
+10
+sim
+sim
+nao
+nao
+sim
+nao
+sim
+sim
+nao
+sim
+</pre>
+</td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

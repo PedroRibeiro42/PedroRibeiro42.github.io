@@ -1,0 +1,258 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #05 - Tipos Abstractos de Dados</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Aula Prática #05 - Tipos Abstractos de Dados<br>
+    <small><small>(10 de novembro)</small></small>
+  </h1>
+  <hr>
+
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios que pode submeter desta aula são:<br>
+     
+    <ul>
+      <li><a class="important" href="../problemas/prob247.html">[ED247] TAD Conjunto (ArrayListIntSet)</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob248.html">[ED248] TAD Conjunto (BooleanArrayIntSet)</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob185.html">[ED185] TAD Números Arbitrariamente Grandes (BigNumber)</a> (peso 25%) <span style="color:DarkSlateBlue">(exercício extra)</span></li>
+      <li><a class="important" href="../problemas/prob249.html">[ED249] Padrões Geométricos</a> (peso 25%) <span style="color:DarkRed">(exercício de desafio)</span></li>
+    </ul>
+
+    <p><b>Prazo de submissão:</b> 27 de Novembro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a>)</p>
+
+  <p><b>É encorajado que vão falando com os docentes e outros colegas se tiverem dificuldades. No entanto, qualquer ajuda mais direta que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota.<br>
+    Cada aula vale 10% da nota desta componente. Como existem 12 aulas com submissões, pode ter pontuação máxima mesmo sem ter feito tudo.<br>
+    Para um problema contar tem acertar todos os testes (ou seja, ter <i>accepted</i>). Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.<br>
+  Para ter 100% bastará sempre resolver os exercícios do guião principal.</p>
+
+  <hr>
+  
+  <h3>Conteúdos das teóricas</h3>
+
+  <p>Nesta aula iremos abordar conceitos de <b>tipos abstratos de dados (TADs)</b>. Será por isso conveniente ver o que foi falado nas teóricas:
+    <ul>
+      <li><a href="../apoio.html#slides">Slides sobre TADs:</a> 3 - Tipos Abstratos de Dados
+      <li><a href="../videos/index.html">Vídeos das teóricas</a>: 3 - Tipos Abstratos de Dados
+    </ul>
+  </p>
+
+  <hr>
+  
+<h3>Exercício 1) TAD Conjunto - exemplo de implementação e utilização</h3>
+
+<ol>
+  <li><b>Introdução e Conceitos Associados.</b>
+    Nas teóricas falamos de vários conceitos que devem rever. Em particular, num <i>"resumo resumido"</i>:
+  <ul>
+    <li><b>Interface:</b> definição dos métodos de um TAD (em abstracto, sem indicar implementação)
+    <li><b>Implementação de um interface:</b> uma classe X que implementa um interface Y é declarada como <span class="codigo">class X implements Y</span> e tem de implementar todos os métodos definidos no interface.
+    <li><b>TAD Conjunto:</b> um tipo abstracto de dados que implementa um conjunto (foi usado como exemplo um conjunto de números inteiros e operações como adicionar, remover ou verificar se um número está contido no conjunto)
+  </ul>
+  
+<li><b>Testando a implementação dada como exemplo (usando um array como lista).</b><br>
+  A página desta unidade curricular contém secção de <a href="../codigo/index.html">exemplos de código</a>. Em particular, deve ir à parte do <a href="../codigo/tad_intset.html">TAD IntSet</a>, fazer download dos ficheiros <a href="../codigo/IntSet.java">IntSet.java</a>, <a href="../codigo/ArrayListIntSet.java">ArrayListIntSet.java</a> e <a href="../codigo/TestSet.java">TestSet.java</a>, compilar e executar a classe <span class="codigo">TestSet</span>.<br>
+  Esta implementação está explicada no vídeo <a href="https://youtu.be/c7nYH3hpldQ">Interfaces e TAD Conjunto (1h29m41s)</a>. Certifique-se que percebe toda a implementação e o output obtido na execução.
+
+<li><b>Submetendo no Mooshak.</b><br>
+    <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    Usando o código disponibilizado como base, submeta e resolva com sucesso no Mooshak o problema <a href="../problemas/prob247.html">[ED247] TAD Conjunto (ArrayListIntSet)</a> (Volume 2 - TADs)<br>
+    Note que para ter aceite terá de implementar dois métodos novos: <span class="codigo">equals</span> e <span class="codigo">intersection</span>.
+    <br>
+    <button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+	<div id="spoiler1" style="display:none">
+	  <ul>
+	    <li>Deve submeter um ficheiro apenas com a classe que implementa o interface <i>ArrayListIntSet</i>
+	    <li>Para ambos os métodos a implementar, como recebe um <span class="codigo">IntSet s</span>, apenas pode chamar os métodos do interface a esse objecto <i>s</i>.
+	    <li>Para fazer o <span class="codigo">equals(IntSet s)</span> pode por exemplo verificar se o tamanho de ambos os objectos (<i>this</i> e <i>s</i>) são iguais e depois percorrer todos os elementos de <i>this</i> e verificar se estão em <i>s</i> (usando o método <span class="codigo">contains</span>)
+	    <li>Para fazer o <span class="codigo">intersection(IntSet s)</span> deve começar por criar um novo conjunto <i>tmp</i> (como criar? veja o código exemplo no enunciado... e deve ter espaço para quantos elementos?); depois pode percorrer todos os elementos de <i>this</i> e verificar se estão em <i>s</i> (usando o método <span class="codigo">contains</span>); caso estejam, adicione-os a <i>tmp</i>.
+	  </ul>	  
+	</div>
+</ol>
+
+<hr>
+
+<h3>Exercício 2) Medindo o tempo de execução do TAD Conjunto</h3>
+
+<ol>
+<li><b>Descobrindo a quantidade de números únicos.</b><br>
+  Use a implementação de conjunto para descobrir a quantidade de números únicos (não repetidos) no input. O algoritmo a usar deverá ser algo como:
+  <ul>
+    <li>Criar um conjunto <i>s</i> vazio
+    <li>Enquanto houver um número <i>x</i> para ler, adicionar <i>x</i> ao conjunto <i>s</i>
+    <li>No final, escrever a quantidade de elementos em <i>s</i>
+  </ul>
+  Teste o seu programa com os seguintes ficheiros <i>N</i>.txt, cada um contendo <i>N</i> números entre 1 e <i>N</i> (se precisar, pode parar a execução com <i>ctrl + C</i>):
+  <ul>
+    <li><a href="1000.txt">1000.txt</a> (644 números únicos), <a href="10000.txt">10000.txt</a> (6309 números únicos), <a href="100000.txt">100000.txt</a> (63273 números únicos), <a href="500000.txt">500000.txt</a> (316074 números únicos),  <a href="1000000.txt">1000000.txt</a> (632432 números únicos).      
+  </ul>
+  Meça o <b>tempo de execução</b> para cada um destes casos de teste. Por exemplo, para medir o tempo para o caso de 1000 números execute, e supondo que o seu programa está numa classe <span class="codigo">Unique</span>, pode fazer o seguinte:<br>
+  <span class="shell">$ time java Unique &lt; 1000.txt</span><br>
+  Como foi crescendo o tempo? Esperava que demorasse mais ou que demorasse menos?
+</ol>
+
+<hr>
+
+<h3>Exercício 3) Um TAD conjunto mais eficiente</h3>
+
+  <p>O objectivo deste exercício é criar uma nova implementação do TAD conjunto  que seja mais eficiente do ponto de vista do tempo de execução para os métodos <span class="codigo">contains</span>, <span class="codigo">add</span> e <span class="codigo">remove</span>. Deverá por isso criar uma nova classe que implemente o interface <span class="codigo">IntSet</span> (como definido no problema <a href="../problemas/prob247.html">[ED247]</a>):
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">BooleanArrayIntSet</span> <span style="color: #008800; font-weight: bold">implements</span> IntSet <span style="color: #333333">{</span>
+   <span style="color: #888888">// Deverá colocar aqui os atributos e métodos</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+<p>A ideia é usar um array de valores booleanos para dizer se um número está ou não num conjunto:
+<ul>
+  <li>Manter um array <span class="codigo">isElem[]</span>  de valores booleanos (verdadeiro ou falso)
+  <li><span class="codigo">isElem[i]</span> diz-nos se o número <i>i</i> está ou não no conjunto
+  <li>O tamanho do array determina o tamanho do número máximo
+  <li>Manter numa outra variável <span class="codigo">size</span> o número de elementos
+</ul> 
+  <p>Por exemplo, o conjunto {1,5,7} seria representado por:
+    <ul>
+      <li><span class="codigo">isElem[]={F,T,F,F,F,T,F,T,F,F,F}</span> e <span class="codigo">size=3</span><br><br>
+
+    <table border="0" bgcolor="black" cellpadding="3" cellspacing="1">
+      <tr>
+	<td bgcolor="#cccccc">0</td>
+	<td bgcolor="#cccccc">1</td>
+	<td bgcolor="#cccccc">2</td>
+	<td bgcolor="#cccccc">3</td>
+	<td bgcolor="#cccccc">4</td>
+	<td bgcolor="#cccccc">5</td>
+	<td bgcolor="#cccccc">6</td>
+	<td bgcolor="#cccccc">7</td>
+	<td bgcolor="#cccccc">8</td>
+	<td bgcolor="#cccccc">9</td>
+      </tr>
+      <tr>
+	<td bgcolor="#ffcccc">F</td>
+	<td bgcolor="#ccffcc">T</td>
+	<td bgcolor="#ffcccc">F</td>
+	<td bgcolor="#ffcccc">F</td>
+	<td bgcolor="#ffcccc">F</td>
+	<td bgcolor="#ccffcc">T</td>
+	<td bgcolor="#ffcccc">F</td>
+	<td bgcolor="#ccffcc">T</td>
+	<td bgcolor="#ffcccc">F</td>
+	<td bgcolor="#ffcccc">F</td>
+      </tr>
+    </table>
+    </ul>
+<ol>
+  <li><b>Criando o código.</b><br>
+  Crie um ficheiro <tt>BooleanArrayIntSet.java</tt> implementando a ideia para o TAD conjunto atrás descrita (como poderá ser um construtor da classe?). Teste os seus métodos (usando por exemplo a classe <span class="">TestSet</span> que já tem definida - tem de mudar a declaração da variável <i>s</i> para passar a usar esta nova implementação)
+<li><b>Verificação da eficiência.</b><br>
+  Modifique o código anterior para verificar a quantidade de números únicos para passar a usar a sua nova implementação de <span class="codigo">IntSet</span>. Teste o funcionamento, medindo o tempo de execução. É melhor ou pior que a anterior implementação? Deverá conseguir agora executar em muito menos tempo o caso de 1 milhão de números.
+<li><b>Vantagens e desvantagens.</b><br>
+  Sabendo que esta nova implementação é mais eficiente na inserção de números, que outra vantagens e desvantagens vê em relação à anterior implementação de uma lista de números usando arrays?
+<li><b>Submissão no Mooshak.</b><br>
+  <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+  Para uma verificação final de que o seu TAD foi bem implementado, submeta e resolva com sucesso no Mooshak o problema <a href="../problemas/prob248.html">[ED248] TAD Conjunto (BooleanArrayIntSet)</a> (Volume 2 - TADs)
+</ol>
+
+<hr>
+<h3>Exercício de submissão extra para consolidação de conhecimentos</h3>
+
+<p><b>TAD BigNumber - Números arbitrariamente grandes</b></p>
+
+  <p>Os tipos de dados primitivos do Java têm limites para os números que conseguem representar. O objectivo deste exercício é a implementação de um TAD destinado a representar <b>números inteiros positivos arbitrariamente grandes</b>, ou seja, com suporte para o número de dígitos que desejarmos (o Java já contém uma <a href="https://docs.oracle.com/javase/8/docs/api/java/math/BigInteger.html">classe para representar números com precisão arbitrária</a>, mas aqui a ideia é serem vocês a implementarem uma).
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    Deve por isso submeter e resolver com sucesso no Mooshak o problema <a href="../problemas/prob185.html">[ED185] TAD Números Arbitrariamente Grandes (BigNumber)</a> (Volume 2 - TADs)
+
+<p>Dicas:
+  <li><b>Armazenar o número</b>
+<p>Uma sugestão (simples) é usar um array contendo em cada posição um dígito, o que lhe vai simplificar a vida depois para somar e multiplicar. Deve colocar o digito menos significativo na posição zero e por ai adiante.
+
+  <p>Por exemplo, o número "23454760" ficaria guardado num array como o que se segue:</p>
+
+    <table bgcolor="black" cellspacing="2" cellpadding="3">
+      <tr bgcolor="white">
+	<th>0</th>
+	<th>6</th>
+	<th>7</th>
+	<th>4</th>
+	<th>5</th>
+	<th>4</th>
+	<th>3</th>
+	<th>2</th>
+      </tr>
+      </table>
+
+    <p>Se optar pelo array de digitos, pode simplesmente declará-lo com o tamanho máximo permitido (1000 dígitos) e guardar o número de dígitos significativos actualmente armazenados numa outra variável <i>size</i>, por exemplo.
+
+    <p>Para converter um caracter no dígito correspondente, basta subtrair-lhe '0' (por exemplo, <span class="codigo">char c = '2'; int d = c - '0';</span> colocaria um 2 no inteiro <i>d</i>).
+
+      <li><b>Somar dois números</b>
+
+	<p>Ainda se recordam como somar manualmente dois números? Exemplo:
+
+	  <pre>
+  123
++ 789
+-----
+  912 
+	  </pre>
+
+	  <li><b>Multiplicar dois números</b>
+
+	<p>Ainda se recordam como multiplicar manualmente dois números? Exemplo:
+
+	  <pre>
+   123
+x  789
+------
+  1107 
+  984
+ 861
+------
+ 97047
+	  </pre>
+<hr>
+
+<h3>Mais exercícios extra para consolidação de conhecimentos</h3>
+
+<ol>
+  <li>Algumas ideias para melhorar as suas implementações de <span class="codigo">IntSet</span>:
+    <ul>
+      <li>Corrigir a <b>limitação do número máximo de elementos</b> no <span class="codigo">ArrayListIntSet</span>: no caso de não haver espaço criar novo array pelo menos com o dobro do tamanho necessário e copiar para lá os elementos do conjunto)</li>
+    </ul>
+  <li>Acrescente métodos ao <b>TAD IntSet</b> e implemente-os. Por exemplo pode implementar <b>união de conjuntos</b>, <b>verificar se um conjunto está contido noutro</b>, etc.
+  <li>Crie um <b>TAD IntMultiSet</b> (incluindo o interface e pelo menos uma implementação possível) para representar conjuntos onde podem existir várias cópias do mesmo elemento. Faça as alterações necessárias nos vários métodos que tinha e imagine novos métodos possíveis (ex: um método para devolver a quantidade de elementos de um dado tipo no <i>multiset</i>)
+  <li>Algumas ideias para melhorar o <b>TAD BigNumber</b>:
+    <ul>
+      <li>Adicionar possibilidade de trabalhar também com <b>números negativos</b></li>
+      <li>Adicionar operações de <b>subtração</b> e de <b>divisão</b></li>
+    </ul>
+</ol>
+
+<hr>
+
+<h3>Exercício de Desafio</h3>
+
+<p>Para esta semana vou colocar um novo exercício <i>ad-hoc</i> de eficiência algorítmica, envolvendo também padrões a duas dimensões. É novamente um problema da minha autoria que que foi usado nas Olimpíadas de Informática (e é provavelmente o problema mais difícil que coloquei até agora - é normal demorar, precisarem de pensar bastante e terem dificuldades - o objectivo dos desafios é precisamente esse):
+
+  <ul>
+     <li><big><a href="../problemas/prob249.html">[ED249] Padrões Geométricos</a></b> (Prova de Seleção para as Olimpíadas Internacionais de Informática'2015)
+  </ul>
+
+<p>O limite de tempo de execução para cada caso de teste é de 2 segundos, pelo que a solução só será aceite e com pontuação máxima no Mooshak se for eficiente.</p>
+
+<p>Para estes problemas de desafios não vou dar logo dicas, para vos deixar pensar, mas se quiserem mesmo resolver o problema e não estejam a conseguir (mesmo depois de terem realmente tentado), podem falar comigo para obter pistas, ou ter uma ideia de como os "atacar".</p>
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

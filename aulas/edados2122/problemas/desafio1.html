@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+	<title>[EDados] Desafio 1</title>
+	<link rel=StyleSheet href="style.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+<h2>[EDados] Desafio 1 - Visor de Calculadora</h2>
+
+<hr>
+
+<h3>O problema</h3>
+
+<p><img src="desafio1.jpg" width="200" height="300" alt="" border="1" align=right>
+Concerteza que já reparaste que os números, na maior parte das calculadoras, são formados a partir de 7 "luzes" básicas,
+que estão ou não acesas conforme o número a mostrar: 
+
+<pre>
+.##.          ....          .##.     
+#..#          #..#          #..#
+#..#          #..#          #..#
+.##.          .##.          ....
+#..#          ...#          ...#
+#..#          ...#          ...#
+.##.          ....          ....
+As 7 luzes    Um 4          Um 7
+</pre>
+
+<p>Será que consegues criar um programa que dado um número, o desenhe no ecrã como se fosse desenhado numa calculadora, do modo
+atrás descrito?
+
+<p>Para consulta, aqui fica o modo como deve ser desenhado cada dígito (nota que no 1, as luzes acesas são as da direita):
+
+<pre>
+.##. .... .##. .##. .... .##. .##. .##. .##. .##.
+#..# ...# ...# ...# #..# #... #... #..# #..# #..#
+#..# ...# ...# ...# #..# #... #... #..# #..# #..#
+.... .... .##. .##. .##. .##. .##. .... .##. .##.
+#..# ...# #... ...# ...# ...# #..# ...# #..# ...#
+#..# ...# #... ...# ...# ...# #..# ...# #..# ...#
+.##. .... .##. .##. .... .##. .##. .... .##. .##.
+</pre>
+
+<h3>Input</h3>
+
+<p>O input é constituído por uma linha contendo um único número <b>N</b>
+(<i>1 &le; N &le; 1000000</i>), que corresponde ao número a desenhar. Podes ter a certeza que não aparecerão
+zeros à esquerda.
+
+<h3>Output</h3>
+
+<p>O output deve conter exactamente 7 linhas, contendo o número no formato atrás descrito. Entre dígitos
+deve vir exactamente um espaço em branco (mas nota que no final não vem nenhum espaço em branco!)
+
+</ul>
+
+<h3>Exemplo de input/output</h3>
+
+<table class=main cellpadding=4 border=1>
+<tr>
+       <th>Input</th>
+       <th>Output</th>
+</tr>
+<tr>
+       <td class=left valign=top>518</td>
+       <td class=left valign=top>
+<pre>
+.##. .... .##.
+#... ...# #..#
+#... ...# #..#
+.##. .... .##.
+...# ...# #..#
+...# ...# #..#
+.##. .... .##.
+</pre>	   
+	   </td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

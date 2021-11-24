@@ -1,0 +1,94 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[ED196] Duas filas</title>
+</head>
+
+<body>
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 11 de Dezembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula07.html">ler o guião da aula #07</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[ED196] Duas filas</h2>
+
+<p><font color="red">Neste problema deverá apenas submeter uma classe <b>ED196</b> contendo um método estático <b>process</b> como a seguir descrito (não é necessário um programa completo).</font>
+
+<p>Pode assumir que terá acesso no Mooshak às <a target="_new" href="http://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/codigo/filas.html">classes de filas</a> como dadas nas aulas.
+
+<hr>
+
+<h3>Método a submeter</h3>
+
+<p><li><b><tt>public static void process(MyQueue&lt;String&gt; q, MyQueue&lt;String&gt; a, MyQueue&lt;String&gt; b)</tt></b> da
+  classe <b><tt>ED196</tt></b>
+
+<p>Este método deve processar os elementos que vêm na fila <tt>q</tt> na forma de um nome seguido de uma operação. Consoante a operação deve fazer o seguinte:
+  </p><ul>
+    <li><b>Nome A</b> - Adiciona nome à fila <tt>a</tt>
+    </li><li><b>Nome B</b> - Adiciona nome à fila <tt>b</tt>
+    </li><li><b>Nome X</b> - Adiciona nome à fila que tenha menos elementos (<tt>a</tt> ou <tt>b</tt>). Se ambas as filas tiverem o mesmo número de elementos, o nome é descartado e não é adicionada a nenhuma.
+  </li></ul>
+
+<p>Por exemplo, se a fila <tt>q</tt> fosse {Luis,B,Pedro,A,Luisa,A,Joao,X,Jose,X,Miguel,B} acontecia o seguinte:
+  </p><ol>
+    <li><i>Luis B</i> - Luis é adicionado à fila <tt>b</tt>
+    </li><li><i>Pedro A</i> - Pedro é adicionado à fila <tt>a</tt>
+    </li><li><i>Luisa A</i> - Luisa é adicionada à fila <tt>a</tt>
+    </li><li><i>Joao X</i> - Joao é adicionado à fila <tt>b</tt>, que tem apenas 1 elemento (Luis) contra os dois da fila  <tt>b</tt> (Pedro e Luisa)
+    </li><li><i>Jose X</i> - José descartado (ambas as filas têm 2 elementos)
+    </li><li><i>Miguel B</i> - Miguel é adicionado à fila <tt>b</tt>
+  </li></ol>
+
+  <p>No final a fila <tt>a</tt> fica com {Pedro,Luisa} e a fila <tt>b</tt> fica com {Luis,Joao,Miguel}. A fila <tt>q</tt> deve ficar vazia.</p>
+
+<hr>
+
+<h3>Exemplos de input/output</h3>
+
+<table class=main cellpadding=4 border=1>
+<tr>
+       <th>Fila <i>q</i>, <i>a</i> e <i>b</i> no início</th>
+       <th>Fila <i>q</i>, <i>a</i> e <i>b</i> no final da chamada</th>
+</tr>
+<tr>
+  <td valign=top class=left>
+    q = {Luis,B,Pedro,A,Luisa,A,Joao,X,Jose,X,Miguel,B}<br>
+    a = {}<br>
+    b = {}
+  </td>
+  <td valign=top class=left>
+    q = {}<br>
+    a = {Pedro, Luisa}<br>
+    b = {Luis, Joao, Miguel}
+  </td>
+</tr>
+<tr>
+  <td valign=top class=left>
+    q = {Luis,B,Pedro,B,Luisa,X,Joao,X}<br>
+    a = {}<br>
+    b = {}
+  </td>
+  <td valign=top class=left>
+    q = {}<br>
+    a = {Luisa,Joao}<br>
+    b = {Luis,Pedro}
+  </td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Estruturas de Dados (CC1007)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+
+</html>

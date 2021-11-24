@@ -1,0 +1,285 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #02 - Input/Output e Mooshak</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Aula Prática #02 - Input/Output e Mooshak<br>
+    <small><small>(20 de Outubro)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios que pode submeter desta aula são:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problemas/prob183.html">[ED183] Estatísticas</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/prob120.html">[ED120] Desenhando um Losango</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/prob121.html">[ED121] Palíndromos</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/prob243.html">[ED243] Pizza</a> (peso 20%) <span style="color:DarkSlateBlue">(exercício extra)</span></li>
+      <li><a class="important" href="../problemas/prob244.html">[ED244] Primos</a> (peso 20%) <span style="color:DarkSlateBlue">(exercício extra)</span></li>
+      <li><a class="important" href="../problemas/prob122.html">[ED122] Espiral de Números</a> (peso 20%) <span style="color:DarkRed">(exercício de desafio)</span>
+    </ul>
+
+    <p><b>Prazo de submissão:</b> 6 de Novembro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a>)</p>
+
+  <p><b>É encorajado que vão falando com os docentes e outros colegas se tiverem dificuldades. No entanto, qualquer ajuda mais direta que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota.<br>
+    Cada aula vale 10% da nota desta componente. Como existem 12 aulas com submissões, pode ter pontuação máxima mesmo sem ter feito tudo.<br>
+    Para um problema contar tem acertar todos os testes (ou seja, ter <i>accepted</i>). Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.<br>
+  Para ter 100% bastará sempre resolver os exercícios do guião principal.</p>
+
+<hr>
+  
+<h3>Exercício 1) Introdução à classe Scanner</h3>
+
+<p>Use a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">documentação da classe Scanner</a> como referência quando precisar.
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// Importa a classe Scanner, que será usada para leitura de dados</span>
+<span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.Scanner</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Sum</span> <span style="color: #333333">{</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+
+      <span style="color: #888888">// Cria um objecto Scanner para ler da entrada padrão (&quot;standard input&quot;)</span>
+      Scanner stdin <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Scanner<span style="color: #333333">(</span>System<span style="color: #333333">.</span><span style="color: #0000CC">in</span><span style="color: #333333">);</span>
+
+      <span style="color: #888888">// Chama o método nextInt() para ir buscar o próximo inteiro</span>
+      <span style="color: #333399; font-weight: bold">int</span> a <span style="color: #333333">=</span> stdin<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">();</span>
+      <span style="color: #333399; font-weight: bold">int</span> b <span style="color: #333333">=</span> stdin<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">();</span>
+
+      <span style="color: #888888">// Imprime a soma dos dois números</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>a<span style="color: #333333">+</span>b<span style="color: #333333">);</span>
+   <span style="color: #333333">}</span>
+
+<span style="color: #333333">}</span>
+</pre></div>
+
+<p>
+<ol>
+  <li><b>O meu primeiro programa com Scanner.</b><br>
+    Copie este pedaço de código para um ficheiro, compile-o e execute o programa. A execução deverá ficar "parada" à espera que introduza dois números. Escreva <span class="shell">2 3</span>, carregue no <i>enter</i> e verifique que o programa escreve 5 como resultado.</li>
+  <li><b>Importação de classes.</b><br>
+    Experimente apagar/comentar a segunda linha do programa com a instrução <span class="codigo">import</span> e compile de novo o código. O que acontece?<br>
+    A classe Scanner faz parte do pacote <a href="https://docs.oracle.com/javase/8/docs/api/java/util/package-summary.html">java.util</a>, que contém toda uma série de classes muito úteis que iremos aos poucos começar a usar.
+  <li><b>Espaçamento.</b><br>
+    Experimente executar o programa novamente, mas desta vez escrever <span class="shell">2</span>, carregar no <i>enter</i>, depois escrever <span class="shell">3</span> e carregar novamente no <i>enter</i>, verificando que o programa continue a funcionar. Isto acontece porque o método <span class="codigo">nexInt()</span> aceita qualquer tipo de espaçamento entre inteiros (sejam apenas um ou vários espaços, tabs e mudanças de linha).</li>
+  <li><b>Erro no tipo de dados.</b> (<i>Input Mismatch</i>)<br>
+    Execute novamente o programa mas desta vez dê como input <span class="shell">2.5 3.6</span>. O que acontece? Porquê?</li>
+  <li><b>Lendo outro tipo de dados.</b><br>
+    Modifique o programa para que passe a conseguir ler número com casas decimais ao invés de inteiros. Queremos usar <i>doubles</i> em vez de <i>ints</i>. Que método deverá ser chamado no lugar do <span class="codigo">nextInt()</span>? (espreite a <a href="https://docs.oracle.com/javase/8/docs/api/java/util/Scanner.html">documentação da classe Scanner</a>, com todos os métodos disponíveis).
+    Teste o seu programa para garantir que com <span class="shell">2.5 3.6</span> como entrada o resultado é <span class="shell">6.1</span>.<br>
+    <i>(Nota: se usar um computador configurado para português, pode acontecer que ao tentar ler um número decimal com um ponto receba um "Input Mismatch"; nesse caso é esperado que use uma vírgula no lugar do ponto; não há problema pois quando submeter o seu programa ele irá aceitar na mesma pontos - em todo o caso, se desejar usar pontos também no seu computador pode <a href="https://stackoverflow.com/questions/8809098/how-do-i-set-the-default-locale-for-my-jvm">modificar o Locale de todo o programa</a> ou <a href="https://www.geeksforgeeks.org/scanner-uselocale-method-in-java-with-examples/">apenas no Scanner</a>)</i>
+</ol>
+
+<hr>
+
+<h3>Exercício 2) Leitura de strings</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.Scanner</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Count</span> <span style="color: #333333">{</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+	
+      Scanner stdin <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Scanner<span style="color: #333333">(</span>System<span style="color: #333333">.</span><span style="color: #0000CC">in</span><span style="color: #333333">);</span>
+		
+      <span style="color: #888888">// Ciclo para iterar sobre todas as linhas do input</span>
+      <span style="color: #333399; font-weight: bold">int</span> counter <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span>
+      <span style="color: #008800; font-weight: bold">while</span> <span style="color: #333333">(</span>stdin<span style="color: #333333">.</span><span style="color: #0000CC">hasNextLine</span><span style="color: #333333">())</span> <span style="color: #333333">{</span>
+         counter<span style="color: #333333">++;</span>
+         String s <span style="color: #333333">=</span> stdin<span style="color: #333333">.</span><span style="color: #0000CC">nextLine</span><span style="color: #333333">();</span>
+         System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>counter <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;: &quot;</span> <span style="color: #333333">+</span> s<span style="color: #333333">);</span>
+      <span style="color: #333333">}</span>
+   <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+<p>
+<ol>
+  <li><b>Executando o programa.</b><br>
+    Faça download do ficheiro <tt><a href="hamlet.txt">hamlet.txt</a></tt> contendo alguns versos de <i>Hamlet</i>, uma peça de William Shakespeare. Compile o código de cima e execute-o fornecendo como input o ficheiro <tt>hamlet.txt</tt> usando redirecionamento de input na shell:<br>&nbsp;<br>
+<span class="shell">
+$ java Count < hamlet.txt<br>
+1: To be or not to be that is the question<br>
+2: Whether tis nobler in the mind to suffer<br>
+3: The slings and arrows of outrageous fortune<br>
+4: Or to take arms against a sea of troubles<br>
+</span>
+<br>&nbsp;<br>
+Note que redirecionar o input é "equivalente" a introduzir manualmente o conteúdo do ficheiro via teclado.
+
+  <li><b>Lendo <i>tokens</i></b><br>
+    Altere o programa, substituindo a chamada a <span class="codigo">hasNextLine()</span> por <span class="codigo">hasNext()</span>, e a chamada a <span class="codigo">nextLine()</span> por <span class="codigo">next()</span>. Recompile e execute novamente o código com o mesmo input. O que acontece agora? O que está a ser contado?<br>
+Em Java não existe nenhum "nextString" e o método <span class="codigo">next</span> deve ser usado para ler pedaços de input (<i>tokens</i>) separados por algum tipo de espaçamento (sejam espaços ou mudanças de linha)</li>
+</ol>
+
+<hr>
+
+<div id="section">
+
+<h3>Exercício 3) Usando arrays</h3>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">import</span> <span style="color: #0e84b5; font-weight: bold">java.util.Scanner</span><span style="color: #333333">;</span>
+
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ReadNumbers</span> <span style="color: #333333">{</span>
+
+   <span style="color: #888888">// Escrever os numeros guardados num array no stdout</span>
+   <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">writeArray</span><span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> v<span style="color: #333333">[])</span> <span style="color: #333333">{</span>
+      <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;</span>v<span style="color: #333333">.</span><span style="color: #0000CC">length</span><span style="color: #333333">;</span> i<span style="color: #333333">++)</span>          
+         System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span><span style="background-color: #fff0f0">&quot;v[&quot;</span> <span style="color: #333333">+</span> i <span style="color: #333333">+</span> <span style="background-color: #fff0f0">&quot;] = &quot;</span> <span style="color: #333333">+</span> v<span style="color: #333333">[</span>i<span style="color: #333333">]);</span>      
+   <span style="color: #333333">}</span>
+   
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+
+      Scanner stdin <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Scanner<span style="color: #333333">(</span>System<span style="color: #333333">.</span><span style="color: #0000CC">in</span><span style="color: #333333">);</span>
+
+      <span style="color: #333399; font-weight: bold">int</span> v<span style="color: #333333">[]</span> <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> <span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">[</span><span style="color: #0000DD; font-weight: bold">10</span><span style="color: #333333">];</span>     <span style="color: #888888">// Cria um novo array com espaço para 10 inteiros           </span>
+      <span style="color: #333399; font-weight: bold">int</span> n <span style="color: #333333">=</span> stdin<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">();</span>   <span style="color: #888888">// Ler a quantidade de numeros que se seguem</span>
+      
+      <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i<span style="color: #333333">&lt;</span>n<span style="color: #333333">;</span> i<span style="color: #333333">++)</span>    <span style="color: #888888">// Ler os numeros a partir do stdin</span>
+         v<span style="color: #333333">[</span>i<span style="color: #333333">]</span> <span style="color: #333333">=</span> stdin<span style="color: #333333">.</span><span style="color: #0000CC">nextInt</span><span style="color: #333333">();</span>
+      
+      writeArray<span style="color: #333333">(</span>v<span style="color: #333333">);</span>             <span style="color: #888888">// Chamar procedimento que escreve</span>
+   <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+
+<ol>
+<li><b>Executando o código.</b><br>
+  Compile e execute este código, redirecionando o input a partir do ficheiro <a href="numbers.txt"><tt>numbers.txt</tt></a><br>
+  <span class="shell">$ java ReadNumbers < numbers.txt</span>
+
+<li><b>Posições do array por preencher.</b><br>
+Substitua o 10 no início do input por um 5 e execute novamente o programa. O que acontece? Porquê? Note como o atributo <span class="codigo">length</span> de um array indica o tamanho que foi alocado, e não o número de posições "preenchidas". Note também qual o valor por omissão de um inteiro.
+					   
+<li><b>Saindo fora dos limites do array.</b> <i>(ArrayIndexOutOfBoundsException)</i><br>
+  Mude o ficheiro de input para passar a conter 11 números (mude a primeira linha para 11 e acrescente um número no final da segunda linha) e execute novamente o programa. O que acontece? Porquê? Note que ao contrário do C, o Java indica explicitamente quando saimos fora dos limites de um array.<br>
+  Modifique o programa para passar a aceitar uma qualquer quantidade de números inteiros (a que for indicada na primeira linha de input) e teste a sua alteração.
+<li><b>Calculando a amplitude.</b><br>
+Acrescente uma função que recebe um array e devolve um inteiro indicando a amplitude (diferença entre máximo e mínimo) dos valores guardados no array. Teste o seu funcionamento e certifique-se que funciona independentemente da magnitude dos números (podem ser tão pequenos - incluindo números negativos - ou grandes como quiserem, assumindo que cabem num <tt>int</tt>).
+</ol>
+
+<hr>
+
+<h3>Exercício 4) O meu primeiro problema no Mooshak</h3>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img src="mooshak.gif" border="0"></a><br>
+    Nesta unidade curricular vamos usar o sistema <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak</a> para avaliar automaticamente os programas feitos (<a href="ajuda.html">ver ajuda do Mooshak</a>).
+    <ul>
+      <li>Para qualquer submissão é possível visualizar o resultado obtido em cada um dos testes feitos ao código submetido. É também possível aceder aos testes públicos onde o programa submetido não responde correctamente. <b>Para isso basta carregar no resultado da submissão, que aparece a sublinhado na listagem.</b>
+    </ul>
+
+   <p><font color=red><b>Para aceder ao sistema use o seu <i>login</i> (com <tt>"up"</tt>)
+      e a <i>password</i> que lhe foi enviada para o email institucional (email enviado a 18 Out com o título "[EDados] Password para o Mooshak - <i>login</i>")</b></font><br>
+<i>(se tiver problemas em aceder envie uma mensagem no Slack ao docente Pedro Ribeiro)</i>
+
+     <ol>
+       <li>Resolva e <a href="https://mooshak.dcc.fc.up.pt/~edados/">submeta</a> com sucesso o problema <a href="../problemas/prob183.html">[ED183] Estatísticas</a><br>
+	 Dicas:</li>
+	 <ul>
+	   <li>Este problema é uma continuação do exercício anterior (falta acrescentar uma nova função para calcular a média)
+	   <li>Para imprimir um <tt>double</tt> com duas casas decimais pode usar a instrução <tt>printf</tt> (como no C). Por exemplo, imprimir uma variável <i>x</i> com duas casas decimais seria <span class="codigo">System.out.printf("%.2f\n", x);</span>
+	   <li>Note que não tem de verificar se o input obedece aos limites dados no enunciado. Pelo contrário, essas restrições estão lá para lhe garantir que os dados respeitam esses limites (ex: assim sabe que nunca irão existir mais que 1000 números inteiros nos inputs que são dados ao seu programa no Mooshak).
+	   <li>Todas as linhas do input e do output devem terminar com o caracter de mudança de linha (mesmo a última)
+	   <li>Por uma questão de performance e dado que a máquina virtual que vos foi fornecida contém Java 1.8, <b>decidi colocar como versão oficial no Mooshak também Java 1.8 (é nessa versão que os vossos programas serão compilados)</b>.
+	 </ul>
+     </ol>
+
+<hr>
+
+<h3>Exercício 5) Mais dois problemas no Mooshak</h3>
+
+<p>Para consolidar os conhecimentos destas duas primeiras aulas, submeta os seguintes problemas no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak</a>:
+  
+<p>
+  <ol>    
+    <li><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img src="mooshak.gif" border="0"></a><br>
+      Resolva e submeta com sucesso o problema <a href="../problemas/prob120.html">[ED120] Desenhando um Losango</a><br>
+      Algumas dicas:
+      <ul>
+	<li>Este problema é essencialmente igual a algo sugerido na aula anterior;
+	<li>Para o resolver apenas necessita de saber como usar ciclos. Quantos pontos existem na primeira linha? E na segunda? E na terceira? E cardinais?
+      </ul>
+    <li><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img src="mooshak.gif" border="0"></a><br>
+      Resolva e submeta com sucesso o problema <a href="../problemas/prob121.html">[ED121] Palíndromos</a><br>
+      <ul>
+	<li>Para a leitura do input pode usar o que aprendeu exercicio 2 desta aula;
+	<li>Se quiser aceder ao <i>i</i>-ésimo caracter de uma <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html">String</a> pode usar o método <span class="codigo">char charAt(int i)</span>, como viu na aula anterior.	  
+	<li>Primeiro converta a a linha lida numa string só com letras minúsculas (sem espaços e pontuações). Faça para isso uma função que receba uma string e devolva a mesma string com os espaços retirados e todas as maiúsculas convertidas em minúsculas. Para isso é útil conhecer a classe <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/Character.html">Character</a>, que contém várias funções para lidar com caracteres. Em particular:
+	  <ul>
+	    <li>A função <span class="codigo">boolean Character.isLetter(char c)</span> indica se o caracter <tt>c</tt> é uma letra;
+	    <li>A função <span class="codigo">char Character.toLowerCase(char c)</span> converte o caracter para a sua versão minúscula
+	  </ul>
+	<li>Faça agora uma outra função que recebe uma string e devolve um valor booleano indicando se a string é ou não um palíndromo, sendo que pode aplicar esta função à linha já sem espaços e maiúsculas.
+      </ul>
+  </ol>  
+
+<hr>
+
+<h3>Exercícios extra para consolidação de conhecimentos</h3>
+
+<p>Estes exercícios são opcionais e permitem-lhe exercitar os seus conhecimentos de leitura/escrita, de uso de instruções condicionais e de uso de instruções de ciclo. As dicas estão acessíveis se carregar no botão, mas estão "escondidas" para o caso de preferir primeiro tentar fazer sem <i>spoilers</i>.
+
+<ol>
+  <li><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img src="mooshak.gif" border="0"></a><br>
+      Resolva e submeta com sucesso o problema <a href="../problemas/prob243.html">[ED243] Pizza</a><br>
+    <button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+	<div id="spoiler1" style="display:none">
+	  <ul>
+	    <li>Guarda os ingredientes que o Mario não gosta num array <span class="codigo">a[]</span> de tamanho <b>N</b></li>
+	    <li>Inicialize um contador a zero
+	    <li>Faça um ciclo com <b>P</b> iterações e em cada uma delas:
+	      <ul>
+		<li>Leia os ingredientes da pizza <i>i</i> para um array de <span class="codigo">b[]</span> de tamanho <b>K<sub>i</sub></b>
+		<li>Crie uma função que receba <span class="codigo">a[]</span> e <span class="codigo">b[]</span> e verifique a pizza está ok, ou seja, se não há ingredientes em comum (basta fazer um dois ciclos no tamanho dos arrays e comparar elemento a elemento e ver se algum par é igual)
+		<li>Chame a função para cada pizza e se estiver ok, incremente um contador
+	      </ul>
+	    <li>Imprima o conteúdo do contador
+	  </ul>	  
+	</div>
+	<br>
+
+  <li><a href="https://mooshak.dcc.fc.up.pt/~edados/"><img src="mooshak.gif" border="0"></a><br>
+      Resolva e submeta com sucesso o problema <a href="../problemas/prob244.html">[ED244] Primos</a><br>
+        <button title="Dicas" type="button" onclick="if(document.getElementById('spoiler2') .style.display=='none') {document.getElementById('spoiler2') .style.display=''}else{document.getElementById('spoiler2') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+	<div id="spoiler2" style="display:none">
+	  <ul>
+	    <li>Este exercício vem na sequência da aula anterior, onde implementou uma forma um pouco <i>naive</i> de verificar se um dado número é primo. Executar esse procedimento neste problema para todos os números no intervalo vai excecer o limite de tempo (pode experimentar para verificar o que acontece).
+	    <li>Aqui é suposto que pesquise um pouco seguindo a sugestão do enunciado: veja por exemplo a entrada da Wikipedia sobre o <a href="https://en.wikipedia.org/wiki/Sieve_of_Eratosthenes">Crivo de Eratóstenes</a> (existem muitos recursos possíves online)</li>
+	    <li>A ideia é precisamente implementar o crivo, criando um array de booleanos <span class="codigo">prime[i]</span> (de tamanho 10 milhões) que tenha uma posição <i>i</i> a <i>true</i> se o número <i>i</i> for primo, e <i>false</i> caso contrário.</li>
+	  </ul>	  
+	</div>
+	<br>
+    
+
+</ol>
+
+<hr>
+
+<h3>Exercício de Desafio</h3>
+
+<p>Para esta semana o desafio tem a ver com a eficiência algorítmica. Deve tentar resolver o seguinte problema, que está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak</a>:
+
+  <ul>
+    <li class="big"><a href="../problemas/prob122.html">[ED122] Espiral de Números</a>
+  </ul>
+
+<p>Devem submeter para verificar se a solução não só está correcta do ponto de vista do que calcula, mas também se está suficientemente eficiente e consegue responder em menos de um segundo seja qual for o input dentro das restrições dadas. Um programa correcto, mas não eficiente, irá apenas resolver parcialmente o probema (passa nos testes "pequenos", mas excede o limite de tempo nos testes "grandes").
+
+<p>Para este problema não vou dar nenhuma dica, ficando à espera de ver os vossos programas :)
+
+<p><i><b>Nota:</b> é também agora possível submeter o desafio da semana anterior no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak</a> de EDados.</i>
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

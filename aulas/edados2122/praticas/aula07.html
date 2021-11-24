@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #07 - Listas, Pilhas e Filas</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Estruturas de Dados 2021/2022</a> (CC1007) - DCC/FCUP</h3>
+  <h1>Aula Prática #07 - Listas, Pilhas e Filas<br>
+    <small><small>(24 de novembro)</small></small>
+  </h1>
+  <hr>
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios que pode submeter desta aula são:<br>
+  
+    <ul>
+      <li><a class="important" href="../problemas/prob006.html">[ED006] Pim, Pam, Pum </a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob194.html">[ED194] Invertendo uma Pilha </a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob195.html">[ED195] Expressões bem balanceadas</a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob196.html">[ED196] Duas filas</a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob197.html">[ED197] União Ordenada</a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span></li>
+      <li><a class="important" href="../problemas/prob005.html">[ED005] Notação Polaca Invertida</a> (peso 20%) <span style="color:DarkSlateBlue">(exercício extra)</span></li>
+      <li><a class="important" href="../problemas/prob007.html">[ED007] Entre Parênteses</a> (peso 20%) <span style="color:DarkSlateBlue">(exercício extra)</span></li>
+      <li><a class="important" href="../problemas/prob029.html">[ED029] Confusão no Aeroporto</a> (peso 20%) <span style="color:DarkSlateBlue">(exercício extra)</span></li>
+      <li><a class="important" href="../problemas/prob251.html">[ED251] The Golden Permit</a> (peso 20%) <span style="color:DarkRed">(exercício de desafio)</span></li>
+    </ul>
+
+  <p><b>Prazo de submissão:</b> 11 de Dezembro (submeter no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a>)</p>
+
+  <p><b>É encorajado que vão falando com os docentes e outros colegas se tiverem dificuldades. No entanto, qualquer ajuda mais direta que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota.<br>
+    Cada aula vale 10% da nota desta componente. Como existem 12 aulas com submissões, pode ter pontuação máxima mesmo sem ter feito tudo.<br>
+    Para um problema contar tem acertar todos os testes (ou seja, ter <i>accepted</i>). Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.<br>
+  Para ter 100% bastará sempre resolver os exercícios do guião principal.</p>
+    
+    <hr>
+  
+  <h3>Conteúdos das teóricas</h3>
+
+  <p>Nesta aula iremos continuar a usar <b>listas ligadas</b>, bem como <b>Pilhas</b> e <b>Filas</b>. Será por isso conveniente recordar o que foi dado nas teóricas:
+    <ul>
+      <li><a href="../apoio.html#slides">Slides sobre Listas Ligadas:</a> 4 - Listas Ligadas, Pilhas e Filas
+      <li><a href="../videos/index.html">Vídeos das teóricas</a>: Capítulo 4 - Listas Ligadas (aulas #11 e #12)
+    </ul>
+  </p>
+
+  <hr>
+
+  <h3>Exercício 1) Listas Circulares</h3>
+
+  <p>Nas teóricas falamos de mais tipos de listas ligadas, incluindo a noção de listas circulares, onde o último elemento "aponta" para o primeiro, de forma circular:</p>
+
+<p><img src="circular.png" width="500" border="1"></p>
+  
+<ol>
+  <li><b>Testando as listas circulares.</b><br>
+    Faça download do código dado nas teóricas:
+    
+    <ul>
+     <li><a href="../codigo/lista_ligada_circular.html">CircularLinkedList</a> - lista ligada circular (ex operações: tamanho, adicionar no início e no fim, retirar no início e no fim, rodar elementos)</li>
+      <ul>
+	<li>Download: <a href="../codigo/Node.java">Node.java</a> | <a href="../codigo/CircularLinkedList.java">CircularLinkedList.java</a> | <a href="../codigo/TestCircularLinkedList.java">TestCircularLinkedList.java</a> 
+      </ul>
+    </ul>
+
+    <p>Compile o código e execute a classe <span class="codigo">TestCircularLinkedList</span> para ver as listas circulares em funcionamento.
+Procure acompanhar cada uma das linhas de código e o seu efeito. Note em particular o que faz o método <span class="codigo">rotate()</span> que "roda" os elementos, colocando o primeiro elemento no final da lista e avançado o segundo elemento para o início da fila:</li>
+    
+  <li><b>Resolvendo um problema.</b><br>
+    <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    Use listas circulares para resolver e submeter o problema <a href="../problemas/prob006.html">[ED006] Pim, Pam, Pum</a>, disponível no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a> no <b>"Volume 3 (Listas Ligadas)"</b>.<br>
+
+<button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas</button>
+    
+<div id="spoiler1" style="display:none">
+  <ul>
+    <li>Comece por ler a linha com a frase de contagem para uma String (use o método <span class="codigo">nextLine()</span> da classe <i>Scanner</i> e não se esqueça de "escapar" o resto da linha anterior).</li>
+    <li>Para saber o tamanho da frase basta por exemplo usar o método <a href="https://docs.oracle.com/javase/8/docs/api/java/lang/String.html#split-java.lang.String-">split</a> da classe <i>String</i>. Se a linha estiver guardada numa string chamada <i>line</i>, então <span class="codigo">line.split(" ")</span> devolve um array contendo as palavras e <span class="codigo">line.split(" ").length</span> devolve a quantidade de elementos nesse array).
+    <li>Agora é só simular o jogo a acontecer. De cada vez chame <span class="codigo">rotate()</span> o número de vezes necessário (<b>o tamanho da frase menos um, porque já está no primeiro elemento da contagem</b>) e remova o primeiro elemento (método <span class="codigo">removeFirst()</span>). No final é só ver qual a criança que sobrou na lista circular (método <span class="codigo">getFirst()</span>). 
+  </ul>
+</div> 
+
+</ol>
+
+<hr>
+
+  <h3>Exercício 2) Pilhas</h3>
+
+  <p>Um TAD <b>Pilha</b> é uma sequência de elementos LIFO (<i>Last-In-First-Out</i>) onde temos duas operações para modificar o conteúdo:</p>  
+  <ul>
+    <li>podemos adicionar um elemento <i>x</i> chamando <span class="codigo">push(x)</span>
+    <li>podemos remover e obter o elemento que adicionamos mais recentemente usando <span class="codigo">pop()</span>
+  </ul>
+<p><img src="stack.png" height="170" border="1">
+    
+
+<ol>
+  <li><b>Testando a API das Pilhas</b>.<br>
+    Faça download do código dado nas teóricas (o TAD Pilha é o interface <span class="codigo">MyStack</span> - o nome é este para distinguir do próprio Java). A implementação dada usa listas duplamente ligadas, pelo que também precisas de as ir buscar
+    
+    <ul>
+     <li><a href="../codigo/pilhas.html">TAD MyStack</a> - Uma pilha (coleção LIFO: último a entrar é o primeiro a sair)
+	<ul>
+	  <li>Download: <a href="../codigo/MyStack.java">MyStack.java</a> | <a href="../codigo/LinkedListStack.java">LinkedListStack.java</a> | <a href="../codigo/TestMyStack.java">TestMyStack.java</a>
+	</ul>
+      <li><a href="../codigo/lista_duplamente_ligada.html">DoublyLinkedList</a> - lista duplamente ligada (ex operações: tamanho, adicionar no início e no fim, retirar no início e no fim)</li>
+      <ul>
+	<li>Download: <a href="../codigo/DNode.java">DNode.java</a> | <a href="../codigo/DoublyLinkedList.java">DoublyLinkedList.java</a> | <a href="../codigo/TestDoublyLinkedList.java">TestDoublyLinkedList.java</a> 
+    </ul>
+
+    <p>Compile o código e execute a classe <span class="codigo">TestMyStack</span> para ver a pilha em funcionamento.<br> 
+      Procure acompanhar cada uma das linhas de código e o seu efeito. Note em particular os métodos do TAD (basta ver o interface) e como criar a Pilha (a variável do tipo do interface atribuída a uma implementação desse mesmo interface).</li>
+
+     <li><b>Um primeiro problema: invertendo (parte de) uma pilha</b><br>
+       <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    Resolva e submeta o problema <a href="../problemas/prob194.html">[ED194] Invertendo uma Pilha</a>, disponível no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a> no <b>"Volume 4 (Pilhas e Filas)"</b>.<br>
+
+    <button title="Dicas" type="button" onclick="if(document.getElementById('spoiler2') .style.display=='none') {document.getElementById('spoiler2') .style.display=''}else{document.getElementById('spoiler2') .style.display='none'}">Mostrar/Esconder Dicas</button>
+    
+<div id="spoiler2" style="display:none">
+  <ul>
+    <li>Basta retirar <i>n</i> elementos da pilha (usando a operação <i>pop</i>) e depois voltar a inserir pela ordem correcta (usando a operação <i>push</i>). À medida que vai retirando os elementos pode por exemplo guardá-los... num array. 
+  </ul>
+</div>
+
+    <p>Nota: se quiser testar o método pode optar por adicionar um main à sua classe ED194 (não será chamado no Mooshak) ou criar uma classe adicional no seu computador para fazer chamadas a ED194.<br>
+
+    <button title="Dicas" type="button" onclick="if(document.getElementById('spoiler3') .style.display=='none') {document.getElementById('spoiler3') .style.display=''}else{document.getElementById('spoiler3') .style.display='none'}">Mostrar/Esconder Exemplo de programa para testar problema [ED194]</button>
+    
+    <div id="spoiler3" style="display:none">
+      <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// Pode submeter uma classe como esta.</span>
+<span style="color: #888888">// - No seu computador pode testar com &quot;java ED195&quot;</span>
+<span style="color: #888888">// - O mooshak apenas irá chamar o seu método reverse</span>
+<span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">ED194</span> <span style="color: #333333">{</span>
+   
+   <span style="color: #888888">// Método que deve implementar</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">reverse</span><span style="color: #333333">(</span>MyStack<span style="color: #333333">&lt;</span>Integer<span style="color: #333333">&gt;</span> s<span style="color: #333333">,</span> <span style="color: #333399; font-weight: bold">int</span> n<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      <span style="color: #888888">// Deve colocar aqui o código para resolver o problema</span>
+   <span style="color: #333333">}</span>
+
+   <span style="color: #888888">// Main apenas para testar no seu computador</span>
+   <span style="color: #008800; font-weight: bold">public</span> <span style="color: #008800; font-weight: bold">static</span> <span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">main</span><span style="color: #333333">(</span>String<span style="color: #333333">[]</span> args<span style="color: #333333">)</span> <span style="color: #333333">{</span>
+      MyStack<span style="color: #333333">&lt;</span>Integer<span style="color: #333333">&gt;</span> s <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> LinkedListStack<span style="color: #333333">&lt;</span>Integer<span style="color: #333333">&gt;();</span>
+
+      <span style="color: #008800; font-weight: bold">for</span> <span style="color: #333333">(</span><span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">5</span><span style="color: #333333">;</span> i<span style="color: #333333">&gt;</span><span style="color: #0000DD; font-weight: bold">0</span><span style="color: #333333">;</span> i<span style="color: #333333">--)</span>
+         s<span style="color: #333333">.</span><span style="color: #0000CC">push</span><span style="color: #333333">(</span>i<span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>s<span style="color: #333333">);</span> <span style="color: #888888">// Antes da chamada a reverse</span>
+      reverse<span style="color: #333333">(</span>s<span style="color: #333333">,</span> <span style="color: #0000DD; font-weight: bold">3</span><span style="color: #333333">);</span>
+      System<span style="color: #333333">.</span><span style="color: #0000CC">out</span><span style="color: #333333">.</span><span style="color: #0000CC">println</span><span style="color: #333333">(</span>s<span style="color: #333333">);</span> <span style="color: #888888">// Depois da chamada a reverse</span>
+   <span style="color: #333333">}</span>
+<span style="color: #333333">}</span>
+</pre></div>
+
+</div> 
+</li>
+      
+     <li><b>Expressões bem balanceadas</b><br>
+       <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    Resolva e submeta o problema <a href="../problemas/prob195.html">[ED195] Expressões bem balanceadas</a>, disponível no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a> no <b>"Volume 4 (Pilhas e Filas)"</b>.<br>
+
+    <button title="Dicas" type="button" onclick="if(document.getElementById('spoiler4') .style.display=='none') {document.getElementById('spoiler4') .style.display=''}else{document.getElementById('spoiler4') .style.display='none'}">Mostrar/Esconder Dicas</button>
+    
+    <div id="spoiler4" style="display:none">
+        <ul>
+    <li>Para iterar sobre todos os caracteres da string <i>s</i> pode usar o método <a href="http://docs.oracle.com/javase/8/docs/api/java/lang/String.html#charAt-int-">charAt(int index)</a> da classe String. Por exemplo, <span class="codigo">s.charAt(i)</span> devolve o <i>i</i>-ésimo caracter da string <i>s</i>. Note que as posições válidas vão desde 0 até <span class="codigo">s.length()-1</span>.      
+    <li>Use uma pilha de caracteres (<span class="codigo">MyStack&lt;Character&gt;</span>) para ir guardando os parenteses de <i>abertura</i>: <tt>'('</tt> e <tt>'['</tt>. Cada vez que apanhar um parenteses de <i>fecho</i>, verifique se corresponde ao tipo do último parenteses aberto (que está no topo da pilha).
+    <li>Qual o estado final da pilha numa expressão bem formada? Como pode determinar que ficaram parenteses por fechar?
+  </ul>
+</div> 
+</li>  
+</ol>      
+
+<hr>
+
+  <h3>Exercício 3) Filas</h3>
+
+  <p>Um TAD <b>Fila</b> é uma sequência de elementos FIFO (<i>First-In-First-Out</i>) onde temos duas operações para modificar o conteúdo:</p>  
+  <ul>
+    <li>podemos adicionar um elemento <i>x</i> chamando <span class="codigo">enqueue(x)</span>
+    <li>podemos remover e obter o elemento que adicionamos há mais tempo usando <span class="codigo">dequeue()</span>
+  </ul>
+<p><img src="queue.png" height="90" border="1">
+    
+
+<ol>
+  <li><b>Testando a API das Filas</b>.<br>
+    Faça download do código dado nas teóricas (o TAD Fila é o interface <span class="codigo">MyQueue</span> - o nome é este para distinguir do próprio Java):
+    
+    <ul>
+     <li><a href="../codigo/filas.html">TAD MyQueue</a> - Uma pilha (coleção FIFO: o primeiro a entrar é o primeiro a sair)
+	<ul>
+	  <li>Download: <a href="../codigo/MyQueue.java">MyQueue.java</a> | <a href="../codigo/LinkedListQueue.java">LinkedListQueue.java</a> | <a href="../codigo/TestMyQueue.java">TestMyQueue.java</a>
+	</ul>
+    </ul>
+
+    <p>Compile o código e execute a classe <span class="codigo">TestMyQueue</span> para ver a pilha em funcionamento.<br> 
+      Procure acompanhar cada uma das linhas de código e o seu efeito. Note em particular os métodos do TAD (basta ver o interface) e como criar a Pilha (a variável do tipo do interface atribuída a uma implementação desse mesmo interface).</li>
+
+  <li><b>Um primeiro problema com filas</b><br>
+    <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    Resolva e submeta o problema <a href="../problemas/prob196.html">[ED196] Duas filas</a>, disponível no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a> no <b>"Volume 4 (Pilhas e Filas)"</b>.<br>
+
+    <button title="Dicas" type="button" onclick="if(document.getElementById('spoiler5') .style.display=='none') {document.getElementById('spoiler5') .style.display=''}else{document.getElementById('spoiler5') .style.display='none'}">Mostrar/Esconder Dicas</button>
+    
+<div id="spoiler5" style="display:none">
+<ul>
+    <li>A ideia é ir retirando elementos à fila (dois a dois) enquanto a fila não estiver vazia. Que método da fila serve para verificar se a fila ainda tem elementos?
+    </li><li>Consoante a operação, devemos colocar logo numa certa lista, ou comparar os tamanhos. Que método da fila serve para ver o tamanhos de uma fila?
+  </li></ul>
+</div>
+</li>
+      
+  <li><b>Uniao ordenada</b><br>
+    <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    Resolva e submeta o problema <a href="../problemas/prob197.html">[ED197] União Ordenada</a>, disponível no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a> no <b>"Volume 4 (Pilhas e Filas)"</b>.<br>
+
+    <button title="Dicas" type="button" onclick="if(document.getElementById('spoiler6') .style.display=='none') {document.getElementById('spoiler6') .style.display=''}else{document.getElementById('spoiler6') .style.display='none'}">Mostrar/Esconder Dicas</button>
+    
+    <div id="spoiler6" style="display:none">
+      <ul>
+	<li>Comece por criar uma nova fila de inteiros que irá conter a união (<span class="codigo">MyQueue&lt;Integer&gt; q = new LinkedListQueue&lt;Integer&gt;();</span>)
+	</li><li>Depois, a ideia é "espreitar" o primeiro elemento de cada fila e escolher o que for menor. Que método da fila serve para ver o primeiro elemento?
+	</li><li>Se uma das filas ficar vazia, o que falta fazer?
+      </li></ul>
+</div> 
+</li>
+</ol>
+
+<hr>
+
+<h3>Exercícios extra para consolidação de conhecimentos</h3>
+
+<ol>
+  <li><b>Mais problemas de pilhas e filas</b><br>
+    <a href="https://mooshak.dcc.fc.up.pt/~edados/"><img height="20" src="mooshak.gif" border="0"></a><br>
+    Tem disponíveis no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak de EDados</a>, no <b>"Volume 4 (Pilhas e Filas)"</b>, mais alguns problemas envolvendo pilhas e filas. Estes são problemas mais "completos", com várias camadas, onde a representação mais natural dos dados é precisamente uma pilha ou uma fila:
+    <ul>
+      <li><a href="../problemas/prob005.html">[ED005] Notação Polaca Invertida</a> (pilhas - expressões aritméticos) 
+      <li><a href="../problemas/prob007.html">[ED007] Entre Parênteses</a> (pilhas - semelhante ao 195, mas com mais "camadas") 
+      <li><a href="../problemas/prob029.html">[ED029] Confusão no Aeroporto</a> (filas - simulaçao "inteligente")
+    </ul>
+
+  <li><b>Listas Duplamente Ligadas</b><br>
+    Espreite as <a href="../codigo/lista_duplamente_ligada.html">classes de listas duplamente ligadas</a>, teste-as e implemente nelas os métodos que fez na <a href="aula06.html">aula anterior</a> para listas simples (problemas 188 a 193), fazendo as devidas alterações.
+</ol>
+
+<hr>
+
+<h3>Exercício de Desafio</h3>
+
+<p>Para esta semana o desafio tem a ver com a eficiência algorítmica. Deve tentar resolver o seguinte problema, que está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~edados/">Mooshak</a> (enunciado em inglês):
+
+  </p><ul>
+     <li><big><a href="../problemas/prob115.html">[ED251] The Golden Permit</a> (Maratona Inter-Universitária de Programação'2015)
+  </big></li></ul><big>
+
+  <p>Este problema é semelhante ao <b>[ED006] Pim, Pam, Pum</b>, mas com uma grande diferença que o torna (muito) mais complicado: o tamanho do círculo com pessoas a eliminar chega a 10 milhões, pelo que uma solução "bruta", que simule todos os passos, não irá ser suficientemente eficiente  (passaria nos testes "pequenos", mas excederia o limite de tempo nos testes "grandes").</p>
+
+  <p>A Maratona Inter-Universitária de Programação (<b>MIUP</b>) é um concurso de programação universitário. A edição deste problema, a de <a href="http://miup2015.dcc.fc.up.pt/">2015</a>, foi ganha por uma <a href="https://noticias.up.pt/estudantes-da-faculdade-de-ciencias-vencem-maratona-de-programacao/">equipa de alunos do DCC treinados por mim</a>. A edição deste ano (<a href="https://miup20.tecnico.ulisboa.pt/">2021</a>) foi também <a href="https://noticias.up.pt/equipa-da-fcup-vence-maratona-inter-universitaria-de-programacao/">ganha por alunos treinados por mim</a> :)</p>
+
+<p>Para este problema, vou apenas dizer que este estilo de "eliminação" é conhecida como <b>Josephus problem</b>. Se precisarem de mais dicas avisem. Fico à espera de ver os vossos programas :)
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

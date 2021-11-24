@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Competitive Programming (CC3032) - Class #04</title>
+	<link rel=StyleSheet href="style.css" type="text/css">
+</head>
+
+<body>
+  
+<table bgcolor="black" border="0" cellspacing="1" cellpadding="0">
+<tr>
+<td rowspan="3" bgcolor="white"><a href="index.html"><img src="logo_pc2122.png" height="50" border="0"></a></td>
+<td class="h1" valign="middle" align="center">&nbsp; Week #04 &nbsp;</td>
+</tr>
+<tr>
+<td class="h3" valign="middle" align="center">&nbsp;<a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a>&nbsp;</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Main learning outcomes for this class</h2>
+
+<ol>
+  <li><b>Cumulative Sums:</b>
+    <ul>
+      <li>I know the concept of <b>cumulative sums</b> (<i>"prefix sums"</i>)
+      <li>I know the <b>inclusion-exclusion</b> principle and how to extend cumulative sums to <b>more than one dimension</b>
+    </ul>
+  <li><b>Fenwick Trees (Binary Indexed Trees, a.k.a. BITs):</b>
+    <ul>
+      <li>I know the <b>concept of a BIT</b>, the way node store cumulative sums and its (simple) implementation
+      <li>I know how to answer several types of <b>queries</b> related with sums, such as:
+	<ul>
+	  <li><b>single updates, range queries</b> [rangea(a,b) using bit(b)-bit(a-1)]
+	  <li><b>range updates, single queries</b> [update(a,b,v) using update(a,v) and update(b+1,-v)]
+	  <li><b>range update, range querie</b> [using two BITs]
+	</ul>
+      <li>I understand how to adapt to <b>more dimensions</b>, and in particular to the case of <b>2D</b> (a BIT of BITs)
+    </ul>
+  <li><b>Maximum Subarray Problem:</b>
+    <ul>
+      <li>I know the problem of determining <b>maximum sum of a contiguous subsequence</b>
+      <li>I know <b>Kadane's Algorithm</b> to solve this problem in linar time
+    </ul>
+</ol>
+
+<hr>
+
+<h2>Study Material</h2>
+
+<h3>Main references</h3>
+
+<ul>
+  <li><b>Video Lecture</b> (from <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/taa1920/">TAA</a>):
+    <ul>
+      <li><a href="https://www.youtube.com/watch?v=ZRTcFHVhydE">1D Problems II (cumulative sums and fenwick trees) [YouTube]</a>
+    </ul>
+    
+  <li><b>Cumulative sums</b></li>
+  <ul>
+    <li><a href="material/prefixsums.html">Portuguese Olympiads Training</a> (small translated section)
+    <li>Section 9.1 the <a href="https://cses.fi/book/book.pdf">Competitive Programmer's Handbook</a> book
+  </ul>
+  <li><b>BITs</b></li>
+  <ul>
+    <li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/binary-indexed-trees/">Binary Indexed Trees</a> (Tutorial do TopCoder)</li>
+    <li><a href="https://cp-algorithms.com/data_structures/fenwick.html">Fenwick Tree</a> (E-Maxx Algorithms)</li>
+    <li><a href="http://zobayer.blogspot.com/2013/11/various-usage-of-bit.html">Various Usages of BITs</a></li>
+    <li><a href="http://bitdevu.blogspot.com/">Binary Indexed Trees with some Solved Examples</a></li>
+    <li>Section 9.2 and 22.3 of the <a href="https://cses.fi/book/book.pdf">Competitive Programmer's Handbook</a> book
+    <li>Fenwick, P. M. (1994). <a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.14.8917&rep=rep1&type=pdf">A new data structure for cumulative frequency tables</a>. Software: Practice and Experience, 24(3), 327-336.
+  </ul>
+  <li><b>Kadane's Algorithm</b></li>
+  <ul>
+    <li><a href="http://en.wikipedia.org/wiki/Maximum_subarray_problem">Maximum Sub Array Problem</a> (Wikipedia)</li>
+    <li>Section 2.4 the <a href="https://cses.fi/book/book.pdf">Competitive Programmer's Handbook</a> book
+  </ul>
+</ul>
+
+<hr>
+
+<h2>Initiation/Reinforcement Problems</h2>
+
+<ul>
+  <li><a href="https://vjudge.net/problem/UVA-10324">[UVA 10324]</a> - <a href="https://uva.onlinejudge.org/external/103/10324.pdf">Zeros and Ones</a> (testing range query on a cumulative sums array)
+  <li><a href="https://vjudge.net/problem/UVA-836">[UVA 836]</a> - <a href="https://uva.onlinejudge.org/external/8/836.pdf">Largest Submatrix</a> (testing cumulative sums for 2D - O(n<sup>4</sup> still passes))
+  <li><a href="https://vjudge.net/problem/UVA-10755">[UVA 10755]</a> - <a href="https://uva.onlinejudge.org/external/107/10755.pdf">Garbage Heap</a> (testing cumulative sums for 3D)
+  <li><a href="https://vjudge.net/problem/UVA-507">[UVA 507]</a> - <a href="https://uva.onlinejudge.org/external/5/507.pdf">Jill Rides Again</a> (testing Kadane's Algorithm)
+</ul>
+  
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a> |
+  <b>Último update:</b>
+		<script type="text/javascript" LANGUAGE="JavaScript">
+		  update = new Date(document.lastModified)
+		  theMonth = update.getMonth() + 1
+		  theDate = update.getDate()
+		  theYear = update.getFullYear()
+		  h = update.getHours()
+		  if (h<10) h = "0"+h;
+                  m = update.getMinutes()
+ 		  if (m<10) m = "0"+m;	
+                  s = update.getSeconds()
+  		  if (s<10) s = "0"+s;
+		  document.writeln(theDate + "/" + theMonth + "/" + theYear + " " + h + ":" + m + ":" + s)
+		</script></p>
+
+</body>
+
+</html>

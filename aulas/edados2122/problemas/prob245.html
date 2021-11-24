@@ -1,0 +1,178 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+  <head>
+    <title>[ED245] Regras Quadriculadas</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 13 de Novembro</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula03.html">ler o guião da aula #03</a>]</b></small></p>
+  
+<hr>
+    
+    <h1>[ED245] Regras Quadriculadas</h1>
+
+    <p><img src="prob245.jpg" alt="" align="right" border="1"> Como
+      sabes desde a qualificação, a Sara adora o seu caderno
+      quadriculado e arranja todo o tipo de maneiras de passar tempo
+      com ele. Desta vez resolveu começar a pintar com o seu lápis
+      algumas quadrículas. A partir da maneira como preenche uma linha
+      do caderno, ela faz as seguintes transformações a cada
+      quadrícula:</p>
+      
+      <ul>
+	<li><img src="245_r1.png"></li>
+	<li><img src="245_r2.png"></li>
+      </ul>
+
+      <p>A Sara começa por pintar na primeira linha apenas uma
+      quadrícula. A partir daí pinta nas linhas sucessivas usando as regras indicadas. A figura seguinte ilustra a maneira como ficariam as 3 primeiras linhas do caderno:</p>
+
+      <p><img src="245_exemplo.png"></p>
+
+      <p>A Sara achou que o caderno estava a ficar com um padrão muito
+      bonito! Como adora contar, resolveu selecionar uma parte
+      de uma das linhas e contar quantas quadrículas estão
+      pintadas. Por exemplo, entre a 3ª e a 7ª posição da 3ª linha
+      existem duas quadrículas pintadas:
+	
+      <p><img src="245_exemplo2.png"></p>
+
+      <p>A Sara rapidamente percebeu que ia dar muito trabalho contar
+      quadrículas para as linhas seguintes e precisa da tua ajuda!
+      
+    <h2>O Problema</h2>
+
+    <p>Sabendo que a Sara usa as regras atrás descritas começando com
+    uma única quadrícula pintada na primeira linha, a tua tarefa é
+    responder a vários pedidos de contagens, cada um deles no
+    seguinte formato: na linha nº <b>K<sub>i</sub></b>, quantas
+    quadrículas estão pintadas entre as posições <b>A<sub>i</sub></b>
+    e <b>B<sub>i</sub></b> (inclusive)?
+
+    <h2>Input</h2>
+
+    <p>Na primeira linha vem um único inteiro <b>P</b> indicando o
+      número de perguntas que se seguem. Cada uma das <b>P</b> linhas
+      seguintes contém três inteiros <b>K<sub>i</sub> A<sub>i</sub>
+      B<sub>i</sub></b> indicando o intervalo [<b>A<sub>i</sub>,B<sub>i</sub></b>] da linha nº <b>K<sub>i</sub></b>. É garantido que as posições são válidas para a linha em questão, ou seja, não saem dos seus limites.
+
+    <h2>Output</h2>
+
+    <p>O output deve conter <b>P</b> linhas, uma para cada pergunta,
+    indicando o número de quadrículas pintadas entre as
+    posições <b>A<sub>i</sub></b> e <b>B<sub>i</sub></b> da <b>K<sub>i</sub></b>-ésima linha do caderno</p>
+
+    <h2>Restrições</h2>
+
+    <p>São garantidos os seguintes limites em todos os casos de teste que
+      irão ser colocados ao programa:</p>
+
+    <table>
+      <tr>
+        <td><b>1 &le; P &le; 1&nbsp;000</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Número de perguntas</td>
+      </tr>
+      <tr>
+        <td><b>1 &le; K &le; 1&nbsp;000</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Linha do caderno quadriculado</td>
+      </tr>
+      <tr>
+        <td><b>1 &le; A<sub>i</sub> &le; B<sub>i</sub> &le; 10<sup>16</sup></b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Posições na linha do caderno quadriculado</td>
+      </tr>
+    </table>
+
+    <p>Nota que para ler um número da ordem de 10<sup>16</sup> são necessários 64 bits, ou seja, deves usar o <i>long long</i> de C/C++ ou  o <i>long</i> de Java.</p>
+    
+    <p>Os casos de teste deste problema estão organizados em 5 grupos
+    com restrições adicionais diferentes:</p>
+
+    <table bgcolor="black" cellspacing="1" cellpadding="2" >
+      <tr bgcolor="white">
+        <th>Grupo</th>
+        <th>Nº de Pontos</th>
+        <th align="left">Restrições adicionais</th>
+      </tr>
+      <tr bgcolor="white">
+        <td>1</td>
+        <td>10</td>
+        <td> A<sub>i</sub> &le; B<sub>i</sub> &le; 1000, K<sub>i</sub> &le; 9</td>
+      </tr>
+      <tr bgcolor="white">
+        <td>2</td>
+        <td>20</td>
+	<td> A<sub>i</sub> &le; B<sub>i</sub> &le; 10<sup>7</sup>, B<sub>i</sub> - A<sub>i</sub> &le; 1000</td>
+      </tr>
+      <tr bgcolor="white">
+        <td>3</td>
+        <td>20</td>
+	<td> A<sub>i</sub> &le; B<sub>i</sub> &le; 10<sup>7</sup></td>
+      </tr>
+      <tr bgcolor="white">
+        <td>4</td>
+        <td>25</td>
+	<td>B<sub>i</sub> - A<sub>i</sub> &le; 1000</td>
+      </tr>
+      <tr bgcolor="white">
+        <td>5</td>
+        <td>25</td>
+        <td><i>(nenhuma restrição adicional)</i></td>
+      </tr>
+
+    </table>
+
+    <h2>Exemplo de Input</h2>
+    <pre>
+5
+3 3 7
+3 1 8
+2 1 1
+5 27 41
+4 9 12
+</pre>
+
+<h2>Exemplo de Output</h2>
+<pre>
+2
+4
+1
+5
+0
+</pre>
+
+<h2>Explicação do Exemplo</h2>
+
+    <p>A seguir são mostrados os segmentos correspondentes a cada uma das perguntas:</p>
+
+    <ul>
+      <li><b>3 3 7</b>: posições 3 a 7 da 3ª linha (2 quadrículas pintadas) <img src="245_input1.png">
+    </ul>
+    <ul>
+      <li><b>3 1 8</b>: posições 1 a 8 da 3ª linha (4 quadrículas pintadas) <img src="245_input2.png">
+    </ul>
+    <ul>
+      <li><b>2 1 1</b>: posições 1 a 1 da 2ª linha (1 quadrícula pintada) <img src="245_input3.png">
+    </ul>
+    <ul>	
+      <li><b>5 27 41</b>: posições 27 a 41 da 5ª linha (5 quadrículas pintadas) <img src="245_input4.png">
+    </ul>
+    <ul>      
+      <li><b>4 9 12</b>: posições 9 a 12 da 4ª linha (0 quadrículas pintadas) <img src="245_input5.png">
+    </ul>
+
+    <hr size="2">
+    <center><i>(adaptação para a UC de Estruturas de Dados - CC1007 - DCC/FCUP)</i><br><br>
+      <b>Prova de Seleção para as IOI'2016</b><br>	
+      Departamento de Ciência de Computadores<br>
+      Faculdade de Ciências da Universidade do Porto<br>
+      <i>(28 de Maio de 2016)</i></center>
+    <hr size="2">
+    
+  </body>
+</html>

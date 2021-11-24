@@ -1,0 +1,199 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[AED 08] Sequenciação de ADN</title>
+
+    <style>
+      .aviso {
+      background-color: #f2dede; 
+      border:black dashed 1px; 
+      padding:6px; 
+      vertical-align: middle;
+      }
+
+      code {
+      background-color:#F8F8FF;
+      border:black dashed 1px; 
+      padding:2px; 
+      }
+
+    </style>
+
+	
+</head>
+
+<body bgcolor="white">
+  
+<h1><font color="blue">[AED 08] Sequenciação de ADN</font></h1>
+<p></small></small></hp>
+
+    <div class="aviso">
+      Este é um <b>problema de output-only</b>. <br/> Ao contrário dos
+      outros problemas em que deves fazer leitura de dados e escrita
+      do output, neste problema deves apenas submeter um ficheiro de
+      texto.<br/>
+      <i><small>(este problema é essencialmente o mesmo que foi usado na Olimpíadas Nacionais de Informática na prova de seleção para as IOI'2020)</small></i>
+    </div>
+
+    <p><img src="aed08.jpg" alt="" align="right" border="1"> A Espaço
+      Portugal, a maior empresa de exploração espacial Portuguesa, acaba
+      de voltar de uma missão secreta a Marte e trazem um passageiro
+      muito especial: um exemplar de vida extraterrestre!</p>
+
+    <p>
+      Este ser vivo é muito diferente de nós a começar pelo mais
+      essencial: o ADN! Em vez dos 4 nucleótidos clássicos, o ser
+      extraterreste contém 26, um por cada letra do alfabeto
+      inglês. Como tal, todas as técnicas conhecidas para sequenciação
+      de ADN não funcionam neste ser e por isso vai ser preciso um
+      método diferente.
+    </p>
+
+    <p>
+      O problema de sequenciação de ADN é o seguinte. São
+      dadas <b>N</b> palavras de ADN, ou seja, conjuntos de letras
+      maiúsculas. O objetivo é encontrar uma palavra mestre que
+      contenha cada uma das <b>N</b> palavras de ADN como
+      subsequências contíguas (ou seja, como <i>substrings</i>). O
+      objetivo é encontrar uma palavra mestre curta, por isso é dado
+      ainda um inteiro <b>Q</b> que é o comprimento máximo que a
+      palavra mestre pode ter.
+    </p>
+
+    <p>
+      Por exemplo, vamos supor que <b>N</b> = 3 e temos as seguintes
+      palavras: AAB, BBCD, EA. Uma possível palavra mestre seria
+      EAABBCD, que tem comprimento 7, por isso se <b>Q</b> for maior
+      ou igual a 7, esta palavra é aceitável.
+    </p>
+
+    <h2><font color="blue">O Problema</font></h2>
+
+    <p>Serão fornecidos 6 conjuntos de palavras de ADN, o objetivo é
+     construir uma palavra mestre de comprimento no
+     máximo <b>Q</b>.</p>
+
+    <h2><font color="blue">Input</font></h2>
+
+    <p>Cada caso de teste começa com um inteiro <b>N</b>,
+    representando o número de palavras, e um inteiro <b>Q</b>,
+    representando o comprimento máximo da palavra mestre.</p>
+
+    <p>Seguem-se <b>N</b> linhas, cada uma com uma palavra não
+    vazia.</p>
+
+    <h2><font color="blue">Casos de teste</font></h2>
+
+    <p>Há 6 casos de teste, cada um com uma pontuação fixa (sem
+      pontuações parciais para cada um). <b>Devem olhar para cada caso
+      de teste individualmente, os casos não são aleatórios e devem
+      observar e aproveitar a estrutura de cada um para o
+      resolver</b>.</p>
+
+    <p>Os casos de teste são os seguintes:</p>
+    
+    <ul>
+      <li><strong>Caso 1:</strong> A valer 10 pontos, <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2122/problemas/aed08/inp1.txt">inp1.txt</a>;</li>
+      <li><strong>Caso 2:</strong> A valer 15 pontos, <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2122/problemas/aed08/inp2.txt">inp2.txt</a>;</li>
+      <li><strong>Caso 3:</strong> A valer 15 pontos, <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2122/problemas/aed08/inp3.txt">inp3.txt</a>;</li>
+      <li><strong>Caso 4:</strong> A valer 20 pontos, <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2122/problemas/aed08/inp4.txt">inp4.txt</a>;</li>
+      <li><strong>Caso 5:</strong> A valer 20 pontos, <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2122/problemas/aed08/inp5.txt">inp5.txt</a>;</li>
+      <li><strong>Caso 6:</strong> A valer 20 pontos, <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2122/problemas/aed08/inp6.txt">inp6.txt</a>;</li>
+    </ul>
+
+    <h2><font color="blue">Output/Submissão</font></h2>
+
+    <p>Deve ser submetido um único ficheiro de <tt>txt</tt> (o formato
+      é importante, o vosso ficheiro deve terminar em <tt>.txt</tt>)
+      com as strings pretendidas para cada caso de teste, sendo que o
+      formato é o seguinte:</p>
+
+    <p>M<sub>1</sub> (tamanho da palavra mestre para o caso de teste 1)<br />
+      C1C2...C<em>M<sub>1</sub></em> (string de tamanho M<sub>1</sub> que representa a palavra mestre para o caso de teste 1)<br />
+      ...<br />
+      M<sub>6</sub> (tamanho da palavra mestre para o caso de teste 6)<br />
+      C1C2...C<em>M<sub>6</sub></em> (string de tamanho M<sub>6</sub> que representa a palavra mestre para o caso de teste 6)<br />
+    </p>
+
+    <p><b>Observações importantes</b>:</p>
+
+    <ul>
+      <li>Cada Ci deve ser uma letra maiúscula.</li>
+      <li><b>Não</b> devem incluir espaços entre as letras.</li>
+      <li>Caso não tenham solução para um dos casos de teste, basta
+	colocarem M<sub>i</sub> = 0, ou seja, imprimir 0 seguido de uma linha vazia
+	para representar a resposta a este caso de teste.</li>
+      <li>Se algum dos outputs for inválido, seja porque M<sub>i</sub>
+	é menor que 0 ou maior que <b>Q</b>, ou porque o tamanho da
+	palavra for diferente de M<sub>i</sub>, o resultado da
+	submissão será <b>Wrong Answer</b> e terão 0 pontos.</li>
+    </ul>
+
+    <p>Um exemplo válido de um ficheiro solução seria o seguinte (a sua pontuação é de 0 pontos):</p>
+
+    <pre>4
+ABCD
+2
+AB
+0
+
+1
+A
+0
+
+0
+
+</pre>
+
+    <h2><font color="blue">Dicas para gerar o output</font></h2>
+
+    <p><b>Nota</b>: estas dicas apenas se aplicam a quem estiver
+       a utilizar uma shell de Linux.</p>
+
+    <p>
+      Visto que é necessário criar um ficheiro de <tt>txt</tt> para a
+      vossa submissão, pode ser útil usar o terminal para gerar os
+      ficheiros de texto (isto não é obrigatório, podem criar o
+      ficheiro como quiserem).
+    </p>
+
+    <p>
+      Se para correrem o vosso programa usarem o
+      comando <code>X</code> (por exemplo, para C++ isto seria algo
+      como <code>./a.out</code>, depois de compilar com <code>g++
+      codigo.cpp</code>), podem usar o seguinte comando para ler o
+      input de um ficheiro <code>inp.txt</code> e escrever para um
+      ficheiro <code>out.txt</code>: <code>X < inp.txt >
+      out.txt</code>.
+    </p>
+
+    <p>
+      Para facilitar a organização do ficheiro de submissão, é
+      aconselhado gerar um txt por cada caso de teste, por exemplo,
+      para o caso de teste 2 ter um <code>out2.txt</code>, que teria o formato:
+    </p>
+
+    <p>M<sub>2</sub> (tamanho da palavra mestre para o caso de teste 2)</p>
+    <p>C1C2...C<em>M<sub>2</sub></em> (string de tamanho M<sub>2</sub>)</p>
+
+    <p>
+      Para posteriormente gerar um ficheiro <code>out.txt</code> para
+      submeter, podem usar o seguinte comando (assumindo que têm um
+      ficheiro <code>outI.txt</code> para cada um dos 6 casos de teste
+      I): <code>cat out1.txt > out.txt;cat out2.txt >> out.txt;cat
+      out3.txt >> out.txt;cat out4.txt >> out.txt;cat out5.txt >>
+      out.txt;cat out6.txt >> out.txt</code>
+    </p>
+
+    <hr>
+
+<p align="center">
+Algoritmos e Estruturas de Dados (L.EIC011)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto<br>
+DEI/FEUP - Faculdade de Engenharia da Universidade do Porto
+</p>
+
+<hr>
+
+    
+  </body>
+</html>

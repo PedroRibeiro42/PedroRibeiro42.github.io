@@ -1,0 +1,93 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<html>
+<head>
+	<title>[AED 09] Pim, Pam, Pum</title>
+</head>
+
+<body>
+  
+<h2><font color="blue">[AED 09] Pim, Pam, Pum</font></h2>
+
+<p><img align="right" src="aed09_1.jpg" width="250" alt="" border="1">
+<i><b>"Pim, Pam, Pum, cada bola mata um, p'ra galinha e para o peru quem se livra és mesmo tu"</b></i>
+
+<p>Quem não se lembra de ter feito este jogo quando era pequeno? A ideia é muito simples. A frase atrás descrita tem 19 palavras:
+
+<pre>
+"Pim, Pam, Pum, cada bola mata um, p'ra galinha e para o peru quem se livra és mesmo tu"
+  1    2     3    4   5    6   7    8      9    10 11  12 13   14  15  16   17  18   19
+</pre>
+
+<p>3 crianças resolveram jogar este jogo, o Paulo, a Raquel e o Carlos, que estão dispostas
+por esta ordem. O Paulo começa a dizer a frase, e em cada palavra vai apontando para as pessoas.
+Ao chegar ao fim da lista de pessoas, volta ao início, a ele mesmo, como exemplificado na figura seguinte.
+
+<p><img src="aed09_2.jpg" width="262" alt="" border="1"><br>
+
+<p>Quem se livrava no início era o Paulo. Agora imagina que o jogo continuava. A pessoa que se livrou
+sai da lista, e a contagem recomeça na próxima pessoa (neste caso a Raquel). Quem se livrava a seguir era a
+Raquel e o Carlos, coitado, era o que não se livrava.
+
+<p>Descontente com isto, o Carlos, sabendo que és um bom programador, resolveu
+pedir-te ajuda. O que ele quer saber é, dada uma configuração inicial, se ele irá perder o jogo. O pior
+é que ele não sabe que frase vai ser usada. Por vezes e aquela frase comprida, outras vezes é uma mais pequena
+(como por exemplo, "Pim, Pam, Pum, quem se livra és tu", que neste caso teria 8 palavras). Podes ajudá-lo?
+
+<h3><font color="blue">Input</font></h3>
+
+<p>A primeira linha contém um número <b>N</b> (<i>1&le;N&le;10</i>) indicando o número de casos a analisar.</p>
+<p>De seguida vêm <b>N</b> casos, cada um definido por duas linhas:
+<ul>
+  <li> Na primeira vez a frase que vai ser usada para a contagem (com não mais do que 50 palavras, sempre separadas por um único espaço)</li>
+  <li> Na segunda vem um número <b>K</b> (<i>1&le;K&le;100</i>), indicando o número de crianças que vão jogar o jogo, logo seguido de <b>K</b> nomes, indicando o nome das crianças.</li>
+</ul>
+<p>Podes assumir que um dos nomes (que são sempre formados por uma única palavra)
+será sempre <tt>"Carlos"</tt> e que a frase será <b>apenas</b> constituída
+por letras (maísculas ou minúsculas, mas sem acentos) e espaços (para efeitos de contagem, uma palavra é uma sequência de caracteres delimitada por espaços ou mudanças de linha).
+ 
+<h3><font color="blue">Output</font></h3>
+
+<p>Para cada caso, vem uma linha de output:
+<ul>
+<li><tt>"O Carlos nao se livrou"</tt>, indicando que o Carlos perde o jogo
+<li><tt>"O Carlos livrou-se (coitado do NomeX!)"</tt>, onde <tt><b>NomeX</b></tt> indica a pessoa que perde o jogo.
+</ul>
+
+<h3><font color="blue">Exemplo de Input/Output</font></h3>
+
+<table cellpadding="4" border="1">
+<tr>
+       <th><font color="blue">Input</font></th>
+       <th><font color="blue">Output</font></th>
+</tr>
+<tr>
+       <td valign="top" class="left">
+<pre>2
+Pim Pam Pum cada bola mata um pra galinha e para o peru quem se livra es mesmo tu
+3 Paulo Raquel Carlos
+Pim Pam Pum quem se livra es tu
+4 Fernando Eduardo Pedro Carlos
+</pre>
+	   </td>
+       <td valign="top" class="left">
+<pre>O Carlos nao se livrou
+O Carlos livrou-se (coitado do Pedro!)</pre>
+	   </td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Algoritmos e Estruturas de Dados (L.EIC011)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto<br>
+DEI/FEUP - Faculdade de Engenharia da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>
+

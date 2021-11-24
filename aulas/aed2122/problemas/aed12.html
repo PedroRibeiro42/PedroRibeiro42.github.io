@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>[AED 12] The Golden Permit</title>
+</head>
+<body>
+<h2><font color="blue">[AED 12] The Golden Permit</font></h2>
+  
+<p><img align="right" src="aed12.jpg">The Interior Ministry has decided to develop a new more exciting and <span style="font-style:italic">fairer</span> system for awarding the fabled Golden Resident Permits, whilst also giving less wealthy candidates a possibility of winning. The idea is that candidates for a permit buy lottery tickets which are numbered 1 up to some maximum number. The lottery system then consists of a series of rounds where certain numbers are eliminated or knocked out until only some remain. 
+<br>
+The basic idea of the elimination system in the lottery is similar to the old Roman imperial legion system of decimating. Here the system is not quite so brutal, the lottery system consists of simply eliminating every <span style="font-weight:bold"><span style="font-style:italic">K</span></span>’th ticket and then repeating the process until there are only <span style="font-weight:bold"><span style="font-style:italic">K</span></span>−1 tickets remaining. These are the winning tickets. 
+<br>
+On a live TV show the elimination factor is announced and then candidates can watch the process evolve over time and see if they win the desired golden resident permit. Of course any system is open to abuse and this is no exception. Your job is, given the right insider information, to advise certain clients what number they should buy.</p>
+
+<h3><font color="blue">Task</font></h3>
+<p>You will be given the number <span style="font-weight:bold"><span style="font-style:italic">N</span></span> of the tickets which are initially ordered 1..<span style="font-style:italic">N</span>. In fact they are arranged logically in a circle so that counting continues in a circular fashion. You are also given the value <span style="font-weight:bold"><span style="font-style:italic">K</span></span>, the elimination factor. Your job is to calculate the lowest or highest numbered winning ticket.
+<br>
+The following example for <span style="font-style:italic">N</span>=10 and <span style="font-style:italic">K</span>=3 illustrates the process.
+<br>
+In the first round the tickets 3,6,9 are eliminated leaving 1 2 4 5 7 8 10
+<br>
+The next round eliminates 2 and 7 leaving 1 4 5 8 10
+<br>
+The next round eliminates 1 and 8 leaving 4 5 10. 
+<br>
+The next round eliminates 5 leaving 4 and 10 hence the lowest winning ticket is 4 and the highest winning ticket is 10.</p><!--TOC subsection id="sec3" Input-->
+<h3><font colot="blue">Input</font></h3>
+
+<p>
+The input consists of three integer values, on separate lines, namely the number of tickets <span style="font-weight:bold">N</span>, the elimination factor <span style="font-weight:bold">K</span>, and an integer <span style="font-weight:bold">M</span>, zero or one (1 for the lowest ticket and 0 for the highest).</p>
+
+<h3><font color="blue">Output</font></h3>
+<p>The output is a line with one integer value. If M is 1 the answer is the number of the winning lowest ticket an if M is zero the answer is the number of the winning highest ticket.</p>
+
+<h3><font color="blue">Constraints</font></h3>
+<table style="border-spacing:6px;border-collapse:separate;" class="cellpading0"><tr><td style="text-align:left;white-space:nowrap">4 &le; <span style="font-weight:bold"><span style="font-style:italic">N</span></span> &le; 10,000,000</td><td style="text-align:left;white-space:nowrap">Number of tickets </td></tr>
+<tr><td style="text-align:left;white-space:nowrap">2 &le; <span style="font-weight:bold"><span style="font-style:italic">K</span></span> &le; 15</td><td style="text-align:left;white-space:nowrap">Elimination factor
+</td></tr>
+</table>
+<h3><font color="blue">Input Example 1</font></h3><pre class="verbatim">98
+11
+0
+</pre>
+<h3><font color="blue">Output Example 1</font></h3><pre class="verbatim">90
+</pre><p><br>
+</p>
+<h3><font color="blue">Input Example 2</font></h3><pre class="verbatim">9876543
+13
+1
+</pre>
+<h3 ><font color="blue">Output Example 2</font></h3><pre class="verbatim">534335
+</pre>
+
+
+<hr>
+<center><i>(adaptação para a UC de Algoritmos e Estruturas de Dados - L.EIC011 - DCC/FCUP & DEI/FEUP)</i><br><br>
+  
+<center><b>MIUP 2015</b> <i>(31/10/2015)</i></center>
+<hr>
+
+
+</body>
+</html>

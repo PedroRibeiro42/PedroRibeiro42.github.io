@@ -1,0 +1,150 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Mooshak #02 - Ordenação e Pesquisa Binária</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">AED 2021/2022</a> (L.EIC011)</h3>
+  <h1>Mooshak #02 - Ordenação e Pesquisa Binária<br>
+    <small><small>(semana de 15/11 a 19/11)</small></small>
+  </h1>
+  
+  <hr>
+  
+  <h2>Nota Inicial</h2>
+  
+  <p>Os exercício do Mooshak desta aula não contam para nota e são completamente opcionais <i>(a vossa prioridade deve ser primeiro completar os exercícios base das aulas práticas)</i>. Os exercícios aqui colocados destinam-se a quem quer ir mais além do que requisitos mínimos e quiser ter uma camada de submissão com avaliação automática, sendo que todas as semanas iremos colocar disponíveis novos problemas.</p>
+
+  <p>Para tornar tudo um pouco mais interessante, eu (Pedro Ribeiro) deixo desde já prometido que irei pagar uma refeição na minha companhia (uma francesinha no Capa Negra II) a três estudantes desta UC:
+    <ul>
+      <li>Os 2 estudantes com mais problemas corretamente submetidos no final do semestre (sob um código de conduta de não tentarem simplesmente "copiar código").
+      <li>Um outro estudante que se tenha destacado nesta componente, segundo a minha avaliação (ex: resolveu os problemas mais difíceis, teve o código mais criativo, etc).
+    </ul>
+
+  <p>Espero para ver os vosses "dotes" algorítmicos ao longo destas semanas! :)
+
+<hr>
+    
+  <h2>Problemas para submissão</h2>
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed/"><img src="mooshak.gif" border="0"></a><br>
+    Nesta unidade curricular vamos usar o sistema <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a> como uma maneira opcional e adicional para avaliar automaticamente código.</p>
+    
+  <p>Nesta aula foram disponibilizados os seguintes problemas:
+     
+    <ul>      
+      <li><a class="important" href="../problemas/aed05.html">[AED 05] ADN Alienígena</a> <span style="color:DarkGreen">(dificuldade: fácil)</span>
+      <li><a class="important" href="../problemas/aed06.html">[AED 06] Somas mais próximas</a> <span style="color:DarkBlue">(dificuldade: média)</span>
+      <li><a class="important" href="../problemas/aed07.html">[AED 07] Viagem de mochila às costas</a> <span style="color:Red">(dificuldade: difícil)</span>
+      <li><a class="important" href="../problemas/aed08.html">[AED 08] Sequenciação de ADN</a> <span style="color:DarkRed">(dificuldade: desafio)</span>
+    </ul>
+  
+  <hr>
+
+<h3>Exercício 1) Usando a biblioteca do C++ linguagem para ordenar</h3>
+
+<p>A ordenação é uma operação "básica" essencial em muitos algoritmos. É por isso comum que uma qualquer linguagem de programação tenha disponível na sua biblioteca padrão uma função de ordenação. O C++ não é excepção e o objectivo deste exercício é levá-lo a conhecer como ordenar usando o <tt>sort</tt> disponível:
+
+<ul>
+  <li> <b>C++:</b> <span class="codigo">sort</span> da STL</span> (<a href="http://www.cplusplus.com/reference/algorithm/sort/">ver entrada no cplusplus.com</a>)
+</ul>
+
+<ol type="a">
+  <li>Tem ao seu dispor um pequeno programa que mostra como ordenar números inteiros: <a class="important" href="sort.html">sort.cpp</a>. Experimente compilar e executar na sua máquina, garantindo que percebe o programa.
+  <li>A mesma função de ordenação pode ser usada para quaisquer outros tipo primitivos. Experimente mudar o programa para outro tipo primitivo (ex: <span class="codigo">double</span> ou <span class="codigo">char</span>) e execute para verificar que a ordenação continua a funcionar.
+</ol>
+
+<hr>
+
+<h3>Exercício 2) Ordenação com um critério personalizado</h3>
+
+<p>Por vezes queremos ordenar por um critério diferente do padrão (ex: por ordem decrescente; ordenar primeiro por um campo e depois por outro). Nesses casos queremos poder usar o <i>sort</i> da biblioteca, mas passar-lhe um comparador "customizado" que permita ordenar segundo o critério que desejamos.
+
+  <ol type="a">
+    <li>Tem ao seu dispor um pequeno programa para ordenar pessoas por ordem crescente da idade e em caso de empate por ordem alfabética do nome: <a class="important" href="customsort.html">customsort.cpp</a>. Tem também disponível um ficheiro com um exemplo de input para poder testar o programa: <a class="important" href="persons.txt">persons.txt</a>. Experimente compilar e executar na sua máquina, garantindo que percebe o programa.
+
+    <li>O que precisaria de alterar no programa para ordenar por ordem decrescente da idade (ao invés da ordem crescente)? Experimente mudar, compilar e executar para testar o que pensou.
+      
+    <li>Usando o que aprendeu, leia, resolva e submeta no <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a> o problema <a class="important" href="../problemas/aed05.html">[AED 05] ADN Alienígena </a>.
+  </ol>
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+<div id="spoiler1" style="display:none">
+  <ul>
+    <li>Crie uma classe/estrutura para representar uma letra, contendo como atributos a frequência, a posição da primeira ocorrência e a letra em si</li>
+    <li>Crie um vector de objectos/estruturas do tipo anterior, com espaço para cada uma das 26 letras: na posição 0 o 'A', na posição 1 o 'B', etc; não se esqueça de garantir de inicializar os atributos no início </li>
+    <li>Depois de ler o fragmento de ADN, basta percorrê-lo e na posição correspondente do vector aumentar a frequência (por exemplo, se a letra for <i>c</i>, basta mexer na posição <span class="codigo">c-'A'</span> do vector)
+    <li>Crie uma comparador customizado como no exemplo dado, mas ordenando pelos atributos que o problema pede
+    <li>Chame o <i>sort</i> e pecorra no final o vector para imprimir o resultado :)
+  </ul>	  
+</div>  
+
+<hr>
+
+
+<h3>Exercício 3) Um problema com pesquisa binária "clássica"</h3>
+
+
+<p>Comece por ler o enunciado do problema <a class="important" href="../problemas/aed06.html">[AED 06] Somas mais próximas</a>. O objectivo final deste exercício é conseguir submeter com sucesso uma solução. Em vez de considerar que são possíveis <i>spoilers</i>, neste problema queremos mesmo que siga os passos que sugerimos.
+
+  <ol type="a">
+    <li>Vamos começar por calcular todos as somas possíveis de pares de números. Se temos <i>n</i> números guardados num vector <span class="codigo">v[]</span>, queremos todos os pares <tt>v[i] + v[j]</tt> com <i>0 &leq; i, j &le; n-1</i>. </li>
+
+      <ol type="i">
+	<li>Exactamente quantos pares existem? Qual a sua ordem de grandeza em termos assintóticos?
+	<li>Implemente dois ciclos para guardar estes pares num novo vector <span class="codigo">somas[]</span> e confirme que a quantidade de pares é a que calculou.	    
+      </ol>
+    <li>Para cada uma das <i>Q</i> perguntas vamos querer agora pesquisar no vector <span class="codigo">pares[]</span> procurando a(s) soma(s) mais próxima(s).</li>
+
+    <ol type="i">
+      <li>Uma alternativa seria fazer uma simples pesquisa linear (um ciclo percorrendo todos os elementos de pares). Será que isto passaria no tempo necessário? Porquê?
+      <li>O vector de somas é igual para todas as perguntas pelo que podemos pré-processar para depois melhorar a pesquisa. Sendo assim, podemos precisamente... ordená-lo! Use a biblioteca padrão de C++ ordenar o array.
+      <li> Depois de ter ordenado, podemos aplicar... <b>pesquisa binária</b>! É no entanto necessário cuidado porque o número que procuramos pode não estar no array. O que queremos realmente é o número mais próximo do que procuramos.
+    </ol>
+    <li>No final, o esquema geral do algoritmo para este problema é o seguinte:
+      <ul>
+	<li>Calcular a soma de todos os pares - em tempo <b>O(n<sup>2</sup>)</b>.
+	<li>Ordenar as somas dos pares - em tempo <b>O(n<sup>2</sup> log n<sup>2</sup>)</b>.
+	<li>Para cada uma das <i>Q</i> perguntas, fazer uma pesquisa binária - cada pergunta em tempo <b>O(log n<sup>2</sup>)</b> para resultar em <b>O(Q log n<sup>2</sup>)</b> no total.
+      </ul>
+  </ol>
+
+<hr>
+  
+<h3>Exercício 4) Um problema com pesquisa binária "indirecta" (<i>binary search the answer</i>)</h3>
+
+<p>Implemente e submeta uma solução para o problema <a class="important" href="../problemas/aed07.html">[AED 07] Viagem de mochila às costas</a>.
+
+<p>Use o algoritmo explicado nas aulas teóricas (ver slides da teórica 5 - algoritmos de pesquisa em vetores, <i>The Painter’s Partition Problem</i>, slides 11 a 14; em alternativa pode ver slides equivalentes de uma unidade curricular do DCC/FCUP: <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2021/slides/2_ordenacao_10102020.pdf">ver slides 27 a 36</a> ou em <a href="https://www.youtube.com/watch?v=3tAK-Qw3GAk">vídeo</a>.
+
+  <ul>
+    <li>Conseguir perceber se o custo <i>&leq;X</i> pode ser obtido - em tempo <b>O(n)</b>      
+    <li>Fazer pesquisa binária no espaço de respostas possíveis <i>X</i> (qual o intervalo onde <i>X</i> pode estar?)
+  </ul>
+  
+  <hr>
+
+<h3>Exercício de Desafio</h3>
+
+<p>Todas as semanas vou colocar disponível pelo menos mais um exercício um pouco mais desafiante.</p>
+
+<p>Para esta semana o desafio é diferente do habitual, sendo um problema de <i>output-only</i>, pelo que pode resolvê-lo usando uma qualquer linguagem de programação (ou até fazendo manualmente). O problema está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a>:
+
+  <ul>
+    <li class="big"><a class="important" href="../problemas/aed08.html">[AED 08] Sequenciação de ADN</a>
+  </ul>
+
+<p>Se já tiverem feito tudo e estiverem "presos" neste, e quiserem mesmo fazer o desafio, podem contactar-me para eu "dosear" as dicas, sabendo que este problema é substancialmente mais difícil os outros desta aula.
+
+<p>Depois de terem submetido não deixem de falar comigo no Slack para explicarem as vossas ideias, uma vez que não vou ter acesso ao código que usaram para gerar a resposta :)</p>
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

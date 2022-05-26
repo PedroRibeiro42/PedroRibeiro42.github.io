@@ -1,0 +1,121 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[DAA 011] Viagem de mochila às costas</title>
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuída à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 10 de Abril</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2122/praticas/aula03.html">ler o guião da aula #03</a>]</b></small></p>
+  
+<hr>
+  
+<h1><font color="blue">[DAA 011] Viagem de mochila às costas</font></h1>
+
+<p><img align="right" src="daa011.jpg" border="1">
+
+O Aniceto e os amigos resolveram fazer uma viagem até aos Alpes, onde vão percorrer um belíssimo trilho de montanha. Como o trilho é muito longo, eles resolveram levar as mochilas às costas e acampar várias noites no caminho. Para o Aniceto, uma das melhoras partes de toda a experiência é o planeamento de toda a viagem e ele quer ter a certeza de escolher da melhor forma possível.</p>
+
+<p>Os amigos já sabem quais os sítios onde é possível montar as tendas para passar a noite sabem também qual a distância em kms entre os possíveis locais sucessivos de acampamento. O objectivo do Aniceto dividir o percurso em vários dias, de modo a <b>minimizar a distância que têm de andar num único dia</b>. Imagina por exemplo que eles querem dividir em quatro dias as seguintes distâncias consecutivas:</p>
+
+<pre>7 9 3 8 2 2 9 4 3 4 7 9 9</pre>
+
+<p>Uma hipótese seria dividir percurso nas seguintes quatro partes:</p>
+
+<pre>7 9 3 | 8 2 2 | 9 4 3 | 4 7 9 9</pre>
+
+<p>Neste caso, eles andariam 19km no primeiro dia (7+9+3), 12km no segundo dia (8+2+2), 16km no terceiro dia (9+4+3) e 29km no último dia (4+7+9+9). O "custo" deste caminho seria de 29km, que é a maior distância num único dia.</p>
+
+<p>Uma alternativa melhor seria a seguinte:</p>
+
+<pre>7 9 | 3 8 2 2 | 9 4 3 4 | 7 9 9</pre>
+
+<p>Agora eles andariam 16km, 15km, 20km e 25km em cada dia, com o custo a ser de 25km (a maior distância).</p>
+
+<p>Esta não é contudo a maneira ótima para quatro dias de viagem... Ainda para mais o Aniceto gostava de saber como dividir o percurso se ao invés de quatro, quisesse três ou cinco dias de viagem. Será que podes ajudá-lo?</p>
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dado um conjunto de <b>N</b> distâncias, e <b>P</b> perguntas (<i>queries</i>), cada uma indicando um número <b>K<sub>i</sub></b> de dias, a tua tarefa é calcular, para cada pergunta, qual o custo ótimo, ou seja, qual o caminho que minimiza a maior distância num único dia, tal com atrás explicado.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha do input vem um único número indicando <b>N</b>, a quantidade de distâncias a considerar. Segue-se uma linha com <b>N</b> inteiros <b>D<sub>i</sub></b>, indicando as distâncias entre locais de acampamento.</p>
+
+<p>Na terceira linha vem um número <b>P</b>,
+indicando quantidade de perguntas. Seguem-se <b>P</b> linhas, cada uma com um
+inteiro <b>K<sub>i</sub></b> indicando o número de dias em que o Aniceto deseja dividir o percurso.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O output deve ser constituído por <b>P</b> linhas, uma por cada
+pergunta, na mesma ordem em que vinham no input. Cada uma das linhas
+  deve indicar o custo ótimo respetivo, ou seja, a menor distância máxima de uma partição em <b>K<sub>i</sub></b> dias das distâncias dadas.</p>
+  
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste
+    que irão ser colocados ao programa:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>N</b> &le; 1&nbsp;000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Quantidade de distâncias</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>D<sub>i</sub></b> &le; 1&nbsp;000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Distâncias</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>P</b> &le; 10</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Quantidade de perguntas</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>K<sub>i</sub></b> &le; N</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Número de dias para dividir o percurso</td>
+  </tr>
+</table>
+  
+<h2><font color="blue">Exemplo de Input</font></h2>
+
+<pre>
+13
+7 9 3 8 2 2 9 4 3 4 7 9 9
+3
+4
+3
+5
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+
+<pre>
+21
+27
+18
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>Neste caso temos 3 perguntas.<br>
+Para a 1ª pergunta, com K<sub>i</sub>=4 dias, a resposta é 21 e uma partição possível com esse custo é <tt>7 9 3 | 8 2 2 9 | 4 3 4 7 | 9 9</tt><br>
+Para a 2ª pergunta, com K<sub>i</sub>=3 dias, a resposta é 27 e uma partição possível com esse custo é <tt>7 9 3 8 | 2 2 9 4 3 4 | 7 9 9</tt><br>
+Para a 3ª pergunta, com K<sub>i</sub>=5 dias, a resposta é 18 e uma partição possível com esse custo é <tt>7 9 | 3 8 2 2 | 9 4 3 | 4 7 | 9 9</tt></p>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+
+</body>
+</html>

@@ -1,0 +1,147 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[DAA 017] Pirâmides</title>
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuída à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 1 de Maio</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2122/praticas/aula05.html">ler o guião da aula #05</a>]</b></small></p>
+  
+<hr>
+
+<h1><font color="blue">[DAA 017] Pirâmides</font>
+</br><i><small><small><small><small>(este problema é essencialmente o mesmo que criei para uma fase de seleção das <a href="http://oni.dcc.fc.up.pt/">ONI</a>)</small></small></small></small></i></h1>
+
+<p><img src="daa017.jpg" align=right>As pirâmides do Egipto são
+túmulos. Os faraós que as mandaram construir e os arquitectos que as
+desenharam, não as prepararam para que os turistas do século XXI se
+divertissem subindo-as. No entanto, há sempre alguns visitantes mais
+ousados que ultrapassam as barreiras de segurança e se aventuram a
+trepar as pirâmides, para chegar lá acima e acenar estupidamente a
+bandeira do seu país.</p>
+
+<p>Trepar as pirâmides é difícil e perigoso. Cada pirâmide é formada por
+camadas de pedras. Admitamos que a camada inferior, tem, em cada face,
+N pedras. A segunda camada, em cima dessa, terá N-1 pedras, cada uma
+apoiada sobre duas pedras inferiores. Assim, haverá N camadas. Para
+trepar a pirâmide, cada um destes "alpinistas" de algibeira, começa
+por subir uma das pedras da base; depois, passa dessa para uma das
+duas pedras da segunda camada que se apoiam sobre a pedra que ele
+trepou inicialmente; e assim sucessivamente, até chegar ao topo. Se a
+pirâmide estivesse em bom estado, com todas as pedras no lugar, haveria
+2<sup>N-1</sup> "maneiras" diferentes de subir até ao topo, cada maneira
+correspondendo a um percurso pela pirâmide acima. No entanto, as
+pirâmides estão bastante degradadas e algumas pedras faltam ou estão
+tão deterioradas que se torna impossível subir para cima delas, para
+daí continuar a escalada. Fica assim a questão: nestas condições,
+quantas maneiras diferentes haverá de trepar a pirâmide até ao topo?</p>
+
+<p align=center><img src="daa017_2.jpg">
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Escreva um programa que dada uma pirâmide com N camadas, e uma
+descrição das pedras em falta ou muito deterioradas numa das faces da
+pirâmide, calcule o número de maneiras diferentes de subir a pirâmide
+até ao topo, começando por uma qualquer das pedras da primeira camada,
+evitando as pedras que estão em falta ou muito deterioradas.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha vem o número <b>N</b> que
+representa o número de pedras na primeira camada e também o número de
+níveis da pirâmide. Na segunda linha vem o número
+<b>D</b> de pedras em falta ou muito deterioradas. Nas <b>D</b> linhas seguintes vêm dois números, <b>C<sub>i</sub></b> e <b>P<sub>i</sub></b>, que
+descrevem cada uma destas pedras em falta ou muito deterioradas: <b>C</b>
+representa a camada (como indicado na figura), e <b>P<sub>i</sub></b> representa a posição da pedra nessa camada (onde 1 é a pedra mais à esquerda, 2 a 2ª pedra mais esquerda, etc).</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>Uma única linha com indicando <b>M</b>, o número de
+maneiras diferente de subir a pirâmide.</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste
+    que irão ser colocados ao programa:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>N</b> &le; 1000</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Quantidade de níveis da pirâmide</td>
+  </tr>
+  <tr>
+    <td>0 &le; <b>D</b> &le; N * (N + 1) / 2 </td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Quantidade de pedras em falta ou deterioradas</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>C<sub>i</sub></b> &le; N</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Camada da <i>i</i>-ésima peda em falta ou deteriorada</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>P<sub>i</sub></b> &le; N-(C-1)</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Posição da <i>i</i>-ésima peda em falta ou deteriorada</td>
+  </tr>
+  <tr>
+    <td>0 &le; <b>M</b> &lt; 2<sup>63</sup></td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Número de maneiras diferentes de subir a pirâmide</td>
+  </tr>
+</table>
+  
+<h2><font color="blue">Exemplo de Input 1</font></h2>
+
+<pre>
+4
+2
+2 1
+3 2
+</pre>
+
+<h2><font color="blue">Exemplo de Output 1</font></h2>
+
+<pre>
+2
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output 1</font></h2>
+
+<p>Este input à imagem do lado direito da figura do enunciado: uma pirâmide com 4 camadas e 2 pedras estragadas:</p>
+<ul>
+  <li>a 1ª pedra da camada 2 (linha de input "2 1")
+  <li>a 2ª pedra da camada 3 (linha de input "3 2")
+</ul>
+
+<h2><font color="blue">Exemplo de Input 2</font></h2>
+
+<pre>
+5
+3
+3 2
+2 3
+1 4
+</pre>
+
+<h2><font color="blue">Exemplo de Output 2</font></h2>
+
+<pre>
+5
+</pre>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

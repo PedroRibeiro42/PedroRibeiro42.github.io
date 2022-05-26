@@ -1,0 +1,491 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #02 - Análise Assintótica</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">DAA 2021/2022</a> (CC2001) - DCC/FCUP</h3>
+  <h1>Aula Prática #02 - Análise Assintótica<br>
+    <small><small>(semana de 14/03 a 18/03)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios a submeter desta aula são:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problemas/daa005.html">[DAA 005] Bakugans</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/daa006.html">[DAA 006] Área de Interseção</a> (peso 50%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/daa007.html">[DAA 007] Um jogo com sequências</a> (peso 25%) <span style="color:DarkSlateBlue">(exercício extra)</span>
+      <li><a class="important" href="../problemas/daa008.html">[DAA 008] Um jogo com matrizes</a> (peso 25%) <span style="color:DarkRed">(exercício de desafio)</span>
+    </ul>
+
+    <p><b>Prazo de submissão:</b> 3 de Abril (submeter no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak de DAA</a>)</p>
+
+  <p><b>Não se esqueçam que qualquer ajuda que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota. Relembre que cada aula vale 10% da nota desta componente.<br>
+Para um problema contar tem acertar todos os testes. Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.</p>
+  
+  <hr>
+  
+ <h3>Conteúdos das teóricas</h3>
+
+  <p>Nesta aula iremos abordar conceitos de <b>análise assintótica</b>. Será por isso conveniente ver o que foi falado nas teóricas:
+    <ul>
+      <li><a href="../apoio.html#slides">Slides</a> (capítulo "1 - Análise Assintótica")
+      <li><a href="../videos/index.html">Vídeos</a>: (vídeos #02, #03, #04 e #05)
+    </ul>
+  </p>
+
+  <hr>
+  
+<h3>Notação Assintótica</h3>
+
+  <p>Recorde a definição matemática da notação assintótica:</p>
+  
+  <p><img width=600 src="bigo_notation.png"><br>
+    <img width=600 src="bigo_visual.png"></p>
+    
+  <hr>
+
+  <h3>Exercício 1) Comparando Funções</h3>
+
+  <p>Para os pares de funções seguintes indique se é verdadeira ou falsa cada uma das seguintes afirmações: \(f(n) \in O(g(n))\), \(f(n) \in \Omega(g(n)\) e \(f(n) \in \Theta(g(n)\). Explique sucintamente as suas opções.
+</p>
+
+<table border="0" bgcolor="black" cellspacing="1" cellpadding="4">
+  <tr bgcolor="white">
+    <td><b>(a)</b></td><td>\(f(n) =  2n^3 - 10n^2\)</td><td>\(g(n) = 25n^2 + 37n\)</td>
+  </tr>
+  <tr bgcolor="#eeeeee">
+    <td><b>(b)</b></td><td>\(f(n) =  56\)</td><td>\(g(n) = \log_2 30\)</td>
+  </tr>
+  <tr bgcolor="white">
+    <td><b>(c)</b></td><td>\(f(n) =  \log_3 n\)</td><td>\(g(n) = \log_2 n\)</td>
+  </tr>
+  <tr bgcolor="#eeeeee">
+    <td><b>(d)</b></td><td>\(f(n) =  n^3\)</td><td>\(g(n) = 3^n\)</td>
+  </tr>
+  <tr bgcolor="white">
+    <td><b>(e)</b></td><td>\(f(n) =  n!\)</td><td>\(g(n) = 2^n\)</td>
+  </tr>
+  <tr bgcolor="#eeeeee">
+    <td><b>(f)</b></td><td>\(f(n) =  n!\)</td><td>\(g(n) = n^n\)</td>
+  </tr>
+  <tr bgcolor="white">
+    <td><b>(g)</b></td><td>\(f(n) =  n \log n + n^2\)</td><td>\(g(n) = n^2\)</td>
+  </tr>
+  <tr bgcolor="#eeeeee">
+    <td><b>(h)</b></td><td>\(f(n) =  \sqrt(n)\)</td><td>\(g(n) = \log_2 n\)</td>
+  </tr>
+  <tr bgcolor="white">
+    <td><b>(i)</b></td><td>\(f(n) =  \log_3 (\log_3 n)\)</td><td>\(g(n) = \log_3 n\)</td>
+  </tr>
+</table>
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+	<div id="spoiler1" style="display:none">
+	  <ul>
+	    <li>O que está no fundo a ser pedido é perceber qual função "domina" a outra, ou seja, qual função cresce mais rapidamente.</li>
+	    <li>(a): qual dos polinómios tem maior grau e por isso cresce mais rapidamente?</li>
+	    <li>(b): ambos as funções são constantes, ou seja? </li>
+	    <li>(c): A base de um logaritmo muda o quê?</li>
+	    <li>(d): Uma função polinomial vs uma função exponencial...</li>
+	    <li>(e): \(n! = 1 \times 2 \times 3 \times \ldots \times (n-1) \times n ; 2^n=2 \times 2 \times 2 \times \ldots \times 2\); qual é "maior"?</li>
+	    <li><i>... ficam algumas para fazerem "sozinhos" :)</i> </li>
+	  </ul>	  
+	</div>
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler2') .style.display=='none') {document.getElementById('spoiler2') .style.display=''}else{document.getElementById('spoiler2') .style.display='none'}">Mostrar/Esconder alguns exemplos de solução</button></p>
+    
+  <div id="spoiler2" style="display:none">
+
+    <table border="1">
+      <tr>
+	<td></td>
+	<td></td>
+	<td>\(f(n) \in O(g(n))\)</td>
+	<td>\(f(n) \in \Omega(g(n))\)</td>
+	<td>\(f(n) \in \Theta(g(n))\)</td>	
+      </tr>
+      <tr>
+	<td>(a)</td>
+	<td>\(f(n) =  2n^3 - 10n^2\) ; \(g(n) = 25n^2 + 37n\)</td>
+	<td class="center"><font color="red">falso</font></td>
+	<td class="center"><font color="green">verdadeiro</font></td>
+	<td class="center"><font color="red">falso</font></td>
+      </tr>
+      <tr>
+	<td>(b)</td>
+	<td>\(f(n) =  56\) ; \(g(n) = \log_2 30\)</td>
+	<td class="center"><font color="green">verdadeiro</font></td>
+	<td class="center"><font color="green">verdadeiro</font></td>
+	<td class="center"><font color="green">verdadeiro</font></td>
+      </tr>
+      <tr>
+	<td>(c)</td>
+	<td>\(f(n) =  \log_3 n\) ; \(g(n) = \log_2 n\)</td>
+	<td class="center"><font color="green">verdadeiro</font></td>
+	<td class="center"><font color="green">verdadeiro</font></td>
+	<td class="center"><font color="green">verdadeiro</font></td>
+      </tr>
+      <tr>
+	<td>(d)</td>
+	<td>\(f(n) =  n^3\) ; \(g(n) = 3^n\)</td>
+	<td class="center"><font color="green">verdadeiro</font></td>
+	<td class="center"><font color="red">falso</font></td>
+	<td class="center"><font color="red">falso</font></td>
+      </tr>
+      <tr>
+	<td>(e)</td>
+	<td>\(f(n) =  n!\) ; \(g(n) = 2^n\)</td>
+	<td class="center"><font color="red">falso</font></td>
+	<td class="center"><font color="green">verdadeiro</font></td>
+	<td class="center"><font color="red">falso</font></td>
+      </tr>      
+    </table>
+    
+</div>
+
+  <hr>
+  
+<h3>Exercício 2) Taxa de crescimento e previsão de tempo de execução</h3>
+
+  <p>Imagine que tem dois programas implementando os algoritmos <i>A</i> e <i>B</i>, ambos tentando resolver o mesmo problema para um input de tamanho <i>n</i>. Quando medimos os seus tempos de execução para diferentes quantidades de input, obtivemos a seguinte tabela:</p>
+
+    <table bgcolor="black" cellpadding="5" cellspacing="1">
+      <tr bgcolor="white">
+	<td>Algoritmo</td>
+	<td><i>n=100</i></td>
+	<td><i>n=200</i></td>
+	<td><i>n=300</i></td>
+	<td><i>n=400</i></td>
+	<td><i>n=500</i></td>
+      </tr>
+      <tr bgcolor="white">
+	<td>A</td>
+	<td>0.003s</td>
+	<td>0.024s</td>
+	<td>0.081s</td>
+	<td>0.192s</td>
+	<td>0.375s</td>
+      </tr>
+      <tr bgcolor="white">
+	<td>B</td>
+	<td>0.040s</td>
+	<td>0.160s</td>
+	<td>0.360s</td>
+	<td>0.640s</td>
+	<td>1.000s</td>
+      </tr>      
+    </table>
+    
+  <ol type="a">
+    <li>Qual algoritmo é mais eficiente? Justifique a sua resposta.
+    <li>Indique uma estimativa do tempo que cada algoritmo iria demorar para <i>N=5000</i>
+  </ol>
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler4') .style.display=='none') {document.getElementById('spoiler4') .style.display=''}else{document.getElementById('spoiler4') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+  <div id="spoiler4" style="display:none">
+    <p>(a) qual a taxa de crescimento? por exemplo quando duplica o input quanto aumenta o tempo? o que nos diz isso sobre qual a função que o tempo parece estar a seguir (ver slide 44)? qual função é melhor? </p>
+    <p>(b) (ver slides 42 e 43)</p>
+</div>
+
+  
+<hr>
+
+<h3>Exercício 3) Complexidade de ciclos</h3>
+
+
+  <p>Para cada um dos seguintes pedaços de código a seguir indicados, indique qual a complexidade temporal correcta entre as seguintes hipóteses (explique sucintamente as suas opções):<br>
+  \(\Theta(1)\), 
+  \(\Theta(\log n)\), 
+  \(\Theta(n)\),
+  \(\Theta(n \log n)\),
+  \(\Theta(n^2)\),
+  \(\Theta(n^2 \log n)\),
+  \(\Theta(n^3)\),
+  \(\Theta(n^4)\),
+  \(\Theta(2^n)\) ou
+  \(\Theta(n!)\)
+
+  <ol type="a">
+    <li>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">++</span>)
+   <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> j<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; j<span style="color: #333333">&lt;</span>n; j<span style="color: #333333">++</span>)
+      count<span style="color: #333333">++</span>;
+<span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">++</span>)
+      count<span style="color: #333333">++</span>;
+</pre></div><br>
+      
+    <li>
+ <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">2</span>; i<span style="color: #333333">++</span>)
+   <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> j<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; j<span style="color: #333333">&lt;</span><span style="color: #0000DD; font-weight: bold">42</span>; j<span style="color: #333333">++</span>)
+      <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> k<span style="color: #333333">=</span>n; k<span style="color: #333333">&lt;</span>n<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">5</span>; k<span style="color: #333333">++</span>)
+         count<span style="color: #333333">++</span>;
+</pre></div><br>
+     
+    <li>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">+=</span><span style="color: #0000DD; font-weight: bold">2</span>)
+   <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> j<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>; j<span style="color: #333333">&lt;</span>n; j<span style="color: #333333">*=</span><span style="color: #0000DD; font-weight: bold">2</span>)
+      count<span style="color: #333333">++</span>;
+</pre></div><br>
+      
+  </ol>
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler5') .style.display=='none') {document.getElementById('spoiler5') .style.display=''}else{document.getElementById('spoiler5') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+  <div id="spoiler5" style="display:none">
+    <p>(a) qual a complexidade apenas dos dois ciclos iniciais? e do terceiro ciclo? a complexidade de um programa que tem um segmento <i>A</i> seguido de um segmento <i>B</i> é igual a... <i>A+B</i>; portanto neste caso?</p>
+    <p>(b) o primeiro ciclo vai até <i>n/2</i> e não <i>n</i>: isso altera a complexidade? o segundo ciclo é executado sempre o mesmo número de vezes (independentemente do n)... e o terceiro ciclo?</p>
+    <p>(c) quantas vezes tenho de multiplicar por 2 para chegar a <i>n</i>?</p>
+</div>
+        
+  <hr>
+
+<h3>Exercício 4) Resolvendo um problema (solução <i>naive</i> não passa por causa da sua complexidade )</h3>
+  
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+  Agora que já fizemos alguns exercícios "em papel", voltemos ao "conforto" das implementações. Deve começar por ler o enunciado com atenção.
+
+  <ul>
+    <li>Resolva e submeta o problema <a class="important" href="../problemas/daa005.html">[DAA 005] Bakugans</a></li>
+    </ul>
+
+<p><b>i) Uma solução naive em \( O(N \times F)\)</b><br>
+  Comece por implementar a solução "óbvia": para cada foto fazer um ciclo entre \(A_i\) e \(B_i\) e somar as energias dos bakugans correspondentes.<br>
+	Qual a complexidade desta solução? \(O(N \times F)\), pois para cada foto \(F\) faz um ciclo que no pior caso é de tamanho \(N\).<br>
+	Submeta para verificar que não passa no tempo, sendo que nalguns casos obterá <span style="color:red">"Time Limit Exceeded"</span> (neste problema o limite no Mooshak está em 2s)<br>
+	Isto acontece porque no pior caso \(N=F=200000\), e \(200000<sup>2</sup>\) é demasiado! (ver slide 48)</p>
+
+<p><b>ii) Medindo o tempo de execução</b><br>
+  Experimente na sua máquina correr a solução trivial com os casos que a seguir lhe damos, e meça o tempo de execução (<tt>daa005_X.txt</tt> contém um caso com \(N=F=X\)):<br>
+Inputs: <a class="important" href="daa005_25000.txt">daa005_25000.txt</a>
+<a class="important" href="daa005_50000.txt">daa005_50000.txt</a> |
+<a class="important" href="daa005_100000.txt">daa005_100000.txt</a> |
+<a class="important" href="daa005_200000.txt">daa005_200000.txt</a><br>
+
+<p>Exemplo de execução numa shell:  <span class="shell">time programa < daa005_X.txt > output.txt</span><br><i>(assumindo que o comando para executar o seu código é "programa")</i></p> 
+
+<p>Consegue perceber a taxa de crescimento do seu programa? Consegue estimar quanto tempo demoraria para por exemplo \(N=F=\)1 milhão?
+
+<p><b>iii) Melhorando a solução para \(O(N+F)\)</b><br>
+Um conceito muito interessante é o de <a href="http://en.wikipedia.org/wiki/Prefix_sum">"prefix sums"</a>, ou
+como se costuma dizer por cá, "somas acumuladas" (ou
+cumulativas).</p>
+
+<p>Imaginemos por exemplo um array de números. As somas acumuladas são
+as somas totais até à posição respectiva. Por exemplo:
+
+<pre>
+<b>     Posição <i>i</i>:</b>  0  1  2  3  4  5  6  7
+<b>         Array:</b>     3  7  2  4  5  7  6
+<b>Soma acumulada:</b>  0  3 10 12 16 21 28 34
+</pre>
+
+<p>Se tivermos armazenada a soma acumulada, que se pode calcular
+linearmente - \(O(N)\) - descobrir a soma de um dado intervalo
+faz-se em tempo constante - \(O(1)\). Por exemplo, se \(ac[]\)
+guardar a soma acumulada, a soma entre as posições \(a\) e \(b\)
+é igual a \(ac[b]-ac[a-1]\).
+
+<p>Isto pode ser usado para ajudar a resolver muitos problemas de
+forma mais eficiente, incluindo este problema dos Bakugans. Se as somas acumuladas forem calculadas, podemos responder a cada foto em \(O(1)\), o que faz com que a complexidade geral do programa fique a ser \(O(N+F)\), pois temos a leitura das energias, seguida da leitura das fotos, com resposta então em tempo constante para cada uma.</p>
+
+<table>
+  <tr>
+    <td bgcolor="#ffcccc"><b><span style="color:#990000;">INFORMAÇÃO IMPORTANTE PARA QUEM USA JAVA:</span></b><br>
+      Como pode ser preciso ler 600 mil inteiros (energias e fotos) e escrever 200 mil inteiros (as somas), para submeter com sucesso este problema será necessário ter <a href="fastio.html">input/output rápido em Java</a>.<br>
+No Mooshak iremos providenciar classes com esse propósito, pelo que devem ler a página de ajuda correspondente: <a href="fastio.html"> Leitura e Escrita Rápida (C vs C++ vs Java)</a></b>
+    </td>      
+  </tr>
+</table>
+
+<hr>
+
+<h3>Exercício 5) Dividir para conquistar!</h3>
+  
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+  Vamos agora explorar outro conceito muito útil que abordado nas teóricas, resolvendo um com o paradigma de <a href="https://en.wikipedia.org/wiki/Divide-and-conquer_algorithm">dividir para conquistar</a>. Deve começar por ler o enunciado com atenção.
+
+  <ul>
+    <li>Resolva e submeta o problema <a class="important" href="../problemas/daa006.html">[DAA 006] Área de interseção</a></li>
+    </ul>
+
+<p>Uma possibilidade seria resolver o problema de forma analítica. Existem contudo muitos tipos de casos a considerar...</p>
+
+<p><img src="cq1.png">
+
+<p>Vamos resolver este problema de forma uma forma completamente diferente, puramente algorítmica, usando então a ideia de dividir para conquistar. Vamos começar por pensar em quais são os casos mais fáceis. Se uma figura está completamente dentro da outra, a interseção é toda a sua área! Por outro lado, se está completamente fora, a interseção é 0:</p>
+  
+<p><img src="cq2.png">
+
+<p>O que fazer quando não acontecer um destes casos fáceis? Se queremos dividir para conquistar, temos de pensar em dividir. Se dividirmos o quadrado em quatro partes, temos agora quatro novos quadrados mais pequenos, onde o que queremos saber é precisamente um subproblema igual ao inicial! 
+
+<p><img src="cq3.png" width="650">
+
+<p>Imagine-se que o caso era o representado em cima. O quadrado não é um caso simples, logo dividimos em quatro e chamamos a mesma recursão. Aqui, Q1, Q2 e Q3 são casos simples (completamente fora do círculo) e por isso devolvem 0. No caso de Q4 temos que novamente dividir em quatro. Dessa nova divisão, Q9 é simples (completamente dentro) e outros subquadrados não, pelo que iriamos novamente dividir em quatro recursivamente.
+
+<p>Quando é que devemos parar de dividir? Em cada passo os quadrados têm metade do lado do quadrado inicial, mas podem ficar "infinitamente" mais pequenos enquanto estivemos perto da borda do círculo... O que podemos fazer é parar... quando estivermos "satisfeitos" com a precisão obtida! Quanto mais fundo formos na recursão, mais preciso será o resulado, mas mais tempo demorará a recursão para terminar.
+
+<p>No final de tudo, deverá portanto ter uma função recursiva semelhante a esta:</p>
+
+<pre class="codigo">
+<b>intersecao</b>(x1, x2, y1, y2) <font color="#666666">// quadrado de (x1,y1) até (x2,y2)</font>
+   <b>Se</b> (uma figura está garantidamente fora da outra) <b>então</b> <b>retornar</b> 0
+   <b>Se</b> (quadrado dentro do círculo) <b>então</b> <b>retornar</b> área do quadrado
+   <b>Se</b> (círculo dentro do quadrado) <b>então</b> <b>retornar</b> área do círculo
+   area &leftarrow; 0
+   <b>Se</b> (quadrado for ainda grande o suficiente) <b>então</b> 
+      area &leftarrow; area + intersecao(subquadrado superior esquerdo)
+      area &leftarrow; area + intersecao(subquadrado superior direito)
+      area &leftarrow; area + intersecao(subquadrado inferior esquerdo)
+      area &leftarrow; area + intersecao(subquadrado inferior direito)
+   <b>retornar</b> area
+</pre>
+
+<p>Implemente esta solução e submeta-a no Mooshak (deverá obter 100 pontos).
+  
+  <hr>
+
+  <h3>[Exercício extra 1] As minhas primeiras provas</h3>
+
+  <p>Para consolidar os conhecimentos de notação assintótica, prove a verdade ou falsidade das seguintes afirmações, usando a definição matemática (dada em cima), :
+
+<ol type="a">
+  <li>\(2^{n+2} \in O(2^n)\)
+  <li>\(2^{2n} \in O(2^n)\)
+  <li>\(f(n) \in O(g(n)) \implies g(n) \in O(f(n))\)
+  <li>\(f(n) \in O(g(n)) \implies g(n) \in \Omega(f(n))\)
+  <li>\((n+2)^2 \in \Theta(n^2)\)
+</ol>
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler3') .style.display=='none') {document.getElementById('spoiler3') .style.display=''}else{document.getElementById('spoiler3') .style.display='none'}">Mostrar/Esconder um exemplo de solução</button></p>
+    
+  <div id="spoiler3" style="display:none">
+    <p>
+      <ul><li> Alínea (a)<br>
+	  2<sup>n+2</sup> = 2<sup>n</sup> * 2<sup>2</sup> = 4*2<sup>n</sup><br>
+	  Logo por isto já vemos que de facto 2<sup>n+2</sup> pertence a Θ(2<sup>n</sup>).
+	  Para mostrar que é verdade que 2<sup>n+2</sup> pertence a O(2<sup>n</sup>) basta, como diz a definição, arranjar duas constantes <b>n<sub>0</sub></b> e <b>c</b> tal que <i>f(n) &le; c*g(n) para n &ge; n<sub>0</sub></i></b><br>
+Basta escolher <b>n<sub>0</sub>=1</b> e <b>c=4</b>, por exemplo, para isto ser trivialmente verdade.
+      </ul>
+    </p>
+  </div>
+
+<hr>
+
+<h3>[Exercício extra 2] Complexidade de funções recursivas</h3>
+
+  <p>Para cada uma dos seguintes funções recursivas indicadas, assumindo que chama no início <i>f(v, 0, n-1)</i>, indique qual a recorrência que representa o seu tempo de execução, qual a complexidade temporal (notação \(\Theta\)) e justifique essa complexidade desenhando a respetiva árvore de recorrência (com os pesos associados a cada nível). Consegue perceber o que calculam as funções?
+
+
+  <ol type="a">
+    <li>
+    <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">f</span>(<span style="color: #333399; font-weight: bold">int</span> v[], <span style="color: #333399; font-weight: bold">int</span> start, <span style="color: #333399; font-weight: bold">int</span> end) {
+    <span style="color: #008800; font-weight: bold">if</span> (start<span style="color: #333333">==</span>end) <span style="color: #008800; font-weight: bold">return</span> v[start];
+    <span style="color: #008800; font-weight: bold">return</span> v[start] <span style="color: #333333">+</span> f(v, start<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end);
+}
+</pre></div><br>
+
+    <li>
+      <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">f</span>(<span style="color: #333399; font-weight: bold">int</span> v[], <span style="color: #333399; font-weight: bold">int</span> start, <span style="color: #333399; font-weight: bold">int</span> end) {
+    <span style="color: #008800; font-weight: bold">if</span> (start<span style="color: #333333">==</span>end) <span style="color: #008800; font-weight: bold">return</span> v[start];
+    <span style="color: #333399; font-weight: bold">int</span> middle <span style="color: #333333">=</span> (start<span style="color: #333333">+</span>end)<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">2</span>;
+    <span style="color: #008800; font-weight: bold">return</span> f(v, start, middle) <span style="color: #333333">+</span> f(v, middle<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end);
+}
+      </pre></div><br>
+  </ol>
+
+<p><button title="Dicas" type="button" onclick="if(document.getElementById('spoiler6') .style.display=='none') {document.getElementById('spoiler6') .style.display=''}else{document.getElementById('spoiler6') .style.display='none'}">Mostrar/Esconder Dicas</button></p>
+    
+  <div id="spoiler6" style="display:none">
+    <p>Ver slides 67 a 78 e ver o <a href="https://www.youtube.com/watch?v=KbR8qbBjvi4">vídeo #05</a> da teórica (18m30s a 43m15) :)</p>
+</div>
+
+<hr>
+
+<h3>[Exercício extra 3] Dividir para Conquistar II</h3>
+
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>Tem disponível mais um problema para submissão onde a complexidade é importante e onde pode testar os seus conhecimentos na paradigma de de dividir para conquistar.
+
+  <ul>
+    <li>Resolva e submeta o problema <a class="important" href="../problemas/daa007.html">[DAA 007] Um jogo com sequências</a></li>
+    </ul>
+
+  <p>Este problema já foi usado em Estruturas de Dados em 2021/2022 (<a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/edados2122/praticas/aula09.html">ver exercício 4 da aula #09</a>). Se for ver essa explicação poderá ver explicadas soluções com complexidade cúbida, quadrática e linear.</p>
+
+  <p>A ideia aqui é implementar uma solução \(O(n \log n)\)</b> que usa a ideia de dividir para conquistar. Imagine que inicialmente tem uma sequência S. Podemos dividir a sequência em duas metades S1 e S2:
+
+    <p><img src="sms.png">
+	
+    <p>Seja a subsequência de maior soma indicada pela sigla <b>SMS</b>. Então, podemos dizer que SMS(S) é igual ao máximo entre:</p>
+      <ol type="i">
+	<li>SMS(S1)
+	<li>SMS(S2)
+	<li>Melhor subsequência que começa em S1 e termina em S2
+      </ol>
+
+    <p>SMS(S1) e SMS(S2) são subproblemas do mesmo tipo do primeiro e podem ser resolvidos chamando a mesma função recursivamente!</p>
+
+    <p>Como calcular (iii)? Se pensar bem, basta considerar a melhor sequência que termina no último elemento de S1 e juntá-la à melhor sequência que começa no primeiro elemento de S2! É fácil obter isto em tempo linear (ex: para saber a melhor sequência desde o início de S2 basta começar no primeiro elemento e ir adicionando elementos, guardando o melhor).</p>
+
+    <p>O seu código deverá portanto no final ter uma função recursiva semelhante a esta:</p>
+
+<pre class="codigo">
+<b>sms</b>(v, a, b) <font color="#666666">// subsequência de maior soma do array v[] entre as posições a e b</font>
+   <b>Se</b> (a==b) <b>então</b> <b>retornar</b> v[a]
+   meio &leftarrow; (a+b)/2
+   best1 &leftarrow; <b>sms</b>(v, a, meio)
+   best2 &leftarrow; <b>sms</b>(v, meio+1, b)
+   best3 &leftarrow; melhor sequência que começa na primeira metade e termina na segunda metade
+   <b>retornar</b> <b>maximo</b>(best1, best2, best3)
+</pre>
+
+<p>A complexidade será semelhante ao mergesort, com a recorrência a ser \(T(n) = 2T(n/2) + \Theta(n)\) (que como vimos nas teóricas dá \(\Theta(n \log n)\). Note que para isto acontecer best3 tem de ser calculado em tempo linear, como atrás descrito.</p>
+
+<p>Implemente esta solução e submeta-a no Mooshak (deverá obter 100 pontos).
+
+  <table>
+  <tr>
+    <td bgcolor="#ffcccc"><b><span style="color:#990000;">INFORMAÇÃO IMPORTANTE PARA QUEM USA JAVA:</span></b><br>
+      Como pode ser preciso ler 200 mil inteiros (energias e fotos), para submeter com sucesso este problema será necessário ter <a href="fastio.html">input/output rápido em Java</a>.<br>
+No Mooshak iremos providenciar classes com esse propósito, pelo que devem ler a página de ajuda correspondente: <a href="fastio.html"> Leitura e Escrita Rápida (C vs C++ vs Java)</a></b>
+    </td>      
+  </tr>
+</table>
+
+  
+    
+  <hr>
+
+<h3>Exercício de Desafio</h3>
+
+<p>Todas as semanas vou colocar disponível pelo menos mais um exercício um pouco mais desafiante.</p>
+
+<p>Para esta semana o desafio tem a ver com a eficiência algorítmica e como desenhar um algoritmo que seja \(O(n^3)\) para o seguinte problema, que está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak</a>:
+
+  <ul>
+    <li class="big"><a class="important" href="../problemas/daa008.html">[DAA 008] Um jogo com matrizes</a>
+  </ul>
+
+<p>Como pode usar e extender as ideias que já aprendou ou recordou nesta aula? Como este é um problema de desafio, não vou para já dar mais <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">dicas</a> :)</p>
+
+<p>Se já tiverem feito tudo e estiverem "presos" neste, e quiserem mesmo fazer o desafio, podem contactar-me para eu "dosear" as dicas, sabendo que este problema é substancialmente mais difícil que os outros desta aula.
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

@@ -1,0 +1,166 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #01 - "Desenferrujar"</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">DAA 2021/2022</a> (CC2001) - DCC/FCUP</h3>
+  <h1>Aula Prática #01 - Desenferrujar<br>
+    <small><small>(semana de 07/03 a 11/03)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios a submeter desta aula são:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problemas/daa001.html">[DAA 001] O sentido da vida</a> (peso 20%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/daa002.html">[DAA 002] Números arranjadinhos</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/daa003.html">[DAA 003] Matrículas</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+      <li><a class="important" href="../problemas/daa004.html">[DAA 004] Números arranjadinhos (versão desafio)</a> (peso 40%) <span style="color:DarkRed">(exercício de desafio)</span>
+    </ul>
+
+    <p><b>Prazo de submissão:</b> 27 de Março (submeter no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak de DAA</a>)</p>
+
+  <p><b>Não se esqueçam que qualquer ajuda que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota. Relembre que cada aula vale 10% da nota desta componente.<br>
+Para um problema contar tem acertar todos os testes. Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.</p>
+  
+  <hr>
+
+<h3>Exercício 1) O meu primeiro problema aceite... no Mooshak de DAA!</h3>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+    Nesta unidade curricular vamos usar o sistema <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak</a> para avaliar automaticamente os programas feitos <b>(mesmo já tendo usado, veja com cuidado todos os passos aqui descritos)</b>.
+    <ul>
+      <li>O Mooshak está em "modo feedback detalhado", ou seja, é possível visualizar o resultado obtido em cada um dos testes ao código submetido. É também possível aceder aos testes públicos onde o programa submetido não responde correctamente. <b>Para isso basta carregar no resultado da submissão, que aparece a sublinhado na listagem.</b>
+      <li>O Mooshak estará sempre em "modo IOI" (de pontos), ou seja, cada teste vale um determinado conjunto de pontos e apenas quando se tem 100 se acertou completamente no problema.
+    </ul>
+
+   <p><font color=red><b>Para aceder ao sistema use o seu <i>login</i> (sem <tt>"up"</tt>)
+      e <i>password</i> correspondente à conta que tem no
+      DCC.</b></font><br>
+<i>(se tiver problemas em aceder contacte o regente Pedro
+  Ribeiro no Slack de DAA)</i> 
+
+<ol>
+  <li>Comece por <a href="https://mooshak.dcc.fc.up.pt/~daa/">aceder ao Mooshak</a> e verifique se o seu login funciona.
+  <li>Leia o enunciado do problema <a class="important" href="../problemas/daa001.html">[DAA 001] O sentido da vida</a> (que é trivial)<br>
+    Familiarize-se com as secções típicas de um enunciado em DAA:
+    <ul>
+      <li>Uma introdução no início com motivação e contexto
+      <li>Secção <b>Problema</b> descreve resumidamente o problema e as variáveis envolvidas
+      <li>Seccão <b>Input</b> descreve em detalhe como é dado o input (que deve ser sempre lido do <i>stdin</i>)
+      <li>Seccão <b>Output</b> descreve em detalhe como deve ser escrito o output (que deve ser sempre escrito para o <i>stdout</i>, sendo que todas as linhas devem terminar com o caracter de mudança de linha)
+      <li>Secção <b>Restrições</b> descreve os limites de todas as variáveis envolvidas (é garantido que os testes respeitam e não precisa de verificar no código; o intuito desta secção é ajudar a perceber a complexidade necessária)
+      <li>Pelo menos um <b>exemplo de input e output</b>, tipicamente com uma secção que o explica.
+    </ul>
+  <li>Em DAA será possível usar qualquer uma das seguintes linguagens de programação: <b>C, C++ ou Java</b><br>
+    Pode sempre submeter na sua linguagem favorita e em qualquer altura pode modificar a sua escolha, sendo que daremos suporte ativo a cada uma das linguagens.<br>
+    Para iniciar a sua "viagem" e como pode estar enferrujado, aqui fica um exemplo de solução para este problema em cada uma das 3 linguagens suportadas:<br>
+    <a class="important" href="../codigo/daa001.c">daa001.c</a>
+    | <a class="important" href="../codigo/daa001.cpp">daa001.cpp</a>
+    | <a class="important" href="../codigo/daa001.java">daa001.java</a>
+    
+  <li>Deve começar por compilar o seu programa na sua máquina (<b>o Mooshak não é para ser usado como um compilador!</b>). Para saber o comando exacto com que o seu programa será compilado, <a href="mooshak_help.png">carregue no botão help</a>.<br>
+    Espreite tudo o que está disponível na página de ajuda: não apenas os comandos de compilação, mas também as versões do compiladores, os limites (memória, tempo, tamanho do código) e o que significa cada um dos resultados possíveis.<br>
+    Para testar <b>deve sempre colocar o exemplo num ficheiro</b> (ex: daa001.txt) e fazer <b>redirecionamento de input</b> (<span class="shell">executavel &lt; daa001.txt</span>).<br>Se estiver numa shell de Linux, pode até compilar e executar num mesmo comando. Por exemplo:<br>
+    <ul>
+      <li>C: <span class="shell">gcc -o daa001 -Wall daa001.c -lm && ./daa001 < daa001.txt</span>
+      <li>C++: <span class="shell">g++ -o daa001 -Wall daa001.cpp && ./daa001 < daa001.txt</span>
+      <li>Java: <span class="shell">javac -encoding UTF-8 daa001.java && java daa001 < daa001.txt</span>
+										       </ul>
+  <li>Depois de ter testado na sua máquina, submeta então o código no Mooshak para o problema <a class="important" href="../problemas/daa001.html">[DAA 001] O sentido da vida</a><br>
+    <b>Procure sempre ler o guião e fazer o que ele lhe pede antes! A ideia não é partir logo para o Mooshak sem ler o contexto e perceber o que é suposto ser o objectivo da aula.</b>
+  <li>Depois de ter submetido <a href="resultado.png">clique no resultado da sua submissão</a> para ver uma <a href="feedback.png">tabela com feedback detalhado da sua submissão</a>.
+</ol>
+    
+<hr>
+
+<h3>Exercício 2) Os meus primeiros erros no Mooshak</h3>
+
+<p>Para ficar familiarizado com os erros e confortável com a maneira como o Mooshak funciona, o objectivo deste exercício é provocar alguns erros ao submeter o problema <a class="important" href="../problemas/daa001.html">[DAA 001] O sentido da vida</a>. Use como base o seu código aceite.</p>
+
+  <ol>
+    <li>Provoque um <b>erro de apresentação</b> (<i>Presentation Error</i>) (ex: retire o caracter de mudança de linha na impressão) e submeta para ver o feedback detalhado que é dado nesse caso.
+    <li>Provoque um <b>erro de compilação</b> (<i>Compile Time Error</i>) (ex: retirar um ';') e verifique o feedback detalhado dado nesse caso.
+    <li>Provoque uma <b>resposta errada</b> (<i>Wrong Answer</i>) (ex: mude a impressão para ser sempre 3). Note no feedback detalhado como consegue ver agora em que testes falha, e como tem acesso ao primeiro teste onde falha (sendo o que regente controla os testes que ficam "disponíveis": tipicamente o último é sempre secreto para evitar que façam "reverse engineering" a todos os testes e manter-vos "honestos").
+    <li>Provoque um <b>excesso de tempo de execução</b> (<i>Time Limit Exceedeed</i>) (ex: faça com que o ciclo nunca termine) e verifique qual o feedback detalhado (cada problema pode ter um tempo limite diferente: por exemplo este [DAA 001] tem configurado 1 segundo como tempo limite de execução)
+  </ol>
+
+<p>Como isto já deve ficar com uma ideia de alguns dos princiais erros, e do comportamento do Mooshak nesses casos. Lidar com isto no futuro será um <i>skill</i> importante, não apenas neste cadeira.
+  
+<hr>
+
+<h3>Exercício 3) Resolvendo um problema</h3>
+
+<p>Agora que já desenferrujou, passemos para um primeiro problema um pouco mais "a sério". Estes problema envolve apenas instruções básicas como ciclos:
+
+  <li>Resolva e submeta o problema <a class="important" href="../problemas/daa002.html">[DAA 002] Números arranjadinhos</a><br>
+    Pode optar por tentar resolver completamente de forma autónoma, ou consultar dicas, que estão "escondidas" para não serem <i>spoilers</i> para todos (mesmo que faça "sozinho", não deixe no final de vir espreitar as dicas).<br>
+    <br>
+	<button title="Dicas" type="button" onclick="if(document.getElementById('spoiler1') .style.display=='none') {document.getElementById('spoiler1') .style.display=''}else{document.getElementById('spoiler1') .style.display='none'}">Mostrar/Esconder Dicas</button>
+    
+	<div id="spoiler1" style="display:none">
+	  <ul>
+	    <li>Os limites são pequenos e por isso é exequível fazer um ciclo a começar em <b>N<sub>i</sub></b> e ir iterando sobre todos os inteiros consecutivos até chegar a um cujos dígitos tenham soma <b>K<sub>i</sub></b>.<br><i>(consegue estimar a complexidade? e se os limites fossem maiores isto chegaria?)</i></li>
+	    <li>Faça uma função separada para receber um inteiro e devolver a soma dos seus dígitos, para o código ficar minimamente organizado.</li>
+	    <li>Para obter a soma dos dígitos, pode por exemplo fazer um ciclo onde vai repetidamente extraindo o resto da divisão por 10 (instrução '%') para saber o último dígito, seguido de uma divisão por 10 para retirar esse mesmo dígito.</li>
+	  </ul>	  
+	</div>
+
+<hr>
+
+<h3>Exercício 4) Dificuldade++</h3>
+
+    <p>Para terminar esta primeira aula, aqui fica um problema um pouco mais "giro" para que possam usar um pouco a cabeça a pensar num algoritmo, ao invés de ser logo "imediata" uma ideia de solução.
+
+  <li>Resolva e submeta o problema <a class="important" href="../problemas/daa003.html">[DAA 003] Matrículas</a><br>
+    <br>
+	<button title="Dicas" type="button" onclick="if(document.getElementById('spoiler2') .style.display=='none') {document.getElementById('spoiler2') .style.display=''}else{document.getElementById('spoiler2') .style.display='none'}">Mostrar/Esconder Dicas</button>
+    
+	<div id="spoiler2" style="display:none">
+	  <ul>
+	    <li>Era mais fácil se em vez de matrículas fosse só comparar números não? Porque não converter então a matrícula num número?</li>
+	    <li>Para converter pensem na matrícula como um número
+	    escrito numa "base" diferente e na maneira como convertem
+	    um qualquer base para decimal. Por exemplo, se a matrícula
+	    fosse apenas XN<sub>1</sub>N<sub>2</sub>, o seu número de
+	    ordem era igual a
+	    valor(X)*100+N<sub>1</sub>*10+N<sub>2</sub></li>
+	    <li>Cuidado com as letras 'K', 'W' e 'Y' que não devem ser
+	      consideradas</li>
+	    <li>Quando estamos numa dada geração, com avançar todas as matrículas anteriores? Por exemplo, a matrícula 00-00-AA não é a primeira, mas sim qual?</li>
+	    <li>Se tiverem mais dúvidas podem e devem usar o Slack (usando por exemplo o canal #praticas ou enviando mensagem directa a um dos docentes).
+	  </ul>	  
+	</div>
+      
+
+<hr>
+
+<h3>Exercício de Desafio</h3>
+
+<p>Todas as semanas vou colocar disponível pelo menos mais um exercício um pouco mais desafiante.</p>
+
+<p>Para esta semana o desafio tem a ver com a eficiência algorítmica e como desenhar um algoritmo mais eficiente para um problema que já deve ter resolvido. Para isso, deve tentar resolver o seguinte problema, que está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak</a>:
+
+  <ul>
+    <li class="big"><a class="important" href="../problemas/daa004.html">[DAA 004] Números arranjadinhos (versão desafio)</a>
+  </ul>
+
+<p>Notem a diferença nas restrições e como os limites impedem uma solução <i>naive</i> que itere sobre todos os inteiros consecutivos até descobrir a resposta.</p>
+
+<p>Como este é um problema de desafio, não vou para já dar nenhuma dica, ficando à espera de ver os vossos programas :)</p>
+
+<p>Se já tiverem feito tudo e estiverem "presos" neste, e quiserem mesmo fazer o desafio, podem contactar-me para eu "dosear" as dicas, sabendo que este problema é substancialmente mais difícil que a versão "fácil" original.
+
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[DAA 035] Ligações aéreas</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 12 de Junho</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+<b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2122/praticas/aula10.html">ler o guião da aula #10</a>]</b></small></p>
+
+<hr>
+
+<h1><font color="blue">[DAA 035] Ligações aéreas</font></h1>
+
+<p><img align="right" src="daa035.jpg"> Uma companhia áerea tem vários voos. O seu departamento de Marketing resolveu criar uma página na internet indicando que cidades estão ligadas por voos da companhia.</p>
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>A tua tarefa é ajudá-los, fazendo um programa que descubra que
+cidades estão ligadas por voos, quer directamente, quer
+indirectamente, através de outros voos, passando por cidades
+intermédias.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>A primeira linha contém um único inteiro <b>N</b>, o número de
+cidades a considerar. Cada cidade é representada por uma letra
+maiúscula, começando a partir do A. Por exemplo, se tivermos 4
+cidades, serão representadas por A, B, C e D.</p>
+
+<p>Seguem-se N linhas, cada uma indicando os voos directos entre a
+cidade correspondente e outras cidades, no formato: <tt>cidade-origem
+num_destinos destino_1 destino_2 ... destino_m</tt>.</p>
+
+<p>Existe uma linha para cada cidade (mesmo que não tenha voos) e as
+cidades-origem vêm sempre por ordem alfabética. Nota que o facto de
+existir um voo de A para B não significa que exista um voo de B para
+A.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>Deve ser imprimida uma matriz, de <b>N</b> por <b>N</b>, indicando todas as cidades que estão ligadas, no formato:
+
+<pre>
+  A B C ...
+A 1 0 0 ...
+B 1 1 1 ...
+C 0 0 1 ...
+. . . . ...
+. . . . ...
+. . . . ...
+</pre>
+
+<p><tt>0</tt> (zero) significa que não existe maneira de chegar de uma cidade a outra e <tt>1</tt> (um) precisamente o contrário, ou seja, que existe maneira (directa ou indirecta) de o fazer.</p>
+
+<p>Podes assumir que na diagonal principal vêm sempre uns, ou seja, é sempre possível viajar de uma cidade para ela própria (basta não sair do sitio...)</p>
+
+<p>Nota que não devem existir espaços a mais no final de cada linha do input (existe um único espaço a separar cada letra ou número, excepto no caso da primeira linha, onde o A é precedido de dois espaços, de modo a que a tabela fique alinhada).</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td>2 &le; <b>N</b> &le; 26</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de cidades</td>
+</tr>
+</table>
+
+<h2><font color="blue">Exemplo de Input</font></h2>
+<pre>
+4
+A 1 B
+B 2 A C
+C 0
+D 1 C
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+  A B C D
+A 1 1 1 0
+B 1 1 1 0
+C 0 0 1 0
+D 0 0 1 1
+</pre>
+
+<p>
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O exemplo de input corresponde ao seguinte  grafo:</p>
+
+<p><img src="daa035_ex.png"></p>
+
+<ul>
+  <li>Da cidade A consegue chegar-se às cidades A, B e C.</li>
+  <li>Da cidade B consegue chegar-se às cidades A, B e C.</li>
+  <li>Da cidade C consegue chegar-se apenas a si própria</li>
+  <li>Da cidade D consegue chegar-se às cidades C e D.</li>
+</ul>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+  
+</body>
+</html>

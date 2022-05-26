@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #10 - Distâncias Mínimas</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">DAA 2021/2022</a> (CC2001) - DCC/FCUP</h3>
+  <h1>Aula Prática #10 - Distâncias Mínimas<br>
+    <small><small>(semana de 23/05 a 27/05)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios a submeter desta aula são:<br>
+     
+<ul>
+  <li><a class="important"  href="../problemas/daa033.html">[DAA 033] Viagem para as aulas</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+  <li><a class="important"  href="../problemas/daa034.html">[DAA 034] Buracos negros</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+  <li><a class="important"  href="../problemas/daa035.html">[DAA 035] Ligações aéreas</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+  <li><a class="important"  href="../problemas/daa036.html">[DAA 036]  Trânsito complicado</a> (peso 40%) <span style="color:DarkRed">(exercício de desafio)</span>
+</ul>
+
+
+<p><b>Prazo de submissão:</b> 12 de Junho (submeter no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak de DAA</a>)</p>
+
+  <p><b>Não se esqueçam que qualquer ajuda que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota. Relebre que cada aula vale 10% da nota desta componente.<br>
+Para um problema contar tem acertar todos os testes. Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.</p>
+  
+  <hr>
+  
+ <h3>Conteúdos das teóricas</h3>
+
+  <p>Nesta aula iremos abordar conceitos de <b>Distâncias Mínimas em Grafos</b>. Será por isso conveniente ver o que foi falado nas teóricas:
+    <ul>
+      <li><a href="../apoio.html#slides">Slides</a> (capítulo "8 - Grafos: Distâncias Mínimas")
+      <li><a href="../videos/index.html">Vídeos</a>: (vídeos #20 e #21)
+    </ul>
+  </p>
+
+<hr>
+
+<h3>Exercício 1) Introdução ao algoritmo de Dijkstra </h3>
+
+  <p>Comece por fazer download do código exemplo do algoritmo de Dijkstra:
+    <ul>
+      <li><b>C++:</b> <a class="important" href="../codigo/dijkstra.cpp">dijkstra.cpp</a> (versão original feita em C++) 
+      <li><b>C:</b> <a class="important" href="../codigo/dijkstra_c.cpp">dijkstra_c.cpp</a> (adaptação para C/C++ "quase como em C, sem usar classes)
+      <li><b>Java:</b> <a class="important" href="../codigo/dijkstra.java">dijkstra.java</a> (adaptação para Java) 
+    </ul>
+</ul>
+
+<p>Se costuma usar C, a sugestão é que use a última versão, que é essencialmente C com excepção das listas e do uso do <i>set</i>, que já estão implementadas em C++ usando STL. A ideia é que progressivamente possa ir começando a usar as estruturas de dados úteis que o C++ tem e o C não, continuando no essencial a programar em C "normal" e usando C++ apenas para essas estruturas de dados.</p>
+
+<ol type="a">
+  <li>Compile e execute o código usando como input o ficheiro <a class="important" href="../codigo/dijkstra.txt">dijkstra.txt</a>, que corresponde ao grafo da figura seguinte (o mesmo que é usado na explicação do Dijkstra nos slides):<br>
+    <img src="dijkstra.png"><br>&nbsp;<br>
+  <li>Procure compreender todos as linhas do código dado. Experimente mudá-lo e começar de um outro nó que não o 1. Antes de executar consegue prever o output?</li>
+  <li>Se quisesse imprimir também o caminho mínimo em si (e não apenas a distância) como poderia fazer? Experimente modificar o código de acordo com o que pensou e verifique se funciona</li>
+</ol>
+    
+<hr>
+
+<h3>Exercício 2) Resolvendo um problema usando o Dijkstra</h3>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Usando como base o código dado no exercício anterior, implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa033.html">[DAA 033] Viagem para as aulas</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>A sua primeira tarefa é <b>atribuir um número a cada nome de um nó</b>. No final da leitura o grafo construido deve ser entre "números" e não entre "strings". Pode por exemplo fazer uma função <span class="codigo">find</span> que recebe uma string e devolva um inteiro. Para isso pode por exemplo:
+    <ul>
+      <li>Usar um array auxiliar que guarda os nomes. Para saber o número, procure (linearmente) nesse array. Caso não exista o nome, adicione e devolva o novo número. Como terá de procurar \(\mathcal{O}(|E|)\) vezes (2 para cada aresta), esta solução "custa" \(\mathcal{O}(|E| \times |V|)\). Isto passa no tempo para os limites dados no enunciado.
+      <li>Outra alternativa mais eficiente é usar um <span class="codigo">map</span> (ou <span class="codigo">TreeMap</span>) que mapeia strings em inteiros. Como a implementação em C++ (ou Java) é uma red-black tree, esta solução "custa" \(\mathcal{O}(|E| \times \log |V|)\)
+    </ul>
+  <li>Para descobrir a distância mínima de um ponto a outro num grafo pesado podemos usar o <b>algoritmo de Dijkstra</b> <span class="slides">[ver slides 7 a 14]</span>
+    <ul>
+      <li>Uma <b>versão "naive"</b> do algoritmo de Disjktra (um ciclo para descobrir o mínimo, ou seja, um <span class="codigo">choose_best</span> em \(\mathcal{O}(|V|)\), resultaria em tempo \(\mathcal{O}(|V|^2)\). Isto passa no tempo para os limites dados no enunciado.
+      <li>Se usar como base o código dado, consegue atualizar as estimativas de distância e escolher a menor em tempo logarítmico, pelo que a solução fica \(\mathcal{O}(|E| \times \log |V|)\).
+    </ul>
+</ul>
+
+<hr>
+
+<h3>Exercício 3) Distâncias negativas e algoritmo de Bellman-Ford</h3>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa034.html">[DAA 034] Buracos negros</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>Este problema pede para descobrir se existem <b>ciclos negativos</b></li>
+  <li>Para descobrir a distâncias mínimas e saber se existem ciclos de soma negativa podemos usar o <b>algoritmo de Bellman-Ford</b>, que tem uma complexidade temporal de \(\mathcal{O}(|V| \times |E|)\) se usarmos listas de adjacências <span class="slides">[ver slides 17 a 21]</span>
+  <li>Se usarem como base a implementação do Dijkstra tenham cuidado com o uso do INT_MAX (pois somado a algo dá overflow) - sugere-se usarem por exemplo INT_MAX/2.
+</ul>
+
+<hr>
+
+<h3>Exercício 4) Fecho transitivo e o algoritmo de Floyd-Warshall</h3>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa035.html">[DAA 035] Ligações aéreas</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>O que o problema pede chama-se de <b>fecho transitivo</b> de um grafo.
+  <li>Como o \(|V|\) máximo é pequeno (26) podemos usar o <b>algoritmo de Floyd-Warshall</b>, que demora tempo \(\mathcal{O}(|V|^3)\) <span class="slides">[ver slides 22 a 31]</span>
+</ul>
+
+<hr>
+
+<h3>Exercício de Desafio</h3>
+  
+<p>Todas as semanas vou colocar disponível pelo menos mais um exercício um pouco mais desafiante.</p>
+
+<p>Para esta semana o desafio é de nível de um CIIC (Concurso Ibero-Americano de Informática), um concurso de programação para os melhores alunos pré-universitários dos países da América Latina (ex: México, Argentina, Brasil) e da Península Ibérica (Portugal e Espanha). O problema foi criado por mim e foi usado no CIIC'2012, estando disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak</a>:
+
+  <ul>
+    <li class="big"><a class="important" href="../problemas/daa036.html">[DAA 036] Trânsito complicado</a>
+  </ul>
+
+<p>Se já tiverem feito tudo e estiverem "presos" neste, e quiserem mesmo fazer o desafio, podem contactar-me para eu "dosear" as dicas, sabendo que este problema é substancialmente mais complicado que os outros desta aula.</p>          
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

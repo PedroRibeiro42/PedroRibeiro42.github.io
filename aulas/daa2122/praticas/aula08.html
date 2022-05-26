@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Aula Prática #08 - Introdução a Grafos e Pesquisa em Profundidade</title>
+	<link rel="StyleSheet" href="praticas.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">DAA 2021/2022</a> (CC2001) - DCC/FCUP</h3>
+  <h1>Aula Prática #08 - Introdução a Grafos e Pesquisa em Profundidade<br>
+    <small><small>(semana de 09/05 a 13/05)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercícios para submissão</h2>
+
+  <p>Para efeitos da <a href="../avaliacao.html#classificacao">nota atribuída à resolução de exercícios ao longo do semestre</a>, os exercícios a submeter desta aula são:<br>
+     
+<ul>
+  <li><a class="important"  href="../problemas/daa025.html">[DAA 025] Redes de circuitos electrónicos</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+  <li><a class="important"  href="../problemas/daa026.html">[DAA 026] Contagem de células</a> (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+  <li><a class="important"  href="../problemas/daa027.html">[DAA 027] Grafos bipartidos</a>  (peso 40%) <span style="color:DarkGreen">(exercício do guião principal)</span>
+  <li><a class="important"  href="../problemas/daa028.html">[DAA 028] Labirinto de barras</a> (peso 40%) <span style="color:DarkRed">(exercício de desafio)</span>
+</ul>
+
+<p><b>Prazo de submissão:</b> 29 de Maio (submeter no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak de DAA</a>)</p>
+
+  <p><b>Não se esqueçam que qualquer ajuda que tenham recebido de outros colegas deve ser reconhecida nos comentário do programa que submetem.</b><br>Depois do prazo os problemas continuarão disponíveis no Mooshak, mas as submissões não contarão para a sua nota. Relebre que cada aula vale 10% da nota desta componente.<br>
+Para um problema contar tem acertar todos os testes. Mesmo que resolva todos os problemas, o máximo numa aula é de 100%.</p>
+  
+  <hr>
+  
+ <h3>Conteúdos das teóricas</h3>
+
+  <p>Nesta aula iremos abordar conceitos de <b>Grafos</b>. Será por isso conveniente ver o que foi falado nas teóricas:
+    <ul>
+      <li><a href="../apoio.html#slides">Slides</a> (capítulos "6 - Grafos: Introdução" e primeira parte de "7 - Grafos: Pesquisa)
+      <li><a href="../videos/index.html">Vídeos</a>: (vídeos #16 e #17)
+    </ul>
+  </p>
+
+<hr>
+
+<h3>Exercício 1) Introdução à pesquisa em profundidade (<i>DFS</i>)</h3>
+
+  <p>Comece por fazer download do código exemplo de pesquisa em profundidade:
+    <ul>
+      <li><b>C:</b> <a class="important" href="../codigo/dfs.c">dfs.c</a>
+      <li><b>C++:</b> <a class="important" href="../codigo/dfs.cpp">dfs.cpp</a>
+      <li><b>Java:</b> <a class="important" href="../codigo/DFS.java">DFS.java</a>
+    </ul>
+</ul>
+
+<ol type="a">
+  <li>O código usa matriz ou lista de adjacências?
+  <li>Considere o seguinte grafo não dirigido:<br>&nbsp;<br>
+    <img height="170" src="07_grafo.gif"><br>&nbsp;<br>
+    Uma maneira de o representar é através de um ficheiro no seguinte formato (na primeira linha vem o número de nós, na segunda o número de arestas e depois vêm as arestas em si):
+<pre>14
+11
+1 11
+7 11
+11 12
+12 2
+12 8
+3 13
+13 4
+13 14
+14 9
+14 5
+10 6</pre>
+    Copie esta representação para um ficheiro e execute a pesquisa em profundidade exemplo para este grafo redirecionando o input. O que é imprimido? Consegue perceber a ordem em que os nós são imprimidos?
+  <li>O que acontece se mudar a linha <span class="codigo">dfs(1)</span> para <span class="codigo">dfs(3)</span>?
+  <li>Como poderia visitar todo o grafo ao invés de uma só componente conexa?
+</ol>
+    
+<hr>
+
+<h3>Exercício 2) Problema com DFS I - contando componentes conexas</h3>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa025.html">[DAA 025] - Redes de circuitos electrónicos</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>Basicamente o problema pede-lhe para contar o número de componentes conexos
+  <li>Pode usar como base o código exemplo anterior, bastando:    
+    <ul>
+      <li>Fazer <i>DFS</i> a partir de cada nó não visitado
+      <li>Incrementar um contador de cada vez que começa um novo <i>DFS</i>
+      <li>No final imprimir o contador
+    </ul>
+  <li>Este algoritmo está nos slides das teóricas  <span class="slides">[ver slides 9 e 10 do "capítulo 7 - Grafos: Pesquisa"]</span>
+</ul>
+  
+<hr>
+
+<h3>Exercício 3) Problema com DFS II - a maior componente conexa</h3>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br>
+Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa026.html">[DAA 026] - Contagem de células</a>.</p>
+
+<p>Dicas:</p>
+<ul>
+  <li>Basicamente o problema pede-lhe para descobrir o maior componente conexo
+  <li>É essencialmente um exercício igual ao anterior, bastando que:
+    <ul>
+      <li>Dentro do <i>DFS</i>, cada vez que entre num novo nó incremente um contador
+      <li>Cada vez que sai de um componente conexo, verificar se o tamanho é maior do que o actual máximo
+      <li>No final imprimir o máximo global
+    </ul>
+  <li><b>Não é necessário criar explicitamente o grafo</b>. Basta guardar a matriz e depois o grafo fica implícito. Em particular, para a posição <b>(x,y)</b>, em que posições estão os 8 "nós" vizinhos? <span class="slides">[ver slide 11 do "capítulo 7 - Grafos: Pesquisa"]</span> (notar que para este problema as posições adjacentes na diagonal também são vizinhas)
+</ul>
+
+<hr>
+
+<h3>Exercício 4) Problema com DFS III - grafos bipartidos</h3>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~daa/"><img src="mooshak.gif" border="0"></a><br> Implemente e submeta uma solução para o problema <a class="important" href="../problemas/daa027.html">[DAA 027] - Grafos bipartidos</a>.</p>
+
+<p>Dicas: use o algoritmo explicado nos slides <span class="slides">[ver slides 12 a 15 do "capítulo 7 - Grafos: Pesquisa"]</span> </p>
+
+<hr>
+
+<h3>Exercício de Desafio</h3>
+  
+<p>Todas as semanas vou colocar disponível pelo menos mais um exercício um pouco mais desafiante.</p>
+
+<p>Para esta semana o desafio tem mais a ver com como codificar e implementar o grafo, e não é especialmente complicado do ponto de vista da eficiência temporal. O problema está disponível para submissão no <a href="https://mooshak.dcc.fc.up.pt/~daa/">Mooshak</a>:
+
+  <ul>
+    <li class="big"><a class="important" href="../problemas/daa028.html">[DAA 028] Labirinto de barras</a>
+  </ul>
+
+<p>Se já tiverem feito tudo e estiverem "presos" neste, e quiserem mesmo fazer o desafio, podem contactar-me para eu "dosear" as dicas.</p>          
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

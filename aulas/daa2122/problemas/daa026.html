@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head>
+	<title>[DAA 026] Contagem de células</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head><body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 29 de Maio</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2122/praticas/aula08.html">ler o guião da aula #08</a>]</b></small></p>
+
+<hr>
+
+<h1><font color="blue">[DAA 026] Contagem de células</font></h1>
+
+<p><img src="daa026.png" alt="" align="right" border="0">O Aniceto tem um trabalho laboratorial de Biologia e precisa da tua ajuda. Ele está a cultivar pequenos micróbios numa caixa de Petri e necessita de os observar ao microscópio para perceber qual é a maior micróbio visível.</p>
+
+<p>A caixa de Petri pode ser considerada como uma grelha 2D, ou seja uma matriz, onde em cada posição pode ou não existir uma célula. Duas células estão ligadas se forem adjacentes vertical, horizontal ou diagonalmente. Um micróbio é um conjunto de células ligadas. Por exemplo, a caixa de Petri seguinte tem exactamente três micróbios ('.' é uma posição vazia, '#' é uma posição com uma célula):</p>
+
+  <table bgcolor="black">
+    <tr bgcolor="white">
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="palegreen">#</td>
+      <td width="15" align="center" bgcolor="palegreen">#</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="cyan">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="palegreen">#</td>
+      <td width="15" align="center" bgcolor="palegreen">#</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center" bgcolor="cyan">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="cyan">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>      
+    </tr>
+  </table>
+
+<p>O tamanho de um micróbio é igual ao número de células que o constitui. Na figura de cima, os 3 micróbios têm tamanho 6 (o amarelo), 3 (o azul) e 4 (o verde). O maior micróbio é o de maior tamanho. Neste caso o maior micróbio é o amarelo.</p>
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dado o estado de várias culturas de micróbios (indicados por uma matriz de células) a tua tarefa é descobrir qual o tamanho do maior micróbio em cada uma delas, ou seja, qual o tamanho do maior conjunto conexo de células em cada caso.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha do <i>input</i> vem um número <b>N</b> indicando o número de casos a considerar. Cada dos casos começa com dois números <b>L</b> e <b>C</b> indicando respectivamente o número de linhas e colunas da caixa de petri a considerar, seguido de <b>L</b> linhas, cada uma com <b>C</b> caracteres, indicando o conteúdo de cada posição: '.' para uma posição vazia e '#' para uma posição com célula.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O <i>output</i> deve ser constituido por <b>N</b> linhas, cada uma com o tamanho do maior micróbio do caso correspondente.</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td>1 &le; <b>N</b> &le; 20</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de casos</td>
+</tr>
+<tr>
+<td>1 &le; <b>L</b> &le; 100</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de linhas da caixa de petri</td>
+</tr>
+<tr>
+<td>1 &le; <b>C</b> &le; 100</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de colunas da caixa de petri</td>
+</tr>
+</table>
+
+
+</p><h2><font color="blue">Exemplo de Input</font></h2>
+<pre>
+2
+5 7
+##.#...
+.###...
+.....##
+.#...##
+#.#....
+4 4
+##.#
+...#
+#...
+..#.
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+6
+2
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O primeiro caso de input é o da figura de cima. O segundo caso tem 4 micróbios: dois de tamanho 2 (verde e amarelo) e dois de tamanho 1 (azul e laranja). Desse modo, o maior micróbio tem tamanho 2:</p>
+
+    <table bgcolor="black">
+    <tr bgcolor="white">
+      <td width="15" align="center" bgcolor="palegreen">#</td>
+      <td width="15" align="center" bgcolor="palegreen">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center" bgcolor="cyan">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="orange">#</td>
+      <td width="15" align="center">.</td>
+    </tr>
+  </table>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

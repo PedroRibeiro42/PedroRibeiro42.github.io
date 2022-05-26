@@ -1,0 +1,117 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[DAA 034] Buracos negros</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 12 de Junho</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+<b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2122/praticas/aula10.html">ler o guião da aula #10</a>]</b></small></p>
+
+<hr>
+  
+<h1><font color="blue">[DAA 034] Buracos negros</font><br>
+<small><small><small>(este problema é essencialmente uma
+tradução/adaptação de um problema do NWERC'1996)</small></small></small></h1>
+
+<p><img align="right" src="daa034.jpg">No ano de 2163 os buracos negros foram descobertos. Um buraco negro é um túnel através do tempo e do espaço ligando dois sistemas estelares, e obedecendo a um conjunto de propriedades peculiares:</p>
+
+  <ul>
+    <li>Os buracos negros permitem viajar <i>apenas num sentido</i></li>
+    <li>O tempo que demora a viajar através de um buraco negro é negligenciável (pode imaginar como sendo instantâneo)</li>
+    <li>Um buraco negro une dois pontos em sistemas estelares diferentes</li>
+    <li>Um sistema estelar pode ter mais do que um buraco negro</li>
+    <li>Existe num máximo um único buraco negro entre o mesmo par de sistemas estelar</li>
+    <li>Por alguma razão desconhecida, começando no nosso sistema solar, é possível atingir qualquer outro sistema estelar viajando através de uma sequência de buracos negros (se calhar a Terra é o centro o do Universo...)</li>
+  </ul>
+
+      <p>Todos os buracos negros têm uma diferença de tempo constante entre as duas extremidades. Por exemplo, um certo buraco negro pode fazer com que a pessoa que viaje através dele acabe por ir parar a 15 anos no futuro. Um outro buraco negro pode resultar numa viagem de 42 anos para o passado.</p>
+
+ <h2><font color="blue">O Problema</font></h2>
+      
+<p>Um físico brilhante, que vive na Terra, quer usar os buracos negros para estudar a teoria do Big Bang. O cientista pretende ter uma sequência cíclica de buracos negros que o faça ir parar ao passado. Viajando nesta sequência muitas vezes, ele consegue ir parar tão para trás no tempo quanto o necessário, permitindo-lhe chegar ao início do universo e ver o Big Bang com os seus próprios olhos. Tens de o ajudar escrevendo um programa para ver se uma sequência como essa existe.</p>
+      
+
+<h2><font color="blue">Input</font></h2>
+
+<p>A primeira linha contém um inteiro <b>C</b> indicando o número de casos a ser analisado.</p>
+
+<p>Cada um dos casos de teste começa com uma linha contendo dois
+números inteiros <b>N</b> e <b>M</b>. <b>N</b> é o número de sistemas estelares, numerados de 0 a N-1. O sistema solar é sempre indicado pelo número zero. <b>M</b> é o número de buracos negros e a seguir a esta linha inicial de um caso seguem-se precisamente <b>M</b> linhas explicando como são os buracos negros. Cada uma destas linhas tem três inteiros no formato <i>a b t</i>, indicando um buraco negro que permite viajar do sistema <i>a</i> para o sistema <i>b</i>, chegando no tempo <i>t</i> em relação ao tempo de partida.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O output deve conter exactamente <b>C</b> linhas, uma para cada caso, com a palavra <tt>"possivel"</tt> se for possível andar para trás no tempo indefinidamente (permitindo ao físico ver o Big Bang) ou a palavra <tt>"impossivel"</tt> se tal não for possível para os sistemas estelares e buracos negros dados.</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td>2 &le; <b>C</b> &le; 5</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de casos</td>
+</tr>
+<tr>
+<td>2 &le; <b>N</b> &le; 1000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de sistemas estelares</td>
+</tr>
+<tr>
+<td>1 &le; <b>M</b> &le; 3000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de buracos negros</td>
+</tr>
+<tr>
+  <td>-1000 &le; <b>t</b> &le; 1000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Tempo de chegada de um buraco negro (em relação ao tempo de partida)</td>
+</tr>
+</table>
+
+  
+<h2><font color="blue">Exemplo de Input</font></h2>
+<pre>
+2
+3 3
+0 1 1000
+1 2 15
+2 1 -42
+4 4
+0 1 10
+1 2 20
+2 3 30
+3 0 -60  
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+possivel
+impossivel
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O exemplo de input corresponde aos seguintes dois grafos:</p>
+
+<p><img src="daa034_ex.png"></p>
+
+<p>No primeiro caso (o da esquerda) é possível viajar indefinidamente para trás no tempo usando o ciclo 1->2->1. No segundo caso (o da da direita) tal não é possível (o ciclo que existe não é negativo).
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+  
+</body>
+</html>

@@ -1,0 +1,128 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[DAA 019] Capicuas</title>
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuída à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 1 de Maio</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2122/praticas/aula05.html">ler o guião da aula #05</a>]</b></small></p>
+  
+<hr>
+
+<h1><font color="blue">[DAA 019] Capicuas</font></h1>
+
+<p><img src="daa019.jpg" align="right">O Pedro e a Luísa adoram puzzles numéricos! O seu mais recente passatempo passa por formar <b>capicuas</b>, ou sejam números cujo inverso é igual a ele próprio. Dito de outra forma, são números que ficam iguais quando são lidos da direita para a esquerda ou da esquerda para a direita. Por exemplo, todos os seguintes números são capicuas: 4224, 58985, 3, 101 ou 123454321.</p>
+
+<p>O jogo consiste em começar num número qualquer e depois adicionar a menor quantidade de dígitos possível para transformar o número numa capicua. Os dígitos podem ser adicionados em qualquer parte do número. Aqui ficam alguns exemplos de como jogar:</p>
+
+  <table border="0" bgcolor="black" cellspacing="1">
+    <tr bgcolor="white">
+      <th>Número<br>Inicial</th>
+      <th>Mín. Dígitos<br>Adicionar</th>
+      <th>Exemplo de<br>Capicua Formada</th>
+    </tr>
+    <tr bgcolor="white">
+      <td align="center">10</td>
+      <td align="center">1</td>
+      <td align="center">10<font color="red"><b>1</b></font></td>
+    </tr>
+    <tr bgcolor="white">
+      <td align="center">678</td>
+      <td align="center">2</td>
+      <td align="center"><font color="red"><b>87</b></font>678</td>
+    </tr>
+    <tr bgcolor="white">
+      <td align="center">2132</td>
+      <td align="center">1</td>
+      <td align="center">213<font color="red"><b>1</b></font>2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td align="center">12321</td>
+      <td align="center">0</td>
+      <td align="center">12321</td>
+    </tr>
+    <tr bgcolor="white">
+      <td align="center">6241367</td>
+      <td align="center">4</td>
+      <td align="center"><font color="red"><b>7</b></font>6<font color="red"><b>314</b></font>241367</td>
+    </tr>
+    <tr bgcolor="white">
+      <td align="center">424211</td>
+      <td align="center">3</td>
+      <td align="center"><font color="red"><b>11</b></font>4242<font color="red"><b>4</b></font>11</td>
+    </tr>
+  </table>
+
+<p>O Pedro e a Luisa estão sempre a tentar perceber se realmente usaram o menor número possível de inserções de dígitos e precisam da tua ajuda.</p>
+
+  
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Escreva um programa que, dado um conjunto de <b>N</b> números, descubra para cada um deles qual a menor quantidade de dígitos a adicionar a cada um deles para os transformar numa capicua.</p>
+  
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha vem um número <b>N</b>, indicando a quantidade de números de considerar. Seguem-se <b>N</b> linhas, cada uma com um número <b>C<sub>i</sub></b> indicando um número inicial a partir do qual se quer chegar a uma capicua.
+
+<h2><font color="blue">Output</font></h2>
+
+<p><b>N</b> linhas, cada uma com um número inteiro indicando a quantidade mínima de dígitos a adicionar ao número respectivo para chegar a uma capicua. A <i>i</i>-ésima linha do output deve corresponder ao <i>i</i>-ésimo número do input.
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste
+    que irão ser colocados ao programa:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>N</b> &le; 100</td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Quantidade de números a considerar</td>
+  </tr>
+  <tr>
+    <td>0 &le; <b>C<sub>i</sub></b> &lt; 10<sup>100</sup></td>
+    <td>&nbsp; &nbsp; </td>
+    <td>Número a transformar em capicua (pode ter 100 dígitos)</td>
+  </tr>
+</table>
+  
+<h2><font color="blue">Exemplo de Input</font></h2>
+
+<pre>
+6
+10
+678
+2132
+12321
+6241367
+424211
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+
+<pre>
+1
+2
+1
+0
+4
+3
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O exemplo de input corresponde à tabela dada no enunciado do problema.</p>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body>
+</html>

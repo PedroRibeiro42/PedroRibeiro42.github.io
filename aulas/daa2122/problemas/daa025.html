@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[DAA 025] Redes de circuitos electrónicos</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 29 de Maio</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2122/praticas/aula08.html">ler o guião da aula #08</a>]</b></small></p>
+
+<hr>
+
+<h1><font color="blue">[DAA 025] Redes de circuitos electrónicos</font></h1>
+
+<p>Um circuito electrónico consiste em diversos componentes, pontos de
+contacto (<i>pins</i>) e ligações (<i>wires</i>). A figura seguinte mostra um
+circuito com 3 componentes: A, B e C. Cada ligação envolve um par de
+pontos de contacto.</p>
+
+<p align="center"><img src="daa025_1.gif" height="150"></p>
+
+<p>Dois pontos de contacto <tt>a</tt> e <tt>b</tt> dizem-se
+<b>electronicamente equivalentes</b> se têm uma ligação directa entre
+eles, ou se se existe um sequência de pontos de contacto
+a<sub>1</sub>, a<sub>2</sub>, ..., a<sub>k</sub>, tal que existe
+ligação entre (a,a<sub>1</sub>), (a<sub>1</sub>,a<sub>2</sub>), ...,
+(a<sub>k</sub>, b).  Uma <b>rede</b> é um conjunto máximo de pontos de
+contacto electronicamente equivalentes. <i>Máximo</i> é aqui usado no
+sentido de traduzir que nenhum ponto de contacto fora da rede é
+electronicamente equivalente a qualquer ponto dentro da rede.</p>
+
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p><p>Dado um conjunto de pontos de contacto e as suas respectivas
+ligações, a tua tarefa é descobrir o número de redes diferentes que
+existem no circuito. A figura seguinte ilustra um circuito com 3 redes.</p>
+
+<p align="center"><img border="0" src="daa025_2.gif" height="200"></p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha vem um número <b>N</b> indicando o número de
+pontos de contacto existentes. Na segunda
+linha vem um número <b>L</b> indicando o número de ligações
+existentes. Seguem-se <b>L</b> linhas, cada uma com um par de números
+diferentes indicando que pontos de contacto estão conectados pela ligação. Os
+pontos de contacto são sempre identificados por números de <b>1</b>
+até <b>N</b>. Note que as ligações não vêm por nenhuma ordem em específico e que nunca aparecem ligações repetidas.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>Deve ser imprimida uma única linha, contendo o número de redes do respectivo circuito.</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td>1 &le; <b>N</b> &le; 100</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de pontos de contacto</td>
+</tr>
+<tr>
+<td>0 &le; <b>L</b> &le; 100</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de ligações</td>
+</tr>
+</table>
+
+  
+<h2><font color="blue">Exemplo de Input</font></h2>
+<pre>
+14
+11
+1 11
+7 11
+11 12
+12 2
+12 8
+3 13
+13 4
+13 14
+14 9
+14 5
+10 6
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+3
+</pre>
+
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<p>O exemplo de input corresponde à figura do enunciado.</p>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

@@ -1,0 +1,207 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[DAA 036] Trânsito complicado</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuida à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 12 de Junho</span></b><br>
+<small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+<b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2122/praticas/aula10.html">ler o guião da aula #10</a>]</b></small></p>
+
+<hr>
+
+<h1><font color="blue">[DAA 036] Trânsito complicado</font><i><small><small><small><small><br>(este problema é essencialmente o mesmo que criei para um CIIC, o concurso ibero-americano de informática e computação)</small></small></small></small></i></h1>
+
+<p>Um dos maiores problemas da cidade onde Rafael vive é o complicado
+trânsito automóvel. Todos os dias ele vai de casa para o trabalho em
+plena hora de ponta e muito tempo é passado completamente parado no
+trânsito, algo que o irrita profundamente. Rafael decide por isso
+planear cuidadosamente o melhor caminho a seguir.</p>
+
+<p>Os anos acumulados a conduzir na cidade permitiram-lhe fazer uma
+mapa detalhado com informações sobre o trânsito. Para simplificar,
+Rafael decidiu numerar os vários locais da cidade com números de <b>0</b> a
+<b>N-1</b>, sendo que a sua casa está sempre no local <b>0</b> e o
+trabalho no local
+<b>N-1</b>. O mapa define estradas entre pares de locais, indicando a
+respetiva velocidade média de circulação automóvel. Nota que todas as
+estradas permitem a circulação em ambos os sentidos. Dado um caminho,
+o seu valor final é igual à menor velocidade média de uma das suas
+estradas constituintes.</p>
+
+<p>A figura seguinte ilustra um caminho entre <tt>0</tt> (casa)
+e <tt>8</tt> (trabalho). Este caminho percorre os locais 0, 2, 4, 6 e
+8, por esta ordem, e tem um valor de 22 Km/h, o mínimo das
+velocidades médias das suas estradas, que são 40, 22, 28 e 50.</p>
+
+<p><img src="daa036_1.png">
+
+<p>É no entanto possível fazer melhor se seguirmos o caminho indicado
+pela próxima figura, que tem um valor de 32 Km/h, superior ao caminho
+anterior:
+
+<p><img src="daa036_2.png">
+
+<p>O Rafael sabe que que o presidente da câmara municipal tem
+disponível dinheiro para renovar algumas estradas. Uma estrada
+renovada transforma-se numa avenida com duas vias de circulação em
+cada sentido, o que duplica o valor da sua velocidade média. Por
+exemplo, caso fosse renovada a estrada entre os locais 2 e 3, a
+sua velocidade média passava a 48 Km/h, e o seguinte caminho de valor
+35 Km/h (melhor que os anteriores) passava a ser possível:
+
+<p><img src="daa036_3.png">
+
+<p>Na realidade, a câmara terá dinheiro para renovar
+no máximo <b>K</b> estradas. Como o Rafael acha que sem dúvida o
+caminho que ele faz é muito importante, decide enviar à câmara uma
+carta explicando quais as estradas que deveriam ser renovadas para lhe
+permitir ter o melhor caminho possível. Por exemplo, se <b>K</b> fosse 1, o
+cenário explicado na figura anterior era o melhor que se poderia
+obter. Caso <b>K</b> seja 2, já não é assim. Neste caso, o melhor que se pode
+fazer é renovar as estradas entre 2 e 4, e entre 4 e 6, o que lhe
+permitiria fazer um caminho de valor 40 Km/h, tal como ilustrado na
+figura seguinte:
+
+<p><img src="daa036_4.png">
+
+<p>E para um caso geral? Quais seriam as estradas a renovar de modo a
+conseguir o melhor caminho possível para o Rafael?
+
+</p><h2><font color="blue">O Problema</font></h2>
+
+<p>Dada um mapa com <b>N</b> locais, um conjunto de <b>E</b> estradas,
+com velocidades médias de circulação entre <b>A</b> e <b>B</b> iguais
+a <b>V<sub>A,B</sub></b> e um número <b>K</b> que indica o número de
+estradas que é possível renovar (duplicando a velocidade média), a tua
+tarefa é calcular qual o valor do melhor caminho possível de obter
+para ir do local <b>0</b> (a casa) até <b>N-1</b> (o trabalho), depois de serem
+feitas um máximo de <b>K</b> renovações.
+
+</p><h2><font color="blue">Input</font></h2>
+
+<p>A primeira linha do <i>input</i> contém um único inteiro <b>N</b>,
+o número de locais. A segunda linha contem um único inteiro <b>E</b>,
+o número de estradas existentes.
+
+<p>Seguem-se <b>E</b> linhas, cada uma contendo três inteiros <b>A B
+V<sub>A,B</sub></b>, separados por um único espaço, indicando que
+existe uma estrada entre <b>A</b> e <b>B</b> com velocidade média
+<b>V<sub>A,B</sub></b>. As estradas podem vir por qualquer ordem e
+nunca existem duas estradas diferentes entre o mesmo par de
+locais. Não podem existir estradas diretas de uma posição para si própria e
+existe sempre pelo menos um caminho entre <b>0</b> e <b>N-1</b>.
+
+<p>Finalmente, na linha seguinte, vem um único inteiro <b>K</b>,
+indicando o número de estradas que se pode renovar.
+
+</p><h2><font color="blue">Output</font></h2>
+
+<p>O <i>output</i> deve ser constituído por uma linha contendo um
+  único número inteiro representando o valor do melhor caminho
+  possível de obter fazendo no máximo <b>K</b> renovações.
+
+<p>O valor de um caminho é igual à mínima velocidade média de uma das
+suas estradas constituintes. O melhor caminho é aquele que apresenta o
+maior valor possível. Nota que podes escolher fazer as renovações que
+dão origem ao melhor caminho e que uma estrada só pode ser renovada
+uma única vez. Se <b>K</b> for zero, então o resultado corresponde ao melhor
+caminho sem nenhuma renovação de estrada.
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td><b>2 &le; N &le; 5&nbsp;000</td>
+<td>&nbsp; &nbsp; &nbsp;</td>
+<td>Número de locais do mapa</td>
+</tr>
+<tr>
+<td><b>1 &le; E &le; 50&nbsp;000</td>
+<td>&nbsp; &nbsp; &nbsp;</td>
+<td>Número de estradas</td>
+</tr>
+<tr>
+<td><b>1 &le; V<sub>A, B</sub> &le; 200</td>
+<td>&nbsp; &nbsp; &nbsp;</td>
+<td>Velocidade média de uma estrada</td>
+</tr>
+<tr>
+<td><b>0 &le; K &le; 20</td>
+<td>&nbsp; &nbsp; &nbsp;</td>
+<td>Número de renovações de estrada</td>
+</tr>
+</table>
+
+<h2><font color="blue">Nota sobre a avaliação</font></h2>
+
+<p>Para um conjunto de casos de teste valendo 40% dos pontos, acontece
+sempre que <b>N</b>&le;10, <b>E</b>&le;40 e <b>K</b>&le;1.
+
+</p>
+
+<table>
+<tr>
+<td valign="top">
+<h2><font color="blue">Exemplo de Input 1</font></h2>
+<pre>9
+11
+0 2 40
+2 4 22
+4 6 28
+6 8 50
+0 1 32
+1 3 32
+3 5 43
+5 7 35
+7 8 47
+2 3 24
+4 5 21
+1
+</pre>
+
+<h2><font color="blue">Exemplo de Output 1</font></h2>
+<pre>35</pre>
+</td>
+<td width="150">&nbsp;</td>
+<td valign="top">
+<h2><font color="blue">Exemplo de Input 2</font></h2>
+<pre>9
+11
+0 2 40
+2 4 22
+4 6 28
+6 8 50
+0 1 32
+1 3 32
+3 5 43
+5 7 35
+7 8 47
+2 3 24
+4 5 21
+2
+</pre>
+
+<h2><font color="blue">Exemplo de Output 2</font></h2>
+<pre>40</pre>
+</td>
+</tr>
+</table>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

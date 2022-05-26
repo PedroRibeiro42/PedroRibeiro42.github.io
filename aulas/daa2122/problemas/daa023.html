@@ -1,0 +1,122 @@
+<html><head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>[DAA 023] Palavras numeradas</title>
+</head>
+
+<body bgcolor="white">
+
+<p><small>Para efeitos da nota atribuída à resolução de exercícios ao longo do semestre - </small><b><span style="color:green">Submeter até 23:59 de 15 de Maio</span></b><br>
+  <small><i>(o problema continuará depois disponível para submissão, mas sem contar para a nota)</i><br>
+  <b>[para perceber o contexto do problema deve <a target="_new" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/daa2122/praticas/aula06.html">ler o guião da aula #06</a>]</b></small></p>
+  
+<hr>
+
+<h1><font color="blue">[DAA 023] Palavras numeradas</font></h1>
+
+<p><img src="daa023.jpg" alt="" align="right" border="1">Esquemas de codificação são muitas vezes usados em situações que precisam de reduzir os custos de armazenamento ou transmissão de mensagens. Neste problema, vamos usar um esquema de codificação muito simples que associa um inteiro a um conjunto restrito de palavras de 5 ou menos letras.</p>
+
+<p>Considere o alfabeto inglês com 26 letras: {a, b, c, ..., z}. <b>Uma palavra é considerada <i>válida</i> se tiver entre 1 a 5 letras minúsculas deste alfabeto e se letras consecutivas da palavra estão por ordem alfabética estritamente crescente</b> (ou seja, letras que aparecem depois numa palavra, também devem aparecer depois na lista ordenada de letras do alfabeto).</p>
+
+<p>Por exemplo, as seguintes palavras são <b>válidas</b>:
+
+<pre>abc aep gwx abcde z oq bgkm</pre>
+
+<p>Já as palavras seguintes <b>não são</b> válidas:</p>
+
+<pre>abb are cat dc bcdea</pre>
+
+<p>A cada palavra válida é associada um número inteiro indicando a posição da palavra na lista ordenada de palavras válidas (as palavras vêm por ordem crescente de tamanho, e em caso de empate por ordem alfabética), ou seja:
+
+  <pre>
+a -> 1   
+b -> 2
+...
+z -> 26
+ab -> 27
+ac -> 28
+...
+az -> 51
+bc -> 52
+...
+vwxyz -> 83681
+  </pre>
+
+<p>
+
+<h2><font color="blue">O Problema</font></h2>
+
+<p>Dado um conjunto de palavras com 5 ou menos letras, a tua tarefa é descobrir se a palavra é <i>válida</i> (segundo os critérios atrás definidos) e em caso afirmativo indicar qual a sua posição na lista ordenada atrás descrita.</p>
+
+<h2><font color="blue">Input</font></h2>
+
+<p>Na primeira linha do <i>input</i> vem um número <b>N</b> indicando qual a quantidade de palavras. Seguem-se <i>N</i> linhas, cada uma contendo uma palavra constituída por 1 a 5 letras minúsculas do alfabeto inglês {a, b, c, ..., z}.</p>
+
+<h2><font color="blue">Output</font></h2>
+
+<p>O <i>output</i> deve ter exactamente <b>N</b> linhas. A <i>i</i>-ésima linha deve indicar 0 se a <i>i</i>-esima palavra do input não for válida ou um inteiro entre 1 e 83861 indicando a posição da palavra na lista ordenada.</p>
+
+<h2><font color="blue">Restrições</font></h2>
+
+<p>São garantidos os seguintes limites em todos os casos de teste que
+  irão ser colocados ao programa:</p>
+
+<table>
+<tr>
+<td><b>1 &le; N &le; 50&nbsp;000</td>
+<td>&nbsp; &nbsp; </td>
+<td>Número de palavras a considerar</td>
+</tr>
+</table>
+
+<h2><font color="blue">Exemplo de Input</font></h2>
+
+<pre>
+9
+z
+a
+daa
+vwxyz
+dhiz
+rtw
+rtp
+aaaaa
+abcde
+</pre>
+
+<h2><font color="blue">Exemplo de Output</font></h2>
+<pre>
+26
+1
+0
+83681
+9634
+2877
+0
+0
+17902
+</pre>
+
+<h2><font color="blue">Explicação do Input/Output</font></h2>
+
+<ul>
+  <li>"z" é a 26ª palavra
+  <li>"a" é a 1ª palavra
+  <li>"daa" não é uma palavra válida
+  <li>"vwxyz" é a 83681ª palavra
+  <li>"dhiz" é a 9634ª palavra
+  <li>"rtw" é a 2877ª palavra
+  <li>"rtp" não é uma palavra válida
+  <li>"aaaaa" não é uma palavra válida
+  <li>"abcde" é a 17902ª palavra
+</ul>
+
+<hr>
+
+<p align="center">
+Desenho e Análise de Algoritmos (CC2001)<br>
+DCC/FCUP - Faculdade de Ciências da Universidade do Porto
+</p>
+
+<hr>
+
+</body></html>

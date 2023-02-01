@@ -1,0 +1,79 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Competitive Programming (CC3036) - Big O Cheat Sheet</title>
+	<link rel=StyleSheet href="../style.css" type="text/css">
+</head>
+
+<body>
+
+<h2>Big O Cheat Sheet</h2>
+  
+<p>It is very important to understand the complexity of the algorithm that we want to implement and to understand if it would pass on the constraints given in the problem set. This should be done "mentally", without needing to implement and testing empirically.
+
+<p>Here I provide a "guiding table" that estimates the limits for the most usual complexities. It is not possible to be much precise, because of the "scale" factor (ex: higher constant on the algorithm). Also note that the exact time limit for the problem and the exact processor being used might change the values by a certain factor. However, the magnitude of the limits is the same and thus this table can be useful at the beginning of your journey competitive programming. We assume +/- 10^8 instructions per second as a plausible estimate, and we show the maximum size of the problems we could tackle:</p>
+
+<table border="1" cellspacing="1" cellpadding="0" bgcolor="#444444">
+<tr>
+<th rowspan="2">Complexity</th>
+<th rowspan="2">Description</th>
+<th colspan="2">Maximum N to pass this time limit</th>
+<th rowspan="2">Example Algorithm</th>
+</tr>
+<tr>
+<th>1s</th>
+<th>5s</th>
+</tr>
+<tr class="even">
+<td>O(1)</td><td>constant</td><td><tt>&infin;</tt> (infinity)</td><td><tt>&infin;</tt> (infinity)</td><td>summing two numbers</td>
+</tr>
+<tr class="odd">
+<td>O(log N)</td><td>logarithmic</td><td>2^(10^8)</td><td>2^(5x10^8)</td><td>binary search</td>
+</tr>
+<tr class="even">
+<td>O(N)</td><td>linear</td><td>10^8</td><td>5x10^8</td><td>1 cycle to find the maximum</td>
+</tr>
+<tr class="odd">
+<td>O(N log N)</td><td>linearithmic</td><td>4.523.071</td><td>20.5805.53</td><td>sorting (ex: mergesort, heapsort)</td>
+</tr>
+<tr class="even">
+<td>O(N^2)</td><td>quadratic</td><td>10.000</td><td>22.360
+</td><td>2 cycles (ex: verifying pairs)</td>
+</tr>
+<tr class="odd">
+<td>O(N^3)</td><td>cubic</td><td>464</td><td>793</td><td>3 cycles (ex: Floyd-Warshall)</td>
+</tr>
+<tr class="even">
+<td>O(2^N)</td><td>exponential</td><td>26</td><td>28</td><td>exhaustive search (ex: subsets)</td>
+</tr>
+<tr class="odd">
+<td>O(N!)</td><td>factorial</td><td>11</td><td>12</td><td>generating all permutations</td>
+</tr>
+</table>
+
+<p>From now on, everytime you solve a problem, try to estimate beforehand how much time your algorithm would take and then verify if your estimate was correct. With more experience, you will notice that you will be able to figure our the desired complexity for the given constraints of the problem.</p>
+
+
+
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a> |
+  <b>Último update:</b>
+		<script type="text/javascript" LANGUAGE="JavaScript">
+		  update = new Date(document.lastModified)
+		  theMonth = update.getMonth() + 1
+		  theDate = update.getDate()
+		  theYear = update.getFullYear()
+		  h = update.getHours()
+		  if (h<10) h = "0"+h;
+                  m = update.getMinutes()
+ 		  if (m<10) m = "0"+m;	
+                  s = update.getSeconds()
+  		  if (s<10) s = "0"+s;
+		  document.writeln(theDate + "/" + theMonth + "/" + theYear + " " + h + ":" + m + ":" + s)
+		</script></p>
+
+</body>
+
+</html>

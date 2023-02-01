@@ -1,0 +1,248 @@
+p,body,td,th,li  {
+   font-size: 13px;   
+   font-family: arial, geneva, "sans serif";
+   color: black;
+   text-align: justify;
+   font-weight: normal;
+}
+
+body, tr {
+   background-color: #dde4ff;
+}
+
+td, th {
+   text-align: center;
+}
+
+td.x {
+   background-color: #b5b595;
+}
+
+td.tiny {
+   font-size: 11px;
+}
+
+th  {
+   background-color: black;
+   font-weight: bold;
+   color: white;
+}
+
+table.main {
+   background-color: black;
+}
+
+hr {
+   color: black;
+}
+
+a {
+   color: #000077;
+   font-weight: bold;
+}
+
+a.blue {
+   color: white;
+   font-weight: bold;
+}
+
+a.white {
+   color: white;
+   font-weight: bold;
+}
+
+a.fblue {color: blue;}
+
+a.fred {color: red;}
+
+a:hover { color: #DC143C;}
+a.blue:hover { color: Yellow;}
+a.white:hover { color: Yellow;}
+
+.center {text-align: center;}
+.right  {text-align: right;}
+.left   {text-align: left;}
+
+.submissao {color: white; font-weight: bold; background-color:
+#cc9900;}
+.fcup {color: black; font-weight: bold; background-color: #AFEEEE;}
+
+.red   {color: black; background-color: #eedddd;}
+.green {color: black; background-color: #ddeedd;}
+.darkgreen {color: black; background-color: #006400;}
+.brown {color: white; background-color: #8d5a07;}
+.yellow {color: black; background-color: #ffffe6;}
+
+.blue_border {
+        border: 1px solid #006699;
+}
+
+.back_blue {
+        background-color: #006699;
+	color: white;
+}
+
+.back_grey {
+        background-color: #dddddd;
+	color: #006699;
+}
+
+.blue_font {
+  color: #006699;
+}
+
+td.done {
+   background-color: #99FF99;
+}
+
+td.not {
+   background-color: #FF9999;
+}
+
+td.na {
+   background-color: #9999FF;
+}
+
+td.title {
+   text-align: left;
+   font-size: 16px;   
+   font-family: arial, geneva, "sans serif";
+   font-weight: bold;
+   color: black;
+}
+
+td.module_ok {
+   width: 170px;
+   height: 60px;
+   font-size: 12px;   
+   font-family: arial, geneva, "sans serif";
+   background-color: #99FF99;
+   color: black;
+}
+
+td.module_missing {
+   width: 170px;
+   height: 60px;
+   font-size: 12px;   
+   font-family: arial, geneva, "sans serif";
+   background-color: #FF9999;
+   color: black;
+}
+
+td.space {
+   width: 20px;
+   height: 25px;
+   font-size: 8px;   
+}
+
+
+td.h1 {
+   font-size: 24px;   
+   font-family: arial, geneva, "sans serif";
+   font-weight: bold;
+   background-color: #000044;
+   color: white;
+}
+
+td.h2 {
+   font-size: 18px;   
+   font-family: arial, geneva, "sans serif";
+   font-weight: bold;
+   background-color: #99ccff;
+   color: black;
+}
+
+td.h3 {
+   font-size: 14px;   
+   font-family: arial, geneva, "sans serif";
+   font-weight: bold;
+   color: black;
+   background-color: white;
+}
+
+.myh1 {
+   font-size: 18px;   
+   font-family: arial, geneva, "sans serif";
+   font-weight: bold;
+   background-color: #000044;
+   color: white;
+}
+
+.myh2 {
+   font-size: 18px;   
+   font-family: arial, geneva, "sans serif";
+   font-weight: bold;
+   background-color: #bbc5dd;
+   color: #000077;
+   border-bottom: 1px solid #000077;
+}
+
+.myh3 {
+   font-size: 15px;   
+   font-family: arial, geneva, "sans serif";
+   font-weight: bold;
+   background-color: white;
+   color: #000077;
+   border-bottom: 1px solid #000077;
+}
+
+.myhsection {
+   font-size: 16px;   
+   font-family: arial, geneva, "sans serif";
+   font-weight: bold;
+   text-align: left;	
+   background-color: #eaeaea;
+   color: #006699;
+   border-bottom: 1px solid #006699;
+}
+
+.myhsubsection {
+   font-size: 14px;   
+   font-family: arial, geneva, "sans serif";
+   font-weight: bold;
+   text-align: left;	
+   color: black;
+   border-bottom: 1px dashed black;
+}
+
+.odd {
+   background-color: #dddddd;
+}
+
+.even {
+   background-color: #f2f2f2;
+}
+
+.lightredodd {
+   background-color: #ffd0d0;	
+}
+
+.lightredeven {
+   background-color: #ffe2e2;	
+}
+
+.lightgreenodd {
+   background-color: #d0ffd0;	
+}
+
+.lightgreeneven {
+   background-color: #e2ffe2;	
+}
+
+.selected {
+   background-color: #DAA520;
+}
+   
+a.nou {
+    text-decoration: none;
+}
+
+a.button {
+    -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+
+    text-decoration: none;
+    color: initial;
+}
+

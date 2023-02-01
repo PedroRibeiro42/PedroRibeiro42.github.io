@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <title>Segment Tree Example- UVA 12086</title>
+  </head>
+<body>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// Example solution for UVA 12086</span>
+<span style="color: #888888">// Pedro Ribeiro (DCC/FCUP)</span>
+
+<span style="color: #557799">#include &lt;cstdio&gt;</span>
+<span style="color: #557799">#include &lt;cstring&gt;</span>
+
+<span style="color: #557799">#define MAX     200005</span>
+<span style="color: #557799">#define MAX_BUF 16</span>
+<span style="color: #557799">#define MAX_ST  800005</span>
+
+<span style="color: #557799">#define NEUTRAL 0</span>
+
+<span style="color: #333399; font-weight: bold">int</span> n;           <span style="color: #888888">// Number of elements in the segtree</span>
+<span style="color: #333399; font-weight: bold">int</span> v[MAX];      <span style="color: #888888">// Array of values</span>
+<span style="color: #333399; font-weight: bold">int</span> st[MAX_ST];  <span style="color: #888888">// Segtree (in this case storing interval sums)</span>
+
+<span style="color: #888888">// Merge contents of nodes a and b</span>
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">merge</span>(<span style="color: #333399; font-weight: bold">int</span> a, <span style="color: #333399; font-weight: bold">int</span> b) {
+  <span style="color: #008800; font-weight: bold">return</span> a<span style="color: #333333">+</span>b;
+}
+
+<span style="color: #888888">// Build initial segtree (in position pos, interval [start,end])</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">build</span>(<span style="color: #333399; font-weight: bold">int</span> pos, <span style="color: #333399; font-weight: bold">int</span> start, <span style="color: #333399; font-weight: bold">int</span> end) {
+  <span style="color: #008800; font-weight: bold">if</span> (start <span style="color: #333333">==</span> end) {
+    st[pos] <span style="color: #333333">=</span> v[start];
+  } <span style="color: #008800; font-weight: bold">else</span> {      
+    <span style="color: #333399; font-weight: bold">int</span> middle <span style="color: #333333">=</span> start <span style="color: #333333">+</span> (end<span style="color: #333333">-</span>start)<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">2</span>;
+    build(pos<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span>, start, middle);
+    build(pos<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, middle<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end);
+    st[pos] <span style="color: #333333">=</span> merge(st[pos<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span>], st[pos<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>]);
+  }  
+}
+
+<span style="color: #888888">// Update node x to value r</span>
+<span style="color: #333399; font-weight: bold">void</span> <span style="color: #0066BB; font-weight: bold">update</span>(<span style="color: #333399; font-weight: bold">int</span> pos, <span style="color: #333399; font-weight: bold">int</span> start, <span style="color: #333399; font-weight: bold">int</span> end, <span style="color: #333399; font-weight: bold">int</span> x, <span style="color: #333399; font-weight: bold">int</span> r) {
+  <span style="color: #008800; font-weight: bold">if</span> (start<span style="color: #333333">&gt;</span>x <span style="color: #333333">||</span> end<span style="color: #333333">&lt;</span>x) <span style="color: #008800; font-weight: bold">return</span>;
+  <span style="color: #008800; font-weight: bold">if</span> (start <span style="color: #333333">==</span> end <span style="color: #333333">&amp;&amp;</span> start<span style="color: #333333">==</span>x) {
+    st[pos] <span style="color: #333333">=</span> r;
+  } <span style="color: #008800; font-weight: bold">else</span> {      
+    <span style="color: #333399; font-weight: bold">int</span> middle <span style="color: #333333">=</span> start <span style="color: #333333">+</span> (end<span style="color: #333333">-</span>start)<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">2</span>;
+    update(pos<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span>, start, middle, x, r);
+    update(pos<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, middle<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end, x, r);
+    st[pos] <span style="color: #333333">=</span> merge(st[pos<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span>], st[pos<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>]);
+  }  
+}
+
+<span style="color: #888888">// Make a query of interval [x,y]</span>
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">query</span>(<span style="color: #333399; font-weight: bold">int</span> pos, <span style="color: #333399; font-weight: bold">int</span> start, <span style="color: #333399; font-weight: bold">int</span> end, <span style="color: #333399; font-weight: bold">int</span> x, <span style="color: #333399; font-weight: bold">int</span> y) {
+  <span style="color: #008800; font-weight: bold">if</span> (start<span style="color: #333333">&gt;</span>y <span style="color: #333333">||</span> end<span style="color: #333333">&lt;</span>x) <span style="color: #008800; font-weight: bold">return</span> NEUTRAL;
+  <span style="color: #008800; font-weight: bold">if</span> (start<span style="color: #333333">&gt;=</span>x <span style="color: #333333">&amp;&amp;</span> end<span style="color: #333333">&lt;=</span>y) <span style="color: #008800; font-weight: bold">return</span> st[pos];
+  
+  <span style="color: #333399; font-weight: bold">int</span> middle <span style="color: #333333">=</span> start <span style="color: #333333">+</span> (end<span style="color: #333333">-</span>start)<span style="color: #333333">/</span><span style="color: #0000DD; font-weight: bold">2</span>;
+  <span style="color: #333399; font-weight: bold">int</span> a <span style="color: #333333">=</span> query(pos<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span>, start, middle, x, y);
+  <span style="color: #333399; font-weight: bold">int</span> b <span style="color: #333333">=</span> query(pos<span style="color: #333333">*</span><span style="color: #0000DD; font-weight: bold">2</span><span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, middle<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>, end, x, y);
+  <span style="color: #008800; font-weight: bold">return</span> merge(a, b);
+}
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>() {
+  <span style="color: #333399; font-weight: bold">char</span> op[MAX_BUF];
+  <span style="color: #333399; font-weight: bold">int</span> c <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+
+  <span style="color: #008800; font-weight: bold">while</span> (<span style="color: #0000DD; font-weight: bold">1</span>) {
+    scanf(<span style="background-color: #fff0f0">&quot;%d&quot;</span>, <span style="color: #333333">&amp;</span>n);
+    <span style="color: #008800; font-weight: bold">if</span> (n<span style="color: #333333">==</span><span style="color: #0000DD; font-weight: bold">0</span>) <span style="color: #008800; font-weight: bold">break</span>;
+    <span style="color: #008800; font-weight: bold">if</span> (c<span style="color: #333333">&gt;</span><span style="color: #0000DD; font-weight: bold">0</span>) putchar(<span style="color: #0044DD">&#39;\n&#39;</span>);
+    printf(<span style="background-color: #fff0f0">&quot;Case %d:</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>, <span style="color: #333333">++</span>c);
+    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>; i<span style="color: #333333">&lt;=</span>n; i<span style="color: #333333">++</span>) scanf(<span style="background-color: #fff0f0">&quot;%d&quot;</span>, <span style="color: #333333">&amp;</span>v[i]);
+    
+    build(<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">1</span>, n);
+    
+    <span style="color: #008800; font-weight: bold">while</span> (<span style="color: #0000DD; font-weight: bold">1</span>) {
+      scanf(<span style="background-color: #fff0f0">&quot;%s&quot;</span>, op);
+      <span style="color: #008800; font-weight: bold">if</span> (strcmp(op, <span style="background-color: #fff0f0">&quot;END&quot;</span>)<span style="color: #333333">==</span><span style="color: #0000DD; font-weight: bold">0</span>) <span style="color: #008800; font-weight: bold">break</span>;
+      <span style="color: #333399; font-weight: bold">int</span> a, b;
+      scanf(<span style="background-color: #fff0f0">&quot;%d %d&quot;</span>, <span style="color: #333333">&amp;</span>a, <span style="color: #333333">&amp;</span>b);
+      <span style="color: #008800; font-weight: bold">if</span> (op[<span style="color: #0000DD; font-weight: bold">0</span>]<span style="color: #333333">==</span><span style="color: #0044DD">&#39;M&#39;</span>) {
+	printf(<span style="background-color: #fff0f0">&quot;%d</span><span style="color: #666666; font-weight: bold; background-color: #fff0f0">\n</span><span style="background-color: #fff0f0">&quot;</span>, query(<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">1</span>, n, a, b));
+      } <span style="color: #008800; font-weight: bold">else</span> {
+	update(<span style="color: #0000DD; font-weight: bold">1</span>, <span style="color: #0000DD; font-weight: bold">1</span>, n, a, b);	
+      }
+    }
+  }
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+</body>
+</html>

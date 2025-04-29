@@ -1,0 +1,125 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII043] This Is An Emergency!</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of April 14th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class06.html">class #06 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a <u>complete program with the main function</u>, reading with functions such as scanf and printing with functions such as printf.</b></p>
+
+<h2>[PII043] This Is An Emergency!</h2>
+
+<p><img src="pii043.png" align="right" width="250">
+Rachel Green is facing a serious crisis—there’s a HUGE designer sale, and she HAS to get to the store before someone else buys the last perfect outfit. (<i>Priorities, people!</i>). The only problem? She’s lost. Again.</p>
+
+<p>This mall is basically a giant maze, and she has no idea if she can even reach the store. (<i>Seriously, who designs these places?!</i>).</p>
+
+<p>The mall layout is represented as a 2D grid where 'R' is Rachel's starting position, 'S' is the store she wants to reach, '.' is a walkable path and '#' is a wall. Rachel can move up, down, left and right (but not diagonally - she he is in heels, after all).</p>
+
+  <h3>The Problem</h3>
+
+<p>Your task is to Help Rachel figure out if there's a way to get from where she is to the store. There are several mall layouts, and for each of them you need to find if there is a path from 'R' to 'S' only using walkable cells ('.').</p>
+
+<h3>Input</h3>
+
+<p>On the first line there is an integer <b>N</b> indicating the amount of cases to consider.</p>
+
+<p>Each case starts with two numbers <b>R</b> and <b>C</b> indicating respectively the number of rows and columns of the petri dish. The <b>R</b> lines follow, each one with <b>C</b> characters, indicating the contents of each position: 'R' for the position of Rachel, 'S' for the store, '.' for a walkable path and '#' for a wall. There will always be exactly one position with 'R' and one position with 'S' in the layout of each mall.</p>
+
+<h3>Output</h3>
+
+<p>The output should have <b>N</b> lines, one for each case, containing "yes" if Rachel can reach the store and "no" if there is no possible path.</p>
+  
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>N</b> &le; 20</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of test cases</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>R, C</b> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Dimensions of the matrix</td>
+  </tr>  
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+2
+5 10
+..#.......
+###...#...
+..#...#..S
+.R#...####
+......#...
+4 4
+R..#
+..#.
+.#..
+#..S
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+yes
+no
+</pre>
+
+    </td>
+  </tr>
+</table>
+
+<p>On the first case Rachel can reach all the positions in green, which include the store (hence, the answer is "yes"):</p>
+
+<pre>
+..#<span style="background-color:#aaffaa;">.......</span>
+###<span style="background-color:#aaffaa;">...</span>#<span style="background-color:#aaffaa;">...</span>
+<span style="background-color:#aaffaa;">..</span>#<span style="background-color:#aaffaa;">...</span>#<span style="background-color:#aaffaa;">..S</span>
+<span style="background-color:#aaffaa;">.R</span>#<span style="background-color:#aaffaa;">...</span>####
+<span style="background-color:#aaffaa;">......</span>#...
+</pre>
+
+On the second case Rachel can reach all the positions in green, which don't include the store (hence, the answer is "no"):
+
+<pre>
+<span style="background-color:#aaffaa;">R..</span>#
+<span style="background-color:#aaffaa;">..</span>#.
+<span style="background-color:#aaffaa;">.</span>#..
+#..S
+</pre>
+
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

@@ -1,0 +1,109 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII037] Unique Words</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of April 7th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a <u>complete program with the main function</u>, reading with functions such as scanf and printing with functions such as printf.</b></p>
+
+<h2>[PII037] Unique Words</h2>
+
+<p><img src="pii037.png" align="right" width="200">
+  In the sun-scorched kingdom of Dorne, words are as sharp as blades, and Oberyn Martell, the Red Viper, is known for both. A master of combat and conversation, Oberyn values those who can separate truth from noise.</p>
+
+<p>One evening, as the sun sets over Sunspear, Oberyn issues you a challenge: <i>"In battle, every move must be precise - no wasted steps. In words, only those that are unique hold power. Show me that you can count the words that matter, and perhaps I will trust you with secrets even the sands cannot bury.</i>"
+  
+  
+<h3>The Problem</h3>
+
+<p>Given a set of words, your task is to count how many unique words exist, that is, repeated words should only be counted once.</p>
+
+<h3>Input</h3>
+
+<p>The first line of input contain an integer <b>N</b>, representing the number of words that follow.</p>
+
+<p>Each of the next <b>N</b> lines contain a word <b>W</b> formed only by lowercase letters.</p>
+
+<h3>Output</h3>
+
+<p>The output should be a single line containing an integer: the number of different words that appear on the input, as explained in the problem description</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>N</b> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of words</td>
+  </tr>  
+  <tr>
+    <td>1 &le; <b>|W|</b> &lt; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Length of the words</td>
+  </tr>  
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+12
+stark
+targaryen
+lannister
+baratheon
+baratheon
+martell
+lannister
+targaryen
+stark
+targaryen
+stark
+baratheon
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+5
+</pre>
+
+    </td>
+  </tr>
+</table>
+
+<p><b>Explanation of the Example Input</b></p>
+
+<p>There are 5 different words: "stark", "targaryen", "lannister", "baratheon" and "martell".</p>
+
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

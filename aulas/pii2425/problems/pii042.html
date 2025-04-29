@@ -1,0 +1,188 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII042] Wait, Is That Microbe Moving?</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of April 14th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class06.html">class #06 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a <u>complete program with the main function</u>, reading with functions such as scanf and printing with functions such as printf.</b></p>
+
+<h2>[PII042] Wait, Is That Microbe Moving?</h2>
+
+<p><img src="pii042.png" align="right" width="300">
+  Dr. Ross Geller is back in the lab (because paleontology was just <i>too mainstream</i>), and he's studying microbial growth in a Petri dish. His goal? Find the largest microbe colony before it spreads all over his workspace — and more importantly, before someone (<i>cough, Joey</i>) mistakes it for food.</p>
+
+<p>The Petri dish can be thought of as a 2D grid, i.e. a matrix, where each cell may be either living microbe ('#') or an empty space ('.'). A microbe colony consists of connected '#' cells that are adjacent horizontally, vertically or diagonally.</p>
+
+<p>For example, the following Petri dish has exactly three microbe colonies:</p>
+
+  <table bgcolor="black">
+    <tr bgcolor="white">
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="palegreen">#</td>
+      <td width="15" align="center" bgcolor="palegreen">#</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="cyan">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="palegreen">#</td>
+      <td width="15" align="center" bgcolor="palegreen">#</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center" bgcolor="cyan">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="cyan">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>      
+    </tr>
+  </table>
+  
+<p>The size of a colony is equal to the number of living microbes that make it up. In the picture above, the 3 colonies have size 6 (the yellow one), 3 (the blue one) and 4 (the green one). The largest colony is the one with the largest size, which in this case is the yellow colony. </p>
+  
+  <h3>The Problem</h3>
+
+<p>Given the state of several cultures of microbes (indicated by a matrix of cells) your task is to find out the size of the largest microbe colony in each of them, i.e. the size of the largest connected set of living microbes in each case. </p>
+
+<h3>Input</h3>
+
+<p>On the first line there is an integer <b>N</b> indicating the amount of cases to consider.</p>
+
+<p>Each case starts with two numbers <b>R</b> and <b>C</b> indicating respectively the number of rows and columns of the petri dish. The <b>R</b> lines follow, each one with <b>C</b> characters, indicating the contents of each position: '.' for an empty position and '#' for a position with a living microbe.</p>
+
+<h3>Output</h3>
+
+<p>The output should have <b>N</b> lines, each one with the size of the correspondent largest colony of microbes.</p>
+  
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>N</b> &le; 20</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of test cases</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>R, C</b> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Dimensions of the matrix</td>
+  </tr>  
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+2
+5 7
+##.#...
+.###...
+.....##
+.#...##
+#.#....
+4 4
+##.#
+...#
+#...
+..#.
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+6
+2
+</pre>
+
+    </td>
+  </tr>
+</table>
+
+<p>Note: the first case is the one above in the figure. The second case has three colonies: two of size 2 (green and yellow) and two of size 1 (blue and orange). Therefore, the largest colony has size 2:</p>
+
+    <table bgcolor="black">
+    <tr bgcolor="white">
+      <td width="15" align="center" bgcolor="palegreen">#</td>
+      <td width="15" align="center" bgcolor="palegreen">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="yellow">#</td>      
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center" bgcolor="cyan">#</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+    </tr>
+    <tr bgcolor="white">
+      <td width="15" align="center">.</td>
+      <td width="15" align="center">.</td>
+      <td width="15" align="center" bgcolor="orange">#</td>
+      <td width="15" align="center">.</td>
+    </tr>
+  </table>
+
+<p>&nbsp;
+
+
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

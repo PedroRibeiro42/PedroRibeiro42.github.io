@@ -1,0 +1,139 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII045] The One with the Perfect Path</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of April 14th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class06.html">class #06 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a <u>complete program with the main function</u>, reading with functions such as scanf and printing with functions such as printf.</b></p>
+
+<h2>[PII045] The One with the Perfect Path</h2>
+
+<p><img src="pii045.png" align="right" width="250">
+Monica and Chandler are on a romantic getaway in Porto, and as expected, Monica has planned everything down to the last detail. She has a list of must-visit tourist spots, and she wants to make sure they take the most efficient route—because wasting time means less sightseeing and fewer perfect moments.</p>
+
+<p>Chandler, of course, just wants to relax, but Monica is determined to optimize their trip. They will start at S. Bento train station and then she wants to pass through all places once and return back to S. Bento. Monica wants the shortest possible route and needs your help. She has made a table with the distances between all the places she will visit:</p>
+
+<table bgcolor="black">
+<tr bgcolor="#aaaaaa"><th>&nbsp;</th><th>SaoBento  </th><th>Camara    </th><th>Clerigos  </th><th>Ribeira   </th><th>Alfandega </th><th>Palacio   </th><th>Leoes</th></tr>
+<tr bgcolor="white"><th>SaoBento</th><td>-------</td><td>0.49      </td><td>0.34      </td><td>0.55      </td><td>0.95      </td><td>1.30      </td><td>0.45</td></tr>
+<tr bgcolor="#dddddd"><th>Camara</th><td>0.49      </td><td>-------      </td><td>0.57      </td><td>1.03      </td><td>1.17      </td><td>1.33      </td><td>0.52</td></tr>
+<tr bgcolor="white"><th>Clerigos</th><td>0.34      </td><td>0.57      </td><td>-------      </td><td>0.62      </td><td>0.64      </td><td>0.96      </td><td>0.17</td></tr>
+<tr bgcolor="#dddddd"><th>Ribeira</th><td>0.55      </td><td>1.03      </td><td>0.62      </td><td>-------      </td><td>0.88      </td><td>1.41      </td><td>0.79</td></tr>
+<tr bgcolor="white"><th>Alfandega</th><td>0.95      </td><td>1.17      </td><td>0.64      </td><td>0.88      </td><td>-------      </td><td>0.56      </td><td>0.64</td></tr>
+<tr bgcolor="#dddddd"><th>Palacio</th><td>1.30      </td><td>1.33      </td><td>0.96      </td><td>1.41      </td><td>0.56      </td><td>-------      </td><td>0.87</td></tr>
+<tr bgcolor="white"><th>Leoes</th><td>0.45      </td><td>0.52      </td><td>0.17      </td><td>0.79      </td><td>0.64      </td><td>0.87      </td><td>-------</td></tr>
+</table>
+
+<p>Monica can choose can choose to go to the various locations in any order. Obviously, the order she chooses strongly influences the length of the route. The following figures illustrate two possible routes and their length:</p>
+
+<table>
+  <tr>
+    <td><img height="400" src="pii045_map1.png"></td>
+    <td>&nbsp;</td>
+    <td><img height="400" src="pii045_map2.png"></td>
+  </tr>
+  <tr>
+    <td>Total: <b>4.28km</b> = 0.34+0.62+0.88+0.56+0.87+0.52+0.49</td>
+    <td>&nbsp;</td>
+    <td>Total: <b>4.13km</b> = 0.55+0.88+0.56+0.96+0.17+0.52+0.49</td>
+  </tr>
+  
+</table>
+
+<p>Although they look like good routes, none of the images above represent an optimal route. In fact, Monica can walk only 4.09km if she takes the route in the next image:</p>
+
+<table>
+  <tr>
+    <td><img height="400" src="pii045_map3.png"></td>
+  </tr>
+  <tr>
+    <td>Total: <b>4.09km</b> = 0.55+0.88+0.56+0.87+0.17+0.57+0.49</td>
+  </tr>
+  
+</table>
+
+
+<p>You need to help Monica choose the perfect path, not only for this Porto trip, but for any other trip with Chandler!</p>
+  
+<h3>The Problem</h3>
+
+<p>Given a set of locations and the distance between them, you have to find out the length of the shortest route that passes through all the points and returns to the starting location at the end. </p>
+
+<h3>Input</h3>
+
+<p>The first line contains a positive integer <b>N</b>, the number of locations to consider.</p>
+
+<p>On the second line there are <b>N</b> words indicating the location names (each name only contains letters and has a maximum length of 30 characters). The first location will be the starting place.</p>
+
+<p>The next <b>N</b> lines, each one with <b>N</b> real numbers, indicate the distance matrix between the locations. The <i>j</i>-th column of the <i>i</i>-th line represents the distance between location <i>i</i> and <i>j</i> (see the example to understand better). The distance matrix is guaranteed to be symmetric, that is, <i>distance(i,j) = distance(j,i)</i>.
+  
+<h3>Output</h3>
+
+<p>The output consists of a line containing a single number indicating the length of the shortest path that passes through all the locations and returns to the starting location, as described above. This number must be rounded to two decimal places.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>3 &le; <b>N</b> &le; 10</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of locations</td>
+  </tr>  
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+7
+SaoBento  Camara    Clerigos  Ribeira   Alfandega Palacio   Leoes
+0.00      0.49      0.34      0.55      0.95      1.30      0.45
+0.49      0.00      0.57      1.03      1.17      1.33      0.52
+0.34      0.57      0.00      0.62      0.64      0.96      0.17
+0.55      1.03      0.62      0.00      0.88      1.41      0.79
+0.95      1.17      0.64      0.88      0.00      0.56      0.64
+1.30      1.33      0.96      1.41      0.56      0.00      0.87
+0.45      0.52      0.17      0.79      0.64      0.87      0.00
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+4.09
+</pre>
+
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

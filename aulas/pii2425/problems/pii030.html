@@ -1,0 +1,161 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII030] Shifting Messages</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of March 31st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a file containing the function as described (<u>without any main function</u>). Inside the function do not print anything that was not asked! </b></p>
+
+<h2>[PII030] Shifting Messages</h2>
+
+  <p>
+    <img src="pii030.png" align="right" width="300">
+    Joyce is convinced that shifting numbers in an array can help her communicate with the Upside Down. She believes that by moving the numbers left or right, she can decode hidden messages from Will. Armed with her Christmas lights and sheer determination, she asks for your help to shift an array of integers <b>k</b> places in either direction.</p>
+
+<p>Shifting an array means rotating it to the left or to the right. The shift should be circular, meaning elements pushed off one end should reappear on the other.</p>
+
+<p>For example, imagine that the array is [1,2,3,4,5]. Shifting it one place to the right would result in [5,1,2,3,4], while shifting it one place to the left would result in [2,3,4,5,1]. Shifting it two places to the right would result in [4,5,1,2,3].</p>
+    
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">void shift(int a[], int n, int k)</span> that receives an array <b>a[]</b> of size <b>n</b> and an integer <b>k</b>. If <b>k</b> is positive, it should shift the array <b>k</b> positions to the right. If <b>k</b> is negative, it should shift it <b>k</b> positions to the left.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>a[i]</b> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Numbers in the array</td>
+    </tr>
+  <tr>
+    <td>1 &le; <b>n</b> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Size of the array</td>
+  </tr>
+  <tr>
+    <td><b>-n</b> &lt; <b>k</b> &lt; <b>n</b></td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of places to shift</td>
+  </tr>  
+
+</table>
+
+<h3>Submission</h3>
+
+<p>You should submit a <code>.c</code> file containing the requested function, without any main function and without printing anything. You can however create additional methods, if you need them.</p>
+
+<p>Mooshak will use the following code to link to your function, read the inputs and call your method, printing its result.</p>
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(106, 115, 125); font-weight: 400;">// Forward declaration of function to implement</span>
+<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">shift</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> [], <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span>, <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span>)</span>;
+
+<span style="color: rgb(106, 115, 125); font-weight: 400;">// print an array of size n (assume size &gt;= 1)</span>
+<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">print_array</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> a[], <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> n)</span> {
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"[%d"</span>, a[<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>]);
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">1</span>; i&lt;n; i++)
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">",%d"</span>, a[i]);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"]\n"</span>);
+}
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Read array of n integers</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> n;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;n);
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> a[n];
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; i&lt;n; i++)
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;a[i]);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Read integer, shift the array and print before and after</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> k;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;k);
+  print_array(a, n);
+  shift(a, n, k);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"After shift(a,%d,%d):\n"</span>, n, k);
+  print_array(a, n);
+
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+</pre>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 1</td>
+    <td>Example Output 1</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+6
+1 2 3 4 5 6
+1
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+[1,2,3,4,5,6]
+After shift(a,6,1):
+[6,1,2,3,4,5]
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 2</td>
+    <td>Example Output 2</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+8
+2 4 6 8 10 12 14 16
+-3
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+[2,4,6,8,10,12,14,16]
+After shift(a,8,-3):
+[8,10,12,14,16,2,4,6]
+</pre>
+    </td>
+  </tr>
+</table>
+
+  
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

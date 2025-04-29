@@ -1,0 +1,117 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII033] Intercepted Messages</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of April 7th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a file containing the function as described (<u>without any main function</u>). Inside the function do not print anything that was not asked! </b></p>
+
+<h2>[PII033] Intercepted Messages</h2>
+
+<p><img src="pii033.png" align="right" width="200">
+   Petyr "Littlefinger" Baelish, known for his cunning and sharp mind, has intercepted several secret messages containing a mix of letters, digits and other symbols. To decode potential hidden information, he wants to understand how many digits are within the message, since they could be related to important dates, coordinates, or quantities.
+
+    
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">int digits(char str[])</span> that receives a string <b>str</b> and returns the amount of characters of <b>str</b> that are digits.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>|str|</b> &lt; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Length of the string</td>
+  </tr>  
+
+</table>
+
+<h3>Submission</h3>
+
+<p>You should submit a <code>.c</code> file containing the requested function, without any main function and without printing anything. You can however create additional methods, if you need them.</p>
+
+<p>Mooshak will use the following code to link to your function, read the inputs and call your method, printing its result.</p>
+
+
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">define</span> MAX_SIZE 100</span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">digits</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">char</span> [])</span>;
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Read amount of strings</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> n;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;n);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Read n strings and for each one call the digits function</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">char</span> str[MAX_SIZE];
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; i&lt;n; i++) {
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%s"</span>, str);
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"digits(\"%s\") = %d\n"</span>, str, digits(str));
+  }
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; 
+}
+</pre>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+5
+pedro
+p3dr0
+P0wn
+1234567
+19year98
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+digits("pedro") = 0
+digits("p3dr0") = 2
+digits("P0wn") = 1
+digits("1234567") = 7
+digits("19year98") = 4
+</pre>
+
+    </td>
+  </tr>
+</table>
+    
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

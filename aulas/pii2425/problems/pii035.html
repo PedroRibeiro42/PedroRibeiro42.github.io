@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII035] Word Clean Up</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of April 7th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a file containing the function as described (<u>without any main function</u>). Inside the function do not print anything that was not asked! </b></p>
+
+<h2>[PII035] Word Clean Up</h2>
+
+<p><img src="pii035.png" align="right" width="200">
+In the shadowed halls of King’s Landing, power is everything - but wit and skill are the sharpest weapons. You are a humble coder seeking favor from Tyrion Lannister, the sharp-tongued and brilliant Hand of the King. He has no time for fools but admires those who can solve problems quickly and efficiently.
+
+<p>One night, over a glass of wine, Tyrion presents you with a challenge:</p>
+
+<p><i>"A wise man once said: words are wind - but only if you remove the nonsense. Clean this message for me, and perhaps you’ll prove worthy of my trust."</i></p>
+
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">void remove_all(char ch, char str[])</span> that, given a character <b>ch</b> and string <b>str</b>, changes the string <b>str</b> by removing all occurrences of <b>ch</b>.</p>
+
+<p>For example, without the character 's', the word "westeroos" becomes "wetero".</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>|str|</b> &lt; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Length of the string</td>
+  </tr>  
+</table>
+
+<p>You can also be assured that all characters in the string are lowercase letters.</p>
+
+<h3>Submission</h3>
+
+<p>You should submit a <code>.c</code> file containing the requested function, without any main function and without printing anything. You can however create additional methods, if you need them.</p>
+
+<p>Mooshak will use the following code to link to your function, read the inputs and call your method, printing its result.</p>
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">define</span> MAX_SIZE 100</span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">remove_all</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">char</span>, <span style="color: rgb(215, 58, 73); font-weight: 400;">char</span> [])</span>;
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Read amount of cases</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> n;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;n);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Read n cases and for each call the remove_all function</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">char</span> ch[MAX_SIZE], str[MAX_SIZE];
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; i&lt;n; i++) {
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%s %s"</span>, ch, str);
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"remove_all('%c', \"%s\") -&gt; "</span>, ch[<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>], str);
+    remove_all(ch[<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>], str);          <span style="color: rgb(106, 115, 125); font-weight: 400;">// call function</span>
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"\"%s\"\n"</span>, str);  <span style="color: rgb(106, 115, 125); font-weight: 400;">// show resulting string</span>
+  }
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; 
+}
+</pre>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+4
+s westeros
+p stark
+n dragonstone
+a abracadabra
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+remove_all('s', "westeros") -> "wetero"
+remove_all('p', "stark") -> "stark"
+remove_all('n', "dragonstone") -> "dragostoe"
+remove_all('a', "abracadabra") -> "brcdbr"
+</pre>
+
+    </td>
+  </tr>
+</table>
+    
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

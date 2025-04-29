@@ -1,0 +1,144 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII039] You know nothing, Jon Snow</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of April 7th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a <u>complete program with the main function</u>, reading with functions such as scanf and printing with functions such as printf.</b></p>
+
+<h2>[PII039] You know nothing, Jon Snow</h2>
+
+<p><img src="pii039.png" align="right" width="200">
+  Beyond the Wall, the Free Folk speak in ways as wild as the land they roam. To them, words are not fixed - they grow, change, and evolve like the living world itself. Ygritte, fierce and untamed, laughs as she sets a challenge before Jon Snow:</i>
+
+<p><i>"You think you know our ways? You know nothing, Jon Snow. Watch as our words change - step by step, rule by rule. If you can follow their evolution, maybe you’ll understand us... a little."</i></p>
+  
+<h3>The Problem</h3>
+
+<p>Your task is to compute the evolution of a word (made up of just letters 'A' and 'B') showing consecutive generations of it according to the following rules:</p>
+
+<ul>
+  <li>Any 'A' becomes 'AB'
+  <li>Any 'B' becomes 'A'
+</ul>
+
+<p>For instance, if we start with "A" and ask for 4 generations, the following happens:</p>
+
+<pre>
+n=0:               A        initial
+                  / \
+n=1:             A   B      the initial single A spawned into AB by rule (A &rarr; AB), rule (B &rarr; A) couldn't be applied
+                /|    \
+n=2:           A B     A    former string AB with all rules applied, A spawned into AB again, former B turned into A
+              /| |     |\
+n=3:         A B A     A B  note all A's producing a copy of themselves in the first place, then a B, which turns ...
+            /| | |\   /| |
+n=4:       A B A A B A B A  ... into an A one generation later, starting to repeat then
+</pre>
+
+<h3>Input</h3>
+
+<p>The first line of input contain a string <b>S</b> representing the initial word to consider (made only of letters 'A' and/or 'B').</p>
+
+<p>The second line contains an integer <b>K</b> indicating the number of generations to compute.</p>
+
+<h3>Output</h3>
+
+<p>The output should be contain exactly <b>N</b>+1 lines: the first line contains the initial word <b>S</b> and the following <b>N</b> lines contain the next <b>N</b> generations of that word.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>|W|</b> &lt; 10</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Length of the initial word</td>
+  </tr>  
+  <tr>
+    <td>1 &le; <b>K</b> &le; 10</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of generations</td>
+  </tr>  
+</table>
+
+<p>You can be assured that the final generation will not have more than 10&nsbp;000 letters.</p>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 1</td>
+    <td>Example Output 1</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+A
+4
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+A
+AB
+ABA
+ABAAB
+ABAABABA
+</pre>
+
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 2</td>
+    <td>Example Output 2</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+ABBA
+3
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+ABBA
+ABAAAB
+ABAABABABA
+ABAABABAABAABAAB
+</pre>
+
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

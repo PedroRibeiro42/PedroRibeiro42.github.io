@@ -1,0 +1,190 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII044] Smelly Cat</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of April 14th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class06.html">class #06 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a <u>complete program with the main function</u>, reading with functions such as scanf and printing with functions such as printf.</b></p>
+
+<h2>[PII044] Smelly Cat</h2>
+
+<p><img src="pii044.png" align="right" width="250">
+  Phoebe Buffay is on a mission to create the perfect playlist one that’s just the right length for her mood, without repeating songs. She has a list of available songs (including <a target="_new" href="https://www.youtube.com/watch?v=ukiD7YyCK9g">Smelly Cat</a>, of course), and she wants to obey he following rules:
+
+  <ul>
+    <li>The total duration of the play list should not exceed duration <b>D</b> <i>(Phoebe doesn't like to be left halfway through a song)</i>
+    <li>The total duration should be as close as possible do duration <b>D</b> <i>(so that she doesn't too long listening to nothing)</i>
+    <li>No song can appear more than once in the playlist <i>(she doesn't like to hear the same song two times)</i>
+  </ul>
+
+<p>Imagine for instance that Phoebe has the following 9 songs available:</p>
+
+<table bgcolor="black">
+<tr bgcolor="#aaaaaa"><th>#</th><th>Performer</th><th>Music</th><th>Duration<br>(seconds)</th></tr>
+<tr bgcolor="white">
+  <td>01</td>
+  <td>Phoebe Buffay</td>
+  <td>Smelly Cat</td>
+  <td align="center">202</td>  
+</tr>
+<tr bgcolor="#dddddd">
+  <td>02</td>
+  <td>Yann Tiersen</td>
+  <td>Porz Goret</td>
+  <td align="center">243</td>  
+</tr>
+<tr bgcolor="white">
+  <td>03</td>
+  <td>God is an Astronaut</td>
+  <td>All Is Violent, All Is Bright</td>
+  <td align="center">254</td>  
+</tr>
+<tr bgcolor="#dddddd">
+  <td>04</td>
+  <td>Explosions In The Sky</td>
+  <td>Your Hand In Mine </td>
+  <td align="center">502</td>  
+</tr>
+<tr bgcolor="white">
+  <td>05</td>
+  <td>Opeth</td>
+  <td>Harvest</td>
+  <td align="center">385</td>  
+</tr>
+<tr bgcolor="#dddddd">
+  <td>06</td>
+  <td>Green Carnation</td>
+  <td>9-25-045</td>
+  <td align="center">942</td>  
+</tr>
+<tr bgcolor="white">
+  <td>07</td>
+  <td>Porcupine Tree</td>
+  <td>Lazarus</td>
+  <td align="center">237</td>  
+</tr>
+<tr bgcolor="#dddddd">
+  <td>08</td>
+  <td>Metallica</td>
+  <td>Fade to Black</td>
+  <td align="center">721</td>  
+</tr>
+<tr bgcolor="white">
+  <td>09</td>
+  <td>Tuna Javardemica</td>
+  <td>Ciencito Aluno</td>
+  <td align="center">192</td>  
+</tr>
+</table>
+
+<p>Consider that Phoebe wants a play list with duration <b>D = 1300 seconds</b>. If she starts adding songs while the duration is not is not exceeded, she obtains the following playlist:</p>
+
+  <ul>
+    <li><b>Alternative 1:</b> #01, #02, #03, #04 &nbsp;|&nbsp; Duration: 202+243+254+502 = <b><span style="color:red">1201 seconds</span></b>
+  </ul>
+
+<p>Phoebe then tried in increasing order of duration, starting with the smallest one, obtaining the following playlist, which is worse than the previous one:
+  
+  <ul>
+    <li><b>Alternative 2:</b> #09, #01, #07, #02, #3 &nbsp;|&nbsp; Duration: 192+202+237+243+254 = <b><span style="color:red">1128 seconds</span></b>
+  </ul>
+
+  <p>Phoebe tried many other strategies (such as starting with the longest music) but quickly discovered none of these strategies would always give the best possible solution. In particular, for this case, the best playlist is the following (with only 2 seconds less than the desired duration):
+  
+  <ul>
+    <li><b>Alternative 3:</b> #05, #08, #09 &nbsp;|&nbsp; Duration: 385+721+192 = <b><span style="color:red">1298 seconds</span></b>
+  </ul>
+  
+<p>Can you help Phoebe find the best playlist for a general case?</p>
+  
+<h3>The Problem</h3>
+
+<p>Given a duration <b>D</b> and a set of songs (specified by their duration), you have to calculate the duration of the optimal playlist, i.e. the subset of songs such that the sum of their durations is as large as possible and at the same time this sum is less than or equal to <b>D</b>.</p>
+
+<h3>Input</h3>
+
+<p>The first line of input contains two integers <b>D</b> (the desired playlist duration) and <b>N</b> (the number of songs available).</p>
+
+<p><b>N</b> lines follow, each one with am integer <b>S<sub>i</sub></b> indicating the duration of the <i>i</i>-th song. It is guaranteed that at least one song as a duration smaller or equal than <b>D</b>.</p>
+
+<h3>Output</h3>
+
+<p>The output should be a line containing the total duration of the best possible playlist, that is, the choice of a subset of songs that maximizes &sum;s<sub>i</sub> such that &sum;S<sub>i</sub>&le;D</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>D</b> &le; 10&nbsp;000</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Desired duration</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>N</b> &le; 20</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of available songs</td>
+  </tr>  
+  <tr>
+    <td>1 &le; <b>S<sub>i</sub></b> &le; 10&nbsp;000</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Duration of each song</td>
+  </tr>  
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+1300 9
+202
+243
+254
+502
+385
+942
+237
+721
+192
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+1298
+</pre>
+
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

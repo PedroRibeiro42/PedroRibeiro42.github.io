@@ -1,0 +1,129 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII025] Is it a Triangle?</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of March 31st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a file containing the function as described (<u>without any main function</u>). Inside the function do not print anything that was not asked! </b></p>
+
+<h2>[PII025] Is it a Triangle?</h2>
+
+  <p>
+    <img src="pii025.png" align="right" width="300">
+Dustin has a genius plan to impress his crush, Suzie! He wants to prove that he’s not just a nerd but also a romantic mathematician. To do this, he’s come up with a special challenge: if he can show that three numbers can form a valid triangle, it will be a sign that their love is <i>"geometrically meant to be!"</i>.</p>
+
+<p>A set of three sides forms a valid triangle if it satisfies the <a target="_blank" href="https://en.wikipedia.org/wiki/Triangle_inequality">triangle inequality theorem</a>, which states that the sum of any two sides must be bigger than the other side, that is, for any three sides <b>a</b>, <b>b</b>, and <b>c</b> it must happen that:  
+</p>
+
+<ul>
+  <li><i>a + b &gt; c</i>
+  <li><i>a + c &gt; b</i>
+  <li><i>b + c &gt; a</i>
+</ul>
+
+<p>Note that Dustin does not want to consider degenerate triangles of zero area and that is why he does not consider cases where the sum of one side is exactly the same as the sum of the two other sides.</p>
+
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">int triangle(int a, int b, int c)</span> that receives three integers <b>a</b>, <b>b</b>, and <b>c</b> and returns 1 if they can represent the lengths of a triangle and 0 otherwise.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>a</b>, <b>b</b>, <b>c</b> &le; 10<sup>5</sup></td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Lengths of the triangle</td>
+  </tr>  
+
+</table>
+
+<h3>Submission</h3>
+
+<p>You should submit a <code>.c</code> file containing the requested function, without any main function and without printing anything. You can however create additional methods, if you need them.</p>
+
+<p>Mooshak will use the following code to link to your function, read the inputs and call your method, printing its result.</p>
+
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(106, 115, 125); font-weight: 400;">// Forward declaration of function to implement</span>
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">triangle</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span>, <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span>, <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span>)</span>;
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Read number of test cases</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> n;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;n);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// For each test case read a,b,c and print</span>
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// the result of calling triangle(c,b,c)</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; i&lt;n; i++) {
+    <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> a, b, c;
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d %d %d"</span>, &amp;a, &amp;b, &amp;c);
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"triangle(%d,%d,%d) = %d\n"</span>, a, b, c, triangle(a,b,c));
+  }
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+</pre>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+6
+2 3 4
+6 4 3
+1 2 3
+3 4 8
+3 8 4
+8 3 4
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+triangle(2,3,4) = 1
+triangle(6,4,3) = 1
+triangle(1,2,3) = 0
+triangle(3,4,8) = 0
+triangle(3,8,4) = 0
+triangle(8,3,4) = 0
+</pre>
+
+    </td>
+  </tr>
+</table>
+    
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

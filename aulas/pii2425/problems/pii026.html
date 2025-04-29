@@ -1,0 +1,137 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII026] Counting Occurrences</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of March 31st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a file containing the function as described (<u>without any main function</u>). Inside the function do not print anything that was not asked! </b></p>
+
+<h2>[PII026] Counting Occurrences</h2>
+
+  <p>
+    <img src="pii026.png" align="right" width="300">
+Will Byers has a bad feeling again… The Mind Flayer is trying to break into the real world, and strange signals are appearing in Hawkins. To stop it, Will needs to decode a hidden numerical sequence that appears in his visions.</p>
+
+<p>He has an array <b>a[]</b> of <b>n</b> integers, and one specific number <b>x</b> keeps showing up in his dreams. He believes that counting how many times <b>x</b> appears in the array will help him and his friends find a way to defeat the Mind Flayer.</p>
+
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">int count(int x, int a[], int n)</span> that receives an integer <b>x</b> and an array <b>a[]</b> of size <b>n</b> and returns the number of times <b>x</b> occurs in the array.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <b>x</b> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number to count occurrences</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>a[i]</b> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Numbers in the array</td>
+    </tr>
+      <tr>
+    <td>1 &le; <b>n</b> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Size of the array</td>
+  </tr>  
+
+</table>
+
+<h3>Submission</h3>
+
+<p>You should submit a <code>.c</code> file containing the requested function, without any main function and without printing anything. You can however create additional methods, if you need them.</p>
+
+<p>Mooshak will use the following code to link to your function, read the inputs and call your method, printing its result.</p>
+
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(106, 115, 125); font-weight: 400;">// Forward declaration of function to implement</span>
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">count</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span>, <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> [], <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span>)</span>;
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Read array of n integers</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> n;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;n);
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> a[n];
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; i&lt;n; i++)
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;a[i]);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Print the array (assume size &gt;= 1)</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"a = [%d"</span>, a[<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>]);
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">1</span>; i&lt;n; i++)
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">",%d"</span>, a[i]);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"]\n"</span>);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Read q queries and for each call the count function</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> q;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;q);
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; i&lt;q; i++) {
+    <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> x;
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;x);
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"count(%d, a, %d) = %d\n"</span>, x, n, count(x, a, n));
+  }
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+</pre>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+10
+1 1 4 5 2 5 1 2 1 2
+5
+1 2 3 4 5
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+a = [1,1,4,5,2,5,1,2,1,2]
+count(1, a, 10) = 4
+count(2, a, 10) = 3
+count(3, a, 10) = 0
+count(4, a, 10) = 1
+count(5, a, 10) = 2
+</pre>
+
+    </td>
+  </tr>
+</table>
+    
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

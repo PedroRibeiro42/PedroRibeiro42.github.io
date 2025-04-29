@@ -1,0 +1,134 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII013] Buy Me Flowers</title>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of March 10th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii2425/practical/class02.html">class #02 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<h2>[PII013] Buy Me Flowers</h2>
+
+  <p>
+    <img src="pii013.jpg" align="right" width="300">
+
+Sam Blossom sells flowers to other stores and to individual customers. For stores, they offer a discount plus tax exemption, but individual customers pay a 6% tax (and have no discounts).</p>
+
+<h3>The Problem</h3>
+
+<p>Write a program that calculates the final price of flowers based on the customer's type and the initial price. Note that:
+
+<ul>
+  <li>Individual customers pay 6% tax over the price.</li>
+  <li>Stores have tax exemption (0% tax) and additional discounts, depending on the price:</li>
+</ul>
+
+<table border="1">
+  <tr>
+    <th>Amount (Euros)</th>
+    <th>Discount (%)</th>
+  </tr>
+    <tr>
+      <td>Lower than 50</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Between 50 and 200</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Over 200</td>
+      <td>10</td>
+    </tr>
+  </table>
+</p>
+
+
+<h3>Input</h3>
+
+<p>The input consists of two lines:
+<ul>
+  <li>The first line contains a floating-point number <b>P</b>, representing the price of the flowers.</li>
+  <li>The second line contains a single digit <b>C</b> representing the customer type: 1 for stores or 2 for individual customers.</li>
+</ul>
+
+
+<h3>Output</h3>
+
+<p>
+The output should be a single line displaying the final price after applying the relevant discount or tax, rounded to two decimal places.
+</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>0 &lt; <b>P</b> &le; 500</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Price of the flowers</td>
+  </tr>
+  <tr>
+    <td>1 &le; <b>C</b> &le; 2</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Customer type</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 1</td>
+    <td>Example Output 1</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+35.3
+2
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+37.42
+</pre>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 2</td>
+    <td>Example Output 2</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+235
+1
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+211.50
+</pre>
+    </td>
+  </tr>
+</table>
+    
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

@@ -1,0 +1,920 @@
+id,label,type,population
+AC,Ascension Island,country,930
+AD,Andorra,country,86700
+AE,United Arab Emirates,country,13860000
+AF,Afghanistan,country,37165000
+AG,Antigua & Barbuda,country,83600
+AI,Anguilla,country,17000
+AL,Albania,country,3172000
+AM,Armenia,country,3100000
+AO,Angola,country,36600000
+AQ,Antarctica,country,300
+AR,Argentina,country,48150000
+AS,American Samoa,country,99000
+AT,Austria,country,25227000
+AU,Australia,country,23942600
+AW,Aruba,country,184000
+AX,Åland Islands,country,26000
+AZ,Azerbaijan,country,10932000
+BA,Bosnia & Herzegovina,country,10520000
+BB,Barbados,country,290000
+BD,Bangladesh,country,207847000
+BE,Belgium,country,21970000
+BF,Burkina Faso,country,18500000
+BG,Bulgaria,country,11840000
+BH,Bahrain,country,1348000
+BI,Burundi,country,14512700
+BJ,Benin,country,7560000
+BL,St. Barthélemy,country,6900
+BM,Bermuda,country,65000
+BN,Brunei,country,501100
+BO,Bolivia,country,12851110
+BQ,Caribbean Netherlands,country,17600
+BR,Brazil,country,210001000
+BS,Bahamas,country,330000
+BT,Bhutan,country,714000
+BV,Bouvet Island,country,1
+BW,Botswana,country,3206100
+BY,Belarus,country,10600000
+BZ,Belize,country,500000
+CA,Canada,country,40566220
+CC,Cocos (Keeling) Islands,country,590
+CD,Congo - Kinshasa,country,61140000
+CF,Central African Republic,country,5614000
+CG,Congo - Brazzaville,country,4420000
+CH,Switzerland,country,19355000
+CI,Côte d’Ivoire,country,18205000
+CK,Cook Islands,country,8900
+CL,Chile,country,19970000
+CM,Cameroon,country,33442300
+CN,China,country,1509002900
+CO,Colombia,country,45130000
+CP,Clipperton Island,country,1
+CR,Costa Rica,country,4700000
+CU,Cuba,country,11000000
+CV,Cape Verde,country,950000
+CW,Curaçao,country,137700
+CX,Christmas Island,country,1400
+CY,Cyprus,country,2471100
+CZ,Czechia,country,16252000
+DE,Germany,country,197182670
+DG,Diego Garcia,country,500
+DJ,Djibouti,country,814000
+DK,Denmark,country,13889000
+DM,Dominica,country,70000
+DO,Dominican Republic,country,8008000
+DZ,Algeria,country,80400000
+EA,Ceuta & Melilla,country,150000
+EC,Ecuador,country,19740000
+EE,Estonia,country,2531000
+EG,Egypt,country,192061000
+EH,Western Sahara,country,620000
+ER,Eritrea,country,8988000
+ES,Spain,country,74770000
+ET,Ethiopia,country,138300000
+FI,Finland,country,12559320
+FJ,Fiji,country,2022500
+FK,Falkland Islands,country,2800
+FM,Micronesia,country,131600
+FO,Faroe Islands,country,48000
+FR,France,country,111599000
+GA,Gabon,country,1490000
+GB,United Kingdom,country,84528000
+GD,Grenada,country,110000
+GE,Georgia,country,5784000
+GF,French Guiana,country,207000
+GG,Guernsey,country,67000
+GH,Ghana,country,24533900
+GI,Gibraltar,country,39000
+GL,Greenland,country,56100
+GM,Gambia,country,1450000
+GN,Guinea,country,11540000
+GP,Guadeloupe,country,410000
+GQ,Equatorial Guinea,country,1233000
+GR,Greece,country,18749200
+GS,South Georgia & South Sandwich Islands,country,20
+GT,Guatemala,country,16200000
+GU,Guam,country,187000
+GW,Guinea-Bissau,country,1848000
+GY,Guyana,country,740000
+HK,Hong Kong SAR China,country,17460000
+HM,Heard & McDonald Islands,country,1
+HN,Honduras,country,7240000
+HR,Croatia,country,6368000
+HT,Haiti,country,9210000
+HU,Hungary,country,14034000
+IC,Canary Islands,country,2100000
+ID,Indonesia,country,367723000
+IE,Ireland,country,6960000
+IL,Israel,country,19182000
+IM,Isle of Man,country,90700
+IN,India,country,1704291100
+IQ,Iraq,country,50520000
+IR,Iran,country,109410000
+IS,Iceland,country,342200
+IT,Italy,country,88820700
+JE,Jersey,country,95000
+JM,Jamaica,country,5500000
+JO,Jordan,country,14700000
+JP,Japan,country,121630000
+KE,Kenya,country,74816800
+KG,Kyrgyzstan,country,4900000
+KH,Cambodia,country,15278000
+KI,Kiribati,country,176000
+KM,Comoros,country,1580000
+KN,St. Kitts & Nevis,country,52000
+KP,North Korea,country,22000000
+KR,South Korea,country,51000000
+KW,Kuwait,country,2900000
+KY,Cayman Islands,country,58000
+KZ,Kazakhstan,country,29370000
+LA,Laos,country,5489000
+LB,Lebanon,country,8043000
+LC,St. Lucia,country,150000
+LI,Liechtenstein,country,73300
+LK,Sri Lanka,country,20700000
+LR,Liberia,country,4823000
+LS,Lesotho,country,2767000
+LT,Lithuania,country,6090000
+LU,Luxembourg,country,1757000
+LV,Latvia,country,2980000
+LY,Libya,country,5000000
+MA,Morocco,country,83022000
+MC,Monaco,country,30000
+MD,Moldova,country,3210000
+ME,Montenegro,country,690000
+MF,St. Martin,country,32000
+MG,Madagascar,country,45600000
+MH,Marshall Islands,country,125000
+MK,North Macedonia,country,2004000
+ML,Mali,country,22970000
+MM,Myanmar (Burma),country,41384200
+MN,Mongolia,country,3167990
+MO,Macao SAR China,country,664000
+MP,Northern Mariana Islands,country,59400
+MQ,Martinique,country,430000
+MR,Mauritania,country,4180000
+MS,Montserrat,country,3500
+MT,Malta,country,1149000
+MU,Mauritius,country,2696000
+MV,Maldives,country,370000
+MW,Malawi,country,27955000
+MX,Mexico,country,118490880
+MY,Malaysia,country,39218100
+MZ,Mozambique,country,22501100
+NA,Namibia,country,4047000
+NC,New Caledonia,country,270000
+NE,Niger,country,19949900
+NF,Norfolk Island,country,1700
+NG,Nigeria,country,258121000
+NI,Nicaragua,country,4700000
+NL,Netherlands,country,54170000
+NO,Norway,country,6716000
+NP,Nepal,country,27494400
+NR,Nauru,country,16300
+NU,Niue,country,2200
+NZ,New Zealand,country,4630000
+OM,Oman,country,3003000
+PA,Panama,country,3136100
+PE,Peru,country,28200000
+PF,French Polynesia,country,293000
+PG,Papua New Guinea,country,8650000
+PH,Philippines,country,226215000
+PK,Pakistan,country,627419000
+PL,Poland,country,65140100
+PM,St. Pierre & Miquelon,country,5290
+PN,Pitcairn Islands,country,46
+PR,Puerto Rico,country,4500000
+PT,Portugal,country,15314000
+PW,Palau,country,17900
+PY,Paraguay,country,6020000
+QA,Qatar,country,2366600
+RE,Réunion,country,1380000
+RO,Romania,country,32912600
+RS,Serbia,country,15917000
+RU,Russia,country,144201700
+RW,Rwanda,country,11202300
+SA,Saudi Arabia,country,33000000
+SB,Solomon Islands,country,669900
+SC,Seychelles,country,186000
+SD,Sudan,country,57290000
+SE,Sweden,country,18422300
+SG,Singapore,country,11189600
+SH,St. Helena,country,5400
+SI,Slovenia,country,5193200
+SJ,Svalbard & Jan Mayen,country,2700
+SK,Slovakia,country,10851000
+SL,Sierra Leone,country,11500000
+SM,San Marino,country,30300
+SN,Senegal,country,22725700
+SO,Somalia,country,12877000
+SR,Suriname,country,957200
+SS,South Sudan,country,6170000
+ST,São Tomé & Príncipe,country,170000
+SV,El Salvador,country,5500000
+SX,Sint Maarten,country,38400
+SY,Syria,country,19066000
+SZ,Eswatini,country,1592000
+TA,Tristan da Cunha,country,270
+TC,Turks & Caicos Islands,country,53000
+TD,Chad,country,6800000
+TG,Togo,country,6510000
+TH,Thailand,country,108429800
+TJ,Tajikistan,country,9668000
+TK,Tokelau,country,2600
+TL,Timor-Leste,country,1560000
+TM,Turkmenistan,country,4962000
+TN,Tunisia,country,28500000
+TO,Tonga,country,130000
+TR,Turkey,country,99169670
+TT,Trinidad & Tobago,country,1104100
+TV,Tuvalu,country,11000
+TW,Taiwan,country,22004700
+TZ,Tanzania,country,102030000
+UA,Ukraine,country,52607000
+UG,Uganda,country,52442200
+UM,U.S. Outlying Islands,country,320
+US,United States,country,363592100
+UY,Uruguay,country,3000000
+UZ,Uzbekistan,country,35410000
+VA,Vatican City,country,1640
+VC,St. Vincent & Grenadines,country,98000
+VE,Venezuela,country,26000000
+VG,British Virgin Islands,country,35000
+VI,U.S. Virgin Islands,country,80000
+VN,Vietnam,country,84186000
+VU,Vanuatu,country,640000
+WF,Wallis & Futuna,country,22000
+WS,Samoa,country,204400
+XK,Kosovo,country,3390000
+YE,Yemen,country,23600000
+YT,Mayotte,country,327700
+ZA,South Africa,country,68491000
+ZM,Zambia,country,11190000
+ZW,Zimbabwe,country,21501000
+aa,Afar,language,2080000
+ab,Abkhazian,language,114000
+abr,Abron,language,1400000
+ace,Achinese,language,3700000
+ach,Acoli,language,1500000
+ada,Adangme,language,840000
+ady,Adyghe,language,450000
+aeb,Tunisian Arabic,language,10000000
+af,Afrikaans,language,9106100
+agq,Aghem,language,36000
+ak,Akan,language,11000000
+aln,Gheg Albanian,language,1400000
+alt,Southern Altai,language,20000
+am,Amharic,language,36050000
+amo,Amo,language,18000
+aoz,Uab Meto,language,710000
+ar,Arabic,language,333341400
+arn,Mapuche,language,270000
+aro,Araona,language,110
+arq,Algerian Arabic,language,35000000
+ary,Moroccan Arabic,language,30000000
+arz,Egyptian Arabic,language,64000000
+as,Assamese,language,17000000
+asa,Asu,language,670000
+ast,Asturian,language,640000
+atj,Atikamekw,language,5700
+av,Avaric,language,550000
+awa,Awadhi,language,23650000
+ay,Aymara,language,2800000
+az,Azerbaijani,language,9500000
+az_Arab,Azerbaijani (Arabic),language,21250000
+az_Cyrl,Azerbaijani (Cyrillic),language,1120000
+ba,Bashkir,language,1800000
+bal,Baluchi,language,10020000
+ban,Balinese,language,4700000
+bap,Bantawa,language,450000
+bar,Bavarian,language,22400000
+bas,Basaa,language,310000
+bax,Bamun,language,310000
+bbc,Batak Toba,language,2400000
+bbj,Ghomala,language,360000
+bci,Baoulé,language,2900000
+be,Belarusian,language,10080000
+bej,Beja,language,2300000
+bem,Bemba,language,5100000
+bew,Betawi,language,5500000
+bez,Bena,language,940000
+bfd,Bafut,language,150000
+bfq,Badaga,language,300000
+bft,Balti,language,450000
+bfy,Bagheli,language,640000
+bg,Bulgarian,language,8015700
+bgc,Haryanvi,language,16000000
+bgn,Western Balochi,language,1880000
+bgx,Balkan Gagauz Turkish,language,370000
+bhb,Bhili,language,1600000
+bhi,Bhilali,language,1200000
+bhk,Albay Bicolano,language,2400000
+bho,Bhojpuri,language,32370000
+bi,Bislama,language,260000
+bik,Bikol,language,3200000
+bin,Bini,language,1400000
+bjj,Kanauji,language,7300000
+bjn,Banjar,language,3905100
+bjt,Balanta-Ganja,language,92000
+bkm,Kom,language,330000
+bku,Buhid,language,8000
+bm,Bambara,language,8500000
+bm_Nkoo,Bambara (N’Ko),language,370000
+bmq,Bomu,language,160000
+bn,Bangla,language,270468000
+bo,Tibetan,language,3011000
+bpy,Bishnupriya,language,88000
+bqi,Bakhtiari,language,1200000
+bqv,Koro Wachi,language,45000
+br,Breton,language,560000
+bra,Braj,language,53000
+brh,Brahui,language,2700000
+brx,Bodo,language,1800000
+bs,Bosnian,language,3800000
+bs_Cyrl,Bosnian (Cyrillic),language,3800000
+bsc,Bassari,language,15000
+bss,Akoose,language,140000
+bto,Rinconada Bikol,language,300000
+btv,Bateri,language,73000
+bua,Buriat,language,310000
+buc,Bushi,language,45000
+bug,Buginese,language,4225000
+bum,Bulu,language,1200000
+bvb,Bube,language,63000
+byn,Blin,language,78000
+byv,Medumba,language,280000
+bze,Jenaama Bozo,language,150000
+ca,Catalan,language,8576000
+cch,Atsam,language,43000
+ccp,Chakma,language,710000
+ce,Chechen,language,940000
+ceb,Cebuano,language,25000000
+cgg,Chiga,language,2200000
+ch,Chamorro,language,46400
+chk,Chuukese,language,31000
+chm,Mari,language,530000
+cho,Choctaw,language,11000
+chp,Chipewyan,language,750
+chr,Cherokee,language,25000
+cja,Western Cham,language,260000
+cjm,Eastern Cham,language,86000
+ckb,Central Kurdish,language,11200000
+co,Corsican,language,160000
+cps,Capiznon,language,700000
+cr,Cree,language,39000
+crh,Crimean Turkish,language,250000
+crj,Southern East Cree,language,7200
+crk,Plains Cree,language,39000
+crl,Northern East Cree,language,5400
+crm,Moose Cree,language,4700
+crs,Seselwa Creole French,language,93000
+cs,Czech,language,12600000
+csb,Kashubian,language,50000
+csw,Swampy Cree,language,5000
+cv,Chuvash,language,1800000
+cy,Welsh,language,529000
+da,Danish,language,7010300
+dak,Dakota,language,19000
+dar,Dargwa,language,370000
+dav,Taita,language,400000
+dcc,Deccan,language,13000000
+de,German,language,134237000
+den,Slave,language,2300
+dgr,Dogrib,language,2700
+dje,Zarma,language,3400000
+dnj,Dan,language,1100000
+doi,Dogri,language,2600000
+dsb,Lower Sorbian,language,7000
+dtm,Tomo Kan Dogon,language,200000
+dtp,Central Dusun,language,180000
+dty,Dotyali,language,740000
+dua,Duala,language,120000
+dv,Divehi,language,370000
+dyo,Jola-Fonyi,language,390000
+dyu,Dyula,language,6300000
+dz,Dzongkha,language,360000
+ebu,Embu,language,730000
+ee,Ewe,language,4500000
+efi,Efik,language,2800000
+egl,Emilian,language,31000
+el,Greek,language,12886100
+en,English,language,1596978656
+eo,Esperanto,language,300
+es,Spanish,language,478635500
+esu,Central Yupik,language,20000
+et,Estonian,language,886100
+eu,Basque,language,1078000
+ewo,Ewondo,language,790000
+ext,Extremaduran,language,240000
+fa,Persian,language,81290000
+fan,Fang,language,410000
+ff,Fulah,language,7440000
+ffm,Maasina Fulfulde,language,1400000
+fi,Finnish,language,5697000
+fia,Nobiin,language,360000
+fil,Filipino,language,65400000
+fit,Tornedalen Finnish,language,55000
+fj,Fijian,language,360000
+fo,Faroese,language,70000
+fon,Fon,language,2800000
+fr,French,language,263365600
+frc,Cajun French,language,28000
+frp,Arpitan,language,63000
+frr,Northern Frisian,language,9700
+frs,Eastern Frisian,language,2000
+fud,East Futuna,language,4900
+fuq,Central-Eastern Niger Fulfulde,language,1400000
+fur,Friulian,language,37000
+fuv,Nigerian Fulfulde,language,14000000
+fvr,Fur,language,1200000
+fy,Western Frisian,language,740000
+ga,Irish,language,1117000
+gaa,Ga,language,790000
+gag,Gagauz,language,110000
+gan,Gan Chinese,language,24000000
+gay,Gayo,language,320000
+gbm,Garhwali,language,3500000
+gbz,Zoroastrian Dari,language,8000
+gcr,Guianese Creole French,language,52000
+gd,Scottish Gaelic,language,64000
+gil,Gilbertese,language,66000
+gjk,Kachi Koli,language,230000
+gju,Gujari,language,420000
+gl,Galician,language,3514000
+glk,Gilaki,language,3800000
+gn,Guarani,language,5672000
+gom,Goan Konkani,language,4100000
+gon,Gondi,language,3100000
+gor,Gorontalo,language,1100000
+gos,Gronings,language,620000
+grt,Garo,language,810000
+gsw,Swiss German,language,7943000
+gu,Gujarati,language,58004800
+gub,Guajajára,language,18000
+guc,Wayuu,language,130000
+gur,Frafra,language,980000
+guz,Gusii,language,2400000
+gv,Manx,language,1700
+gvr,Gurung,language,210000
+gwi,Gwichʼin,language,570
+ha,Hausa,language,34340000
+ha_Arab,Hausa (Arabic),language,2816000
+hak,Hakka Chinese,language,32000000
+haw,Hawaiian,language,29000
+haz,Hazaragi,language,2100000
+he,Hebrew,language,8400000
+hi,Hindi,language,531632200
+hif,Fiji Hindi,language,380000
+hil,Hiligaynon,language,8900000
+hnd,Southern Hindko,language,850000
+hne,Chhattisgarhi,language,14000000
+hnn,Hanunoo,language,17000
+hno,Northern Hindko,language,2500000
+ho,Hiri Motu,language,150000
+hoc,Ho,language,1300000
+hoj,Hadothi,language,1100000
+hr,Croatian,language,6810500
+hsb,Upper Sorbian,language,13000
+hsn,Xiang Chinese,language,40000000
+ht,Haitian Creole,language,8700000
+hu,Hungarian,language,12417200
+hy,Armenian,language,5458700
+hz,Herero,language,230000
+iba,Iban,language,800000
+ibb,Ibibio,language,2800000
+id,Indonesian,language,170310000
+ife,Ifè,language,110000
+ig,Igbo,language,26000000
+ii,Sichuan Yi,language,8300000
+ik,Inupiaq,language,7900
+ikt,Inuinnaqtun,language,3900
+ilo,Iloko,language,10000000
+inh,Ingush,language,230000
+is,Icelandic,language,340000
+it,Italian,language,70272820
+iu,Inuktitut,language,15000
+iu_Latn,Inuktitut (Latin),language,15000
+ja,Japanese,language,120440000
+jam,Jamaican Creole English,language,2700000
+jgo,Ngomba,language,87000
+jmc,Machame,language,420000
+jml,Jumli,language,950000
+jv,Javanese,language,89380000
+ka,Georgian,language,4305000
+kaa,Kara-Kalpak,language,480000
+kab,Kabyle,language,3200000
+kac,Kachin,language,950000
+kaj,Jju,language,430000
+kam,Kamba,language,3700000
+kao,Xaasongaxango,language,180000
+kbd,Kabardian,language,1070000
+kcg,Tyap,language,190000
+kck,Kalanga,language,740000
+kde,Makonde,language,1300000
+kdt,Kuy,language,417000
+kea,Kabuverdianu,language,520000
+kfo,Koro,language,60000
+kfr,Kachhi,language,970000
+kfy,Kumaoni,language,2900000
+kg,Kongo,language,1300000
+kge,Komering,language,840000
+kgp,Kaingang,language,21000
+kha,Khasi,language,1000000
+khb,Lü,language,260000
+khn,Khandesi,language,1900000
+khq,Koyra Chiini,language,310000
+kht,Khamti,language,13300
+khw,Khowar,language,310000
+ki,Kikuyu,language,8200000
+kiu,Kirmanjki,language,150000
+kj,Kuanyama,language,890000
+kjg,Khmu,language,420000
+kk,Kazakh,language,12000570
+kk_Arab,Kazakh (Arabic),language,1425000
+kkj,Kako,language,140000
+kl,Kalaallisut,language,55000
+kln,Kalenjin,language,3700000
+km,Khmer,language,15000000
+kmb,Kimbundu,language,7600000
+kn,Kannada,language,48000000
+knf,Mankanya,language,80000
+ko,Korean,language,76794000
+koi,Komi-Permyak,language,64000
+kok,Konkani,language,4800000
+kos,Kosraean,language,8000
+kpe,Kpelle,language,1120000
+krc,Karachay-Balkar,language,240000
+kri,Krio,language,6000000
+krj,Kinaray-a,language,410000
+krl,Karelian,language,120000
+kru,Kurukh,language,2500000
+ks,Kashmiri,language,5560000
+ksb,Shambala,language,940000
+ksf,Bafia,language,82000
+ksh,Colognian,language,240000
+ku,Kurdish,language,6820000
+ku_Arab,Kurdish (Arabic),language,100000
+kum,Kumyk,language,280000
+kv,Komi,language,260000
+kvr,Kerinci,language,370000
+kvx,Parkari Koli,language,330000
+kw,Cornish,language,2000
+kxm,Northern Khmer,language,1200000
+kxp,Wadiyara Koli,language,250000
+ky,Kyrgyz,language,2800000
+ky_Arab,Kyrgyz (Arabic),language,470000
+ky_Latn,Kyrgyz (Latin),language,1100
+la,Latin,language,820
+lad,Ladino,language,110000
+lag,Langi,language,480000
+lah,Lahnda,language,83032000
+laj,Lango [Uganda],language,1600000
+lb,Luxembourgish,language,410000
+lbe,Lak,language,110000
+lbw,Tolaki,language,340000
+lcp,Western Lawa,language,86900
+lep,Lepcha,language,77800
+lez,Lezghian,language,260000
+lg,Ganda,language,5300000
+li,Limburgish,language,940000
+lif,Limbu,language,364000
+lij,Ligurian,language,540000
+lis,Lisu,language,620000
+ljp,Lampung Api,language,1800000
+lki,Laki,language,630000
+lkt,Lakota,language,8200
+lmn,Lambadi,language,3500000
+lmo,Lombard,language,359000
+ln,Lingala,language,2934000
+lo,Lao,language,5000000
+lol,Mongo,language,520000
+loz,Lozi,language,990000
+lrc,Northern Luri,language,1950000
+lt,Lithuanian,language,2408100
+ltg,Latgalian,language,170000
+lu,Luba-Katanga,language,2000000
+lua,Luba-Lulua,language,8200000
+luo,Luo,language,4700000
+luy,Luyia,language,5300000
+luz,Southern Luri,language,1000000
+lv,Latvian,language,1200000
+lwl,Eastern Lawa,language,6900
+lzz,Laz,language,23000
+mad,Madurese,language,17000000
+maf,Mafa,language,190000
+mag,Magahi,language,16000000
+mai,Maithili,language,19300000
+mak,Makasar,language,1900000
+man,Mandingo,language,610000
+man_Nkoo,Mandingo (N’Ko),language,2700000
+mas,Masai,language,1600000
+maz,Central Mazahua,language,430000
+mdf,Moksha,language,300000
+mdh,Maguindanaon,language,1300000
+mdr,Mandar,language,240000
+men,Mende,language,1723000
+mer,Meru,language,1900000
+mey,Hassaniyya,language,7200
+mfa,Pattani Malay,language,3400000
+mfe,Morisyen,language,1200000
+mfv,Mandjak,language,120000
+mg,Malagasy,language,23000000
+mgh,Makhuwa-Meetto,language,1200000
+mgo,Metaʼ,language,120000
+mgp,Eastern Magar,language,330000
+mgy,Mbunga,language,780000
+mh,Marshallese,language,55000
+mi,Maori,language,130000
+min,Minangkabau,language,7900000
+mk,Macedonian,language,1584000
+ml,Malayalam,language,41823600
+mls,Masalit,language,430000
+mn,Mongolian,language,2902100
+mn_Mong,Mongolian (Mongolian),language,3600000
+mni,Manipuri,language,1418000
+mnw,Mon,language,950000
+moe,Montagnais,language,12000
+moh,Mohawk,language,3500
+mos,Mossi,language,7900000
+mr,Marathi,language,91000000
+mrd,Western Magar,language,250000
+mrj,Western Mari,language,30000
+mro,Mru,language,29000
+ms,Malay,language,25260000
+ms_Arab,Malay (Arabic),language,12023490
+mt,Maltese,language,450000
+mtr,Mewari,language,1300000
+mua,Mundang,language,260000
+mus,Creek,language,4000
+mvy,Indus Kohistani,language,290000
+mwk,Kita Maninkakan,language,920000
+mwr,Marwari,language,16000000
+mwv,Mentawai,language,63000
+mxc,Manyika,language,910000
+my,Burmese,language,36330000
+myv,Erzya,language,440000
+myx,Masaaba,language,1200000
+mzn,Mazanderani,language,4200000
+na,Nauru,language,6900
+nan,Min Nan Chinese,language,26000000
+nap,Neapolitan,language,600000
+naq,Nama,language,280000
+nb,Norwegian Bokmål,language,5401500
+nch,Central Huasteca Nahuatl,language,240000
+nd,North Ndebele,language,1700000
+ndc,Ndau,language,3560000
+nds,Low German,language,11600000
+ne,Nepali,language,20430000
+new,Newari,language,980000
+ng,Ndonga,language,530000
+ngl,Lomwe,language,1900000
+nhe,Eastern Huasteca Nahuatl,language,490000
+nhw,Western Huasteca Nahuatl,language,490000
+nij,Ngaju,language,970000
+niu,Niuean,language,1100
+njo,Ao Naga,language,300000
+nl,Dutch,language,31353200
+nmg,Kwasio,language,9000
+nn,Norwegian Nynorsk,language,1300000
+nnh,Ngiemboon,language,360000
+nod,Northern Thai,language,6600000
+noe,Nimadi,language,1700000
+nqo,N’Ko,language,590000
+nr,South Ndebele,language,890000
+nsk,Naskapi,language,1200
+nso,Northern Sotho,language,5200000
+nus,Nuer,language,570000
+nv,Navajo,language,170000
+nxq,Naxi,language,330000
+ny,Nyanja,language,16480000
+nym,Nyamwezi,language,1800000
+nyn,Nyankole,language,2600000
+nzi,Nzima,language,280000
+oc,Occitan,language,2000000
+om,Oromo,language,35277000
+or,Odia,language,41000000
+os,Ossetic,language,560000
+pa,Punjabi,language,36529600
+pa_Arab,Punjabi (Arabic),language,150000000
+pag,Pangasinan,language,1500000
+pam,Pampanga,language,2400000
+pap,Papiamento,language,207000
+pau,Palauan,language,16000
+pcd,Picard,language,740000
+pcm,Nigerian Pidgin,language,43000000
+pdc,Pennsylvania German,language,130000
+pdt,Plautdietsch,language,86000
+pko,Pökoot,language,340000
+pl,Polish,language,38565800
+pms,Piedmontese,language,6200
+pnt,Pontic,language,400000
+pon,Pohnpeian,language,24000
+prd,Parsi-Dari,language,840000
+ps,Pashto,language,46410000
+pt,Portuguese,language,231768600
+puu,Punu,language,190000
+qu,Quechua,language,11100000
+quc,Kʼicheʼ,language,1200000
+qug,Chimborazo Highland Quichua,language,940000
+raj,Rajasthani,language,1300000
+rcf,Réunion Creole French,language,560000
+rej,Rejang,language,1200000
+ria,Riang [India],language,170000
+rif,Riffian,language,1700000
+rif_Latn,Riffian (Latin),language,1910000
+rjs,Rajbanshi,language,130000
+rkt,Rangpuri,language,15700000
+rm,Romansh,language,41000
+rmf,Kalo Finnish Romani,language,5000
+rmo,Sinte Romani,language,24000
+rmt,Domari,language,1600000
+rmu,Tavringer Romani,language,9500
+rn,Rundi,language,7500000
+rng,Ronga,language,930000
+ro,Romanian,language,21987000
+rob,Tae',language,290000
+rof,Rombo,language,420000
+rtm,Rotuman,language,2500
+ru,Russian,language,191304200
+rue,Rusyn,language,530000
+rug,Roviana,language,9900
+rw,Kinyarwanda,language,10580000
+rwk,Rwa,language,120000
+ryu,Central Okinawan,language,970000
+sa,Sanskrit,language,16000
+saf,Safaliba,language,3900
+sah,Sakha,language,450000
+saq,Samburu,language,220000
+sas,Sasak,language,2500000
+sat,Santali,language,7100000
+sav,Saafi-Saafi,language,230000
+saz,Saurashtra,language,380000
+sbp,Sangu,language,110000
+sc,Sardinian,language,1100000
+sck,Sadri,language,2300000
+scn,Sicilian,language,510000
+sco,Scots,language,1800000
+scs,North Slavey,language,1300
+sd,Sindhi,language,28400000
+sd_Deva,Sindhi (Devanagari),language,340000
+sdc,Sassarese Sardinian,language,110000
+sdh,Southern Kurdish,language,3100000
+se,Northern Sami,language,51000
+sef,Cebaara Senoufo,language,1100000
+seh,Sena,language,1300000
+sei,Seri,language,880
+ses,Koyraboro Senni,language,630000
+sg,Sango,language,2800000
+shi,Tachelhit,language,3000000
+shi_Latn,Tachelhit (Latin),language,3000000
+shn,Shan,language,3666000
+si,Sinhala,language,15000000
+sid,Sidamo,language,3800000
+sk,Slovak,language,6672000
+skr,Saraiki,language,19000000
+sl,Slovenian,language,1948000
+sli,Lower Silesian,language,12000
+sly,Selayar,language,140000
+sm,Samoan,language,250000
+sma,Southern Sami,language,300
+smj,Lule Sami,language,1500
+smn,Inari Sami,language,610
+sms,Skolt Sami,language,610
+sn,Shona,language,11000000
+snf,Noon,language,36000
+snk,Soninke,language,1100000
+so,Somali,language,16290000
+sou,Southern Thai,language,5500000
+sq,Albanian,language,6806000
+sr,Serbian,language,7506000
+sr_Latn,Serbian (Latin),language,8139000
+srn,Sranan Tongo,language,410000
+srr,Serer,language,1700000
+srx,Sirmauri,language,450000
+ss,Swati,language,2177000
+ssy,Saho,language,210000
+st,Southern Sotho,language,6300000
+stq,Saterland Frisian,language,970
+su,Sundanese,language,32000000
+suk,Sukuma,language,4800000
+sus,Susu,language,1300000
+sv,Swedish,language,12686000
+sw,Swahili,language,156249400
+swb,Comorian,language,170000
+swg,Swabian,language,800000
+swv,Shekhawati,language,3600000
+sxn,Sangir,language,240000
+syl,Sylheti,language,8330000
+syr,Syriac,language,216000
+szl,Silesian,language,500000
+ta,Tamil,language,81984000
+taj,Eastern Tamang,language,1000000
+tbw,Tagbanwa,language,10000
+tcy,Tulu,language,1900000
+tdd,Tai Nüa,language,260000
+tdg,Western Tamang,language,390000
+tdh,Thulung,language,36000
+te,Telugu,language,93000000
+tem,Timne,language,1600000
+teo,Teso,language,1960000
+tet,Tetum,language,780000
+tg,Tajik,language,8600000
+tg_Arab,Tajik (Arabic),language,690000
+th,Thai,language,55000000
+thl,Dangaura Tharu,language,590000
+thq,Kochila Tharu,language,300000
+thr,Rana Tharu,language,360000
+ti,Tigrinya,language,10110000
+tig,Tigre,language,1100000
+tiv,Tiv,language,3300000
+tk,Turkmen,language,6690000
+tkl,Tokelau,language,1300
+tkr,Tsakhur,language,16000
+tkt,Kathoriya Tharu,language,71000
+tly,Talysh,language,980000
+tmh,Tamashek,language,1590000
+tn,Tswana,language,5945000
+tnr,Ménik,language,3500
+to,Tongan,language,100000
+tog,Nyasa Tonga,language,190000
+tpi,Tok Pisin,language,5000000
+tr,Turkish,language,79912000
+tru,Turoyo,language,3000
+trv,Taroko,language,4700
+ts,Tsonga,language,4618000
+tsd,Tsakonian,language,200
+tsg,Tausug,language,1200000
+tsj,Tshangla,language,110000
+tt,Tatar,language,2000000
+ttj,Tooro,language,780000
+tts,Northeastern Thai,language,16000000
+ttt,Muslim Tat,language,22000
+tum,Tumbuka,language,1700000
+tvl,Tuvalu,language,9900
+twq,Tasawaq,language,7900
+ty,Tahitian,language,90000
+tyv,Tuvinian,language,180000
+tzm,Central Atlas Tamazight,language,3400000
+udm,Udmurt,language,540000
+ug,Uyghur,language,7603000
+ug_Cyrl,Uyghur (Cyrillic),language,370990
+uk,Ukrainian,language,29730000
+uli,Ulithian,language,3000
+umb,Umbundu,language,8800000
+und,Unknown language,language,323
+unr,Mundari,language,1200000
+unr_Deva,Mundari (Devanagari),language,5600
+unx,Munda,language,620000
+ur,Urdu,language,265071000
+uz,Uzbek,language,26492000
+uz_Arab,Uzbek (Arabic),language,1600000
+uz_Cyrl,Uzbek (Cyrillic),language,4500000
+vai,Vai,language,130000
+ve,Venda,language,1390000
+vec,Venetian,language,810000
+vep,Veps,language,3600
+vi,Vietnamese,language,84106900
+vic,Virgin Islands Creole English,language,3100
+vls,West Flemish,language,1200000
+vmf,Main-Franconian,language,4800000
+vmw,Makhuwa,language,3500000
+vro,Võro,language,71000
+vun,Vunjo,language,420000
+wa,Walloon,language,670000
+wae,Walser,language,11300
+wal,Wolaytta,language,2000000
+war,Waray,language,3100000
+wbp,Warlpiri,language,2600
+wbr,Wagdi,language,1900000
+wls,Wallisian,language,9500
+wni,Ndzwani Comorian,language,280000
+wo,Wolof,language,11010000
+wtm,Mewati,language,6000000
+wuu,Wu Chinese,language,83000000
+xav,Xavánte,language,10000
+xh,Xhosa,language,10020000
+xmf,Mingrelian,language,540000
+xnr,Kangri,language,2100000
+xog,Soga,language,2200000
+xsr,Sherpa,language,150000
+yao,Yao,language,650000
+yap,Yapese,language,6600
+yav,Yangben,language,2300
+ybb,Yemba,language,410000
+yi,Yiddish,language,1031000
+yo,Yoruba,language,26760000
+yrl,Nheengatu,language,11000
+yua,Yucateco,language,840000
+yue,Cantonese,language,6500000
+yue_Hans,Cantonese (Simplified),language,72000000
+za,Zhuang,language,4300000
+zag,Zaghawa,language,220000
+zdj,Ngazidja Comorian,language,300000
+zea,Zeelandic,language,240000
+zgh,Standard Moroccan Tamazight,language,7500000
+zh,Chinese,language,1205033000
+zh_Hant,Traditional Chinese,language,43591300
+zmi,Negeri Sembilan Malay,language,380000
+zu,Zulu,language,13410800
+zza,Zaza,language,1100000

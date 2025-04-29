@@ -1,0 +1,342 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[PII] Practical Class #03</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Programming II 2024/2025</a> (CCINF1002) - DCC/FCUP</h3>
+  <h1>Practical Class #03 - Cycles
+    <small><small>(11/03 and 12/03)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problems/pii017.html">[PII017] Multiply Mayhem!</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii018.html">[PII018] Collatz Sequence</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii019.html">[PII019] Sum me up!</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii020.html">[PII020] Draw like an Egyptian</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii021.html">[PII021] Numerus Maximus!</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii022.html">[PII022] Spin me right round</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii023.html">[PII023] Perfection</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii024.html">[PII024] Number Spiral</a> (weight 20%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> March 24th (submit to <a href="https://mooshak.dcc.fc.up.pt/~pii/">PII's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you receive should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 18% of your final component for exercices during class. Since there will be 6 classes with submissions, you can achieve maximum grade even without doing fully doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+  
+<hr>
+
+<p>With the exercises in this class you will develop the following skills:</p>
+
+<ol>
+  <li>Explore the usage of cycle instructions such as <span class="code">while</span>, <span class="code">do...while</span> and <span class="code">for</span> (and statements such as <span class="code">break</span> and <span class="code">continue</span>)</li>
+  <li>Explore some algorithmic patterns envolving cycles (such as using accumulators and extracting the digits of a number)
+  <li>Consolidate your knowledge of coding, debugging and problem solving</li>
+</ol>
+
+<p><b>If you feel stuck, go back and revise the lecture <a href="../material.html#lectures">01: C Fundamentals</a></b>, <a href="../material.html#lectures">02: Expressions</a></b>, <a href="../material.html#lectures">03: Conditional Execution</a></b> and mostly <a href="../material.html#lectures">04: Cycles</a></b>
+
+<hr>
+
+<p><big><b>1) My first cycle program</b></big>
+
+  <ol type="a">
+    <li>Save this code to a file, compile, execute it and make sure you <b>understand everything</b> that it is doing:</p>
+
+
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> a, b;
+
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"Insert two numbers: "</span>);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d %d"</span>, &amp;a, &amp;b);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Example of a for instruction that shows all numbers between a and b</span>
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// (because the body is only one line, curly braces are optional)</span>
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// (also note how the variable can be declared inside the for initialization)</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"for:"</span>);
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=a; i&lt;=b; i++)
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">" %d"</span>, i);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"\n"</span>);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Example of a while instruction that shows all numbers between a and b</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"while:"</span>);
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i = a;
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">while</span> (i&lt;=b) {
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">" %d"</span>, i);
+    i++;
+  }
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"\n"</span>);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Example of a do while instruction that shows all numbers between a and b</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"do...while:"</span>);
+  i = a;
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">do</span> {
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">" %d"</span>, i);
+    i++;
+  } <span style="color: rgb(215, 58, 73); font-weight: 400;">while</span> (i&lt;=b);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"\n"</span>);
+
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+</pre>
+
+      <p>Here is an example execution when we input the numbers 2 and 6:
+
+<pre class="shell">
+Insert two numbers: 2 6
+for: 2 3 4 5 6
+while: 2 3 4 5 6
+do...while: 2 3 4 5 6
+</pre>
+
+<br>&nbsp;
+
+        <li>What happens if you try it with the range numbers reversed (<span class="shell">6 2</span>)? Can you understand why <span class="code">for</span> and <span class="code">while</span> do not print anything? And why does <span class="code">do...while</span> still print a number?
+
+          <br>&nbsp;
+
+        <li>What happens if you change all increments <span class="code">i++</span> to <span class="code">i+=2</span>?
+
+          <br>&nbsp;
+          
+        <li>Note how the previous change might print only odd or even numbers depending on the value of <span class="code">a</span>. Can you now change the code to only print even numbers between <span class="code">a</span> and <span class="code">b</span>? (hint: use an <span class="code">if</span> instruction combined with the remainder operator <span class="code">%</span> to check if the number is even)
+
+</ol>
+  
+<hr>
+
+<p><big><b>2) My first Mooshak cycle exercise</b></big>
+
+  <p>Armed with what you learned from the previous exercise, you are now ready to tackle the first problem from this class.
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statement, code and try to submit <span style="color:green">Accepted</span> solutions to the following problems. Don't forget to test first on your computer!</p>
+
+  <ul>
+    <li><a href="../problems/pii017.html">[PII017] Multiply Mayhem!</a>
+
+      <br>&nbsp;
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Make a cycle between <i>a</i> and <i>b</i> like in the example code
+<p>- Use an <i>if</i> statement inside the cycle to check if the number is divisible by <i>n</i>
+      </details>
+
+  </ul>
+  
+
+<br>
+
+  <hr>
+
+<p><big><b>3) Cycles inside cycles</b></big>
+
+      <details class="meme" name="meme">
+        <summary>&#128513; cycles inside cycles...</summary>
+        <p><img src="meme_cycle.jpg" height="300"></p>
+      </details>
+
+      <ol type="a">
+        <li>Save this code to a file, compile, execute it and make sure you <b>understand everything</b> that it is doing:</p>
+
+          <pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; i&lt;<span style="color: rgb(0, 92, 197); font-weight: 400;">3</span>; i++)
+    <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> j=<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; j&lt;<span style="color: rgb(0, 92, 197); font-weight: 400;">5</span>; j++)
+      <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d %d\n"</span>, i, j);
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+
+</pre>
+
+  <li>Now that you know that you can have cycles inside cycles, you are ready to tackle the next problem:
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statement, code and try to submit <span style="color:green">Accepted</span> solutions to the following problems. Don't forget to test first on your computer!</p>
+
+</ol>
+  
+  <ul>
+    <li><a href="../problems/pii018.html">[PII018] Collatz Sequence</a>
+
+      <br>&nbsp;
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Make one cycle to iterate through all test cases and inside it put the code for each test case
+<p>- Each test case can be solved by a <i>scanf</i> to read the <i>n</i> value followed by another cycle to iterate until the number becomes 1
+      </details>
+
+  </ul>
+  
+
+<br>
+
+  <hr>
+
+  <p><big><b>4) Iterating through the digits of a number</b></big>
+
+      <ol type="a">
+        <li>Save this code to a file, compile, execute it and make sure you <b>understand everything</b> that it is doing:</p>
+
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> n = <span style="color: rgb(0, 92, 197); font-weight: 400;">5672</span>;
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// print all digits of n</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">while</span> (n&gt;<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>) {
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d\n"</span>, n%<span style="color: rgb(0, 92, 197); font-weight: 400;">10</span>);
+    n /= <span style="color: rgb(0, 92, 197); font-weight: 400;">10</span>;
+  }
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+</pre>
+
+  <li>Now that you know that you can have cycles inside cycles, you are ready to tackle the next problem:
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statement, code and try to submit <span style="color:green">Accepted</span> solutions to the following problems. Don't forget to test first on your computer!</p>
+
+</ol>
+  
+  <ul>
+    <li><a href="../problems/pii019.html">[PII019] Sum me up!</a>
+
+      <br>&nbsp;
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Make one cycle to iterate through all test cases and inside it put the code for each test case
+<p>- Each test case can be solved by a <i>scanf</i> to read the <i>n</i> value followed by another cycle to iterate through the digits of <i>n</i>
+<p>- To sum, use an auxiliary variable that can serve as an <i>accumulator</i>: first it should be initialized to zero and then you increment the value with the current digit
+      </details>
+
+  </ul>
+
+
+<br>
+
+  <hr>
+
+    <p><big><b>5) More cycle problems! </b></big>
+
+    <p>Can you now solve two problems withouth having any base code?
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statement, code and try to submit <span style="color:green">Accepted</span> solutions to the following problems. Don't forget to test first on your computer!</p>
+  
+<ul>
+  
+  <li><a href="../problems/pii020.html">[PII020] Draw like an Egyptian</a><br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Make one cycle to iterate through all test cases and inside it put the code for each test case
+<p>- After reading <i>n</i>, each test case can be solved by two other cycles: one for iterating all lines and inside each line one for iterating trough the columns
+<p>- Knowing you are on line <i>i</i> and column <i>j</i>, can you create an <i>if</i> clause to decide if it should be a <code>'#'</code> or a <code>'.'</code>?
+      </details>
+
+<br>&nbsp;
+      
+      
+  <li><a href="../problems/pii021.html">[PII021] Numerus Maximus!</a>
+
+    <br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Make one cycle to iterate through all test cases and inside it put the code for each test case
+<p>- After reading <i>n</i>, each test case can be solved by two other cycle that tries all possible divisors
+<p>- Do you need more help or can you do the rest by yourself? &#128513;
+      </details>
+
+</ul>
+      
+
+<br>
+
+  <hr>
+
+  
+  <p><h3>Extra exercises for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+
+<p>Loved the main exercises and craving more challenges? These extra problems are here to help you sharpen your skills and reward those that are coding for the love of learning &#128525;    
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+  
+  <ol type="a">  
+    <li><a href="../problems/pii022.html">[IP022] Spin me right round</a>
+
+          <br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- While traversing the digits, if you keep the "last" digit, you can compare it to the current one, right? &#128521;
+        <p>- Be careful with the order you are iterating  
+      </details>
+
+      <br>&nbsp;
+      
+    <li><a href="../problems/pii023.html">[IP023] Perfection</a>
+
+    <br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- Think first of an "easier" problem: can you calculate the reverse of a number? While iterating through the digits, how can you incrementally build the reverse number?
+        <p>- After having the original and the reversed number, the problem becomes trivial!
+      </details>
+
+      <br>&nbsp;
+      
+  </ol>
+    
+    <hr>
+
+       <h3>Challenge exercise <span style="color:DarkRed">[challenge]</span></h3>
+
+<p>You almost conquered the cycles set of problems, but there is still one last hurdle. Can you do the ultimate challenge of this class?</p>
+
+<p>This challenge is of <b>algorithmic nature</b>, so you need and <b>efficient solution</b> and not just a correct (but more "brute force") approach if you don't want to face a <span style="color:red"><b>Time Limit Exceeded</b></span>. Can you see some patterns on the spiral and how you can take advantage of them?</p>
+
+<p>This exercise is more challenging and not so trivial or immediate, so give yourself some time to think about it before looking or asking for help.</p>
+
+    <ul>
+      <li>Solve and submit the problem <a href="../problems/pii024.html">[PI024] Number Spiral</a>
+    </ul>
+
+    <p>Happy coding! &#128522;</p> 
+  
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

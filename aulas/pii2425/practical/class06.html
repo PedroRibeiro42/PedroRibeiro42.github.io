@@ -1,0 +1,262 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[PII] Practical Class #06</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Programming II 2024/2025</a> (CCINF1002) - DCC/FCUP</h3>
+  <h1>Practical Class #06 - Recursion
+    <small><small>(01/04 and 02/04)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problems/pii041.html">[PII041] Could This Word be Any More Backwards?</a> (weight 25%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii042.html">[PII042] Wait, Is That Microbe Moving?</a> (weight 25%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii043.html">[PII043] This Is An Emergency!</a> (weight 25%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii044.html">[PII044] Smelly Cat</a> (weight 25%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii045.html">[PII045] The One with the Perfect Path</a> (weight 25%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii046.html">[PII046] How You Doin', Bomb?</a> (weight 25%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> April 14th (submit to <a href="https://mooshak.dcc.fc.up.pt/~pii/">PII's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you receive should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 18% of your final component for exercices during class. Since there will be 6 classes with submissions, you can achieve maximum grade even without doing fully doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+  
+<hr>
+
+<p>With the exercises in this class you will develop the following skills:</p>
+
+<ol>
+  <li>Understand what is recursion and how it works
+  <li>Be capable of creating a simple recursive function
+  <li>Understand and use flood fill
+  <li>Understand and use subset generation
+  <li>Understand and use permutations generation
+  <li>Consolidate your knowledge of coding, debugging and problem solving</li>
+</ol>
+
+<p><b>If you feel stuck, go back and revise all the lectures, with special emphasis on <a href="../material.html#lectures">10: Recursion</a></b>.
+
+<hr>
+
+<p>This week's theme for the exercises is <a href="https://en.wikipedia.org/wiki/Friends">Friends</a>.</p>
+
+<p><img src="friends.png" width="300"></p>
+
+<hr>
+
+<p><big><b>1) A first example</b></big>
+
+  <ol type="a">
+ <li><b>Testing various ways of computing the maximum</b><br>
+	Download the code given in the classes to compute the maximum of a given range in an array. Compile, test and verify that you know exactly how the code is working.<br>
+	  <i>Suggestion:</i> at the beginning of each recursive function, print the values of <i>start</i> and <i>end</i> if you want to check how the recursive calls are being made. 
+      </li>
+	<ul>
+	  <li><a class="code" href="../code/max.c">max.c</a> - 3 versions of finding the maximum of a range in an array (one iterative and two recursive) <font color="darkblue">[see slides 3 to 6]</font>
+	</ul>
+
+ <li><b>Recursively computing the sum of an array</b><br>
+   Using as a basis the maximum code, implement and test two recursive versions of a function to compute the sum of the elements between positions <i>start</i> and <i>end</i> of an array <i>v[]</i>:
+	<ul>
+	  <li><span class="code">int sumRec1(int v[], int start, int end)</span> - divides the array between the first element and the rest of the array
+	  <li><span class="code">int sumRec2(int v[], int start, int end)</span> - divides the array between the left half and the right half
+	</ul>
+
+</ol>
+
+<hr>
+
+<p><big><b>2) Palindromes</b></big>
+  
+<ol type="a">
+ <li><b>Testing a recursive definition of a reverse function</b><br>
+	Download the code given in the classes to reverse an array. Compile, test and verify that you know exactly how the code is working.
+      </li>
+	<ul>
+	  <li><a class="code" href="../code/reverse.c">reverse.c</a> - a recursive function for reversing an array <font color="darkblue">[see slide 15]</font>
+	</ul>
+
+<p>
+  
+ <li><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    <b>Using as a basis the previous code</b>, read the statement, code and try to submit an <span style="color:green">Accepted</span> <b><font color="brown">recursive</font></b> solution to the following problem. Don't forget to test first on your computer!</p>
+
+  <ul>
+    <li><a href="../problems/pii041.html">[PII041] Could This Word be Any More Backwards?</a><br>
+      
+      &nbsp;<br>
+      
+      Remember that you should be trying to produce a <b>recursive</b> function!
+  </ul>
+
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Everything is very similar to <code>reverse</code>, but now the function returns an int and the argument is an array... of chars
+<p>- In order for the array to be a palindrome, the first character needs to be the same as the last one <b>AND</b> the rest of the array should also be a palindrome
+<p>- For the base case (size of array smaller than two) what should now be the result?
+  
+      </details>
+  
+</ol>
+  
+<br>
+
+  <hr>
+
+<p><big><b>3) Flood Fill</b></big>
+
+  <ol type="a">
+    <li>For the next two problems we will be playing with the concept of a recursive <a href="https://en.wikipedia.org/wiki/Flood_fill">flood fill</a>.
+
+      Download the code given in the classes to perform flood fill. Compile, test and verify that you know exactly how the code is working.
+      </li>
+	<ul>
+	  <li><a class="code" href="../code/floodfill.c">floodfill.c</a> - a recursive function for flood fill <font color="darkblue">[see slides 16 to 19]</font>
+    <li><a class="code" href="../code/floodfill.txt">floodfill.txt</a> - example input for the flood fill
+	</ul>
+
+<p>
+  
+ <li><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    <b>Using as a basis the previous code</b>, read the statement, code and try to submit an <span style="color:green">Accepted</span> solution to the following problem. Don't forget to test first on your computer!</p>
+
+  <ul>
+    <li><a href="../problems/pii042.html">[PII042] Wait, Is That Microbe Moving?</a><br>&nbsp;
+  </ul>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- The type of input is almost the same, so the code is applicable almost directly
+<p>- Be careful with the notion of neighborhood, since on this problem diagonal cells are also adjacent. What do you need to change on the recursive function?
+<p>- To find the largest microbe colony, count the size of each connected component and print the maximum
+<p>- For each new case, what variables do you need to <i>reset</i>? What is that state of visited[][] after finishing the previous case? What should it be before starting a new case?
+      </details>
+
+      <p>&nbsp;
+      
+ <li><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    <b>Using as a basis the previous code</b>, read the statement, code and try to submit an <span style="color:green">Accepted</span> solution to the following problem. Don't forget to test first on your computer!</p>
+
+  <ul>
+    <li><a href="../problems/pii043.html">[PII043] This Is An Emergency!</a><br>&nbsp;
+  </ul>
+  
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- The type of input is almost the same, so the code is applicable almost directly
+<p>- In opposition to what happened before, now you should flood fill <code>'.'</code> and avoid <code>'#'</code>
+<p>- Start your flood fill on the <code>'R'</code> cell. It it reaches <code>'S'</code>, then print <code>yes</code>, otherwise print <code>no</code>
+<p>- As before, don't forget to reset your variables from case to case
+      </details>
+
+      
+  </ol>
+  
+      
+<br>
+
+  <hr>
+
+<p><big><b>4) Generating subsets</b></big>
+
+  <ol type="a">
+    <li>Download the code given in the classes to generate subsets. Compile, test and verify that you know exactly how the code is working.
+      </li>
+	<ul>
+	  <li><a class="code" href="../code/subsets.c">subsets.c</a> - recursively generate subsets <font color="darkblue">[see slides 20 to 22]</font>
+	</ul>
+
+  <p>
+
+ <li><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    <b>Using as a basis the previous code</b>, read the statement, code and try to submit an <span style="color:green">Accepted</span> solution to the following problem. Don't forget to test first on your computer!</p>
+
+  <ul>
+    <li><a href="../problems/pii044.html">[PII044] Smelly Cat</a><br>&nbsp;
+  </ul>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- What does it mean to exhaustively try out every possible playlist? Basically, we want all the subsets!
+<p>- To test a playlist, instead of printing out a subset, we want to add up the duration of the songs in that subset
+<p>- Of all the subsets, we keep the best one (the one with the highest sum and smaller than <b>D</b>)
+<p>- Note: this solution of exhaustive search generating all subsets is exponential - in more advanced courses you would learn how to solve a problem like this more efficiently using an algorithmic technique called <a href="https://en.wikipedia.org/wiki/Dynamic_programming">dynamic programming</a>
+      </details>
+
+</ol>
+
+<hr>
+  
+  
+  <p><h3>Extra exercises for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+
+<p>Do you want to continue your adventure on the world of recursion? Here is one more exercise &#128578;</p>
+
+  <p>Start by downloading the following code that generates all permutations of <i>n</i> elements. Compile, test and verify that you know exactly how the code is working.
+    
+	<ul>
+	  <li><a class="code" href="../code/permutations.c">permutations.c</a> - recursively generate permutatations
+	</ul>
+
+<p>
+  
+ <a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    <b>Using as a basis the previous code</b>, read the statement, code and try to submit an <span style="color:green">Accepted</span> solution to the following problem. Don't forget to test first on your computer!</p>
+
+  <ul>
+    <li><a href="../problems/pii045.html">[PII045] The One with the Perfect Path</a><br>&nbsp;
+  </ul>
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- What does it mean to exhaustively try all possible paths?  Basically, we want all the permutations of the places, because a path is is completely defined by the order in which we visit the sites.
+    
+<p>- To test a permutation, instead of printing it out, we want to add up the distances travelled
+    
+<p>- Of all the permutations, we keep the best one (the one with the smallest sum)
+
+<p>- Note: this problem is essentially a Euclidean version of the <a href="https://en.wikipedia.org/wiki/Travelling_salesman_problem">Traveling Salesman Problem</a>, which is a computationally hard problem with no known efficient version for a geneneral case
+</details>    
+      
+      <br>
+      
+    <hr>
+
+    <h3>Challenge exercise <span style="color:DarkRed">[challenge]</span></h3>
+
+<p>You've solved every last problem in the Friends Problemset! Your logic is sharper than Ross's fossil collection, your determination stronger than Joey’s love for sandwiches, and your problem-solving speed? Faster than Chandler making an awkward joke in a serious moment! 🚀</p>
+
+<p>But wait… just when you thought you could kick back with a coffee at Central Perk—there’s one final challenge. 😈 Are you on a break or ready to bring your A-game?  😏
+    
+<p>This challenge is not as hard as the past one from an algorithmic efficiency point of view, but it is larger and involves knowing how to break the problem into smaller (easier to solve) subproblems and producing organized and structured code.
+  
+<p>Give yourself some time to think about it and be sure to chat with your professors for hints or to proudly talk about how you solve it &#128513;</p>
+
+    <ul>
+      <li>Solve and submit the problem <a href="../problems/pii046.html">[PI046] How You Doin', Bomb?</a>
+    </ul>
+
+    <p>Happy coding! &#128522;</p> 
+  
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

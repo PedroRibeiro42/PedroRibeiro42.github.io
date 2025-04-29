@@ -1,0 +1,286 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[PII] Practical Class #04</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Programming II 2024/2025</a> (CCINF1002) - DCC/FCUP</h3>
+  <h1>Practical Class #04 - Functions and Arrays
+    <small><small>(18/03 and 19/03)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problems/pii025.html">[PII025] Is it a Triangle?</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii026.html">[PII026] Counting Occurrences</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii027.html">[PII027] Maximum Difference</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii028.html">[PII028] Reverse it!</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii029.html">[PII029] Telekinetic Sorting</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii030.html">[PII030] Shifting Messages</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii031.html">[PII031] The Perfect Ice Cream</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii032.html">[PII032] Secret Number</a> (weight 20%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> March 31st (submit to <a href="https://mooshak.dcc.fc.up.pt/~pii/">PII's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you receive should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 18% of your final component for exercices during class. Since there will be 6 classes with submissions, you can achieve maximum grade even without doing fully doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+  
+<hr>
+
+<p>With the exercises in this class you will develop the following skills:</p>
+
+<ol>
+  <li>Explore function definition and calling, argument passing and return statements
+  <li>Explore how functions help in reusing code and making it more organized
+  <li>Explore arrays, how to create and how to use them
+  <li>Have a basic understanding of what algorithmic efficiency is
+  <li>Consolidate your knowledge of coding, debugging and problem solving</li>
+</ol>
+
+<p><b>If you feel stuck, go back and revise the lecture <a href="../material.html#lectures">01: C Fundamentals</a></b>, <a href="../material.html#lectures">02: Expressions</a></b>, <a href="../material.html#lectures">03: Conditional Execution</a></b>, <a href="../material.html#lectures">04: Cycles</a></b> and mostly <a href="../material.html#lectures">05: Functions</a></b>, <a href="../material.html#lectures">06: Arrays</a></b> and <a href="../material.html#lectures">07: About Algorithms</a></b>
+
+<hr>
+
+<p>This week's theme for the exercises is <a href="https://www.imdb.com/title/tt4574334/">Stranger Things</a>.</p>
+
+<p><img src="strangerthings.png" width="300"></p>
+
+<hr>
+
+<p><big><b>1) My first function</b></big>
+
+<p>On this class you will be using functions. Here is a very simple example to remind you of them:
+  
+  <ol type="a">
+    <li>Save this code to a file, compile, execute it and make sure you <b>understand everything</b> that it is doing:</p>
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(106, 115, 125); font-weight: 400;">// Simple function to return the sum of two integers</span>
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">sum</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> a, <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> b)</span> {
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> a+b;
+}
+
+<span style="color: rgb(106, 115, 125); font-weight: 400;">// Simple function to return the maximum of two integers</span>
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">max</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> a, <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> b)</span> {
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">if</span> (a&gt;b) <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> a;
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">else</span> <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> b;
+}
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// You can call functions passing variable arguments</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> a = <span style="color: rgb(0, 92, 197); font-weight: 400;">2</span>;
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> b = <span style="color: rgb(0, 92, 197); font-weight: 400;">3</span>;  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> c = sum(a,b);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"sum(%d, %d) = %d\n"</span>, a, b, c);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// You can also call them directly</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"sum(4, 5) = %d\n"</span>, sum(<span style="color: rgb(0, 92, 197); font-weight: 400;">4</span>,<span style="color: rgb(0, 92, 197); font-weight: 400;">5</span>));
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"max(42, 1) = %d\n"</span>, sum(<span style="color: rgb(0, 92, 197); font-weight: 400;">42</span>,<span style="color: rgb(0, 92, 197); font-weight: 400;">1</span>));
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"max(6, 10) = %d\n"</span>, sum(<span style="color: rgb(0, 92, 197); font-weight: 400;">6</span>,<span style="color: rgb(0, 92, 197); font-weight: 400;">10</span>));
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+
+</pre>
+
+      <p>Here is its output:
+
+<pre class="shell">
+sum(2, 3) = 5
+sum(4, 5) = 9
+max(42, 1) = 43
+max(6, 10) = 16
+</pre>
+
+<br>&nbsp;
+
+        <li>Can you create and test a new function to return the minimum of two numbers?
+</ol>
+  
+<hr>
+
+<p><big><b>2) My first Mooshak function exercise</b></big>
+
+<p>Armed with what you learned from the previous exercise, you are now ready to tackle the first problem from this class.</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statement, code and try to submit <span style="color:green">Accepted</span> solutions to the following problems. Don't forget to test first on your computer!</p>
+
+  <ul>
+    <li><a href="../problems/pii025.html">[PII025] Is it a Triangle? </a>
+
+      <br>&nbsp;
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Make a cycle between <i>a</i> and <i>b</i> like in the example code
+<p>- Use an <i>if</i> statement inside the cycle to check if the number is divisible by <i>n</i>
+      </details>
+
+  </ul>
+
+<p>Note that for the exercises of the class you need to submit a <code>.c</code> file with only the function definition (and <b>no main function</b>).<br>
+  For instance, the following code could be the full content of a <code><a href="pii025.c">pii025.c</a></code> file to submit on Mooshak (it would give <span style="color:red">Wrong Answer</span> as result because obviously it does not produce the correct answer).
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">triangle</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> a, <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> b, <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> c)</span> {
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+</pre>
+
+
+<p>If you want to test on your computer you can compile with the test code that is given on the problem statement:</p>
+
+<ul>
+  <li>You can add the function at the end of the given test code<br>
+    or
+  <li>You can compile both files. Imagine the test code is on file <code><a href="pii025_test.c">pii025_test.c</a></code> and the function definition is on <code><a href="pii025.c">pii025.c</a></code> - you could compile by a command line such as:<br>&nbsp;<br>
+
+    <span class="shell">gcc -Wall -o pii035 pii035_test.c pii035.c</span>
+</ul>
+  
+<br>
+
+  <hr>
+
+<p><big><b>3) My first array code</b></big>
+
+<p>Test the code examples from the lectures on arrays. Make sure to compile, run and understand what's happening:
+
+  <ul>
+    <li><code><a href="../code/arrays.c">arrays.c</a></code> - simple usage of an array
+    <li><code><a href="../code/array_functions.c">array_functions.c</a></code> - using an array as argument of a function
+    <li><code><a href="../code/array_modify.c">array_modify.c</a></code> - changing the array inside the function
+  </ul>
+  
+  <hr>
+
+    <p><big><b>4) Array problems </b></big>
+
+    <p>Can you now solve four problems with arrays?
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statement, code and try to submit <span style="color:green">Accepted</span> solutions to the following problems. Don't forget to test first on your computer!</p>
+  
+<ul>
+  
+  <li><a href="../problems/pii026.html">[PII026] Counting Occurrences</a><br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- A simple cycle on the array elements while keeping the current sum on a variable and then return that sum
+      </details>
+
+<br>&nbsp;
+            
+  <li><a href="../problems/pii027.html">[PII027] Maximum Difference</a>
+
+    <br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- A cycle through the elements and keeping the maximum difference<br>
+<p>- Be careful to always consideer absolute differente (e.g. use ifs or make a separate function to return absolute difference)
+      </details>
+
+      <br>&nbsp;
+            
+  <li><a href="../problems/pii028.html">[PII028] Reverse it!</a>
+
+    <br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Swap first element with last, second with second to last, etc
+  or
+</p>- Create auxiliary array, copy everything to it and the do a cycle from the last element to the first and put the elements in place on the original array
+      </details>
+
+      <br>&nbsp;
+            
+  <li><a href="../problems/pii029.html">[PII029] Telekinetic Sorting</a>
+
+    <br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- Can you think on any algorithm to sort? (it does not need to be efficient)<br>
+          For example, how would you sort cards on your hand?<br>
+          Here are three simple examples that use simple cycles: <a href="https://en.wikipedia.org/wiki/Bubble_sort">Bubble Sort</a> | <a href="https://en.wikipedia.org/wiki/Insertion_sort">Insertion Sort</a> | <a href="https://en.wikipedia.org/wiki/Selection_sort">Selection Sort</a><br>
+          Can you implement all three algorithms and test them?
+      </details>
+
+</ul>
+      
+
+<br>
+
+  <hr>
+
+  
+  <p><h3>Extra exercises for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+
+<p>Loved the main exercises and craving more challenges? These extra problems are here to help you sharpen your skills and reward those that are coding for the love of learning &#128525;    
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+  
+  <ol type="a">  
+    <li><a href="../problems/pii030.html">[IP030] Shifting Messages</a>
+
+          <br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- Can you do one without any help?
+      </details>
+
+      <br>&nbsp;
+      
+    <li><a href="../problems/pii031.html">[IP031] The Perfect Ice Cream</a>
+
+    <br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- <a href="https://en.wikipedia.org/wiki/Binary_search">Binary search</a> is your friend :)
+      </details>
+
+      <br>&nbsp;
+      
+  </ol>
+    
+    <hr>
+
+       <h3>Challenge exercise <span style="color:DarkRed">[challenge]</span></h3>
+
+<p>This challenge is of <b>algorithmic nature</b>, so you need and <b>efficient solution</b> and not just a correct (but more "brute force") approach if you don't want to face a <span style="color:red"><b>Time Limit Exceeded</b></span>. Can you see some patterns on the spiral and how you can take advantage of them?</p>
+
+<p>This exercise is more challenging and not so trivial or immediate, so give yourself some time to think about it before looking or asking for help.</p>
+
+    <ul>
+      <li>Solve and submit the problem <a href="../problems/pii032.html">[PI032] Secret Number</a>
+    </ul>
+
+    <p>Happy coding! &#128522;</p> 
+  
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

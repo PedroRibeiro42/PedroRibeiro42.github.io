@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[PII] Practical Class #05</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Programming II 2024/2025</a> (CCINF1002) - DCC/FCUP</h3>
+  <h1>Practical Class #05 - Strings
+    <small><small>(25/03 and 26/03)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problems/pii033.html">[PII033] Intercepted Messages</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii034.html">[PII034] Secret Message</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii035.html">[PII035] Word Clean Up</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii036.html">[PII036] Valar Morghulis</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii037.html">[PII037] Unique Words</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii038.html">[PII038] Whispers in the Shadows</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii039.html">[PII039] You know nothing, Jon Snow</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii040.html">[PII040] Dracarys!</a> (weight 20%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> April 7th (submit to <a href="https://mooshak.dcc.fc.up.pt/~pii/">PII's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you receive should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 18% of your final component for exercices during class. Since there will be 6 classes with submissions, you can achieve maximum grade even without doing fully doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+  
+<hr>
+
+<p>With the exercises in this class you will develop the following skills:</p>
+
+<ol>
+  <li>Explore function definition and calling, argument passing and return statements
+  <li>Understand that a string it at its essence an array of chars with a terminator character
+  <li>Understand how to read, print, create and manipulate strings
+  <li>Understand how to traverse a string and how to do something with it
+  <li>Know some library functions to work with strings
+  <li>Consolidate your knowledge of coding, debugging and problem solving</li>
+</ol>
+
+<p><b>If you feel stuck, go back and revise all the lectures, with special emphasis on <a href="../material.html#lectures">06: Arrays</a></b>, <a href="../material.html#lectures">08: Basic Types</a></b> and <a href="../material.html#lectures">09: Strings</a></b>, .
+
+<hr>
+
+<p>This week's theme for the exercises is <a href="https://en.wikipedia.org/wiki/Game_of_Thrones">Game of Thrones</a>.</p>
+
+<p><img src="gos.png" width="400"></p>
+
+<hr>
+
+<p><big><b>1) Getting started with strings and characters</b></big>
+
+  <ol type="a">
+    <li>On this class you will be using functions that receive strings. Here is a very simple example:
+
+      <p>Save the following code to a file, compile, execute it and make sure you <b>understand everything</b> that it is doing:</p>
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(106, 115, 125); font-weight: 400;">// Function to compute the string length</span>
+<span style="color: rgb(106, 115, 125); font-weight: 400;">// (iterate over all position until terminator is reached)</span>
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">length</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">char</span> str[])</span> {
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> len = <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">while</span> (str[len] != <span style="color: rgb(3, 47, 98); font-weight: 400;">'\0'</span>)
+    len++;
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> len;
+}
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Create 3 strings</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">char</span> s1[<span style="color: rgb(0, 92, 197); font-weight: 400;">2</span>] = <span style="color: rgb(3, 47, 98); font-weight: 400;">"c"</span>;          <span style="color: rgb(106, 115, 125); font-weight: 400;">// we can use exact size (+1 for '\0')</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">char</span> s2[<span style="color: rgb(0, 92, 197); font-weight: 400;">100</span>] = <span style="color: rgb(3, 47, 98); font-weight: 400;">"code"</span>;     <span style="color: rgb(106, 115, 125); font-weight: 400;">// we can use larger size than length</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">char</span> s3[] = <span style="color: rgb(3, 47, 98); font-weight: 400;">"programming"</span>; <span style="color: rgb(106, 115, 125); font-weight: 400;">// we can ommit size</span>
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Call the length function for each of the 3 strings</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"length of \"%s\" is %d\n"</span>, s1, length(s1));
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"length of \"%s\" is %d\n"</span>, s2, length(s2));
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"length of \"%s\" is %d\n"</span>, s3, length(s3));
+      
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+</pre>
+
+      <p>Here is its output:
+
+<pre class="shell">
+length of "c" is 1
+length of "code" is 4
+length of "programming" is 11
+</pre>
+
+<br>&nbsp;
+
+        <li>Now that you understand string basics, let's see an example of working with chars and what is the <span class="code">&lt;ctype.h&gt;</span> header file (see its <a href="https://en.cppreference.com/w/c/header/ctype">documentation</a>)
+
+          <p>Save this code to a file, compile, execute it and make sure you <b>understand everything</b> that it is doing:</p>
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+<span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;ctype.h&gt;</span> <span style="color: rgb(106, 115, 125); font-weight: 400;">// A library with utilities for characters</span></span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">char</span> c = <span style="color: rgb(3, 47, 98); font-weight: 400;">'a'</span>;
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Test several isX functions</span>
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// . if true, return number different than 0</span>
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// . if false, return 0</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"islower(%c) = %d\n"</span>, c, <span style="color: rgb(227, 98, 9); font-weight: 400;">islower</span>(c));
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"isupper(%c) = %d\n"</span>, c, <span style="color: rgb(227, 98, 9); font-weight: 400;">isupper</span>(c));
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"isalpha(%c) = %d\n"</span>, c, <span style="color: rgb(227, 98, 9); font-weight: 400;">isalpha</span>(c));
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"isspace(%c) = %d\n"</span>, c, <span style="color: rgb(227, 98, 9); font-weight: 400;">isspace</span>(c));
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"isdigit(%c) = %d\n"</span>, c, <span style="color: rgb(227, 98, 9); font-weight: 400;">isdigit</span>(c));
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Test several toX functions</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"tolower(%c) = %c\n"</span>, c, <span style="color: rgb(227, 98, 9); font-weight: 400;">tolower</span>(c));
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"toupper(%c) = %c\n"</span>, c, <span style="color: rgb(227, 98, 9); font-weight: 400;">toupper</span>(c));
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+
+</pre>
+
+<p>Here is its output:
+
+<pre class="shell">
+islower(a) = 512
+isupper(a) = 0
+isalpha(a) = 1024
+isspace(a) = 0
+isdigit(a) = 0
+tolower(a) = a
+toupper(a) = A
+c = a; code of c is 97
+c = a; c+1 = b
+c = a; c+2 = c
+</pre>
+
+</ol>
+
+<hr>
+
+<p><big><b>2) My first string functions</b></big>
+  
+<br>&nbsp;
+
+<li>Armed with what you learned from the previous exercise, and also knowing how to work with cycles, arrays and functions, you are now ready to tackle the first problems from this class.</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statement, code and try to submit <span style="color:green">Accepted</span> solutions to the following problems. Don't forget to test first on your computer!</p>
+
+  <ul>
+    <li><a href="../problems/pii033.html">[PII033] Intercepted Messages</a>
+
+      <br>&nbsp;
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Make a cycle to traverse the string as in the <code>length</code> function example
+<p>- For each position use the <code>isdigit</code> to check if the current char is a digit and in that case increment the counter<br>
+  (<i>(instead of using isdigit you could also check if the character is >='0' && <='9')</i>)
+<p>- In the end, return the result accumulated in the counter
+  
+      </details>
+
+      <br>&nbsp;
+
+    <li><a href="../problems/pii034.html">[PII034] Secret Message</a>
+
+      <br>&nbsp;
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Make a cycle to traverse the string and change each char to its transformed/ciphered version if it is a lowercase letter
+<p>- Remember each char can be used as an integer
+<p>- To shift it <i>k</i> positions you only need to add <i>k</i> to it (and take care to "wrap around" if it results in something bigger than 'z')
+      </details>
+
+      <br>&nbsp;
+
+    <li><a href="../problems/pii035.html">[PII035] Word Clean Up</a>
+
+      <br>&nbsp;
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Can you do one without help? &#128522; Think on how you can use a cycle...
+<p>- Although not really necessary, you can opt to use an extra temporary string to produce the "new string" and the copy it back to the original char array
+<p>- Don't forget to add the terminator ('\0') at the end of the string
+      </details>
+
+      <br>&nbsp;
+      
+    <li><a href="../problems/pii036.html">[PII036] Valar Morghulis</a>
+
+      <br>&nbsp;
+      
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Make a cycle to traverse the string 
+<p>- Keep a variable showing how many chars you already matched on the key
+<p>- If the current string cha matches the first non-matched char on the key, increase the number of matched chars
+<p>- If all characters are matched, you can return 1 (or 0 otherwise)
+      </details>      
+  </ul>
+
+  
+  
+<br>
+
+  <hr>
+
+<p><big><b>3) Reading and storing several strings</b></big>
+
+<p>For the next problem you will make again a full program (and not just a function). It will be helpful to store several strings.</p>
+  
+<p>Here is some example code that might help you get started for the next problem. Test the code. Make sure to compile, run and understand what's happening:</p>
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;  font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">define</span> N_STRINGS 3</span>
+<span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">define</span> MAX_SIZE  100</span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Array of strings (array of array of chars)</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">char</span> str[N_STRINGS][MAX_SIZE];
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Read N_STRINGS</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; i&lt;N_STRINGS; i++)
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%s"</span>, str[i]);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Print N_STRINGS</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">for</span> (<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> i=<span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>; i&lt;N_STRINGS; i++)
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"str[%d] = \"%s\"\n"</span>, i, str[i]);
+    
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}</pre>
+
+<p>For instance, if we give the code the following input:</p>
+
+<pre class="shell">
+um dois tres
+</pre>
+
+<p>Then the output would be:</p>
+
+<pre class="shell">
+str[0] = "um"
+str[1] = "dois"
+str[2] = "tres"
+</pre>
+
+<br>&nbsp;
+
+<p>You are now ready to solve the next problem:</p>
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statement, code and try to submit an <span style="color:green">Accepted</span> solution to the following problem. Don't forget to test first on your computer!</p>
+  
+<ul>
+  
+  <li><a href="../problems/pii037.html">[PII037] Unique Words</a><br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Read and store the strings as suggested on the example code
+<p>- For each word, check if it appears later on the array (with another cycle)
+<p>- If it appears, do not count (it will be counted later); if it does not appear... count it! 
+      </details>
+
+</ul>
+      
+<br>
+
+  <hr>
+
+  
+  <p><h3>Extra exercises for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+
+<p>Do you want to continue your adventure on the world of Westeros? Here are more exercises &#128578;</p>
+    
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+  
+  <ol type="a">  
+    <li><a href="../problems/pii038.html">[IP038] Whispers in the Shadows</a>
+
+          <br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- Our suggestion is to create a function to check if a key appears exactly at position <i>i</i> on the string (simpler problem than original)
+          <p>- Solving the problem is now traversing all positions and calling the previously defined function to increment a counter if there is a match on that position
+      </details>
+
+      <br>&nbsp;
+      
+    <li><a href="../problems/pii039.html">[IP039] You know nothing, Jon Snow</a>
+
+    <br>&nbsp;
+
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- Our suggestion is to create a function to transform the current string into the next generation
+        <p>- You can use an auxiliary temporary string to build the next string
+        <p>- The problem can now be solved by a simple cycle that calls the previous function n times and keeps printing the current string
+      </details>
+
+      <br>&nbsp;
+      
+  </ol>
+    
+    <hr>
+
+       <h3>Challenge exercise <span style="color:DarkRed">[challenge]</span></h3>
+<p><p>Congratulations, brave solver of the <b>Game of Strings</b>! 🎉</p>
+
+<p>You have demonstrated the skill and the mind of a true Maester, solving each riddle from the cold North to the burning South of Westeros. But beware, for one final challenge remains. 🐉🔥</p>
+
+<p>Daenerys Targaryen, the Mother of Dragons, is not easily satisfied. There is one last puzzle you must conquer, one final problem to prove your worth. Succeed, and you will earn the respect of the Seven Kingdoms. Fail, and you may find yourself facing the fiery wrath of the dragons...</p>
+
+<p>This challenge is of <b>algorithmic nature</b>, so you need and <b>efficient solution</b> (both on memory and space) and not just a correct (but more "brute force"). <b>Note that this is until now the (algorithmically) most difficult exercise that was proposed on this course &#128520;.</b>
+
+<p>Give yourself some time to think about it an be proud if you make it! Be sure to chat with your professors for hints or to proudly talk about how you solve it &#128513;</p>
+
+    <ul>
+      <li>Solve and submit the problem <a href="../problems/pii040.html">[PI040] Dracarys!</a>
+    </ul>
+
+    <p>Happy coding! &#128522;</p> 
+  
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

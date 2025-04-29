@@ -1,0 +1,352 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[PII] Practical Class #01</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Programming II 2024/2025</a> (CCINF1002) - DCC/FCUP</h3>
+  <h1>Practical Class #01 - First Programs
+    <small><small>(18/02 and 19/02)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problems/pii001.html">[PII001] Hello there.</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii002.html">[PII002] Bond, James Bond!</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii003.html">[PII003] Time Goes By</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii004.html">[PII004] Check Please</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii005.html">[PII005] Digit Separator</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii006.html">[PII006] Fast and Furious</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii007.html">[PII007] The case of the Cylinder</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii008.html">[PII008] Cake in the Oven</a> (weight 20%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> March 3rd (submit to <a href="https://mooshak.dcc.fc.up.pt/~pii/">PII's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you receive should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 18% of your final component for exercices during class. Since there will be 6 classes with submissions, you can achieve maximum grade even without doing fully doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+<hr>
+
+<p>With the exercises in this class you will develop the following skills:</p>
+
+<ol>
+  <li>Be able to write, compile and execute C programs</li>
+  <li>Manipulate simple data and algebraic expressions</li>
+  <li>Handle simple Input and Output</li>
+  <li>Debug simple programs</li>
+</ol>
+
+<p><b>If you feel stuck, go back and revise the lecture <a href="../material.html#lectures">01: C Fundamentals</a></b>
+
+<hr>
+
+
+<p><big><b>1) My first C program</b></big>
+
+  <ol type="a">
+    <li>Your first task is to create an environment that you can use to develop your C code:
+  <ul>
+    <li>If you are on the <b>DCC computer labs</b>, everything is ready (and you have Linux available, with gcc availableon the command line)<br>&nbsp;
+    <li>If you want to use <b>your laptop</b>, our advice is to simulate the lab environment (which you will use at the practical test). Here are 3 different options:
+      <ul>
+        <li>Install Linux on your computer :) &#128516;
+        <li>Use WSL (<i>Windows Subsystem for Linux</i>) | <a href="https://learn.microsoft.com/en-us/windows/wsl/about">about WSL</a> | <a href="https://learn.microsoft.com/en-us/windows/wsl/install">Install WSL</a> | <a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/gui-apps">Install WSL with support for graphical apps</a>
+        <li>Use an emulator such as VirtuaBox | <a href="virtualbox.html">Virtual Machine with a Linux Image of the DCC Laboratories</a>
+      </ul>
+      If you need more help regarding this, let us know on Discord (we can for instance create a tutorial just for the course)
+      <br>&nbsp;
+    <li>For a quick way to compile and execute code, you can use an <b>online code compiler</b> such as:
+      <ul>
+        <li><a href="https://www.programiz.com/c-programming/online-compiler/">Programiz C Online Compiler</a>
+        <li><a href="https://www.onlinegdb.com/online_c_compiler">OnlineGDB C Compiler</a>
+        <li><a href="https://www.online-ide.com/">Online IDE</a>
+      </ul>
+  </ul>
+
+  <br>&nbsp;
+
+    <li>Now that you have a working environment, test it. Compile and execute the following code:
+
+      <br>&nbsp;
+
+<pre style="font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"Hello cruel world, can I go back to Python?\n"</span>);
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+</pre>
+
+      <p>If you have a command line with gcc and assuming you created a file called <span class="code">hello.c</span> with the code above, you can simply do the following:</p>
+      <ul>
+        <li>To compile the code run <span class="shell">gcc -Wall -std=c17 -o hello hello.c</span>
+        <li>To execute the code (after compiling) run <span class="shell">./hello</span>
+      </ul>
+      
+    <p>If you did everything correctly, you should be able to see the following output:</p>
+
+    <p class="shell">Hello cruel world, can I go back to Python?</p>
+    
+  </ol>
+  
+<hr>
+
+<p><big><b>2) My first Mooshak submissions</b></big>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    On this course we will use  <a href="https://mooshak.dcc.fc.up.pt/~pii/">Mooshak</a> to automatically evaluate your Python code (<a href="mooshak_help.html">see Mooshak's help</a>).
+    <ul>
+      <li>For all your submissions you can visualize the detailed
+      result obtained in each of the test cases made. It is also
+      possible to access any public tests for which your program did
+        not receive the <span style="color:green">Accepted</span> veredict.
+        <b>For seeing all this detailed feedback you only need to click the result of your submission that appears underlined in the listing.</b>
+
+        <p><font color=red><b>To access the system you can use your <i>login</i> (with the word <tt>"up"</tt>)
+              and <i>password</i> that was sent to your institutional email (message sent on the 18th of February with the title "[PII] Mooshak password - <i>login</i>")</b></font><br>
+          <i>(if you have trouble accessing it, send a message on discord to @PedroRibeiro)</i></p>
+        
+    </ul>
+
+  <p>In this problem the goal is to make your first submissions in Mooshak, all for the <a href="../problems/pii001.html">[PII001] Hello there.</a> The problem statement will also be available inside Mooshak. <b>Always start by carefully reading the problem statement given!</b></p>
+
+  <p>This problem is not hard at all using a a basis the code from the last exercise, right?</p>
+  
+  <ol type="a">
+    <li>Start by submitting an <span style="color:green">Accepted</span> in Mooshak. Create a file called for instance <span class="code">pii001.c</span>, <b>write the code and test it</b>. Is it doing what you expected?</li>
+
+    <li>After a correct submission you should now experiment with some common errors to see the behavior of Mooshak in these cases:</li>
+    <ul>
+      <li>Try to get a <span style="color:red">Compile Time Error</span> - for instance you remove <span class="code">;</span> after the print instruction and resubmit</li>
+      <li>Try to get a <span style="color:red">Wrong Answer</span> - for instance you could change the output to produce a different message than what was requested</li>
+      <li>Try to get a <span style="color:red">Runtime Error</span> - for instance you could change the return value of main to 1</li>
+      <li>After having these errors your submissions list should be something like <a href="mooshak_subs.png">this picture</a>. <i>(the number to the left of the result is the "score" of the problem)</i>
+    </ul>
+  </ol>
+
+  <hr>
+  
+  <p><big><b>3) Reading my first input</b></big>
+
+    <ol type="a">
+      <li><b>Implement, compile and test the following code</b>. Do you understand what is doing?
+
+<br>&nbsp;
+
+
+
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> n;                           <span style="color: rgb(106, 115, 125); font-weight: 400;">// create variable to store an integer</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"Number? "</span>);              <span style="color: rgb(106, 115, 125); font-weight: 400;">// print message asking for a number             </span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;n);                 <span style="color: rgb(106, 115, 125); font-weight: 400;">// read an integer to variable n </span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"The number is %d\n"</span>, n); <span style="color: rgb(106, 115, 125); font-weight: 400;">// print the value of variable n</span>
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+</pre>
+
+        <br>
+        
+      <li>What if you want to <b>read more than one value</b>? Implement, compile and test the following code. Do you understand what is doing? <br>
+        <i>(you should simply input two numbers - there is no message asking for them and the C code goes straight to the scanf function)</i>
+
+        <br>&nbsp;
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> x, y;                  <span style="color: rgb(106, 115, 125); font-weight: 400;">// two integer variables</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d %d"</span>, &amp;x, &amp;y);    <span style="color: rgb(106, 115, 125); font-weight: 400;">// read two integers</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"(%d,%d)\n"</span>, x, y); <span style="color: rgb(106, 115, 125); font-weight: 400;">// print integers as a pair</span>
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+  }</pre>
+
+<br>&nbsp;
+
+        
+        <a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    <li>For this exercise you will be solving the problem <a href="../problems/pii002.html">[PII002] Bond, James Bond!</a>.</p>
+
+  <ol type="i">
+    <li>Read the problem, code and submit an <span style="color:green">Accepted</span> solution. Don't forget to test first on your computer!
+      
+    <li>After a correct submission experiment to make, for example, by changing the <span class="code">!</span> to <span class="code">?</span> in the <span class="code">printf</span> call.<br>
+      Submit to Mooshak to see what happens and to discover obtained a <span style="color:red">Wrong Answer</span>.<br>
+      If you click on the underlined result itself you can see a detailed table containing the result of each test case and also giving you the first input where your program failed, and the respective expected output (should be something like <a href="detailed_wa.png">this picture</a> - note on how the observations report what error was obtained).
+    </ol>
+
+  <p>Here are a couple more notes about Mooshak on this course:
+
+    <ul>
+      <li>You can experiment on your own computer with the provided input examples to check the result (just copy+paste the inputs)</br>
+        If you have an executable named <span class="code">pi002</span> you can also use redirection to feed your program with that input using a line such as <span class="shell">./pi002 &lt; input.txt</span></li>
+      <li>All problem statements will follow roughly the same format, specifying the problem, the input, the output, the constraints and giving at least one input example and its corresponding output.</li>
+      <li>You do not need to verify the constraints on your code. On the contrary, the constraints give you guarantees on the input that will be given to your program. You can assume the test cases we will feed your code obey the constraints (e.g. the word sizes will never be larger than 20).</li>
+      <li>All the lines of input and output should be terminated with the newline character (including the last line). Failure to do this can result in a <span style="color:red">Presentation Error</span>.</li>
+      <li>You should only output what is given in the statement. Any extra output will can your code be marked as incorrect.</li>
+      <li>You can click on the submission number on the left of each listing row to recover your submitted code.</li>
+      <li>If you press on <i>more...</i> you can see an interface for seeing submissions that allows you to select only a certain student, a certain problem, etc.
+      <li>If you submit a file that is exactly the same as one that you already submitted, Mooshak will not accept and report a <b>Duplicate submission</b>.
+	  </ul>
+    
+  </ol>
+  
+  <hr>
+
+  <p><big><b>4) My first expressions</b></big>
+    
+    <ol type="a">
+      <li><b>Implement, compile and test the following code</b>. Try to carefully understand what is doing.
+        
+        <br>&nbsp;
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> a = <span style="color: rgb(0, 92, 197); font-weight: 400;">42</span>;
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> b = <span style="color: rgb(0, 92, 197); font-weight: 400;">9</span>;
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> sum = a + b;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d + %d = %d\n"</span>, a, b, sum);
+    
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> sub = a - b;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d - %d = %d\n"</span>, a, b, sub);
+    
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> mul = a * b;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d * %d = %d\n"</span>, a, b, mul);
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> div = a / b; <span style="color: rgb(106, 115, 125); font-weight: 400;">// a and b are integers, so the division is "truncated"</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d / %d = %d\n"</span>, a, b, div);
+
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> mod = a % b; <span style="color: rgb(106, 115, 125); font-weight: 400;">// division remainder</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d %% %d = %d\n"</span>, a, b, mod);
+
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">float</span> fa = a;
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">float</span> fb = b;
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">float</span> fdiv = fa / fb; <span style="color: rgb(106, 115, 125); font-weight: 400;">// a and b are floats, division is not "truncated"</span>
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%f / %f = %f\n"</span>, fa, fb, fdiv); <span style="color: rgb(106, 115, 125); font-weight: 400;">// by default with 6 decimal places</span>
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// we can print with any number of (rounded) decimal places</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">float</span> n = <span style="color: rgb(0, 92, 197); font-weight: 400;">1.9876</span>;
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"n = %.0f (0)\n"</span>, n);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"n = %.1f (1)\n"</span>, n);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"n = %.2f (2)\n"</span>, n);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"n = %.3f (3)\n"</span>, n);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"n = %.4f (4)\n"</span>, n); 
+      
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}</pre>
+
+        <p><b>With the knowledge you obtained from the previous code, you know everything needed the next 3 main problems</b></p>
+          
+<p>Use the <b>hints</b> if you need extra help (they are hidden in case you do not want spoilers)</p>
+
+<p>        <a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+
+              <p>
+Read the statements, code and submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+      <li><a href="../problems/pii003.html">[PII003] Time Goes By</a>
+        
+        <details name="hint">
+          <summary>Hints</summary>
+          <p>- Create an integer variable (e.g. <span class="code">int d</span>) and read to it using <span class="code">scanf</span>
+          <p>- the number of hours is just... <span class="code">d * 60</span>; and the number of minutes and seconds?
+          <p>- store the results in three different values and print them
+      </details>
+
+        <br>
+        
+      <li><a href="../problems/pii004.html">[PII004] Check Please</a>
+        <details name="hint">
+          <summary>Hints</summary>
+          <p>- Create a <span class="code">float</span> variable <i>t</i> and an <span class="code">int</span> variable <i>n</i>
+          <p>- Read the input and store it on the variables
+          <p>- Compute the result as <span class="code">t / n</span> and print it with <span class="code">printf("%.2f", result_variable)</span>
+      </details>
+
+<br>        
+        
+      <li><a href="../problems/pii005.html">[PII005] Digit Separator</a>
+        <details name="hint">
+          <summary>Hints</summary>
+          <p>- If the number is <i>n</i> then the units (rightmost digit) is simply... <span class="code">n % 10</span>
+          <p>- The second rightmost digit (tens) is <span class="code">(n / 10) % 10</span>. Can you see why?
+          <p>- Can you do the other 2 digits by yourself?
+      </details>
+
+<br>
+        
+    </ol>
+    
+  <hr>
+  
+<h3>Extra exercises for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+
+    <p>PII's Mooshak classes will usually include at least one extra
+    exercise that you can use of you want to keep testing your
+      knowledge of the material. For this class we propose two other problems
+      that complement the main ones.
+
+    <ol type="a">
+      <li>Solve and submit the problem <a href="../problems/pii006.html">[PII006] Fast and Furious</a>
+        <details name="hint">
+          <summary>Hints</summary>
+          <p>- In this problem you need to take into account the minutes, but if <i>m</i> is an integer value, then <span class="code">m/60</span> will truncate the result (and will always be zero)
+          <p>- If you want this <i>m/60</i> to be a float, then <i>m</i> needs to be a float or you should use <span class="code">m/60.0</span> 
+          <p>- to round to the integer part you can print using <span class="code">%.0f</span>
+
+        </details>
+
+        <br>
+
+      <li>Solve and submit the problem <a href="../problems/pii007.html">[PII007] The case of the Cylinder</a>
+        <details name="hint">
+          <summary>Hints</summary>
+          <p>- Can you do one problem by yourself? &#128513 
+        </details>
+
+        
+    </ol>
+
+    <hr>
+
+       <h3>Challenge exercise <span style="color:DarkRed">[challenge]</span></h3>
+
+<p>IP Mooshak classes will usually include one challenge exercise, which can be much harder the previous ones and might even need knowledge that was not given explicitly on the course.</p>
+
+<p>Since this is the first challenge, it is almost of the same difficulty of the previous exercises (but one small aspect was not directly give in the clases and you will need to find it by your own).</p>
+
+    <ul>
+      <li>Solve and submit the problem <a href="../problems/pii008.html">[PI008] Cake in the Oven</a>
+    </ul>
+
+    <p>Happy coding! &#128522;</p> 
+  
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

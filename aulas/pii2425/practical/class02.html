@@ -1,0 +1,182 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[PII] Practical Class #02</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Programming II 2024/2025</a> (CCINF1002) - DCC/FCUP</h3>
+  <h1>Practical Class #02 - Conditional Execution
+    <small><small>(25/02 and 26/02)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problems/pii009.html">[PII009] Absolutely</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii010.html">[PII010] Best of 3</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii011.html">[PII011] FizzBuzz</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii012.html">[PII012] Grading Exams</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii013.html">[PII013] Buy Me Flowers</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/pii014.html">[PII014] Triangle Trouble</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii015.html">[PII015] Leap Year</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/pii016.html">[PII016] The Next Day</a> (weight 20%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> March 10th (submit to <a href="https://mooshak.dcc.fc.up.pt/~pii/">PII's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you receive should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 18% of your final component for exercices during class. Since there will be 6 classes with submissions, you can achieve maximum grade even without doing fully doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+  
+<hr>
+
+<p>With the exercises in this class you will develop the following skills:</p>
+
+<ol>
+  <li>Explore the usage of logical expressions (and operators such as <span class="code">&&</span> and <span class="code">||</span>) </li>
+  <li>Explore the usage of of conditionals (<span class="code">if</span> and <span class="code">else</span>)</li>
+  <li>Consolidate your knowledge of coding, debugging and problem solving</li>
+</ol>
+
+<p><b>If you feel stuck, go back and revise the lecture <a href="../material.html#lectures">01: C Fundamentals</a></b>, <a href="../material.html#lectures">02: Expressions</a></b> and mostly <a href="../material.html#lectures">03: Conditional Execution</a></b>
+
+<hr>
+
+
+<p><big><b>1) My first conditional program</b></big>
+
+<p>Save this code to a file, compile, execute it and make sure you <b>understand everything</b> that it is doing:</p>
+
+
+<pre style="border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em; font-family:monospace;color: rgb(36, 41, 46); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(0, 92, 197); font-weight: 400;">#<span style="color: rgb(215, 58, 73); font-weight: 400;">include</span> <span style="color: rgb(3, 47, 98); font-weight: 400;">&lt;stdio.h&gt;</span></span>
+
+<span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> <span style="color: rgb(111, 66, 193); font-weight: 400;">main</span><span style="color: rgb(36, 41, 46); font-weight: 400;">(<span style="color: rgb(215, 58, 73); font-weight: 400;">void</span>)</span> {
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">int</span> n;
+
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"Insert a number: "</span>);
+  <span style="color: rgb(227, 98, 9); font-weight: 400;">scanf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d"</span>, &amp;n);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Example of an if else instruction</span>
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// (if only one line of instruction follows, curly braces {}</span>
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">//  are not mandatory, but could have still been used)</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">if</span> (n % <span style="color: rgb(0, 92, 197); font-weight: 400;">2</span> == <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>)
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d is even\n"</span>, n);
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">else</span>
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d is odd\n"</span>, n);
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Example of a &amp;&amp; operator [logical AND]</span>
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// (if more than one line of instruction follows,</span>
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// curly braces {} are mandatory)</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">if</span> (n &gt;= <span style="color: rgb(0, 92, 197); font-weight: 400;">10</span> &amp;&amp; n &lt;= <span style="color: rgb(0, 92, 197); font-weight: 400;">99</span>) {
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"%d has 2 digits\n"</span>, n);
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"the 1st digit is %d\n"</span>, n%<span style="color: rgb(0, 92, 197); font-weight: 400;">10</span>);
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"the 2nd digit is %d\n"</span>, n/<span style="color: rgb(0, 92, 197); font-weight: 400;">10</span>);
+  }
+
+  <span style="color: rgb(106, 115, 125); font-weight: 400;">// Example of a || operator [logical OR]</span>
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">if</span> (n % <span style="color: rgb(0, 92, 197); font-weight: 400;">10</span> == <span style="color: rgb(0, 92, 197); font-weight: 400;">1</span> || n % <span style="color: rgb(0, 92, 197); font-weight: 400;">10</span> == <span style="color: rgb(0, 92, 197); font-weight: 400;">3</span>) {
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"last digit of %d is 1 or 3\n"</span>, n);
+  } <span style="color: rgb(215, 58, 73); font-weight: 400;">else</span> <span style="color: rgb(215, 58, 73); font-weight: 400;">if</span> (n % <span style="color: rgb(0, 92, 197); font-weight: 400;">10</span> == <span style="color: rgb(0, 92, 197); font-weight: 400;">5</span> || n % <span style="color: rgb(0, 92, 197); font-weight: 400;">10</span> == <span style="color: rgb(0, 92, 197); font-weight: 400;">7</span>) {
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"last digit of %d is 5 or 7\n"</span>, n);
+  } <span style="color: rgb(215, 58, 73); font-weight: 400;">else</span> {
+    <span style="color: rgb(227, 98, 9); font-weight: 400;">printf</span>(<span style="color: rgb(3, 47, 98); font-weight: 400;">"last digit of %d is not 1, 3, 5 or 7\n"</span>, n);
+  }
+  
+  <span style="color: rgb(215, 58, 73); font-weight: 400;">return</span> <span style="color: rgb(0, 92, 197); font-weight: 400;">0</span>;
+}
+</pre>
+
+      <p>Here is an example execution when we input the number 42:
+
+<pre class="shell">
+Insert a number: 42
+42 is even
+42 has 2 digits
+the 1st digit is 2
+the 2nd digit is 4
+last digit of 42 is not 1, 3, 5 or 7
+</pre>
+
+  <p>And here what happens when we input the number 125:</p>
+  
+<pre class="shell">
+Insert a number: 125
+125 is odd
+last digit of 125 is 5 or 7
+</pre>
+
+<p>
+  
+<hr>
+
+<p><big><b>2) Mooshak submissions (main exercises)</b></big>
+
+  <p>Armed with what you learned from the previous exercise, you are now ready to tackle the problems from this class.
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~pii"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+    <ol type="a">
+      <li><a href="../problems/pii009.html">[PII009] Absolutely</a> 
+      <li><a href="../problems/pii010.html">[PII010] Best of 3</a>
+      <li><a href="../problems/pii011.html">[PII011] FizzBuzz</a>
+      <li><a href="../problems/pii012.html">[PII012] Grading Exams</a>
+      <li><a href="../problems/pii013.html">[PII013] Buy Me Flowers</a>
+    </ol>
+
+
+<p>We encourage you to speak with your colleagues and with your professors if you need help (including using Discord), but be aware that <b>you should be trying to solve the exercises by yourself!</b></p>
+
+<p>You get from a course what you invest on it and by actually trying to solve the problems you will learn a lot (including some of the things you will not get correct the first time, which will become lessons you will not forget).</p>
+
+<p>This course is all about <i>"putting your hands dirty"</i> in terms of actually coding, and if you rely on other's code (or tools such as ChatGPT) you will be most of all just fooling yourself... Try to do it and enjoy the rich and dynamic experience we prepared for you! &#128522;</p>
+
+      <details class="meme" name="meme">
+        <summary>&#128513; suprised pikachu...</summary>
+        <p><img src="meme_pikachu.jpg" height="600"></p>
+      </details>
+
+<br>
+
+  <hr>
+  
+  <p><h3>Extra exercises for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+  
+<p>So you enjoyed the main exercises so much, that you want more problems to submit? Don't worry we've got you covered! Here are two more exercises to consolidade your knowledge and to show you are coding for more than simply your grade &#128515;</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+  
+  <ol type="a">  
+      <li><a href="../problems/pii014.html">[IP014] Triangle Trouble</a>
+      <li><a href="../problems/pii015.html">[IP015] Leap Year</a>
+  </ol>
+    
+    <hr>
+
+       <h3>Challenge exercise <span style="color:DarkRed">[challenge]</span></h3>
+
+<p>So you want one more challenge? Here you go! (it is not that hard... don't worry, we have even more interesting exercises for future classes, but for know you are just initiating your journey through the world of C coding and algorithms...)</p>
+
+    <ul>
+      <li>Solve and submit the problem <a href="../problems/pii016.html">[PI016] The Next Day</a>
+    </ul>
+
+    <p>Happy coding! &#128522;</p> 
+  
+<hr>
+<p class="footer">Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

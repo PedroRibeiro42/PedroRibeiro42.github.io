@@ -1,0 +1,154 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PII008] Cake in the Oven</title>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of March 3rd</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/pii425/practical/class01.html">class #01 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<h2>[PII008] Cake in the Oven</h2>
+
+  <p>
+    <img src="pii008.jpg" align="right" width="300">
+Dad is a great cook... except with cakes.
+    Let's help him take the cake out of the oven before it burns up!     
+  </p>
+
+  <h3>The Problem</h3>
+
+  <p>
+    Write a program that, given the start time when the cake is put in the oven and the duration it needs to bake,  calculates the time when the cake should be taken out. Make sure to handle cases where the time extends into the next day.
+  </p>
+
+  <h3>Input</h3>
+   <p>The input should consist of six values, each on a single line.</p>
+   <p>The first three integers represent the start time in hours
+  (<b>SH</b>), minutes (<b>SM</b>), and seconds (<b>SS</b>).
+
+   <p>The next three integers represent the baking duration in hours (<b>BH</b>), minutes (<b>BM</b>), and seconds (<b>BS</b>).
+
+  <h3>Output</h3>
+   <p>
+    The output should be a single line formatted as:
+</p><pre>Take the cake out at HH:MM:SS.
+</pre>
+HH, MM, and SS represent the time when the cake should be taken out of the oven: hours, minutes, and seconds.
+   <p></p>
+
+  <p>A 24-hour time format should be considered for the output (so never larger than 23:59:59).</p>
+
+  <p>The baking duration can cause the time to roll over into the next days, although you do not have to keep track of the current day (see examples 2 and 3).
+
+   
+   </p><h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tbody>
+    <tr>
+      <td>0 &le; <b>SH</b> &le; 23</td>
+      <td>&nbsp; &nbsp; &nbsp;</td>
+      <td>Hours of the start time</td>
+    </tr>
+    <tr>
+      <td>0 &le; <b>SM, SS</b> &le; 60</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Minuts and seconds of the start time</td>
+  </tr>
+    <tr>
+      <td>0 &le; <b>BH, BM, BS</b> &le; 100&nbsp;000</td>
+      <td>&nbsp; &nbsp; &nbsp;</td>
+      <td>Hours minuts and seconds of the baking time</td>
+    </tr>
+    
+</tbody></table>
+
+<br>
+ 
+
+  
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+    <tbody><tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>13
+30
+12
+1
+20
+30
+</pre>
+      </td>
+      <td valign="top">
+<pre>Take the cake out at 14:50:42.
+</pre>
+      </td>
+    </tr>
+</tbody></table>
+
+  <br>
+  
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+    <tbody><tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>18
+30
+0
+9
+20
+15
+</pre>
+      </td>
+      <td valign="top">
+<pre>Take the cake out at 03:50:15.
+</pre>
+      </td>
+    </tr>
+</tbody></table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">      
+      <tbody><tr bgcolor="#e2e2e2">
+        <td>Example Input 3</td>
+        <td>Example Output 3</td>
+      </tr>
+      <tr bgcolor="white">
+        <td valign="top">
+<pre>17
+0
+0
+36
+75
+124
+</pre>
+        </td>
+        <td valign="top">
+<pre>Take the cake out at 06:17:04.
+</pre>
+        </td>
+</tr></tbody></table>
+
+<hr size="2">
+<center><b>Programming II (CCINF1002)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>
+
+

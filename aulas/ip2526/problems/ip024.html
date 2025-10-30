@@ -1,0 +1,94 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP024] Freezing in here</title>
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 25th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class03.html">class #03 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP024] Freezing in here</h2>
+
+<p><img src="ip024.jpg" align="right" width="300">
+Brrr... It’s getting cold, isn't it? With the temperature dropping outside, you find yourself wondering: "Just how chilly is it in Fahrenheit?"
+</p>
+
+<h3>The Problem</h3>
+
+<p>
+Write a function named <span class="function">celsius_to_fahrenheit(celsius)</span> that given a float indicating a temperature, returns its conversion from Celsius to Fahrenheit using the following formula:
+
+\[
+F = \left( C \times \frac{9}{5} \right) + 32
+\]
+
+where C is the temperature in Celsius and F is the temperature in Fahrenheit.
+</p>
+
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>-273.15 &le; <i>celsius</i> &le; 1000</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>The temperature in Celsius</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print( round(celsius_to_fahrenheit(-273.15), 2) )
+print( round(celsius_to_fahrenheit(100),     2) )
+print( round(celsius_to_fahrenheit(0),       2) )
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+-459.67
+212.0
+32.0
+</pre>
+    </td>
+  </tr>
+</table>
+
+<br>
+  
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

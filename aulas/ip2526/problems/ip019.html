@@ -1,0 +1,156 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP019] I am root</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_HTML"></script>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 18th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class02.html">class #02 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[IP019] I am root</h2>
+
+<p><img src="ip019.png" align="right" width="350">
+Quadratic equations play a fundamental role in algebra and mathematics. In this exercise, you will write a program that calculates the roots of a quadratic equation given its coefficients.
+</p>
+
+<h3>The Problem</h3>
+
+<p>
+  Write a program that calculates the roots of a quadratic equation of the form:
+
+    \[
+        ax^2 + bx + c = 0
+    \]
+
+  Remember that the <a target="_blank" href="https://mathbitsnotebook.com/Algebra2/Quadratics/QDQuadratics.html">roots can be real or complex</a>. Use <a target="_blank" href="https://docs.python.org/3/library/math.html#math.sqrt"><code>math.sqrt</code></a> in your calculations.
+</p>
+
+<h3>Input</h3>
+
+<p>The input consists of three floating-point numbers:
+
+<ul>
+  <li>The coefficient <i>a</i></li>
+  <li>The coefficient <i>b</i></li>
+  <li>The coefficient <i>c</i></li>
+</ul>
+
+</p>
+
+<h3>Output</h3>
+
+<p>The output should display the roots of the equation in the following formats:
+
+<ul>
+  <li>For one real root: <code>"R = [value]"</code></li>
+  <li>For two distinct real roots: <code>R1 = [value]"</code> and <code>"R2 = [value]"</code></li>
+  <li>For two complex roots: <code>"R1 = [real_part] + [imaginary_part]i"</code> and <code>"R2 = [real_part] - [imaginary_part]i"</code></li>
+</ul>
+</p>
+
+<p>All the printed numbers should be rounded to two decimal places.</p>
+
+<p>Note that when the default behavior of Python's <tt>print</tt> is to ignore zeros on the far right of the decimal part (e.g. 37.1000 is printed as 37.1 and 2.00 is printed as 2.0). This is ok and you should just print the answer rounded to two decimal places and let Python print the obtained number as in the examples).</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td><i>a</i> &ne; 0</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>The coefficient <i>a</i> will not be zero</td>
+  </tr>
+  <tr>
+    <td>-100 &lt;= <i>a</i>, <i>b</i>, <i>c</i> &lt;= 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Range for coefficients</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 1</td>
+    <td>Example Output 1</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+1
+-5
+6
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+R1 = 3.0
+R2 = 2.0
+</pre>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 2</td>
+    <td>Example Output 2</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+1
+4
+5
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+R1 = -2.0 + 1.0i
+R2 = -2.0 - 1.0i
+</pre>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 3</td>
+    <td>Example Output 3</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+1
+-4
+4
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+R = 2.0
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

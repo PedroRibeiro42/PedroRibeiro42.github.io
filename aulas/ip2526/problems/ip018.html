@@ -1,0 +1,141 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP018] More Circle Math</title>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 18th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class02.html">class #02 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[IP018] More Circle Math</h2>
+
+<p><img src="ip018.png" align="right" width="300">
+Understanding the properties of circles is essential in geometry. In this exercise, you will help users calculate various attributes of a circle based on its radius.
+</p>
+
+<h3>The Problem</h3>
+
+<p>
+Write a program that allows users to choose one of three options to calculate a property of a circle based on the given radius <i>r</i>. Use <a target="_blank" href="https://docs.python.org/3/library/math.html#math.pi"><code>math.pi</code></a> in your calculations.
+
+<br><br>
+
+<table border="1">
+  <tr>
+    <th>Option</th>
+    <th>Calculation</th>
+  </tr>
+    <tr>
+      <td>1</td>
+      <td>Calculate the diameter of the circle.</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Calculate the perimeter of the circle.</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Calculate the area of the circle.</td>
+    </tr>
+  </table>
+</p>
+
+If the user enters an invalid option, the program should print <code>"Invalid Option."</code>
+
+<h3>Input</h3>
+
+<p>The input contains two lines:
+<ul>
+  <li>The first line contains a string representing the user's choice of calculation.</li>
+  <li>The second line contains a floating-point number representing the radius.</li>
+</ul>
+
+
+</p>
+
+<h3>Output</h3>
+
+<p>The output should display the calculated property of the circle rounded to two decimal places, according to the specified option. <b>Either one of the following:</b></p>
+
+<ul>
+  <li>For diameter: <code>"Diameter: [value]"</code></li>
+  <li>For perimeter: <code>"Perimeter: [value]"</code></li>
+  <li>For area: <code>"Area: [value]"</code></li>
+  <li>For an invalid option: <code>"Invalid Option."</code></li>
+</ul>
+
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td><i>menu</i>: "1", "2", "3", other (invalid)</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Menu options</td>
+  </tr>
+  <tr>
+    <td>0 &lt; <i>r</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Range of radius</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 1</td>
+    <td>Example Output 1</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+1
+2.5437
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+Diameter: 5.09
+</pre>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 2</td>
+    <td>Example Output 2</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+5
+2.5437
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+Invalid Option.
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

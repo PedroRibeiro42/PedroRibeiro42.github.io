@@ -1,0 +1,157 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>[IP007] Microwave Oven</title>
+</head>
+
+<body bgcolor="white">
+
+  <p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 11th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class01.html">class #01 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+  <h2>[IP007] Microwave Oven</h2>
+
+  <p>
+    <img src="ip007.jpg" align="right" width="300">
+    Dad is a great cook... except with cakes.
+    Let's help him take the cake out of the oven before it burns up!     
+  </p>
+
+  <h3>The Problem</h3>
+
+  <p>
+    Write a program that, given the start time when the cake is put in the oven and the duration it needs to bake, 
+    calculates the time when the cake should be taken out. 
+    Make sure to handle cases where the time extends into the next day.
+  </p>
+
+  <h3>Input</h3>
+   <p>
+    The input should consist of six values, each on a single line.
+    <ul>
+      <li>The first three integers represent the start time in hours, minutes, and seconds.
+<pre>
+Start h:
+Start m:
+Start s:
+</pre>
+      </li>
+      <li>The next three integers represent the baking duration in hours, minutes, and seconds.
+<pre>
+Baking h:
+Baking m:
+Baking s:
+</pre>
+    </ul>
+   </p>
+
+  <h3>Output</h3>
+   <p>
+    The output should be a single line formatted as:
+<pre>
+Take the cake out at HH:MM:SS.
+</pre>
+HH, MM, and SS represent the time when the cake should be taken out of the oven: hours, minutes, and seconds.
+   </p>
+
+  <p>A 24-hour time format should be considered for the output (so never larger than 23:59:59).</p>
+
+  <p>The baking duration can cause the time to roll over into the next days, although you do not have to keep track of the current day (see example 3).</li>
+
+   
+   <h3>Constraints</h3>
+   <p>
+    <ul>
+      <li>It is guaranteed that the number of hours, minutes, and seconds will be non-negative integer numbers.</li>
+      <li>The baking duration hours, minutes, and seconds may surpass 24h, 60m, and 60s, respectively.</li>
+    </ul>
+  </p>
+   
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+13
+30
+12
+1
+20
+30
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+Take the cake out at 14:50:42.
+</pre>
+      </td>
+    </tr>
+</table>
+
+  <br>
+  
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+18
+30
+0
+9
+20
+15
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+Take the cake out at 03:50:15.
+</pre>
+      </td>
+    </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">      
+      <tr bgcolor="#e2e2e2">
+        <td>Example Input 3</td>
+        <td>Example Output 3</td>
+      </tr>
+      <tr bgcolor="white">
+        <td valign="top">
+<pre>
+17
+0
+0
+36
+75
+124
+</pre>
+        </td>
+        <td valign="top">
+<pre>
+Take the cake out at 06:17:04.
+</pre>
+        </td>
+  </table>
+
+  <hr size="2">
+  <center><b>Introduction to Programming (CC1024)</b><br>
+    DCC/FCUP - University of Porto
+  </center>
+  <hr size="2">
+
+</body>
+
+</html>

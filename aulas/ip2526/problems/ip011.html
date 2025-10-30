@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP011] Buy Me Flowers</title>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 18th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class02.html">class #02 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[IP011] Buy Me Flowers</h2>
+
+<p><img src="ip011.png" align="right" width="300">
+Sam Blossom sells flowers to other stores (<i>F</i>) and to individual customers (<i>P</i>). For stores, they offer a discount plus tax exemption, but individual customers pay a 6% tax (and have no discounts).</p>
+
+<h3>The Problem</h3>
+
+<p>
+Write a program that calculates the final price of flowers based on the customer's type and the initial price. Note that:
+
+<ul>
+  <li>Individual customers pay 6% tax over the price.</li>
+  <li>Stores have tax exemption (0% tax) and additional discounts, depending on the price:</li>
+</ul>
+
+<table border="1">
+  <tr>
+    <th>Amount (Euros)</th>
+    <th>Discount (%)</th>
+  </tr>
+    <tr>
+      <td>Lower than 50</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>Between 50 and 200</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <td>Over 200</td>
+      <td>10</td>
+    </tr>
+  </table>
+</p>
+
+
+<h3>Input</h3>
+
+<p>The input consists of two lines:
+<ul>
+  <li>The first line contains a floating-point number representing the <i>price</i> of the flowers.</li>
+  <li>The second line contains a single character representing the customer type ("F" for stores or "P" for individual customers).</li>
+</ul>
+
+
+<h3>Output</h3>
+
+<p>
+The output should be a single line displaying the customer's type and the final price after applying the relevant discount or tax, rounded to three decimal places, formatted as follows:
+
+<pre>
+Customer: [customer_type] | Price: [final_price]
+</pre>
+</p>
+
+<p>Note that when the default behavior of Python's <tt>print</tt> is to ignore zeros on the far right of the decimal part (e.g. 37.100 is printed as 37.1). This is ok and you should just print the answer rounded to three decimal places and let Python print the obtained number as in the examples).</p>
+
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td><i>Customer</i>: "F" or "P"</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Valid Customer Types </td>
+  </tr>
+  <tr>
+    <td>0 &lt; <i>price</i> &le; 500</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Price of the flowers</td>
+  </tr>
+</table>
+<p>It is also guaranteed that the customer type is given as a single letter, either "F" or "P".</p>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 1</td>
+    <td>Example Output 1</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+35
+P
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+Customer: P | Price: 37.1
+</pre>
+    </td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 2</td>
+    <td>Example Output 2</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+235
+F
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+Customer: F | Price: 211.5
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

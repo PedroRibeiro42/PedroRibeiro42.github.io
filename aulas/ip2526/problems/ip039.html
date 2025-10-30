@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP039] Important letters</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP039] Important letters</h2>
+
+<p><img src="ip039.png" align="right" width="300">
+Just as you finished impressing the Mad Hatter, you heard a faint creak. Turning around, you saw the Doorknob slowly twisting and turning, yawning as he woke from a long nap. With his sleepy, yet curious eyes fixed on you, he spoke:</p>
+
+"Ah, I see you’ve been through quite the adventure with the others, haven’t you? But let me ask you this, clever one: do you know what’s really important? Letters! And not just any letters - certain ones are more important than others and are all that count!"</p>
+  
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">count(word, letters)</span> that given a string <i>word</i> and a string <i>letters</i> indicating the set of  important characters, returns the amount of characters in <i>word</i> that are present also in <i>letters</i>.</p>
+
+<p>For instance, the call <i>count("madame", "aeiou")</i> should return 3, as there are 3 characters in "madame" (two 'a's and one 'e') that also appear in "aeiou".</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; |word| &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>size of input word</td>
+  </tr>
+  <tr>
+    <td>1 &le; |letters| &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>size of string containing the characters to count</td>
+  </tr>
+</table>
+
+<p>All letters will be in lowercase.</p>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(count("madame", "aeiou"))
+print(count("1forty40two2", "0123456789"))
+print(count("introduction to programming", "prt"))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+3
+4
+7
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

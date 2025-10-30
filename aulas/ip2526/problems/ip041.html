@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP041] A needle in a haystack</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP041] A needle in a haystack</h2>
+
+<p><img src="ip041.png" align="right" width="300">
+  As you found the treasure as requested by Curious Oysters, the Dodo shuffled over, flapping his wings excitedly. He was deep in thought, and after a moment, he looked at you with wide eyes and said, "I’ve been thinking, yes, thinking a lot. What happens when we remove things, yet still find meaning?"</p>
+
+<p>The Dodo continued, "Imagine a word, yes? A perfectly good word. But what if we could remove certain letters — pluck them out, one by one — yet still find another word hidden within? Fascinating, isn’t it?"</p>
+
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">substring(needle, haystack)</span> that given two strings <i>needle</i> and <i>haystack</i> returns True if <i>needle</i> can be found as (non necessarily contiguous) substring in <i>haystack</i>. This is the same as saying that  <i>needle</i> can be obtained from <i>haystack</i> if we remove zero or more letters from it.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; |needle| &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>size of the string to look for</td>
+  </tr>
+  <tr>
+    <td>1 &le; |haystack| &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>size of the string that should contain another string</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(substring("omg","oh my god"))
+print(substring("abc","abracadabra"))
+print(substring("my","me, myself and irene"))
+print(substring("lol","lllllooooo"))
+print(substring("no","yes"))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+True
+True
+True
+False
+False
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

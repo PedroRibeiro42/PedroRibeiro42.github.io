@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP049] Rotating Toys</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP049] Rotating Toys</h2>
+
+<p><img src="ip049.png" align="right" width="150">
+Maggie Simpson, the silent but observant baby of the Simpson family, is having an especially playful day. She's surrounded by her favorite toys: her pacifier, a teddy bear, a toy train, a building block, and her beloved stuffed rabbit. Maggie lines them up in a row on the floor, delighting in the colorful sequence. But after a few minutes, she gets an idea - she wants to see what the row of toys would look like if each toy moved one spot over, with the last one coming around to the front.</p>
+
+<h3>The Problem</h3>
+
+<p>
+  Write a function <span class="function">rotate(lst, dir)</span> that given a list <i>lst</i> rotates it to the right (if <i>dir</i> is"right") or to the left (if <i>dir</i> is "left").</p>
+
+<p>A rotation to the right means shifting all elements one position to the right (with the last element coming to the front). For instance, the list [1,2,3,4] rotated to the right becomes [4,1,2,3].</p>
+
+<p>A rotation to the left means shifting all elements one position to the left (with the first element going to the back). For instance, the list [1,2,3,4] rotated to the left becomes [2,3,4,1].</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>0 &le; <i>|lst|</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of elements in list</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+lst = ["pacifier", "teddy", "train", "block", "rabbit"]
+rotate(lst, "right")
+print(lst)
+rotate(lst, "right")
+print(lst)
+rotate(lst, "left")
+print(lst)
+empty = []
+rotate(empty, "left")
+print(empty)
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+['rabbit', 'pacifier', 'teddy', 'train', 'block']
+['block', 'rabbit', 'pacifier', 'teddy', 'train']
+['rabbit', 'pacifier', 'teddy', 'train', 'block']
+[]
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

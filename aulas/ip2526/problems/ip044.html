@@ -1,0 +1,113 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP044] Which one?</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP044] Which one?</h2>
+
+<p><img src="ip044.png" align="right" width="300">
+A soft yet commanding voice echoed from behind you: "Aha! I see you’ve been quite busy with the whimsical challenges of Wonderland," Alice said, brushing a strand of hair behind her ear. "But I have an ultimate challenge for you — a real test of your skills!"</p>
+
+<p>Alice took a step closer and continued, "You see, after observing all the transformations of words and how they evolve, I want to know a specific detail about these words. I want to find the n-th letter of the final transformed word in the White Rabbit’s word evolution game. But I need this to be speedier than a Cheshire Cat disappearing in a puff of smoke!"</p>
+  
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">whichone(n)</span> that given an integer <i>n</i>, returns the <i>n</i>-th letter (the one in position <i>n</i>) that appears on a word evolving from Mad Hatter's word game when starting with <i>initial="A"</i>. Recall the rules of the game:</p>
+
+<ul>
+  <li>Any 'A' becomes 'AB'
+  <li>Any 'B' becomes 'A'
+</ul>
+
+<p>The first lines of the word are therefore:</p>
+
+<pre>
+A
+AB
+ABA
+ABAAB
+ABAABABA
+ABAABABAABAAB
+ABAABABAABAABABAABABA
+</pre>
+
+<p>You can see that the initial part of any generation is the same as the previous, so you really don't need to know the generation and knowing the position is enough, right?</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; n &le; 10<sup>30</sup></td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>position to discover</td>
+  </tr>
+</table>
+
+<p style="color:red">NOTE: the limits are really high and you must have an <b>efficient</b> solution that can compute this very quickly.<br>
+  A solution that simply tries to simulate the evolution and recreate the entire word up to <i>n</i> will most likely have <b>Time Limit Exceeded</b>.<br>
+  Your program will need to be able to answer around five hundred queries in less than one second.</p>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(whichone(1))
+print(whichone(2))
+print(whichone(3))
+print(whichone(4))
+print(whichone(5))
+print(whichone(10))
+print(whichone(16))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+A
+B
+A
+A
+B
+B
+A
+
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

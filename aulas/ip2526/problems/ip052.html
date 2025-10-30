@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP052] Messy Matrix</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP052] Messy Matrix</h2>
+
+<p><img src="ip052.png" align="right" width="130">
+Patty Bouvier, Marge’s gruff, chain-smoking sister, is usually too busy working at the DMV or binge-watching her favorite soap operas to dabble in anything tech-related. But one day, her boss hands her a data project: sorting a complicated DMV seating chart that’s been printed as a grid. The chart is a messy matrix of DMV employee numbers, arranged in rows and columns that doesn’t make much sense to anyone except her boss. Patty is unimpressed. She thinks: <i>"Why can't this just be one simple list so I can get on with my day?"</i></p>  
+
+<h3>The Problem</h3>
+
+<p>
+  Write a function <span class="function">matrix_to_list(m)</span> that given a matrix <i>m</i> given as a list of lists with <i>r</i> rows and <i>c</i> columns, returns a new list with all the elements of the matrix, first with the elements from the first row, then the second row, and so on.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <i>r, c</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of rows and columns</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(matrix_to_list([ [1,2,3], [4,5,6], [7,8,9] ]))
+print(matrix_to_list([ [9,8,7,6,5], [4,3,2,1,0] ]))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+[1, 2, 3, 4, 5, 6, 7, 8, 9]
+[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

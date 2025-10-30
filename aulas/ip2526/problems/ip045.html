@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP045] List Transformation</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP045] List Transformation</h2>
+
+<p><img src="ip045.png" align="right" width="150">
+  Moe Szyslak, the famously grouchy bartender of <i>The Simpsons</i>, has been dealing with a new trend among his regulars at Moe’s Tavern. One evening, Comic Book Guy, Professor Frink, and Lisa Simpson are huddled at a corner table, discussing a strange concept they call <i>"list transformation"</i>. Moe isn’t exactly sure what it means, but it has something to do with math, and he’s a little annoyed at how it’s taking his regulars' attention away from his drink specials.</p>
+
+<p>The trio explains that they’re debating a mathematical problem where you take a list of numbers and multiply each element by a constant value <i>k</i>. This could be useful, Comic Book Guy suggests, for calculating tips on bills, tallying up loyalty points, or even keeping tabs on how much Homer has been drinking (which, of course, keeps the bill sky-high).</p>
+
+<h3>The Problem</h3>
+
+<p>
+  Write a function <span class="function">transform(lst, k)</span> that given a list of integers <i>lst</i> changes the list so that each element on the list is multiplied by <i>k</i>.
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <i>|lst|</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>size of the input list</td>
+  </tr>
+  <tr>
+    <td>-1000 &le; <i>lst<sub>i</sub></i> &le; 1000</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>elements of the list</td>
+  </tr>
+  <tr>
+    <td>-1000 &le; <i>k</i> &le; 1000</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>multiplication factor</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+lst = [1,2,3,4,5]
+transform(lst, 2)
+print(lst)
+transform(lst, 5)
+print(lst)
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+[2, 4, 6, 8, 10]
+[10, 20, 30, 40, 50]
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP038] The extremes</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP038] The extremes</h2>
+
+<p><img src="ip038.png" align="right" width="300">
+It was then that the Mad Hatter popped up from behind his teapot tower, tipping his oversized hat and grinning from ear to ear.</p>
+
+<p>Well, well! I see you’ve been entertaining our dear Caterpillar and those troublesome twins, but now it’s my turn!" he exclaimed. His eyes twinkled as he twirled a cup of tea in one hand. "You see, I’m mad about extremes—yes, the beginning and the end, the first and the last, the maximum and the minimum!"</p>
+  
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">extremes(words)</span> that given a tuple <i>words</i> containing several strings, return a tuple <i>(a,b)</i> where <i>a</i> is the length of the smallest string and <i>b</i> is the length of the largest string.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; |words| &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>number of words</td>
+  </tr>
+  <tr>
+    <td>1 &le; |w<sub>i</sub>| &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>size of each word</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(extremes( ("Alberto", "Francesco", "Miriam", "Pedro", "Tadeu") ))
+print(extremes( ("c/c++", "java", "python", "prolog", "haskell",) ))
+print(extremes( ("portugal", "spain", "italy") ))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+(5, 9)
+(4, 7)
+(5, 8)
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

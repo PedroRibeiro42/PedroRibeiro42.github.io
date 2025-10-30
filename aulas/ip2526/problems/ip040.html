@@ -1,0 +1,86 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP040] Searching for the treasure</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP040] Searching for the treasure</h2>
+
+<p><img src="ip040.png" align="right" width="300">
+As you marveled at how many challenges you had faced in Wonderland, a group of Curious Oysters suddenly emerged from the sea, quietly shuffling up to you. Their eyes were wide, and their tiny voices spoke in unison, "We’re curious... oh, so curious!"</p>
+
+<p>One particularly brave oyster stepped forward and said, “We’ve heard that you are quite skilled with Python. We love searching for hidden treasures, and we want you to help us find things in tuples. Could you help us search for specific values?"</p>
+
+
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">search(tup, value)</span> that given a tuple <i>tup</i> and a <i>value</i> returns a tuple (first,last), respectively the first and last index position where <i>value</i> appears (indices start with zero, of course). If the value does not appear, return (-1,-1).</p>
+
+<p>For instance the tuple (1,2,1,2,1) has the value 1 in three positions: 0, 2 and 4, so <i>search((1,2,1,2,1),1)</i> should return (0,4), the first and last index.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; |tup| &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>size of the input tuple</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(search( (1,2,1,2,1), 1 ))
+print(search( ("a","b","b","c"), "b" ))
+print(search( ("a","b","b","c"), "c" ))
+print(search( (True, True, True), False ))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+(0, 4)
+(1, 2)
+(3, 3)
+(-1, -1)
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

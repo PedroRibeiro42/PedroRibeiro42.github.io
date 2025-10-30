@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP051] Just an Average Person</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP051] Just an Average Person</h2>
+
+<p><img src="ip051.png" align="right" width="150">
+Ned Flanders, Springfield's most cheerful and mild-mannered neighbor, has always considered himself an "average" guy, perfectly content to be somewhere right in the middle of things. Whether it’s in a conversation, in the community, or in his personal beliefs, Ned likes to think of himself as a balanced, fair-minded person. One evening, as he organizes a list of Bible study topics for his church group, he finds himself wondering: what would it be like to find the exact middle topic in his list? It's the most "Flanders" place to be, after all!</p>
+
+<p>But there’s a little twist. Sometimes his list has an even number of topics, and sometimes an odd number. In the case of an even list, Ned wants to find the two elements in the middle. For an odd-numbered list, he just needs the single, perfectly central element. This way, he can make sure his "average" choices are as balanced as possible.</p>
+  
+
+<h3>The Problem</h3>
+
+<p>
+  Write a function <span class="function">middle(lst)</span> that given a list <i>lst</i> of (unique) comparable items returns a list containing the central element, that is, the median, if the list has an odd length; or the two median elements, in increasing order, if the list has an even length.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <i>|lst|</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of elements in list</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(middle(['StAndrew','StJames','StJohn','StPeter','StPhilip']))
+print(middle([1,2,3,4,5,6,7,8]))
+print(middle([1,9,3,5,7]))
+print(middle([8,4,6,2,12,10]))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+['StJohn']
+[4, 5]
+[5]
+[6, 8]
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

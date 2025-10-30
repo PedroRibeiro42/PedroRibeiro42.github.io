@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP058] Treasure Hunt</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP058] Treasure Hunt</h2>
+
+<p><img src="ip058.png" align="right" width="130">
+  One dark and stormy evening at the Springfield Nuclear Power Plant, Mr. Burns, the town’s wealthiest (and most eccentric) resident, sits in his luxurious office, poring over an ancient map, encoded in the form of an <b>infinite spiral matrix</b>, with numbers arranged in rows and columns. Here are the first five layers of the spiral, starting on cell <i>(1,1)</i>:</p>
+
+<p><img src="ip058_spiral.png" width="250"></p>
+
+<p>Legend has it that certain positions on this grid could lead to unimaginable wealth - or so Mr. Burns believes. The problem is that the map's instructions require a very specific number from seemingly random <i>(y, x)</i> coordinates on the grid. And Mr. Burns, not one for patience, wants instant access to these values without having to search row by row.</p>
+
+<p></p>
+
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">spiral_number(y, x)</span> that receives a pair of coordinates <i>(y, x)</i> and returns the number at that position in the infinite spiral matrix shown above.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <i>y, x</i> &le; 10<sup>9</sup></td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Coordinates of the number</td>
+  </tr>
+</table>
+
+<p style="color:red">NOTE: the limits are really high and you must have an <b>efficient</b> solution that can compute this very quickly.<br>
+  A solution that simply tries to simulate the spiral number by number will most likely have <b>Time Limit Exceeded</b>.<br>
+  Your program will need to be able to answer around five hundred queries in less than one second.</p>
+
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(spiral_number(2,3))
+print(spiral_number(1,1))
+print(spiral_number(4,2))
+print(spiral_number(170550340,943050741))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+8
+1
+15
+889344699930098742
+</pre>
+    </td>
+  </tr>
+</table>
+
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

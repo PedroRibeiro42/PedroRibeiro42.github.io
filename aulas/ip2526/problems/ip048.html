@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP048] Drunken Lists</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP048] Drunken Lists</h2>
+
+<p><img src="ip048.png" align="right" width="180">
+ One late night at Moe's Tavern, Barney Gumble, Springfield’s most enthusiastic (and perpetually inebriated) patron, finds himself in a philosophical mood. He starts wondering about the world through his "drunken perspective". Everything seems a bit mixed up and jumbled, and, to him, that actually feels kind of... fun!</p>
+
+<p>As he stares at a list of drink specials Moe has written up on the wall, Barney thinks it would be hilarious if the list got "drunk" too - where every pair of items in it is swapped around, just like his wobbly view of the world. He laughs to himself, imagining a world where things are always out of order, and decides to create something to capture that feeling.</p>
+  
+<h3>The Problem</h3>
+
+<p>
+  Write a function <span class="function">swap_list(lst)</span> that given a list <i>lst</i> swaps all consecutive pairs of elements. For instance, [1,2,3,4] should become [2,1,4,3]. If the list as an odd number of elements, the last element should stay at its position, as it cannot swap with any other element.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>0 &le; <i>|lst|</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of elements in list</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+lst1 = ['a','b','c','d','e','f']
+swap_list(lst1)
+print(lst1)
+lst2 = [1,2,3,4,5,6,7,8,9]
+swap_list(lst2)
+print(lst2)
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+['b', 'a', 'd', 'c', 'f', 'e']
+[2, 1, 4, 3, 6, 5, 8, 7, 9]
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP036] Double the trouble?</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP036] Double the trouble</h2>
+
+<p><img src="ip036.png" align="right" width="300">
+Ah, just when you thought you were done with the twins and their endless challenges, out of thin air, the Cheshire Cat appeared with that famous, mischievous grin of his!</p>
+
+<p>Perched on a nearby tree branch, he chuckled softly and said, "You’ve handled Tweedledee and Tweedledum quite well. But now, I have a little task of my own. I’m very fond of duplicates. They amuse me... So, let’s see if you can handle this!"</p>
+  
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">duplicate(tup)</span> that given a tuple <i>tup</i> returns a new tuple that has all its values duplicated. For instance the tuple (1,2,3) should give origin to the tuple (1,1,2,2,3,3,)</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; |tup| &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>size of the input tuple</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(duplicate( (1,2,3) ))
+print(duplicate( ("python","rocks") ))
+print(duplicate( (1.0, True, 4, "a") ))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+(1, 1, 2, 2, 3, 3)
+('python', 'python', 'rocks', 'rocks')
+(1.0, 1.0, True, True, 4, 4, 'a', 'a')
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

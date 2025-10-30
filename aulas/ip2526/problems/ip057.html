@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP057] Donut Path</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP057] Donut Path</h2>
+
+<p><img src="ip057.png" align="right" width="150">
+Homer Simpson, ever the lover of donuts and comfort, finds himself in an unusual situation at work. Mr. Burns, inspired by one of his bizarre ideas, has ordered Homer to organize the Springfield Nuclear Power Plant's inventory data in a "spiral path". Homer has no clue what that means, but he does know one thing: if he doesn’t figure it out, there might be trouble (and no donuts for a week!).</p>
+
+<p>Homer takes a deep breath, scratching his head as he looks at the matrix of numbers in front of him. He realizes he's staring at a grid of items that need to be inspected in a specific order. Normally, he'd go row by row or column by column, but Mr. Burns wants it arranged in a spiral, starting from the top left and winding inward like a donut shape. Homer isn’t thrilled with the task, but the thought of a perfectly spiraled donut gives him some motivation to dive in.</p>
+
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">spiral_path(m)</span> that receives a rectangular matrix <i>m</i> given as a list of lists with <i>r</i> rows and <i>c</i> columns, and returns a list with the elements of the matrix in the order they are traversed as a spiral, starting from the top left. The image below explains the spiral (donut) path for the first example input:</p>
+
+<p><img src="ip057_spiral.png" width="180"></p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <i>r, c</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of rows and columns</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(spiral_path([[ 1, 2,  3, 4],
+                   [ 5, 6,  7, 8],
+                   [ 9, 10,11,12],
+                   [13,14, 15,16]]))
+
+print(spiral_path([[ 1, 2, 3, 4, 5, 6],
+                   [ 7, 8, 9,10,11,12],
+                   [13,14,15,16,17,18]]))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+[1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
+
+
+
+
+[1, 2, 3, 4, 5, 6, 12, 18, 17, 16, 15, 14, 13, 7, 8, 9, 10, 11]
+</pre>
+    </td>
+  </tr>
+</table>
+
+<p><i>(there are no empty lines printed; the example output is spaced just so that you can better understand it)</i></p>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

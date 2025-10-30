@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP050] Duplicated Reports</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP050] Duplicated Reports</h2>
+
+<p><img src="ip050.png" align="right" width="150">
+Principal Seymour Skinner is going through a daunting pile of student reports in his office at Springfield Elementary. It’s the end of the semester, and he’s supposed to review each student’s work before final grades go out. But as he flips through the stack, he starts to notice something strange - several students seem to have accidentally (or lazily) submitted duplicate copies of their reports. Bart, of course, is the worst offender, having submitted the same science project on “How to Catch a Frog” no less than five times.</p>
+
+<p>Skinner sighs, knowing he doesn't have time to read all these variations. What he really wants to see are the reports that students only submitted once - the ones he can trust as the student's intended final submission. Can you help him keep only the unique reports?</p>
+
+<h3>The Problem</h3>
+
+<p>
+  Write a function <span class="function">unique(lst)</span> that given a list <i>lst</i> returns a new list containing only the unique elements, that is, those that appear only once in <i>lst</i>.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>0 &le; <i>|lst|</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of elements in list</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(unique(["bart","lewis","bart", "martin", "bart", "nelson","martin"]))
+print(unique(['a','b','c','d']))
+print(unique([True, False, True, False]))
+print(unique(['f', 'o', 'r', 't', 'y', 't', 'w', 'o']))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+['lewis', 'nelson']
+['a', 'b', 'c', 'd']
+[]
+['f', 'r', 'y', 'w']
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

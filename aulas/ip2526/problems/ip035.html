@@ -1,0 +1,87 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP035] Odd vs even</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP035] Odd vs even</h2>
+
+<p><img src="ip035.png" align="right" width="300">
+After the palindromic task, Tweedledum and Tweedledee, who are never satisfied without a bit of argument, found themselves in a new heated debate. This time, the subject was numbers: <b>odd vs even</b>.</p>
+
+<p>Tweedledum, pacing around with a smug expression, said, "Odd numbers are far more interesting! They have that unique, irregular charm—just like Wonderland itself. Look at numbers like 1, 3, 5... they stand alone, unpaired, and mysterious. Odd numbers are just... better!</p>
+
+<p>Tweedledee, ever the more practical one, raised his finger and countered, "Nonsense! Even numbers are clearly superior. They are perfectly balanced, divisible by 2, and represent harmony. Look at 2, 4, 6... there's symmetry, order, and balance. Even numbers make things neat and tidy!"</p>
+
+<p>The argument grew louder, and soon, they decided that it was time to settle this debate. But they needed someone to do it—a neutral party. They turned to you, their bright student of Python, for assistance. Buy you certainly like all the numbers and devised a clever way of keeping both satisfied...</p>
+  
+<h3>The Problem</h3>
+
+<p>Write a function <span class="function">odd_even(tup)</span> that given a tuple <i>tup</i> returns a new tuple that has first all the values that were on odd positions, in the same order as they were originally, and then the values that were in even positions, also in the same order.</p>
+
+<p>Consider for instance a tuple (<span style="color:red">1</span>,<span style="color:blue">2</span>,<span style="color:red">3</span>,<span style="color:blue">4</span>,<span style="color:red">5</span>,<span style="color:blue">6</span>,<span style="color:red">7</span>,<span style="color:blue">8</span>,<span style="color:red">9</span>), in which number <i>i</i> is in the <i>i</i>-th position, with <span style="color:red">red</span> for the odd position values and <span style="color:blue">blue</span> for the even ones. In this case the desired answer is the tuple (<span style="color:red">1</span>,<span style="color:red">3</span>,<span style="color:red">5</span>,<span style="color:red">7</span>,<span style="color:red">9</span>,<span style="color:blue">2</span>,<span style="color:blue">4</span>,<span style="color:blue">6</span>,<span style="color:blue">8</span>), with the odd positioned elements coming before, followed by the even ones.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; |tup| &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>size of the input tuple</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(odd_even( (1,2,3,4,5,6,7,8) ))
+print(odd_even( ("a","b","c","d","e","f") ))
+print(odd_even( ("hello", 42, "oh no", 2.0, 14) ))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+(1, 3, 5, 7, 2, 4, 6, 8)
+('a', 'c', 'e', 'b', 'd', 'f')
+('hello', 'oh no', 14, 42, 2.0)
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

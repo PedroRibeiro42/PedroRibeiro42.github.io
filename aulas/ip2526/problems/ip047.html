@@ -1,0 +1,92 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP047] Fibonacci Sequence</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP047] Fibonacci Sequence</h2>
+
+<p><img src="ip047.png" align="right" width="150">
+Lisa Simpson, Springfield’s young prodigy, has become fascinated with the Fibonacci sequence after reading about it in one of her advanced math books. She learns that this series, where each number is the sum of the two preceding ones, pops up everywhere in nature - from the spirals of seashells to the arrangement of petals on flowers. Intrigued, she decides to explore the sequence further and needs your help!</p>
+  
+<h3>The Problem</h3>
+
+<p>
+  Write a function <span class="function">fibonacci(a, b, n)</span> that given integers <i>a</i>, <i>b</i> and <i>n</i> returns a list with the first <i>n</i> numbers of the sequence that starts with the numbers <i>a</i> and <i>b</i> and then continues by having each subsequent number being the sum of the two previous ones, that is, a list <i>S</i> where:</p>
+
+<ul>
+  <li>S<sub>0</sub> = <i>a</i>
+  <li>S<sub>1</sub> = <i>b</i>
+  <li>S<sub>i</sub> = S<sub>i-2</sub> + S<sub>i-1</sub> 
+</ul>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>0 &le; a,b &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>The two first elements</td>
+  </tr>
+  <tr>
+    <td>3 &le; <i>n</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of elements in the sequence</td>
+  </tr>
+
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(fibonacci(0,1,13))
+print(fibonacci(2,4,10))
+print(fibonacci(1,3,12))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144]
+[2, 4, 6, 10, 16, 26, 42, 68, 110, 178]
+[1, 3, 4, 7, 11, 18, 29, 47, 76, 123, 199, 322]
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

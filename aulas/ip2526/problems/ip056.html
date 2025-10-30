@@ -1,0 +1,93 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP056] Eeny, Meeny, Miny, Moe</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP056] Eeny, Meeny, Miny, Moe</h2>
+
+<p><img src="ip056.png" align="right" width="150">
+Milhouse Van Houten, Springfield Elementary's most optimistic and often anxious student, is hanging out with his friends during recess. It's a sunny day, and the kids are gathered on the playground, deciding which games to play. As they throw around ideas, Nelson Muntz, the school’s resident bully, shows up and starts eyeing Milhouse with that mischievous glint in his eye.</p>
+
+<p>Fearing he might become Nelson's next target, Milhouse panics and decides he needs to take control of the situation. The group decides to play a classic game of "Eeny Meeny Miny Moe" to determine who will be "it" for their next game of tag. However, Milhouse knows that if he ends up being chosen, he might have to face the wrath of Nelson.</p>
+
+<p>Milhouse quickly realizes he can use the game to his advantage by trying to ensure he doesn't get picked. To do this, he wants to track the order in which the kids are eliminated during the game, so he can calculate whether he might get stuck in the "it" position when it's his turn.</p>
+
+<h3>The Problem</h3>
+
+<p>
+  Write a function <span class="function">eeny_meeny(lst, k)</span> that given a list <i>lst</i> of strings and an integer <i>k</i>, plays <a href="https://en.wikipedia.org/wiki/Eeny,_meeny,_miny,_moe">Eeny, meeny, miny, moe</a>, a <a href="https://en.wikipedia.org/wiki/Counting-out_game">counting-out game</a> (the equivalent in Portugal would be "Pim Pam Pum").
+
+<p>The game works by putting the children in circular fashion, starting with the first element of the list and then eliminating every <i>k</i>-th child of the game, continuing with the next remaining child. You should return a list containing the names of the children in the order they go out of the game.</p>
+
+<p>The following figure illustrates the first example input with <i>lst=["Milhouse","Bart","Jessica","Nikki","Terri"]</i> and <i>K=10</i>. The blue numbers indicating the counting, and every time we reach 10 we remove a child from the game.</b>
+
+<p><img src="ip056_image.png" width="900"></p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <i>|lst|</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Length of list</td>
+  </tr>
+  <tr>
+    <td>1 &le; <i>k</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Elimination factor</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(eeny_meeny(["Milhouse","Bart","Jessica","Nikki","Terri"], 10))
+print(eeny_meeny(["PedroR","Miriam","Alberto","Tadeu","Francesco","PedroM"], 3))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+['Terri', 'Bart', 'Jessica', 'Milhouse', 'Nikki']
+['Alberto', 'PedroM', 'Tadeu', 'Miriam', 'Francesco', 'PedroR']
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

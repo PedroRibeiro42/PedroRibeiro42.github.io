@@ -1,0 +1,85 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP046] Kwik-E-Mart</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP046] Kwik-E-Mart</h2>
+
+<p><img src="ip046.png" align="right" width="110">
+Apu Nahasapeemapetilon, the hardworking owner of the Kwik-E-Mart, is facing an organizational challenge. With Springfield's residents shopping (and sometimes shoplifting) at his store day and night, keeping track of his inventory is becoming more chaotic by the day. His shelves are full of various items - Buzz Cola cans, Squishee cups, Krusty-O's cereal boxes, donuts, and random convenience store essentials.</p>
+
+<p>After a particularly busy shift, Apu notices that some items are scattered around the store in multiple places. He realizes he needs to track the exact positions of each item in his inventory list, so he can find out where and how often each item appears. For example, if Buzz Cola shows up in several spots in his inventory list, he wants to know the positions of each occurrence to better organize his shelves (and to know which items are running low).</p>
+
+<h3>The Problem</h3>
+
+<p>
+  Write a function <span class="function">occurrences(lst, x)</span> that given a list <i>lst</i> and a value <i>x</i> returns a new list with the positions where the value <i>x</i> occurs. Note that, as obvious for Apu, the positions start in zero.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>0 &le; <i>|lst|</i> &le; 100</td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>Number of elements in list</td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+lst = ["cola","cereal","donut","cola","cola","donut","cola"]
+print(occurrences(lst, "cola"))
+print(occurrences(lst, "cereal"))
+print(occurrences(lst, "donut"))
+print(occurrences(lst, "water"))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+[0, 3, 4, 6]
+[1]
+[2, 5]
+[]
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

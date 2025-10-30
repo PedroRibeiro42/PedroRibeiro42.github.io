@@ -1,0 +1,90 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[IP031] Just an Average Party</title>
+    <style>
+      .function {
+          color: black;
+          background: #ffe2e2;
+          margin: 2px;
+          padding: 2px;
+          border: 1px dashed black;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 25th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without counting towards your grade)</i><br>
+    <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/ip2526/practical/class03.html">class #03 exercise sheet</a>]</b></small></p>
+
+<hr>
+
+<p style="color:red"><b>In this problem you should submit a function as described. Inside the function do not print anything that was not asked!</b></p>
+<p style="color:darkmagenta"><b>The name of the .py source file you submit to Mooshak should NOT start with a digit (you will get an error if you submit it like that).</b></p>
+
+<h2>[IP031] Just an Average Party</h2>
+
+<p><img src="ip031.jpg" align="right" width="300">
+Picture this: a bunch of digits throw a party, and they’re all trying to show off their skills. Your mission, should you choose to accept it, is to help these digits team up.
+</p>
+
+<h3>The Problem</h3>
+
+<p>
+Write a function <span class="function">digits_average(n)</span> that takes a positive integer <i>n</i> and repeatedly calculates the average of its consecutive digits until a single-digit number is obtained. The function should return this final single-digit average.
+<br><br>
+<b>If the average of two digits is not an integer, round the result up using <a target="_blank" href="https://docs.python.org/3/library/math.html#math.ceil">math.ceil.</a></b>
+<br><br>
+As an example, the result of <code>digits_average(158)</code> should be <b>5</b> and the result of <code>digits_average(9534)</code> is also <b>5</b>. The following figure explains the process for these two examples. Each level corresponds to averaging pairs of consecutive digits as described.
+
+<p><img src="ip031_02.png" align="center" width="300"></p>
+
+<p style="color:green"><b>Try to solve challenge without indexing lists or strings!</b></p>
+</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+<table>
+  <tr>
+    <td>1 &le; <i>n</i> &le; 10<sup>50</sup></td>
+    <td>&nbsp; &nbsp; &nbsp;</td>
+    <td>The positive integer <i>n</i></td>
+  </tr>
+</table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Function Calls</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+print(digits_average(158))
+print(digits_average(9534))
+print(digits_average(9062))
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+5
+5
+4
+</pre>
+    </td>
+  </tr>
+</table>
+
+<hr size="2">
+<center><b>Introduction to Programming (CC1024)</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

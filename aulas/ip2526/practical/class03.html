@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[IP] Practical Class #03</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Introduction to Programming 2025/2026</a> (CC1024) - DCC/FCUP</h3>
+  <h1>Practical Class #03 - Functions
+    <small><small>(06/10 to 10/10)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problems/ip023.html">[IP023] Summing Numbers</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip024.html">[IP024] Freezing in here</a> (weight 15%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip025.html">[IP025] All in one</a> (weight 15%) <span style="color:DarkGreen">(main exercise)</span>        
+      <li><a class="important" href="../problems/ip026.html">[IP026] And may the odds...</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip027.html">[IP027] Like the frog, get it?</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip028.html">[IP028] Factorial Frenzy</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip029.html">[IP029] Collatz Sequence</a> (weight 25%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip030.html">[IP030] Numerus Maximus!</a> (weight 25%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip031.html">[IP031] Just an Average Party</a> (weight 30%) <span style="color:DarkRed">(challenge exercise)</span>
+      <li><a class="important" href="../problems/ip032.html">[IP032] The Prime Suspects</a> (weight 30%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> October 25th (submit to <a href="https://mooshak.dcc.fc.up.pt/~ip/">IP's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 10% of your final component for exercices during class. Since there will be 11 classes with submissions, you can achieve maximum grade even without doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+<hr>
+
+  <p>With the exercises in this class you will develop the following skills:</p>
+
+  <ol>
+    <li>Explore function definition and function calling</li>
+    <li>Explore argument passing and return statements</li>
+    <li>Practice breaking down problems into smaller tasks by writing functions</li>
+    <li>Explore how functions help in reusing code and making it more organized</li>
+    <li>Consolidate your knowledge of coding, debugging and problem solving</li>
+  </ol>
+
+  <p><b>If you feel stuck, go back and revise the lectures</b> <a href="../material.html#lectures">T02: The basics | T03: Conditionals | T04: Program Flow | | T05: Functions | T06: More Functions</a></b>
+
+<hr>
+
+<p><big><b>1) My first function submission</b></big>
+
+<p>On this class all the exercises involve implementing a given <b>function</b>. Here are some notes:</p>
+
+<ul>
+  <li>The code you submit to Mooshak should therefore contain a function implementation as described.
+  <li>Inside the function you should not print anything not explicitly asked on the problem statement.
+  <li>Outside the function you can however print anything and for instance use the example function calls to test your code.<br>
+    <i>(in fact we encourage you to actually always test with at least the given examples)</i>
+  <li>The file you submit to Mooshak should not have a name starting with a digit (e.g. <span class="code">ip023.py</span> is <span style="color:green"><b>ok</b></span> but <span class="code">023.py</span> is <span style="color:red"><b>not</b></span>).<br>
+    <i>(if you are curious why, it is because technically your file will be imported as a <a href="https://stackoverflow.com/questions/17487209/can-a-python-package-name-start-with-a-number">module</a>)</i>
+</ul>
+
+<p>To help you get started, here is some Python source code that serves as an example solution to the first problem from this class:</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%; font-size: medium"><span></span><span style="color: #888"># [IP023] All in one</span>
+<span style="color: #888"># Example Solution</span>
+
+<span style="color: #888"># The function definition</span>
+<span style="color: #080; font-weight: bold">def</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">sum</span>(a,b):
+    <span style="color: #080; font-weight: bold">return</span> a<span style="color: #333">+</span>b
+
+<span style="color: #888"># Examples from problem statement</span>
+<span style="color: #007020">print</span>( <span style="color: #007020">sum</span>(<span style="color: #00D; font-weight: bold">1</span>,<span style="color: #00D; font-weight: bold">2</span>)   )
+<span style="color: #007020">print</span>( <span style="color: #007020">sum</span>(<span style="color: #333">-</span><span style="color: #00D; font-weight: bold">3</span>,<span style="color: #00D; font-weight: bold">3</span>)  )
+<span style="color: #007020">print</span>( <span style="color: #007020">sum</span>(<span style="color: #00D; font-weight: bold">32</span>,<span style="color: #00D; font-weight: bold">10</span>) )
+<span style="color: #007020">print</span>( <span style="color: #007020">sum</span>(<span style="color: #00D; font-weight: bold">7</span>,<span style="color: #00D; font-weight: bold">8</span>)   )
+<span style="color: #007020">print</span>( <span style="color: #007020">sum</span>(<span style="color: #00D; font-weight: bold">4</span>,<span style="color: #333">-</span><span style="color: #00D; font-weight: bold">7</span>)  )
+
+<span style="color: #888"># Some more examples</span>
+<span style="color: #007020">print</span>(<span style="background-color: #FFF0F0">&quot;--------------------------&quot;</span>)
+<span style="color: #007020">print</span>(<span style="color: #007020">sum</span>(<span style="color: #333">-</span><span style="color: #00D; font-weight: bold">1000</span>,<span style="color: #00D; font-weight: bold">1000</span>))
+<span style="color: #007020">print</span>(<span style="color: #007020">sum</span>(<span style="color: #00D; font-weight: bold">40</span>,<span style="color: #00D; font-weight: bold">3</span>))
+</pre></div>
+
+<p>When executed, this python code will output the following, confirming it answers as expected:</p>
+
+<pre class="shell" style="font-size: medium">
+3
+0
+42
+15
+-3
+--------------------------
+0
+43
+</pre>
+
+<p>You are now ready to submit! 😺</p>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+  Submit an <span style="color:green">Accepted</span> the following problem. Don't forget to test first on your computer!</p>
+
+<ul type="a">
+  <li><a href="../problems/ip023.html">[IP023] Summing Numbers</a>
+</ul>
+  
+<hr>
+
+<p><big><b>2) Testing your knowledge of Python and functions</b></big>
+
+<p>Can you now do some exercises on your own? 😉</p>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+<ol type="a">
+  <li><a href="../problems/ip024.html">[IP024] Freezing in here</a>
+  <li><a href="../problems/ip025.html">[IP025] All in one</a>
+  <li><a href="../problems/ip026.html">[IP026] And may the odds...</a>
+  <li><a href="../problems/ip027.html">[IP027] Like the frog, get it?</a>
+  <li><a href="../problems/ip028.html">[IP028] Factorial Frenzy</a>
+</ol>
+ 
+<br>
+      
+  <hr>
+  
+<h3>Extra exercises for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+
+<p>Loved the main exercises and craving for more? These extra problems are here to help you sharpen your skills and reward those that are coding for the love of learning 😄</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to the following two problems. Don't forget to test first on your computer!</p>
+  
+  <ol type="a">  
+      <li><a href="../problems/ip029.html">[IP029] Collatz Sequence</a>
+      <li><a href="../problems/ip030.html">[IP030] Numerus Maximus!</a>
+
+  </ol>
+
+<br>
+  
+    <hr>
+
+       <h3>Challenge exercises <span style="color:DarkRed">[challenge]</span></h3>
+
+<p>You've made it this far, and now it's time for the final challenges! Push yourself, you've got this!
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to the following two problems. Don't forget to test first on your computer!</p>
+
+  <ol type="a">
+    <li><a href="../problems/ip031.html">[IP031] Just an Average Party</a>
+    <li><a href="../problems/ip032.html">[IP032] The Prime Suspects</a>
+  </ol>
+
+<p>Happy coding! &#128522;</p> 
+  
+<hr>
+<p class="footer">Bernardo Portela and Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

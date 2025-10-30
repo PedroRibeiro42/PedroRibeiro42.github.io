@@ -1,0 +1,170 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[IP] Practical Class #05</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Introduction to Programming 2025/2026</a> (CC1024) - DCC/FCUP</h3>
+  <h1>Practical Class #05 - Lists
+    <small><small>(20/10 to 24/10)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>
+      <li><a class="important" href="../problems/ip045.html">[IP045] List Transformation</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip046.html">[IP046] Kwik-E-Mart</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip047.html">[IP047] Fibonacci Sequence</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip048.html">[IP048] Drunken Lists</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>        
+      <li><a class="important" href="../problems/ip049.html">[IP049] Rotating Toys</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip050.html">[IP050] Duplicated Reports</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip051.html">[IP051] Just an Average Person</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip052.html">[IP052] Messy Matrix</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip053.html">[IP053] Turn it Back!</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip054.html">[IP054] Is it magical?</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip055.html">[IP055] Church Members</a> (weight 15%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip056.html">[IP056] Eeny, Meeny, Miny, Moe</a> (weight 15%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip057.html">[IP057] Donut Path</a> (weight 20%) <span style="color:DarkRed">(challenge exercise)</span>
+      <li><a class="important" href="../problems/ip058.html">[IP058] Treasure Hunt</a> (weight 20%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> November 8th (submit to <a href="https://mooshak.dcc.fc.up.pt/~ip/">IP's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 10% of your final component for exercices during class. Since there will be 11 classes with submissions, you can achieve maximum grade even without doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+<hr>
+
+  <p>With the exercises in this class you will develop the following skills:</p>
+
+  <ol>
+    <li>Explore function definition and function calling</li>
+    <li>Understand the concept of lists and how you can use them in Python</li>
+    <li>Know how to insert, remove and modify elements in lists</li>
+    <li>Know how to call auxiliary list methods, such as <i>count</i> and <i>sort</i></li>
+    <li>Understand that a list variable is essentially a reference to the list
+    <li>Understand how matrices can be represented as a of lists
+    <li>Gain experience with some algorithmic patterns
+  </ol>
+
+  <p><b>If you feel stuck, go back and revise all the lectures, but in particular the following ones: </b> <a href="../material.html#lectures">T07: Tuples and Lists | T08: More (on) Lists | T09: Advanced Lists</a></b>
+
+<hr>
+
+<p>This week's theme for the exercises is <a href="https://en.wikipedia.org/wiki/The_Simpsons">The Simpsons</a>.</p>
+
+<p><img src="simpsons.png" width="200" border="1"></p>
+
+<hr>
+
+
+<p><b>1) The start</b></p>
+
+   <p>The first set of problems will give you the basics about lists.</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+  <ol type="a">
+    <li><a href="../problems/ip045.html">[IP045] List Transformation</a> <i>(changing elements from a list)</i>
+    <li><a href="../problems/ip046.html">[IP046] Kwik-E-Mart</a> <i>(create a new list)</i>
+    <li><a href="../problems/ip047.html">[IP047] Fibonacci Sequence</a> <i>(creating a list and accessing its elements)</i>
+    <li><a href="../problems/ip048.html">[IP048] Drunken Lists</a> <i>(traversing a list)</i>        
+  </ol>
+
+
+<br>
+      
+<hr>
+
+<p><b>2) Getting a bit harder</b></p>
+
+<p>Now that you understand the basics, let's see if you can solve the next batch of problems (and if you payed attention to some of the existing list methods).</p>
+
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+  <ol type="a">
+    <li><a href="../problems/ip049.html">[IP049] Rotating Toys</a> <i>(inserating/removing elements from a list)</i>
+    <li><a href="../problems/ip050.html">[IP050] Duplicated Reports</a> <i>(using count)</i>
+    <li><a href="../problems/ip051.html">[IP051] Just an Average Person</a> <i>(using sort)</i>
+  </ol>
+
+<br>
+      
+  <hr>
+
+<p><b>3) Working with matrices</b></p>
+
+<p>What if we told you that matrices are just lists of lists?</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+  <ol type="a">
+      <li><a href="../problems/ip052.html">[IP052] Messy Matrix</a> <i>(from a matrix to a list)</i>
+      <li><a href="../problems/ip053.html">[IP053] Turn it Back!</a> <i>(from a list to a matrix)</i>
+      <li><a href="../problems/ip054.html">[IP054] Is it magical?</a> <i>(checking if we have a magic square)</i>    
+  </ol>
+
+<br>
+      
+  <hr>
+
+  
+  <h3>4) Extra exercises for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+  
+<p>Loved the main exercises and want more adventure in Springfield, home of the Simpsons? Here are more exercises to sharpen your skills.</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+  
+  <ol type="a">  
+    <li><a href="../problems/ip055.html">[IP055] Church Members</a> <i>(how to use a normal sort with two criteria?)</i>
+    <li><a href="../problems/ip056.html">[IP056] Eeny, Meeny, Miny, Moe</a> <i>(be organized!)</i>
+  </ol>
+
+  <hr>
+
+  <h3>3) Challenge exercises <span style="color:DarkRed">[challenge]</span></h3>
+
+  <p>You’ve tackled the trickiest tasks across town, from sorting Ned Flanders' humble lists to helping Milhouse dodge Nelson, and even assisting Reverend Lovejoy’s congregation in order. Springfield thanks you for your Python prowess and quick thinking!</p>
+
+<p>But as any true problem-solver knows, there are always two final challenges awaiting at the end: Homer and Mr. Burns' spiral quests.</p>
+
+<ul>
+  <li>Homer needs you to chart a path through a spiral matrix, collecting each element as you follow his dizzying donut-inspired path. Can you help him lay out the grid one twist at a time?
+  <li>Mr. Burns, of course, demands precise calculations. He seeks treasure values hidden at specific coordinates within a spiral matrix. Only by decoding this ancient spiral map will you help him uncover riches and satisfy his thirst for wealth.
+</ul>
+
+<p>Think you have what it takes? Tackle these two last challenges, and you’ll truly be a Springfield Python Master! <b>Good luck, and may the spirals align in your favor!</b></p>
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to the following problems. Don't forget to test first on your computer!</p>
+
+  <ol type="a">  
+      <li><a href="../problems/ip057.html">[IP057] Donut Path</a>
+      <li><a href="../problems/ip058.html">[IP058] Treasure Hunt</a>
+  </ol>
+
+      <p>Happy coding! &#128522;</p> 
+
+<hr>
+
+    
+<p class="footer">Bernardo Portela and Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

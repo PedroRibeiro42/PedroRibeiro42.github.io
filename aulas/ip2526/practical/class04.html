@@ -1,0 +1,159 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[IP] Practical Class #04</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Introduction to Programming 2025/2026</a> (CC1024) - DCC/FCUP</h3>
+  <h1>Practical Class #04 - Tuples and Strings
+    <small><small>(13/10 to 17/10)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>
+      <li><a class="important" href="../problems/ip033.html">[IP033] The first and the last</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip034.html">[IP034] Palindromic task </a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip035.html">[IP035] Odd vs even </a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>        
+      <li><a class="important" href="../problems/ip036.html">[IP036] Double the trouble</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip037.html">[IP037] Word clean up</a> (weight 12%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip038.html">[IP038] The extremes</a> (weight 12%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip039.html">[IP039] Important letters</a> (weight 12%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip040.html">[IP040] Searching for the treasure</a> (weight 12%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip041.html">[IP041] A needle in a haystack</a> (weight 12%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip042.html">[IP042] Swapping everything</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip043.html">[IP043] Word evolution</a> (weight 30%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip044.html">[IP044] Which one?</a> (weight 30%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> November 1st (submit to <a href="https://mooshak.dcc.fc.up.pt/~ip/">IP's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 10% of your final component for exercices during class. Since there will be 11 classes with submissions, you can achieve maximum grade even without doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+<hr>
+
+<p>With the exercises in this class you will develop the following skills:</p>
+
+  <ol>
+    <li>Explore function definition and function calling</li>
+    <li>Explore the notion of iterables and sequences, and in particular of tuples and strings</li>
+    <li>Practice the usage of the index operator and of slicing</li>
+    <li>Explore the flexibility and general power of "for in" cycles</li>
+  </ol>
+
+  <p><b>If you feel stuck, go back and revise the lectures</b> <a href="../material.html#lectures">T02: The basics | T03: Conditionals | T04: Program Flow | | T05: Functions | T06: More Functions | T07: Tuples and Lists</a></b>
+
+<hr>
+
+<p>This week's theme for the exercises is <a href="https://en.wikipedia.org/wiki/Alice%27s_Adventures_in_Wonderland">Alice in Wonderland</a>.</p>
+
+<p><img src="alice.png" width="270" border="1"></p>
+
+<hr>
+
+<p><b>1) Slicing your way</b></p>
+
+   <p>The first set of problems is all about the concept of slicing (see <a href="../material.html#lectures">T07</a>). Can you master it? &#128519;
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+  <ol type="a">
+      <li><a href="../problems/ip033.html">[IP033] The first and the last</a>
+      <li><a href="../problems/ip034.html">[IP034] Palindromic task </a>
+      <li><a href="../problems/ip035.html">[IP035] Odd vs even </a>
+  </ol>
+
+
+<br>
+      
+<hr>
+
+<p><b>2) Iterables and Sequences</b></p>
+
+<p>Tuples and Strings are immutable iterables and sequences (see <a href="../material.html#lectures">T08</a>) so you can traverse them with a <span class="code">for in</span> cycle and do other things such as checking the length, checking is something is contained, indexing, slicing, concatenating, multiplying, etc.</p>
+
+<p>A very useful pattern for iterating is the following:</p>
+
+<pre class="code">
+initialize a result variable to be an initial value
+loop
+   update the result based on current value(s)
+return the result
+</pre>
+
+<p>Just to give a few examples:</p>
+
+<ul>
+  <li>If you want to build a tuple or string, start with an empty one and keep adding (concatenating) as you iterate    
+  <li>If you want to count, start with a counter on zero and keep incrementing as you iterate
+  <li>If you want to find the min/max start with the first element and keep changing as you iterate
+</ul>
+
+<p>Have you seen this pattern on previous problems? Can you use it (or variants of it) on problems just as these ones?
+
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+  <ol type="a">
+    <li><a href="../problems/ip036.html">[IP036] Double the trouble</a>
+    <li><a href="../problems/ip037.html">[IP037] Word clean up</a>
+    <li><a href="../problems/ip038.html">[IP038] The extremes</a>
+    <li><a href="../problems/ip039.html">[IP039] Important letters</a>
+    <li><a href="../problems/ip040.html">[IP040] Searching for the treasure</a>
+    <li><a href="../problems/ip041.html">[IP041] A needle in a haystack</a>
+  </ol>
+
+<br>
+      
+  <hr>
+
+  <h3>3) Extra exercises for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+  
+<p>Loved the main exercises and want mode adventure in Wonderland? Here are more exercises to meet more characters. These extra problems are here to help you sharpen your skills and reward those that are coding for the love of learning.</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+  
+  <ol type="a">  
+    <li><a href="../problems/ip042.html">[IP042] Swapping everything</a>
+    <li><a href="../problems/ip043.html">[IP043] Word evolution</a>
+  </ol>
+
+  <hr>
+
+  <h3>3) Challenge exercise <span style="color:DarkRed">[challenge]</span></h3>
+
+  <p>You almost conquered Wonderland, but there is still one last hurdle. Can you help Alice on the ultimate challenge of this class?</p>
+
+<p>This challenge is of <b>algorithmic nature</b>, so you need and <b>efficient solution</b> and not just a correct (but more "brute force") approach if you don't want to face a <span class="color:red"><b>Time Limit Exceeded</b></span>. Can you think how you can take advantage of the patterns that form?</p>
+
+<p>This exercise is more challenging and not so trivial or immediate, so give yourself some time to think about it before looking for help.</p>
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to the following problem. Don't forget to test first on your computer!</p>
+
+  <ol type="a">  
+      <li><a href="../problems/ip044.html">[IP044] Which one?</a>
+  </ol>
+
+      <p>Happy coding! 🧙</p> 
+
+<hr>
+<p class="footer">Bernardo Portela and Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

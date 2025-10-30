@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[IP] Practical Class #02</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Introduction to Programming 2025/2026</a> (CC1024) - DCC/FCUP</h3>
+  <h1>Practical Class #02 - Conditionals and Program Flow
+    <small><small>(29/09 to 03/10)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problems/ip008.html">[IP008] Absolute-ly</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip009.html">[IP009] Best of 3</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip010.html">[IP010] Grading Papers</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip011.html">[IP011] Buy Me Flowers</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip012.html">[IP012] FizzBuzz</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip013.html">[IP013] Multiply Mayhem!</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip014.html">[IP014] Odd Feelings</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip015.html">[IP015] Behold a Square</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip016.html">[IP016] Like the others?</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip017.html">[IP017] Sum me up!</a> (weight 10%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip018.html">[IP018] More Circle Math</a> (weight 10%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip019.html">[IP019] I am root</a> (weight 10%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip020.html">[IP020] Perfection</a> (weight 10%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip021.html">[IP021] Pointy Business</a> (weight 10%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip022.html">[IP022] Spin me right round</a> (weight 20%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> October 18th (submit to <a href="https://mooshak.dcc.fc.up.pt/~ip/">IP's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 10% of your final component for exercices during class. Since there will be 11 classes with submissions, you can achieve maximum grade even without doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+<hr>
+
+<p>With the exercises in this class you will develop the following skills:</p>
+
+<ol>
+  <li>Explore some math operators such as integer remainder (<span class="code">%</span>) and integer division (<span class="code">//</span>)
+  <li>Explore the usage of boolean expressions (and operators such as <span class="code">and</span>, <span class="code">or</span>)
+  <li>Explore the usage of of conditionals (such as <span class="code">if</span>, <span class="code">elif</span>, <span class="code">else</span>)</li>
+  <li>Explore the usage of program flow cycle instructions (such as <span class="code">for</span>, <span class="code">while</span>, <span class="code">range</span>)
+  <li>Explore the creation of simple algorithms
+  <li>Consolidate your knowledge of coding, debugging and problem solving</li>
+</ol>
+
+<p><b>If you feel stuck, go back and revise the lectures</b> <a href="../material.html#lectures">T02: The basics | T03: Conditionals | T04: Program Flow</a></b>
+
+<hr>
+  
+<p><big><b>1) Conditional Statements</b></big>
+
+<p>For this first batch of four problems you will mainly explore the usage of conditional statements (such as <span class="code">if</span>, <span class="code">elif</span> and <span class="code">else</span>) and boolean expressions.</p>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+<ol type="a">
+  <li><a href="../problems/ip008.html">[IP008] Absolute-ly</a>
+  <li><a href="../problems/ip009.html">[IP009] Best of 3</a>
+  <li><a href="../problems/ip010.html">[IP010] Grading Papers</a>
+  <li><a href="../problems/ip011.html">[IP011] Buy Me Flowers</a>
+</ol>
+
+<p>We encourage you to speak with your colleagues and with your professors if you need help (including using Discord), but be aware that <b>you should be trying to solve the exercises by yourself!</b></p>
+
+<p>You get from a course what you invest on it and by actually trying to solve the problems you will learn a lot (including some of the things you will not get correct the first time, which will become lessons you will not forget).</p>
+
+<p>This course is all about <i>"putting your hands dirty"</i> in terms of actually coding, and if you rely on other's code (or tools such as ChatGPT) you will be most of all just fooling yourself... Try to do it and enjoy the rich and dynamic experience we prepared for you! &#128522;</p>
+
+      <details class="meme" name="meme">
+        <summary>&#128513; suprised pikachu...</summary>
+        <p><img src="meme_pikachu.jpg" height="500"></p>
+      </details>
+
+<br>
+      
+  <hr>
+
+<p><big><b>2) Program Flow and Cycle Instructions</b></big>
+
+<p>For this second batch of four more problems you will now explore the usage of program flow instructions (such as <span class="code">for</span>, <span class="code">while</span> and <span class="code">range</span>), combined with what you already know.</p>
+
+<p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+<ol type="a">
+      <li><a href="../problems/ip012.html">[IP012] FizzBuzz</a>
+      <li><a href="../problems/ip013.html">[IP013] Multiply Mayhem!</a>
+      <li><a href="../problems/ip014.html">[IP014] Odd Feelings</a>
+      <li><a href="../problems/ip015.html">[IP015] Behold a Square</a>
+ 
+</ol>
+
+<p>Again, try to do it it by yourself and revisit the lectures, seeking help and hints if you need help.</p>
+
+      <details class="meme" name="meme">
+        <summary>😅 no pain, no gain!</summary>
+        <p><img src="meme_coding.png" width="400"></p>
+      </details>
+
+      <br>
+
+    <hr>
+
+<p><big><b>3) Leveling up</b></big>
+
+<p>We now propose two more problems which are still more than doable with what you already learned, but might be a bit more difficult from the point of view of the algorithm associated (so it is more about the <i>idea</i> that just the <i>code</i> and the syntax of Python).</p>
+
+<p>These problems include hints that are initially hidden so that they don't become spoilers if you want to try the problems by yourself first. If you get stuck, click the button to open the hint! 🦮</p>
+  
+<p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+<ol type="a">
+
+  <li><a href="../problems/ip016.html">[IP016] Like the others?</a></li>
+
+<details name="hint">
+  <summary>Hints</summary>
+<p>- Keep three variables while you are traversing the numbers:<br>
+&nbsp; &nbsp; . <code>cur</code> giving the size of the current stretch of identical numbers<br>
+&nbsp; &nbsp; . <code>best</code> with the best stretch length until now<br>
+&nbsp; &nbsp; . <code>last</code> with the last number seen</p>
+<p>- At the start, read the first number and assign <code>cur=1</code> and <code>best=1</code><br>
+  (this is where you are AFTER reading the first number: on a stretch of length 1, which is also the best)</p>
+<p>- Each time you read a new number:<br>
+&nbsp; &nbsp; . if it is the same as the <code>last</code> number, increment <code>cur</code> (the current stretch grows)<br>
+&nbsp; &nbsp; . if it is different, than <code>cur=1</code> (you start a new stretch)</p>
+<p>- After this, before reading a new number, update the <code>last</code> number and verify if your <code>best</code> was improved
+      </details>
+
+<br>
+
+  <li><a href="../problems/ip017.html">[IP017] Sum me up!</a></li>
+
+ <details name="hint">
+  <summary>Hints</summary>
+<p>- To extract the last digit you only need to... check the remainder of dividing by 10 (<span class="code">n % 10</span>)
+<p>- To remove the last digit and keep the other... divide the number by 10 (<span class="code">n // 10</span>)
+<p>- You can now make a cycle where you repeatedly do this to keep extracting all the numbers until you reach zero:<br>
+&nbsp; &nbsp; Imagine for example that the number is 123. Then:<br>
+&nbsp; &nbsp; . 123 % 10 = <b>3</b>  and 123 // 10 = 12, leaving you with 12<br>
+&nbsp; &nbsp; . 12 % 10 = <b>2</b> and 12 // 10 = 1, leaving you with 1<br>
+&nbsp; &nbsp; . 1 % 10 = <b>1</b> and 1 // 10 = 0, leaving you with 0
+<p>- All that's left is to keep summing the last digits whyle you are traversing the number, right?
+
+ </details>
+
+</ol>
+
+<br>
+
+      <details class="meme" name="meme">
+        <summary>⭐ Level Up!</summary>
+        <p><img src="meme_levelup.png" width="400"></p>
+      </details>
+
+<br>
+  
+  <hr>
+  
+<h3>Extra exercise for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+
+ <p>So you enjoyed the main exercises so much, that you want more problems to submit? Don't worry we've gor you covered! Here are some exercises to consolidade your knowledge and to show you are coding for more than simply your grade &#128515;</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statements, code and try to submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+  
+  <ol type="a">  
+      <li><a href="../problems/ip018.html">[IP018] More Circle Math</a>
+      <li><a href="../problems/ip019.html">[IP019] I am root</a>
+      <li><a href="../problems/ip020.html">[IP020] Perfection</a>
+      <li><a href="../problems/ip021.html">[IP021] Pointy Business</a>
+
+  </ol>
+
+<br>
+  
+    <hr>
+
+       <h3>Challenge exercise <span style="color:DarkRed">[challenge]</span></h3>
+
+<p>So you want one more challenge? Here you go! It is not too hard, but if you can do it you are showing you truly mastered this part of the material!</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    Read the statement, code and try to submit an <span style="color:green">Accepted</span> solution to the following problems. Don't forget to test first on your computer!</p>
+
+  <ol type="a">  
+      <li><a href="../problems/ip022.html">[IP022] Spin me right round</a>
+  </ol>
+
+     <p>Happy coding! &#128522;</p> 
+  
+<hr>
+<p class="footer">Bernardo Portela and Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>[IP] Practical Class #01</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script type="text/javascript" src="latexit.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+  <h3><a href="../index.html">Introduction to Programming 2025/2026</a> (CC1024) - DCC/FCUP</h3>
+  <h1>Practical Class #01 - First Programs
+    <small><small>(22/09 to 26/09)</small></small>
+  </h1>
+<hr>
+
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">"exercises during classes" component of the evaluation</a>, the exercises that you can submit for this class are:<br>
+     
+    <ul>      
+      <li><a class="important" href="../problems/ip001.html">[IP001] Hello there.</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip002.html">[IP002] Bond, James Bond!</a> (weight 20%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip003.html">[IP003] Check Please</a> (weight 30%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip004.html">[IP004] Circle Math</a> (weight 30%) <span style="color:DarkGreen">(main exercise)</span>
+      <li><a class="important" href="../problems/ip005.html">[IP005] Time Goes By</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip006.html">[IP006] Fast and Furious</a> (weight 20%) <span style="color:DarkSlateBlue">(extra exercise)</span>
+      <li><a class="important" href="../problems/ip007.html">[IP007] Microwave Oven</a> (weight 30%) <span style="color:DarkRed">(challenge exercise)</span>
+    </ul>
+
+    <p><b>Deadline for submission:</b> October 11th (submit to <a href="https://mooshak.dcc.fc.up.pt/~ip/">IP's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professors and your colleagues if you encounter difficulties.
+    However, any more direct help that you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b>
+    <br>After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+    Each practical class is worth 10% of your final component for exercices during class. Since there will be 11 classes with submissions, you can achieve maximum grade even without doing all classes.<br>
+    For a problem to count you must pass all tests (that is, to have an <i>accepted</i>). Even if you solve all problems, the maximum on one class is 100%.<br>
+    To obtain 100% it will always be enough to solve the main exercises.</p>
+<hr>
+
+<p>With the exercises in this class you will develop the following skills:</p>
+
+<ol>
+  <li>Explore the IDLE IDE and the Python interpreter for your first Python programs</li>
+  <li>Manipulate simple data and algebraic expressions</li>
+  <li>Handle Input and Output</li>
+  <li>Debug simple programs</li>
+</ol>
+
+<p><b>If you feel stuck, go back and revise the lecture <a href="../material.html#lectures">T02: The basics</a></b>
+
+<hr>
+  
+<p><big><b>0) Setup of practical classes </b></big></p>
+
+  <p>The DCC labs will have Linux, which will be the operating system also used on the practical tests. Start by looking into useful applications (ask the teacher if you need any help).
+
+  <ul>
+    <li>Firefox/Chrome: web browsers</li>
+    <li>IDLE: Python programming environment</li>
+  </ul>
+
+  If you are on your own machine, go ahead and install <a href="https://www.python.org/downloads/">Python</a>. In classes, we will be using Python version >=3.10 (this means any version from that value onwards will do just fine). IDLE will most probably be installed by default if you a standard Python installation.
+  </p>
+
+  <p><img src="python-logo.png" border="0" height="40"><br></p>
+
+  <p>
+    Perfect! Now it's time to create our first program. Follow the instructions below to setup a very, very basic Python environment:
+    <ol>
+      <li>Open a terminal, and write <code>idle</code>. This should start the IDE.</li>
+      <li>Try out IDLE. This is its interpreter (you can identify it by the <code>>>></code> symbols just before the cursor) See if it is capable of doing some basic math</li>
+      <li>Go to "File -> New File". This is where we will write scripts. Write <code>print("Hello World!")</code>. Notice how when you click "Enter" it does not run anything, but rather change line? This is a good hint that you are writing a script. </li>
+      <li>Go to "Run -> Run Module" (or just F5). This requires saving the file. Feel free to select the name of your first script. Notice how the file extension is .py? This means the machine can recognise it as a Python script.</li>
+      <li>Did it work? If so, great! Otherwise, check all the previous steps... Or immediately panic and beg the teacher for help. It's the first class, anyways ;)</li>
+    </ol>
+  </p>
+
+  <p>You are now ready to start programming!</p>
+
+  <p><img src="hackerman.jpg" border="0" height="200"><br></p>
+
+  <p><b>Some Notes:</b></p>
+  <ul>
+    <li>You can use other editors or IDEs if you want, such as VSCode, Emacs or Vim, but for this course IDLE is more than enough!
+    <li>You can call the command <span class="shell">python</span> to access the interpreter on the command line
+    <li>You use the comamnd <span class="shell">python file.py</span> to run a Python script that is saved on a file with the name <span class="code">file.py</span>
+</ul>
+
+<hr>
+
+<p><big><b>1) My first Mooshak submissions</b></big>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip"><img src="mooshak.gif" border="0" height="30"></a><br>
+    On this course we will use  <a href="https://mooshak.dcc.fc.up.pt/~ip/">Mooshak</a> to automatically evaluate your Python code (<a href="mooshak_help.html">see Mooshak's help</a>).
+    <ul>
+      <li>For all your submissions you can visualize the detailed
+      result obtained in each of the test cases made. It is also
+      possible to access any public tests for which your program did
+        not receive the <span style="color:green">Accepted</span> veredict.
+        <b>For seeing all this detailed feedback you only need to click the result of your submission that appears underlined in the listing.</b>
+
+        <p><font color=red><b>To access the system you can use your <i>login</i> (with the word <tt>"up"</tt>)
+              and <i>password</i> that was sent to your institutional email (message sent on the 21st of September with the title "[IP] Mooshak password - <i>login</i>")</b></font><br>
+          <i>(if you have trouble accessing it, send a message on discord to @PedroRibeiro or ask your practical class professor)</i></p>
+        
+    </ul>
+
+  <p>In this problem the goal is to make your first submissions in Mooshak, all for the <a href="../problems/ip001.html">[IP001] Hello there.</a> The problem statement will also be available inside Mooshak. <b>Always start by carefully reading the problem statement given!</b></p>
+
+  <ol type="a">
+    <li>Start by submitting an <span style="color:green">Accepted</span> in Mooshak. Create a file called for instance <span class="code">ip001.py</span>, <b>write the code and test it in your computer</b>. Is it doing what you expected?</li>
+
+    <li>After a correct submission you should now experiment with some common errors to see the behavior of Mooshak in these cases:</li>
+    <ul>
+      <li>Try to get a <span style="color:red">Compile Time Error</span> - for instance you could create code that does not close any open parentheses <span class="code">}</span> and resubmit.</li>
+      <li>Try to get a <span style="color:red">Wrong Answer</span> - for instance you could change the output to produce a different message than what was requested</li>
+      <li>After having this errors your list should be something like <a href="mooshak_subs.png">this picture</a>. <i>(the number to the left of the result is the number of correct tests)</i>
+    </ul>
+  </ol>
+
+  <hr>
+  
+  <p><big><b>2) Reading my first input</b></big>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip/"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/ip002.html">[IP002] Bond, James Bond!</a>.</p>
+
+  <ol type="a">
+    <li>Read the problem, code and submit an <span style="color:green">Accepted</span> solution. Don't forget to test first on your computer!
+      
+    <li>After a correct submission experiment with another type of error, by adding one more instruction to read something from the output (e.g. read three lines of input).<br>
+      Submit to Mooshak to see what happens and to discover your first <span style="color:red">Runtime Error</span>.<br>
+      If you click on the underlined result itself you can see a detailed table containing the result of each test case and also giving you the first input where your program failed, and the respective expected output (should be something like <a href="detailed_rte.png">this picture</a> - note on how the observations report what error was obtained).
+    </ol>
+
+  <p>Here are a couple more notes about Mooshak on this course:
+
+    <ul>
+      <li>You can experiment on your own computer with the provided input examples to check the result (just copy+paste the inputs)</br>
+        If you saved your python script in a file named <span class="code">ip002.py</span> and your input in a file named <span class="code">input.txt</span>, you can also use redirection to feed your program with that input using a line such as <span class="shell">python ip002.py &lt; input.txt</span></li>
+      <li>All problem statements will follow roughly the same format, specifying the problem, the input, the output, the constraints and giving at least one input example and its corresponding output.</li>
+      <li>You do not need to verify the constraints on your code. On the contrary, the constraints give you guarantees on the input that will be given to your program. You can assume the test cases we will feed your code obey the constraints (e.g. the word sizes will never be larger than 20).</li>
+      <li>All the lines of input and output should be terminated with the newline character (including the last line). Failure to do this can result in a <span style="color:red">Presentation Error</span>.</li>
+      <li>You should only output what is given in the statement. Any extra output will can your code be marked as incorrect.</li>
+      <li>You can click on the submission number on the left of each listing row to recover your submitted code.</li>
+      <li>If you press on <i>more...</i> you can see an interface for seeing submissions that allows you to select only a certain student, a certain problem, etc.
+      <li>If you submit a file that is exactly the same as one that you already submitted, Mooshak will not accept and report a <b>Duplicate submission</b>.
+	  </ul>
+
+    
+  </ol>
+  
+  <hr>
+
+  <p><big><b>3) Training with Mooshak</b></big>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~ip/"><img src="mooshak.gif" border="0" height="30"></a><br>
+Read the statements, code and submit <span style="color:green">Accepted</span> solutions to all of the following problems. Don't forget to test first on your computer!</p>
+
+  <ol type="a">
+    <li><a href="../problems/ip003.html">[IP003] Check Please</a>
+    <li><a href="../problems/ip004.html">[IP004] Circle Math</a>
+    </ol>
+  
+  <hr>
+  
+<h3>Extra exercise for consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+
+    <p>IP Mooshak classes will usually include at least one extra
+    exercise that you can use of you want to keep testing your
+    knowledge of the material. For this class we propose another
+      problem for you will only need what you learned in lecture #02 - The Basics.</p>
+
+    Solve and submit the following problems:
+
+    <ul>
+      <li><a href="../problems/ip005.html">[IP005] Time Goes By</a>
+      <li><a href="../problems/ip006.html">[IP006] Fast and Furious</a>
+    </ul>
+
+    <hr>
+
+       <h3>Challenge exercise <span style="color:DarkRed">[challenge]</span></h3>
+
+<p>IP Mooshak classes will usually include one challenge exercise, which can be much harder the previous ones and might even need knowledge that was not given explicitly on the course.</p>
+
+<p>However, since this is the first challenge, it is almost of the same difficulty of the previous exercises.</p>
+  
+    <ul>
+      <li>Solve and submit the problem <a href="../problems/ip007.html">[IP007] Microwave Oven</a>
+    </ul>
+
+    <p>Happy coding! &#128522; <i>(if you finish everything and want more practice exercises, let us know on discord - we have plenty more to give you &#128187;)</i></p> 
+  
+<hr>
+<p class="footer">Bernardo Portela and Pedro Ribeiro (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

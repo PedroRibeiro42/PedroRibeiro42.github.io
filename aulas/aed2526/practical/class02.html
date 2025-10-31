@@ -1,0 +1,386 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Practical Class #02 - Complexity and Asymptotic Analysis</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Algorithms and Data Structures 2025/2026</a> (L.EIC011) - DCC/FCUP & DEI/FEUP</h3>
+  <h1>Practical Class #02 - Complexity and Asymptotic Analysis<br>
+    <small><small>(29/09 to 03/10)</small></small>
+  </h1>
+
+  <hr>
+  <h2>Exercises for submission</h2>
+
+  <p>For the <a href="../evaluation.html#grades">continuous evaluation component involving exercise-solving during the semester</a>, the exercises you can submit in this class are:</p>
+  
+  <ul>
+    <li><a class="important" href="../problems/aed006.html">[AED006] Bakugans</a> (weight 30%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed007.html">[AED007] Treasure Hunt</a> (weight 35%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed008.html">[AED008] Saving Pipefish</a> (weight 35%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed009.html">[AED009] Sequence Game</a> (weight 35%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed010.html">[AED010] Cool Numbers</a> (weight 35%) <span style="color:DarkRed">(challenge exercises)</span>
+  </ul>
+  
+  <p><b>Submission Deadline:</b> October 18th (submit to <a href="https://mooshak.dcc.fc.up.pt/~aed/">AED's Mooshak</a>)</p>
+  
+  <p><b>You are encouraged to talk to the professor and to your colleagues if you have difficulties. However, any more direct help you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b><br>
+After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+Each class is worth 9 per cent of the grade for this component. As there will be 12 classes with submissions, you can get full marks even if you haven't done everything.<br>
+For a problem to count, you have to get all the tests right (i.e. accepted). Even if you solve all the problems, the maximum in a single class is 100 per cent.<br>
+It is guaranted that the main exercises on each class will sum to at least 100% of the class grade.</p>
+    
+  <hr>
+  
+  <h3>Lectures Content</h3>
+
+  <p>This class includes exercises about <b>Complexity and Asymptotic Analysis</b>. It is therefore convenient that you know what was discussed on the lectures:</p>
+  <ul>
+    <li><a href="../material.html#slides">Slides: 2 - Complexity and Asymptotic Analysis</a>
+  </ul>
+  
+  <hr>
+
+<p>Recall that:</p>
+  
+  <ul>
+    <li>\( f(n) \in \mathcal{O}(g(n)) \) iff there exist constants \( c \in \mathbb R^+ \) and \(n_0 \in \mathbb Z^+ \)
+      such that \( f(n) \leq cg(n) \), for all \(n \geq n_0 \).
+      
+    <li>\( f(n) \in \Omega(g(n)) \) iff there exist constants \( c \in \mathbb R^+ \) and \( n_0 \in \mathbb Z^+ \) 
+      such that \( f(n) \geq cg(n) \), for all \(n \geq n_0 \).
+      
+    <li>\( f(n) \in \Theta(g(n)) \) iff there exist constants \( c_1,c_2 \in \mathbb R^+ \) and \( n_0 \in \mathbb Z^+ \) 
+      such that \( c_1 g(n) \leq f(n) \leq c_2 g(n) \), for all \(n \geq n_0 \).
+  </ul>
+  
+  <p><img src="bigo.png" width="720"></p>
+  
+  <hr>
+
+  <p><big><b>1. Asymptotic notation and definitions</b></big>
+
+    <p>Explain why each statement is true, using the definition of the classes \( \mathcal{O}(\cdot) \), \( \Omega(\cdot) \) and \( \Theta(\cdot) \).</p>
+
+  <ol type="a">
+    
+    <li> \(3n^2+100 \in \Theta(n^2)\)</li>
+
+    <li> \(100n+3n\log_2 n \in \Theta(n\log_2 n)\)</li>
+      
+    <li> \(f(n) \in \mathcal{O}(f(n))\),  \(\; f(n) \in \Omega(f(n))\), and \(\;  f(n) \in
+  \Theta(f(n))\),  for all functions \(f\).</li>
+
+    <li> \(\frac{3}{5}n^2-\frac{1}{2} \in \Omega(n^2) \cap \mathcal{O}(n^2)\)</li>
+
+    <li> \(\mathcal{O}(an) = \mathcal{O}(bn)\), for all constants \(a,b\in\mathbb R^+\)</li>
+      
+    <li> \(\mathcal{O}(n) \subseteq \mathcal{O}(n^p)\), for all \(p\in \mathbb Z ^+\)</li>
+    
+  </ol>
+
+  <hr>      
+
+  <p><big><b>2. Characterizing the complexity of concrete programs</b></big>
+
+  <p>For each of the following exercises you should <b>characterize the asymptotic time complexity</b> of the respective function as a function of \(n\). You should also describe what characterizes <b>best case</b> and <b>worst case</b> instances.
+
+    <ol type="a">
+      
+      <li>Function <span class="code">remove</span>, where the array <span class="code">x</span> has at least \(n\) elements.</li>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">remove</span>(<span style="color: #333399; font-weight: bold">int</span> x[], <span style="color: #333399; font-weight: bold">int</span> n, <span style="color: #333399; font-weight: bold">int</span> v) {
+    <span style="color: #333399; font-weight: bold">int</span> t <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> j<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; j<span style="color: #333333">&lt;</span>n; j<span style="color: #333333">++</span>) 
+       <span style="color: #008800; font-weight: bold">if</span> (x[j] <span style="color: #333333">&lt;=</span> v) 
+           x[t<span style="color: #333333">++</span>] <span style="color: #333333">=</span> x[j];
+    <span style="color: #008800; font-weight: bold">return</span> t;
+}
+      </pre></div>
+
+      <br>
+
+      <li>Function <span class="code">symmetric</span>,
+    where <span class="code">x</span> is a square matrix defined with \(N\) columns at most, and \(1 \leq n \leq N\).</li>
+  
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">bool</span> <span style="color: #0066BB; font-weight: bold">symmetric</span>(<span style="color: #333399; font-weight: bold">int</span> x[][N], <span style="color: #333399; font-weight: bold">int</span> n) {
+    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>; i <span style="color: #333333">&lt;</span> n; i<span style="color: #333333">++</span>) 
+        <span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> j <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; j <span style="color: #333333">&lt;</span> i; j<span style="color: #333333">++</span>)
+           <span style="color: #008800; font-weight: bold">if</span> (x[i][j] <span style="color: #333333">!=</span> x[j][i]) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">false</span>;
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">true</span>;
+}
+</pre></div>
+
+  <br>
+  
+  <li>Function <span class="code">my_3sum</span>, where \(n\) is the size of vector <span class="code">x</span>.</li>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;iostream&gt;</span>
+<span style="color: #557799">#include &lt;vector&gt;</span>
+
+<span style="color: #008800; font-weight: bold">using</span> <span style="color: #008800; font-weight: bold">namespace</span> std;
+
+<span style="color: #333399; font-weight: bold">bool</span> <span style="color: #0066BB; font-weight: bold">my_3sum</span>(<span style="color: #008800; font-weight: bold">const</span> vector<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">&gt;</span> <span style="color: #333333">&amp;</span> x) {
+    <span style="color: #333399; font-weight: bold">int</span> n <span style="color: #333333">=</span> x.size();
+    <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i <span style="color: #333333">&lt;</span> n<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">2</span>; i<span style="color: #333333">++</span>) 
+        <span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> j <span style="color: #333333">=</span> i<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>; j <span style="color: #333333">&lt;</span> n<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>; j<span style="color: #333333">++</span>)
+           <span style="color: #008800; font-weight: bold">for</span>(<span style="color: #333399; font-weight: bold">int</span> k <span style="color: #333333">=</span> j<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>; k <span style="color: #333333">&lt;</span> n; k<span style="color: #333333">++</span>) 
+              <span style="color: #008800; font-weight: bold">if</span> (x[i]<span style="color: #333333">+</span>x[j]<span style="color: #333333">+</span>x[k] <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>) {
+                  cout <span style="color: #333333">&lt;&lt;</span> i <span style="color: #333333">&lt;&lt;</span> <span style="color: #0044DD">&#39; &#39;</span> <span style="color: #333333">&lt;&lt;</span> j <span style="color: #333333">&lt;&lt;</span> <span style="color: #0044DD">&#39; &#39;</span> <span style="color: #333333">&lt;&lt;</span> k <span style="color: #333333">&lt;&lt;</span> endl;
+                  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">true</span>;
+              }
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">false</span>;
+}
+</pre></div>
+
+  <br>
+  
+  </ol>
+    
+  <hr>  
+
+  <p><big><b>3. Summing subsequences <i>(naive solution does not have the desired complexity)</i></b></big></p>
+
+  <p>Now that you solved some "pen and paper" exercises, let's go back to implementations and Mooshak submissions 😺
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed006.html">[AED006] Bakugans</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N + P)\)
+  </p>
+  
+  <p>Always start by <b>carefully reading the problem statement</b> and understand what it is asking.
+
+    <ol type="a">
+      <li><b>A naive \(\mathcal{O}(N \times P)\) solution.</b>
+
+      <p>There is an "obvious" algorithm: for each of the \(P\) photos, do a cycle between \(A_i\) and \(B_i\) and add up the energies of the corresponding Bakugans.
+
+        <p>An example implementation of this idea is given in in <a class="code" href="aed006_naive.cpp">aed006_naive.cpp</a> (see <a href="aed006_naive.html">html version</a>). Download the file, compile and test it with the example input to verify it gives the desired output.</p>
+
+        <p>Now submit this code on Mooshak. You will get a <span style="color:red">Time Limit Exceeded</span>.
+        The problem is that the temporal complexity of this approach is \(\mathcal{O}(N \times P)\). Can you see why?</p>
+        
+        <p>In the worst case, we can have in this problem \(N = P = 200\,000\), and \(200,000^2\) is really a big number... (the time limit for this problem on Mooshak is 1 second). We need to find a more efficient solution!</p>
+
+  <li><b>Improving the solution to \(\mathcal{O}(N + P)\).</b>
+
+    <p>A very interesting concept is the one of <a href="http://en.wikipedia.org/wiki/Prefix_sum">"prefix sums"</a> (also known as cumulative sums).</p>
+
+    <p>Imagine for instance a number array with the values [3,7,2,4,5,7,6]. The prefix sums are the total sums up to the corresponding positions. For example:</p>
+
+<pre>
+<span style="color:#666666"><b>    Position <i>i</i>:</b>  0  1  2  3  4  5  6  7</span>
+<b>  Array Values:</b>     3  7  2  4  5  7  6
+<span style="color:blue"><b>    Prefix Sum:  0  3 10 12 16 21 28 34</b></span>
+</pre>
+    
+    <p>If we have stored the prefix sums, which can be computed in linear time, i.e. \(\mathcal{O}(N)\), finding the sum of a given interval can now be done in constant time, i.e. \(\mathcal{O}(1)\).<br>
+For example, if \(psum[]\)
+stores the prefix sum, the sum between positions \(a\) and \(b\) is equal to \(psum[b] - psum[a-1]\). Can you see why?</p>
+
+<p>This technique can be used to help solve many problems more efficiently, including this Bakugan problem. If the prefix sums are calculated right after reading the energies, we can answer to each photo in \(\mathcal{O}(1)\), which makes the overall temporal complexity of the programme \(\mathcal{O}(N + P)\), as we have the reading of the energies, followed by the reading of the photos, with a response in constant time for each one.</p>
+
+<p>Implement this idea using as a basis de previous code, test it and submit to get your well deserved <span style="color:darkgreen">Accepted</span>! 😎
+
+    </ol>
+    
+      <br>
+
+  <hr>
+
+  <p><big><b>4. Digging treasures <i>(naive solution does not have the desired complexity)</i></b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed007.html">[AED007] Treasure Hunter</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N + I)\)
+  </p>
+
+  <p>A <i>"brute force"</i> solution that simulates all instructions can take \(I \times N\) time</b>, since each of the \(I\) instructions can require traversing \(N\) positions in the worst case. This is not enough to pass the time limit, and we need a better solution...</p>
+
+<p>This problem was originally the easiest one on the qualification phase of the <a href="https://oni.dcc.fc.up.pt/">National Olympiad in Informatics</a>, an algorithmic competition for high-school students, and was solved by many students.</p>
+
+ <p>Try to first think about the problem and see if you can come up with a solution that avoids actually traversing one by one all the positions in each instruction. If you get stuck, the hints button will give you a spoiler on how to approach this problem.
+  
+     <details name="hint">
+        <summary>Hints</summary>
+        <p>- We can make an important observation: Sarah always covers a contiguous range of positions. If the rightmost position she reaches is position \(pos_{right}\), then Sarah had to pass through all positions from \(S\) to \(pos_{right}\), because she never 'skips' positions. Similarly, if the leftmost position she reaches is position \(pos_{left}\), then Sarah had to
+pass through all positions from \(pos_{left}\) to \(S\).<br><br>
+
+- Thus, knowing \(pos_{left}\) and \(pos_{right}\), it suffices to loop only once through all positions between \(pos_{left}\) and \(pos_{right}\) and compute how many treasures there are in that interval. To calculate \(pos_{left}\) and \(pos_{right}\), simply calculate the position after following each instruction and keep the smallest and largest, respectively.<br><br>
+
+- In terms of efficiency, this corresponds to one loop to process all instructions and calculate \(pos_{left}\) and \(pos_{right}\), and a second loop to check the chests between \(pos_{left}\) and \(pos_{right}\), which corresponds to \(N + I\) operations.<br><br>
+
+- This is therefore a \(\Theta(N + I)\) solution that easily passes in all cases.</p>
+    </details>
+
+<br>
+     
+   <hr>
+
+     <p><big><b>5. Saving Pipefish <i>(naive solution does not have the desired complexity)</i></b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed008.html">[AED008] Saving Pipefish</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\)
+  </p>
+
+  <p>This is another problem from a qualification phase of the <a href="https://oni.dcc.fc.up.pt/">National Olympiad in Informatics</a></p>
+
+  <p>A <i>"brute force"</i> solution that tries all possible sections and for each of them tests all positions to see how many of them are larger than \(T\) is not enough, since it would spend \(N^2\) time (can you see why? imagine a case with \(K=N/2\)). We need a better solution...</p>
+
+  <p><i>(click to see hints; try to solve the problem first if you do not want spoilers)</i></p>
+
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- Imagine you already processed the section \([a,b]\), having obtained \(Q_a\), the amount of elements larger or equal than \(T\) in that section.<br><br>
+    - The next section is \([a+1,b+1]\). What changes in that interval? Only the position \(a\) is removed and the position \(b+1\) is inserted. The (new) value of \(Q_{a+1}\) is therefore equal to \(Q_a\), subtracting 1 in case the depth of position \(a\) is \(\ge T\) and adding 1 in case the depth of position \(b+1\) is \(\ge T\).<br><br>
+    - For each new interval we only need to make a constant number of operations (considering the element to remove and the element to insert).
+      Regarding efficiency this corresponds to an initial cycle for the first section of size \(K\) and for the remaining \(N-K\) sections we spend constant time. Another way of reasoning about this is that each position is added only once to the <i>current</i> section, and removed once from it. This is therefore a solution in time \(\Theta(N)\) obtaining the desired <span style="color:darkgreen">Accepted</span> result.<br><br>
+    - This idea of reusing the result of the previous section to compute the result of the next one is known as the <a href="https://www.geeksforgeeks.org/window-sliding-technique/">sliding window technique</a>, since we are "sliding" the windows of the current section along the input.
+</p>
+        
+      </details>
+
+<br>
+
+  <hr>
+
+  <h2>Extra Exercises for Consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h2>
+
+  <p><big><b>6.</b></big> Justify the truthfulness or falsity of each statement.</p>
+
+  <ol type="a">
+    <li> \(50n^3-2n+100 \in \Theta(\frac{1}{100}n^3) \)
+
+
+    <li> \(3n^2-n+10 \notin \Omega(20n^2)\)
+
+
+    <li> \(\log_2 n \in \Omega(1000+\log_2 n)\)
+
+    <li> \(\Theta(\log_2 n) = \Theta(\log_2(n^p))\), for all \(p\in
+      \mathbb Z^+\)</li>
+
+    <li> \(n \notin \Omega(2^{10}\log_2n)\) because  \(n<2^{10}\log_{2} (n)\),
+for all \(1 < n \leq 2^{13}\)  (actually for \(1 < n \leq 14115\))
+                                                   
+  </ol>
+
+  <br>
+
+  <p><big><b>7.</b></big> Assume that <span class="code">v</span>
+and <span class="code">w</span> are vectors and both contain a
+    sequence of <b>nonnegative integers that ends with 0</b> (and has no other zeros).
+    Let \(a_1, a_2,\ldots, a_m,0\) and \(b_1,b_2,\ldots,
+b_n,0\) be such sequences, with \(m\geq 1\) and \(n\geq 1\).  The function
+returns an integer which is either positive, negative or 0, if the
+sequence given by <span class="code">v</span> is lexicographically greater than, less
+than or equal to the sequence given by <span class="code">w</span>, respectively.  Recall
+that all \(a_i\)'s and \(b_i\)'s are positive integers.</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">lex_comp</span>(<span style="color: #008800; font-weight: bold">const</span> vector<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">&gt;</span> <span style="color: #333333">&amp;</span>v, <span style="color: #008800; font-weight: bold">const</span> vector<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">&gt;</span> <span style="color: #333333">&amp;</span>w) {
+    <span style="color: #333399; font-weight: bold">int</span> j <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+    <span style="color: #008800; font-weight: bold">while</span> (w[j] <span style="color: #333333">==</span> v[j] <span style="color: #333333">&amp;&amp;</span> v[j] <span style="color: #333333">!=</span> <span style="color: #0000DD; font-weight: bold">0</span>) 
+        j<span style="color: #333333">++</span>;
+    <span style="color: #008800; font-weight: bold">return</span> v[j]<span style="color: #333333">-</span>w[j];
+}
+</pre></div>
+
+  <ol type="a">
+    
+    <li>Characterize the asymptotic time complexity of <span class="code">lex_comp</span>,
+      as a function of \(m\) and \(n\) (you can use \(\min(m,n)\) or \(\max(m,n)\)
+      in the expression, if you need it). Start by describing instances that
+      lead to the <b>best case</b> and the <b>worst case</b>.
+      
+    <li>Write a loop invariant that allows us to conclude that the
+      function returns a correct value for all instances. Give a brief explanation.
+      
+  </ol>
+
+  <br>
+
+  <p><big><b>8.</b></big> Recall the problem <span style="color:darkgreen"><b><code>Partition</code></b></span> which, given a set
+  \(S=\{a_1,a_2,\ldots, a_n\}\) of \(n\)
+  positive integers, asks whether there is  a set \(A\subset S\) such that
+  \(\sum_{x\in A} x = \sum_{x \in S\setminus A} x\).  
+The following function solves the problem when 
+we call <span class="code">search(x,0,n,0,0,res,nres)</span>, with <span class="code">nres=0</span>, 
+and <span class="code">x</span> and <span class="code">res</span> being arrays with at least \(n\geq 2\)
+elements. In addition, it returns a set \(A\) in <span class="code">res</span>. It implements  a <i>brute force search</i> algorithm.</p>
+ 
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">bool</span> <span style="color: #0066BB; font-weight: bold">search</span>(<span style="color: #333399; font-weight: bold">int</span> x[],<span style="color: #333399; font-weight: bold">int</span> i, <span style="color: #333399; font-weight: bold">int</span> n, <span style="color: #333399; font-weight: bold">int</span> s, <span style="color: #333399; font-weight: bold">int</span> r, <span style="color: #333399; font-weight: bold">int</span> res[], <span style="color: #333399; font-weight: bold">int</span> <span style="color: #333333">&amp;</span> nres) {
+    <span style="color: #008800; font-weight: bold">if</span> (i <span style="color: #333333">==</span> n) <span style="color: #008800; font-weight: bold">return</span> s <span style="color: #333333">==</span> r;
+    s <span style="color: #333333">+=</span> x[i];  res[nres<span style="color: #333333">++</span>] <span style="color: #333333">=</span> i;
+    <span style="color: #008800; font-weight: bold">if</span> (search(x,i<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>,n,s,r,res,nres)) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">true</span>;
+    s <span style="color: #333333">-=</span> x[i];   nres<span style="color: #333333">--</span>;   r <span style="color: #333333">+=</span> x[i];
+    <span style="color: #008800; font-weight: bold">return</span> search(x,i<span style="color: #333333">+</span><span style="color: #0000DD; font-weight: bold">1</span>,n,s,r,res,nres);
+}
+</pre></div>
+
+  <ol type="a">
+    <li>Explain why the time complexity is \(\Theta(2^{n})\) in the worst
+      case and \(\Theta(n)\) in the best case. 
+      Describe <b>best case</b> and <b>worst case</b> instances.
+
+      <li> Write an improved (still exponential time) version <span class="code">search2</span> in which 
+\(A=\{\mathtt{res}[i]\;|\; 0\leq i <
+\mathtt{nres}\}\) and \(\texttt{s} = \sum_{i\in A} \tt x[i]\),  as above, but
+\(\texttt{r} =\sum_{i\in S\setminus A} \tt x[i]\), in each (recursive)
+call.  When we call <span class="code">search2</span> for the
+first time, \(\texttt{s}\) must be 0 and \(\texttt{r}\) must be \(\sum_{i=0}^{n-1}
+\mathtt x[i]\).
+If \(\mathtt s > \mathtt r\), at some call, then <span class="code">search2</span>
+returns false in that call, because it is not possible to
+complete the <i>partial solution</i>. This is the improvement, as it
+can <i>backtrack</i> before
+\(i=n\) to explore another branch. If \(\mathtt s = \mathtt r\), at some
+call, then <span class="code">res</span> defines a solution.
+
+  </ol>
+        
+<br>
+
+  <p><big><b>9. Maximum Subarray Problem <i>(naive solution does not have the desired complexity)</i></b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed009.html">[AED009] Sequence Game</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\)
+  </p>
+
+<p>Can you think on this problem on your own and try to reach a linear time solution?</p>
+
+     <details name="hint">
+        <summary>Hints</summary>
+        <p>- This is a classical problem that can be solved with <b>Kadane's algorithm</b> (see <a href="https://en.wikipedia.org/wiki/Maximum_subarray_problem">wikipedia</a> or <a href="https://www.geeksforgeeks.org/dsa/largest-sum-contiguous-subarray/">geeksforgeeks</a> for an explanation)
+    </details>
+
+<br>
+
+      <hr>
+
+<h2>Challenge Exercise <span style="color:DarkRed">[challenge]</span></h2>
+
+  <p>As on the previous class, this exercise can be harder than the previous ones and does not need to simply tackle the topics of this class.</p>
+
+  <p>The main idea is to give you the opportunity of improving your problem solving abilities.</p>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30" ></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed010.html">[AED010] Cool Numbers</a>.</p>
+
+  <p>Since this is a challenge, I will not give you any hints, but if
+  you are stuck just contact @PedroRibeiro on Discord. Feel free to
+    also contact @PedroRibeiro to discuss your accepted solution.</p>
+
+  <p>Happy coding! &#128522;</p>        
+<hr>
+<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

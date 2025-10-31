@@ -1,0 +1,59 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Algoritmos e Estruturas de Dados 2025/2026 - LEIC (FCUP/FEUP)</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Example of how to use a the SinglyLinkedList&lt;T&gt; class</span>
+<span style="color: #888888">// Last update: 20/10/2024</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+
+<span style="color: #557799">#include &lt;iostream&gt;</span>
+
+<span style="color: #557799">#include &quot;singlyLinkedList.h&quot;</span>
+
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+<span style="color: #333399; font-weight: bold">void</span> print(SinglyLinkedList<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">&amp;</span> lst){
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> lst.toString() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+}
+  
+
+<span style="color: #333399; font-weight: bold">int</span> main(){
+  <span style="color: #888888">// Create a list of integers</span>
+  SinglyLinkedList<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">&gt;</span> list;
+
+  <span style="color: #888888">// writing the list (at the start it is empty)</span>
+  print(list);
+
+  <span style="color: #888888">// Checking whether it is empty</span>
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;isEmpty? &quot;</span> <span style="color: #333333">&lt;&lt;</span> list.isEmpty() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+      
+  <span style="color: #888888">// insert the numbers 1 to 5 at the end</span>
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">1</span>; i<span style="color: #333333">&lt;=</span><span style="color: #0000DD; font-weight: bold">5</span>; i<span style="color: #333333">++</span>)
+         list.addLast(i);  
+  print(list);
+
+  <span style="color: #888888">// insert the numbers 6 to 10 at the front of the list</span>
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">6</span>; i<span style="color: #333333">&lt;=</span><span style="color: #0000DD; font-weight: bold">10</span>; i<span style="color: #333333">++</span>)
+    list.addFirst(i);
+  print(list);
+
+  <span style="color: #888888">// checking the size of the list</span>
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;size = &quot;</span> <span style="color: #333333">&lt;&lt;</span>  list.size() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+
+  <span style="color: #888888">// Removing the first element</span>
+  list.removeFirst();
+  print(list);
+
+  <span style="color: #888888">// Removing the last element</span>
+  list.removeLast();
+  print(list);
+
+  <span style="color: #888888">// Checking whether it is empty</span>
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;isEmpty? &quot;</span> <span style="color: #333333">&lt;&lt;</span> list.isEmpty() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+
+  <span style="color: #888888">// Writing the first and the last elements</span>
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;getFirst() = &quot;</span> <span style="color: #333333">&lt;&lt;</span> list.getFirst() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;getLast() = &quot;</span> <span style="color: #333333">&lt;&lt;</span>  list.getLast() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>

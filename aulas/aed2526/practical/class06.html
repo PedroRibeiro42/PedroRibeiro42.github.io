@@ -1,0 +1,269 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Practical Class #06 - Lists, Stacks and Queues</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Algorithms and Data Structures 2025/2026</a> (L.EIC011) - DCC/FCUP & DEI/FEUP</h3>
+  <h1>Practical Class #06 - Lists, Stacks and Queues<br>
+    <small><small>(03/11 to 07/11)</small></small>
+  </h1>
+
+  <hr>
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">continuous evaluation solving exercises during the semester</a>, the exercises you can submit in this class are:</p>
+  
+  <ul>
+    <li><a class="important" href="../problems/aed033.html">[AED033] Eeny, meeny, miny, moe</a> (weight 34%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed034.html">[AED034] Perfect Weddings</a> (weight 33%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed035.html">[AED035] Round-Robin</a> (weight 33%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed036.html">[AED036] Convex Hull</a> (weight 33%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed037.html">[AED037] Supermarket</a> (weight 33%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed038.html">[AED038] Golden Permits</a> (weight 33%) <span style="color:DarkRed">(challenge exercises)</span>
+  </ul>
+  
+  <p><b>Submission Deadline:</b> November 22nd (submit to <a href="https://mooshak.dcc.fc.up.pt/~aed/">AED's Mooshak</a>)</p>
+  
+  <p><b>You are encouraged to talk to the professor and to your colleagues if you have difficulties. However, any more direct help you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b><br>
+After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+Each class is worth 9 per cent of the grade for this component. As there will be 12 classes with submissions, you can get full marks even if you haven't done everything.<br>
+For a problem to count, you have to get all the tests right (i.e. accepted). Even if you solve all the problems, the maximum in a single class is 100 per cent.<br>
+It is guaranted that the main exercises on each class will sum to at least 100% of the class grade.</p>
+    
+  <hr>
+  
+  <h3>Lectures Content</h3>
+
+  <p>This class is about applications of lists, deques, stacks and queues. It is therefore convenient that you know what was discussed on the lectures:</p>
+  <ul>
+    <li><a href="../material.html#slides">Slides: 5 -  Linear Data Structures: Linked Lists</a>
+    <li><a href="../material.html#slides">Slides: 6 -  Lists, Deques, Stacks, Queues and Applications</a>      
+  </ul>
+
+  <p>The exercises for this class will involve the usage of STL containers such as <a href="https://en.cppreference.com/w/cpp/container/list">list</a>, <a href="https://en.cppreference.com/w/cpp/container/deque">deque</a>, <a href="https://en.cppreference.com/w/cpp/container/stack">stack</a> and <a href="https://en.cppreference.com/w/cpp/container/queue">queue</a>.</p>
+  
+  <hr>
+  
+  <p><big><b>1. An application of lists</b></big><br>
+    
+    <ol type="a">
+
+      <li><b>Using STL Lists</b>
+        
+        <p>Start by downloading the <a class="code" href="lists_example.cpp">lists_example.cpp</a> file. Open on your editor, understand it and then compile and execute it. You should have the following output:</p>
+
+<pre class="shell">
+3 5 7 1 
+42 3 5 7 20 
+42
+3
+5
+42 5 7 20 
+forty two 
+a e i o u 
+1 0 1 
+</pre>
+
+        <p>Have a look at the <a href="https://en.cppreference.com/w/cpp/container/list">documentation</a> about the container <span class="code">list</span> to see all the available methods.</p>
+
+  <li><b>Solving a counting-out problem</b></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed033.html">[AED033] Eeny, meeny, miny, moe</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \times K)\)</i>
+  </p>
+  
+<p>The problems ask you to simulate a <a href="https://en.wikipedia.org/wiki/Counting-out_game">counting-out game</a>. Our suggestion is for you to do the following:</p>
+
+<ul>
+  <li>Create a list of strings to store the names of the children
+  <li>Simulate the game by having an iterator point to the current child and advancing it <b>K</b> positions to the next child (take care to go in circular fashion)
+  <li>Eliminate a child by erasing it from the list (<i>use the <span class="code">erase</span> method and receive the returning value to continue on the next child </i>)
+  <li>Regarding the computation of <b>K</b>, you can for instance count the number of words in the sentence (for instance using a <a href="https://www.geeksforgeeks.org/stringstream-c-applications/">stringstream</a>) or simply count the number of spaces (which are one less than <b>K</b>)    
+</ul>
+  
+</ol>
+      
+<br>
+      
+  <hr>
+
+<p><big><b>2. An application of stacks</b></big><br>
+    
+    <ol type="a">
+
+      <li><b>Using STL Stacks</b>
+        
+        <p>Start by downloading the <a class="code" href="stacks_example.cpp">stacks_example.cpp</a> file. Open on your editor, understand it and then compile and execute it. You should have the following output:</p>
+
+<pre class="shell">
+Stack size: 0
+Stack size: 4
+At the top: 8
+At the top: 6
+At the top: 4
+At the top: 2
+Stack size: 0
+</pre>
+
+        <p>Have a look at the <a href="https://en.cppreference.com/w/cpp/container/stack">documentation</a> about the container <span class="code">stack</span> to see all the available methods and remember how a stack works on a <i>LIFO</i> fashion (<i>last-in-first-out</i>).</p>
+
+      <li><b>Combining multiple variables into one (light weight) data structure type</b>
+
+        <p>Sometimes you have the need to combine several variables into one data structure. For that you can use for instance:
+          <ul>
+            <li><a href="https://en.cppreference.com/w/cpp/utility/pair">pair</a>, which combines two variable types (ex: <span class="code">pair&lt;string,int&gt;</span>)
+            <li><a href="https://en.cppreference.com/w/cpp/utility/tuple">tuple</a>, which generalizes pairs for more dimensions (ex: <span class="code">tuple&lt;int,string,bool&gt;</span>)
+            <li><a href="https://en.cppreference.com/w/c/language/struct">struct</a>, which stores a sequence of types (ex: <span class="code">struct {string name; int age;}</span>)
+          </ul>
+
+        <p>Download the <a class="code" href="types_example.cpp">types_example.cpp</a> file. Open on your editor, understand it and then compile and execute it.</p>
+
+        <p>Remember that you can also use <a href="https://cplusplus.com/doc/tutorial/classes/">classes</a> if you want to add functionality (methods), as you already know.</p>
+        
+  <li><b>Expression validation</b></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed034.html">[AED034] Perfect Weddings</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(|E|)\)</i>
+  </p>
+  
+<p>The problems asks you to match different parentheses (), brackets [] and curly braces {}. At its core this is a problem that can be solved by using a stack:</p>
+
+<ul>
+  <li>Whenever you open (, [ or { put that symbol on a stack
+  <li>Whenever you close ), ] or { check if the top of stack contains the respective opening symbol
+</ul>
+
+<p><img src="match.png" height="150"></p>
+
+
+<p>Our suggestion is for you to use a stack as the core of your implementation:</p>
+
+<ul>
+  <li>Ignore everything that is not (), [] or {}
+  <li>Use a stack to keep what is opened, and in what position (how can you combine these two things into one type?)
+  <li>Whenever you close, check if it matches the top of the stack
+  <li>Take care with exceptional situations (e.g. what does it mean if the stack is empty when you are checking a match? and what about a non-empty stack at the end?)
+  <li>All matches need to be be saved on an auxiliary data structure for printing at the end, because you do not know if there will be a mismatch somewhere further in the expression. What should this data structure be?
+</ul>
+
+</ol>
+        
+  <br>
+
+  <hr>
+
+  <p><big><b>3. An application of queues</b></big></p>
+
+    <ol type="a">
+
+      <li><b>Using STL Queues</b>
+        
+        <p>Start by downloading the <a class="code" href="queues_example.cpp">queues_example.cpp</a> file. Open on your editor, understand it and then compile and execute it. You should have the following output:</p>
+
+<pre class="shell">
+Queue size: 0
+Queue size: 4
+At the front: 2 | At the back: 8
+At the front: 4 | At the back: 8
+At the front: 6 | At the back: 8
+At the front: 8 | At the back: 8
+Queue size: 0
+</pre>
+
+        <p>Have a look at the <a href="https://en.cppreference.com/w/cpp/container/queue">documentation</a> about the container <span class="code">queue</span> to see all the available methods and remember how a queue works on a <i>FIFO</i> fashion (<i>first-in-first-out</i>).</p>
+        
+  <li><b>Round-Robin Scheduling</b></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed035.html">[AED035] Round-Robin</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \times max(R_i)/T)\)</i>
+  </p>
+  
+<p>The problems asks you to simulate <a href="https://en.wikipedia.org/wiki/Round-robin_scheduling">round robin scheduling</a>, which is a very well known algorithm.</p>
+
+<p>Our suggestion is for you to directly implement a simulation of the algorithm:</p>
+
+<ul>
+  <li>Keep a queue of processes (each one with name and time left) and the current time and number of iterations
+  <li>Repeat the following until the queue is empty. Remove the first process from the queue and:
+    <ul>
+      <li>If it has less remaining time than <b>T</b>, print it conclusion data
+      <li>It not, put it back at the end of the queue, subtracting <b>T</b> from its remaining time
+      <li>In both cases update the current time and number of iterations accordingly
+    </ul>
+</ul>
+
+</ol>
+        
+  <br>
+
+  <hr>
+
+  <h2>Extra Exercises for Consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h2>
+  
+
+    <p><big><b>4. Convex Hull</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed036.html">[AED036] Convex Hull</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \log N)\)
+  </p>
+
+<p>The <b>convex hull</b> problem (a very useful computational geometry primitive) was discussed in detail in the lectures in <a href="../slides/6_deque_stack_queue.pdf">chapter 6</a> (see slides 11 to 23).</p>
+
+<p>For this exercise, we propose you implement <a href="https://en.wikipedia.org/wiki/Graham_scan">Graham's Scan</a> algorithm, which at its core uses a <b>stack</b> (see slides 22 and 23).</p>
+
+<p>You can use the following skeleton file as the base for you implementation and complete it: <span class="code"><a href="skeletonGrahamScan.cpp">skeletonGrahamScan.cpp</a></span>
+
+  <br>
+  
+  <p><big><b>5. Supermarket Queues</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed037.html">[AED037] Supermarket</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \times C)\)
+  </p>
+
+<p>For this exercise you need to simulate a more complex scenario with several queues.</p>
+
+<p>The key to have an <span style="color:green">Accepted</span> is to structure and organize your code:</p>
+
+<ul>
+  <li>What are the entities of the problem? How to represent a checkout and its cashier? And a customer?
+  <li>Do not write everything into the main function: divide your task into several small pieces that you can code and test separately
+  <li>Also be careful about efficiency: your code should not depend on the time itself, but only on the number of customers and checkouts (do you need to advance time one by one? or can you "advance" time to the next relevant event?)
+</ul>
+  
+  <br>
+
+  <hr>
+  
+  <h2>Challenges Exercises <span style="color:DarkRed">[challenge]</span></h2>
+
+  <p>The main idea of the challenge problems is to give you the opportunity of improving your problem solving abilities.</p>
+    
+   <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height=30 ></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed038.html">[AED038] Golden Permits</a>.</p>
+
+  <p>Since this is a challenge, I will not give you any hints, but if you are stuck just contact @PedroRibeiro on Discord. Feel free to
+    also contact @PedroRibeiro to discuss your accepted solution.</p>
+
+<p>This is a its essence the same problem as <a href="../problems/aed033.html">[AED033] Eeny, meeny, miny, moe</a>, but now a "brute force" approach in \(\mathcal{O}(N \times K)\) is not enough! How can you improve such that the time does not depend on \(K\) but just linearly on \(N\)?</p>
+
+  
+  <p>Happy coding! &#128522;</p>
+        
+<hr>
+<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Practical Class #03 - Sequential Search, Binary Search and Variants</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+	<script id="MathJax-script" async
+		src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+	</script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Algorithms and Data Structures 2025/2026</a> (L.EIC011) - DCC/FCUP & DEI/FEUP</h3>
+  <h1>Practical Class #03 - Sequential Search, Binary Search and Variants<br>
+    <small><small>(06/10 to 10/10)</small></small>
+  </h1>
+
+  <hr>
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">continuous evaluation solving exercises during the semester</a>, the exercises you can submit in this class are:</p>
+  
+  <ul>
+    <li><a class="important" href="../problems/aed011.html">[AED011] Number Searching</a> (weight 10%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed012.html">[AED012] Lower Bound</a> (weight 30%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed013.html">[AED013] Interval Count</a> (weight 30%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed014.html">[AED014] Backpacking Trip</a> (weight 30%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed015.html">[AED015] Closest Sums</a> (weight 30%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed016.html">[AED016] Word Game</a> (weight 30%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed017.html">[AED017] Coloring Squares</a> (weight 30%) <span style="color:DarkRed">(challenge exercises)</span>
+
+  </ul>
+  
+  <p><b>Submission Deadline:</b> October 25th (submit to <a href="https://mooshak.dcc.fc.up.pt/~aed/">AED's Mooshak</a>)</p>
+
+  <p><b>You are encouraged to talk to the professor and to your colleagues if you have difficulties. However, any more direct help you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b><br>
+After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+Each class is worth 9 per cent of the grade for this component. As there will be 12 classes with submissions, you can get full marks even if you haven't done everything.<br>
+For a problem to count, you have to get all the tests right (i.e. accepted). Even if you solve all the problems, the maximum in a single class is 100 per cent.<br>
+It is guaranted that the main exercises on each class will sum to at least 100% of the class grade.</p>
+    
+  <hr>
+  
+  <h3>Lectures Content</h3>
+
+  <p>This class is about <b>searching</b>. It is therefore convenient that you know what was discussed on the lectures:</p>
+  <ul>
+    <li><a href="../material.html#slides">Slides: 3 - Searching (Sequential Search, Binary Search and Variants)</a>      
+  </ul>
+  
+  <hr>
+  
+  <p><big><b>1. Foundations of searching</b></big><br>
+    <i>(the goal of this exercise is for you to test a base implementation of sequential and binary search and check its execution time)</i>
+
+  <p>In this exercise you will be testing a <span class="code">int search(const vector&lt;int&gt; & v, int key)</span> function that, given a vector <i>v</i> of <b>distinct</b> integers <b>sorted in increasing order</b>, should return the position index of <i>key</i> in vector <i>v</i> if <i>key</i> exists or <i>-1</i> if it does not exist.</p>
+
+  <p>For instance:
+    <ul>
+      <li><span class="code">search({2,4,6,8}, 4)</span> should return <i>1</i><br>
+      <li><span class="code">search({2,4,6,8}, 8)</span> should return <i>3</i><br>
+      <li><span class="code">search({2,4,6,8}, 5)</span> should return <i>-1</i><br>
+    </ul>
+  </p>
+  
+    
+  <p>Start by downloading the <a class="code" href="class03_ex1.zip">class03_ex1.zip</a> file. Uncompress in your computer, compile and run it.
+    If everything is correct you should be able to see something like the following:
+<pre class="shell">
+. Case with n = 10 and 10 queries [INCORRECT]
+  Time: 0.000004 s
+
+. Case with n = 100 and 100 queries [INCORRECT]
+  Time: 0.000004 s
+
+. Case with n = 1000 and 1000 queries [INCORRECT]
+  Time: 0.000009 s
+
+. Case with n = 10000 and 10000 queries [INCORRECT]
+  Time: 0.000083 s
+
+. Case with n = 100000 and 100000 queries [INCORRECT]
+  Time: 0.000574 s
+
+</pre>
+
+  <p>This indicates all examples were executed but the answers were incorrect. This is because <span class="code">search</span> it is not implemented yet and is always returning -1. Notice how even just a simple function takes some time to be called 100&nbsp;000 times in the last input.</p>
+
+  <ol type="a">
+    
+    <li><b>A first solution in linear time \(\mathcal{O}(n)\)</b>
+      
+      <p>Start by implementing a simple <b>sequential search</b> <span style="color:brown;">(see slides 5 to 13 of Chapter 3 - Searching)</span> that goes through all the numbers of the vector trying to find the <i>key</i> in linear time (and because here we are searching for an <i>int</i>, the cost of the operation <span class="code">==</span> is \(\mathcal{O}(1)\)). Copy the following code to function <span class="code">search</span>, compile it, execute it and see if it is correct and how much time it takes for each test.
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>v.size(); i<span style="color: #333333">++</span>)
+  <span style="color: #008800; font-weight: bold">if</span> (v[i] <span style="color: #333333">==</span> key)
+    <span style="color: #008800; font-weight: bold">return</span> i; <span style="color: #888888">// found key</span>
+<span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>;    <span style="color: #888888">// not found</span>
+</pre></div>
+
+<br>
+        
+    </li>
+
+    <li><b>Improving the solution to logarithmic time \(\mathcal{O}(\log n)\)</b>
+
+      <p>Intuitively you should be able to improve this solution by taking advantage of the fact that the vector is sorted. And for that we will use... <b>binary search</b> <span style="color:brown;">(see slides 14 to 20 of Chapter 3 - Searching)</span>.
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #333399; font-weight: bold">int</span> low <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>, high <span style="color: #333333">=</span> (<span style="color: #333399; font-weight: bold">int</span>)v.size() <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+<span style="color: #008800; font-weight: bold">while</span> (low <span style="color: #333333">&lt;=</span> high) {
+  <span style="color: #333399; font-weight: bold">int</span> middle <span style="color: #333333">=</span> low <span style="color: #333333">+</span> (high <span style="color: #333333">-</span> low) <span style="color: #333333">/</span> <span style="color: #0000DD; font-weight: bold">2</span>;
+  <span style="color: #008800; font-weight: bold">if</span> (key <span style="color: #333333">&lt;</span> v[middle])      high <span style="color: #333333">=</span> middle <span style="color: #333333">-</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+  <span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">if</span> (key <span style="color: #333333">&gt;</span> v[middle]) low <span style="color: #333333">=</span> middle <span style="color: #333333">+</span> <span style="color: #0000DD; font-weight: bold">1</span>;
+  <span style="color: #008800; font-weight: bold">else</span> <span style="color: #008800; font-weight: bold">return</span> middle; <span style="color: #888888">// found key</span>
+}
+<span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>; <span style="color: #888888">// not found</span>
+</pre></div>
+      
+      <p>Implement this new solution, compile, execute it and see how much time it took now.</p>
+    </li>
+    
+    <li><b>Testing binary search in Mooshak</b>
+
+      <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+        For this exercise you will be solving the problem <a href="../problems/aed011.html">[AED011] Number Searching</a>.</p>
+
+      <p>With what you now know, it should be really easy to solve this problem, right? You can even reuse the function you just implemented before. &#128521;</p>
+
+      <p>Code the solution, test it with the examples given, submit to Mooshak and go get your <span class="color:DarkGreen;">Accepted</span>.            
+        
+  </ol>
+  
+  <hr>      
+
+  <p><big><b>2. Your first variant of binary search</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed012.html">[AED012] Lower Bound</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N + Q \times \log N)\)
+  </p>
+  
+  <p>Read the problem statement and understand what it is asking. The <i>lower bound</i> is a very useful primitive that can be used in many problems.
+    Our suggestion is that you create a function <span class="code">int lowerBound(const vector&lt;int&gt; & v, int key)</span>
+  </p>
+  
+  <p>A <i>brute force</i> approach that goes does a sequential search in linear time is not enough (if you want you can check by implementing and submitting to Mooshak, where you should get a <span style="color:red">Time Limit Exceeded</span>).</p>
+  
+  <p>To solve in the desired time complexity you need to be able to answer each query in logarithmic time. But you know you can use binary search to do this, right? <b>Don't forget you are expected to code, test and submit in Mooshak until you get an accepted solution.</b></p>
+
+  <p><i>(note: remember from the previous class that sometimes we will give hints that are initially hidden in case you want to do the problems by yourself without any <b>spoilers</b>; nevertheless, you should always check the hints even if you got an <span class="color:DarkGreen;">Accepted</span> without seeing them)</i></p>
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- This exercise is explained directly in the lecture slides <span style="color:brown;">(see slides 38 to 40 of Chapter 3 - Searching)</span>
+<br>
+<br>
+- Try to implement manually the lower bound so that you can understand it; after having <span class="color:DarkGreen;">Accepted</span> you can try to solve again but this time using the <span class="code"><a href="https://en.cppreference.com/w/cpp/algorithm/lower_bound">lower_bound</a></span> available in <span class="code">&lt;algorithm&gt;</span> (note that this function return an iterator, but since it is of <i>RandomAccess</i> you easily compute the position - see for instance <span style="color:brown;">slide 57</span>). 
+</p>
+</details>
+
+      <br>
+  
+  <hr>      
+
+  <p><big><b>3. Solving a problem with binary search</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed013.html">[AED013] Interval Count</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N + Q \times \log N)\)
+  </p>
+  
+  <p>Read the problem statement and understand what it is asking. Can you think on how you could use the lowerBound function you created for the previous exercise? Try to think about the problem by yourself before seeing the hints. &#128521;</p>
+  
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Assuming the numbers are stored in vector <i>v</i> and you trying to count the elements in <i>[a,b]</i>, what would you obtain if you call <span class="code">lowerBound(v, a)</span>?
+<br>
+<br>
+- A cal to <span class="code">lowerBound(v, b)</span> would obtain the first occurrence of <i>b</i>, if it occurs. How can you use this function to obtain the element <i>exactly after</i> all occurrences of elements <i>&le;b</i>?
+<br>
+<br>
+- If you have the first position inside the interval and the first position immediately after the last position of the interval, how could you obtain the result?
+<br>
+<br>
+- With two binary searches, each one taking \(\mathcal{O}(\log N)\), what is the total complexity of each query? And what about the entire program?
+</p>
+</details>
+
+  <br>
+
+  <hr>
+
+  <p><big><b>4. Binary search the answer on a partition problem</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed014.html">[AED014] Backpacking Trip</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N + Q \times \log S)\), where \(S\) is the sum of all \(N\) distances
+  </p>
+
+  <p>This problem was explained in detail in the lectures <span style="color:brown;">(see slides 41 to 46 of Chapter 3 - Searching)</span>.
+
+    <ol type="a">
+      <li><b>isPossible</b>
+        <p>Let's start by implementing an auxiliary function that will be very useful: <span class="code">bool isPossible(const vector<int> & v, int x, int k)</span>. This function should have time \(\mathcal{O}(n)\) where \(n\) is the size of the vector.</o>
+
+        <p>This function should return <i>true</i> if it is possible to divide the vector <i>v</i> into <i>k</i> partitions (sequences of contiguous numbers) such that the sum of the largest partition is <i>&le;x</i> or <i>false</i> otherwise. Here are some examples of possible calls and the expected results:</p>
+
+        <ul>
+          <li><span class="code">isPossible({7,9,3,8,2,2,9,4,3,4,7,9,9},21,4)</span> should return <i>true</i> <span style="color:#444444">(e.g. partition: 7 9 3 | 8 2 2 9 | 4 3 4 7 | 9 9)</span></li>
+          <li><span class="code">isPossible({7,9,3,8,2,2,9,4,3,4,7,9,9},20,4)</span> should return <i>false</i> <span style="color:#444444">(impossible to obtain)</span></li>
+          <li><span class="code">isPossible({7,9,3,8,2,2,9,4,3,4,7,9,9},22,4)</span> should return <i>true</i> <span style="color:#444444">(if 21 is possible, 22 is also possible, right?)</span></li>
+          <li><span class="code">isPossible({7,9,3,8,2,2,9,4,3,4,7,9,9},27,3)</span> should return <i>true</i> <span style="color:#444444">(e.g. partition: 7 9 3 8 | 2 2 9 4 3 4 | 7 9 9)</span></li>
+          <li><span class="code">isPossible({7,9,3,8,2,2,9,4,3,4,7,9,9},26,3)</span> should return <i>false</i> <span style="color:#444444">(impossible to obtain)</span></li>
+          <li><span class="code">isPossible({7,9,3,8,2,2,9,4,3,4,7,9,9},18,5)</span> should return <i>true</i>  <span style="color:#444444">(e.g. partition: 7 9 | 3 8 2 2 | 9 4 3 | 4 7 | 9 9)</span></li>
+          <li><span class="code">isPossible({7,9,3,8,2,2,9,4,3,4,7,9,9},17,5)</span> should return <i>false</i> <span style="color:#444444">(impossible to obtain)</span></li>
+        </ul>
+
+<p>Implement and test the function before going to the next part of the exercise.</p>
+
+
+<details name="hint">
+  <summary>Hints</summary>
+<p>This function can be made with a <i>greedy</i> algorithm that <b>extends the current partition while its sum is &le; <i>x</i></b>; if it surpasses <i>x</i>, then a new partition is started; at the end we simply need to check the minimum number of partitions to see if <i>k</i> partitions would suffice <span style="color:brown;">(slide 43)</span>
+</p>
+</details>
+
+<br>
+
+<li><b>Solving the problem</b>
+
+  <p>We can now use binary search the answer using the previous primitive &#128521;
+
+<details name="hint">
+  <summary>Hints</summary>
+  <p>- We can use binary search of the space of possible answers \([1,S]\) <span style="color:brown;">(see slide 44)</span>, where <i>S</i> is the sum of all distances
+    <br>
+    <br>
+- The search space is of the type <i>no no .. yes yes .. yes</i> for the function <span class="code">isPossible</span> and so we can at its essence a <i>lowerBound</i> type of binary search
+<br>
+<br>
+- Each of these \(Q\) queries takes therefore time \(\mathcal{O}(\log S)\)
+  </p>
+</details>
+      
+    </ol>
+      
+  <br>
+
+  <hr>
+
+  <h2>Extra Exercises for Consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h2>
+  
+  <p><big><b>5. Closest Sums</b></big></p>
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed015.html">[AED015] Closest Sums</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N^2 \times \log N + Q \times \log N)\) - note that \(\log(N^2) = 2 \times \log(N) \in \mathcal{O}(\log(N))\)
+  </p>
+
+  <p>Read the problem statement and understand what it is asking. Implement, test and submit on Mooshak. Can you think on how you could use binary search or a variant? Try to think about the problem by yourself before seeing the hints. &#128521;</p>
+
+<details name="hint">
+  <summary>Hints</summary>
+  <p>- Let's start by computing all possible sums \(S_i + S_j\) such that \(0 \leq i < j < N\)<br>
+&nbsp; &nbsp;. How many pairs exist? What is its asymptotic order of magnitude?<br>
+&nbsp; &nbsp;. Implement two cycles to generate all these sums and store them on a new vector <span class="code">sums</span> and verify that its size is what you expected                                                      
+    <br>
+    <br>
+    - For each of the \(Q\) queries we will now search on <span class="code">sums</span> for the closest number<br>
+    &nbsp; &nbsp;. A sequential search is slow and would not pass on Mooshak<br>
+    &nbsp; &nbsp;. The vector of <span class="code">sums</span> is the same for all queries, so we can pre-process it to then improve the search. So, we could... sort it, so that we can use binary search! Use C++ <span class="code"><a href="https://en.cppreference.com/w/cpp/algorithm/sort">sort</a></span> available in <span class="code">&lt;algorithm&gt;</span>.
+    &nbsp; &nbsp;. Since the query number might not exist, how could we use <span class="code">lowerBound</span>?
+    <br>
+    <br>
+    - In the end the overall time complexity is:<br>
+    &nbsp; &nbsp;. Read the numbers in \(\mathcal{O}(N)\) time<br>
+    &nbsp; &nbsp;. Compute the sum of all pairs in \(\mathcal{O}(N^2)\)<br>
+    &nbsp; &nbsp;. Order the sums in  \(\mathcal{O}(N^2 \log N^2) \in \mathcal{O}(N^2 \log N) \)<br>
+    &nbsp; &nbsp;. Answer each of the \(Q\) queries in time \(\mathcal{O}(\log N^2) \in \mathcal{O}(\log N) \)
+  </p>
+</details>
+
+<br>
+<br>
+
+  <p><big><b>6. Word game</b></big></p>
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed016.html">[AED016] Word Game</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(|A| \times \log |A|)\)
+  </p>
+
+  <p>Read the problem statement and understand what it is asking. Implement, test and submit on Mooshak. Can you think on how you could use binary search or a variant? Try to think about the problem by yourself before seeing the hints. &#128521;</p>
+
+<details name="hint">
+  <summary>Hints</summary>
+  <p>-Can you think of a function to tell if it is possible for Susan to remove \(k\) letters? This can be done in time \(\mathcal{O}(n)\) on a single passage "at the same time" on \(A\) and \(B\)
+<br>    
+<br>
+- With the previous function, your search space on \(k\) is now of type <i>no no .. yes yes .. yes</i>, so you can <b>binary search the answer</b>. What are the possible values of \(k\)?
+  </p>
+</details>
+
+  <br>
+      
+  <hr>
+  
+  <h2>Challenge Exercise <span style="color:DarkRed">[challenge]</span></h2>
+
+  <p>The proposed challenge for this is an adaptation of a problem used on the final selection phase of the <a href="https://oni.dcc.fc.up.pt/">National Olympiads in Informatics</a> in 2016.</p>
+
+  <p>Remember that these challenge exercises are harder and the main idea is to give you the opportunity of improving your problem solving abilities!</p>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height=30 ></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed017.html">[AED017] Coloring Squares</a>.</p>
+
+  <p>Since this is a challenge, I will not give you any hints, but if
+  you are stuck just contact @PedroRibeiro on Discord. Feel free to
+    also contact @PedroRibeiro to discuss your accepted solution.</p>
+
+  <p>Happy coding! &#128522;</p>
+        
+<hr>
+<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

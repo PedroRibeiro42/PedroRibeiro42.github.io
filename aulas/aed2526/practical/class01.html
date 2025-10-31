@@ -1,0 +1,317 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Practical Class #01 - Mooshak Introduction and Invariants</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Algorithms and Data Structures 2025/2026</a> (L.EIC011) - DCC/FCUP & DEI/FEUP</h3>
+  <h1>Practical Class #01 - Mooshak Introduction and Invariants<br>
+    <small><small>(22/09 to 26/09)</small></small>
+  </h1>
+
+  <hr>
+  <h2>Exercises for submission</h2>
+
+<p>For the <a href="../evaluation.html#grades">continuous evaluation component involving exercise-solving during the semester</a>, the exercises you can submit in this class are:</p>
+  <ul>
+    <li><a class="important" href="../problems/aed001.html">[AED001] Forty-Two</a> (weight 20%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed002.html">[AED002] Unlucky Numbers</a> (weight 40%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed003.html">[AED003] Space Oddity</a> (weight 40%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed004.html">[AED004] Bart's Math Problem</a> (weight 40%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed005.html">[AED005] Number Spiral</a> (weight 40%) <span style="color:DarkRed">(challenge exercises)</span>
+
+  </ul>
+  
+  <p><b>Submission Deadline:</b> October 11th (submit to <a href="https://mooshak.dcc.fc.up.pt/~aed/">AED's Mooshak</a>)</p>
+  
+  <p><b>You are encouraged to talk to the professor and to your colleagues if you have difficulties. However, any more direct help you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b><br>
+After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+Each class is worth 9 per cent of the grade for this component. As there will be 12 classes with submissions, you can get full marks even if you haven't done everything.<br>
+For a problem to count, you have to get all the tests right (i.e. accepted). Even if you solve all the problems, the maximum in a single class is 100 per cent.<br>
+It is guaranted that the main exercises on each class will sum to at least 100% of the class grade.</p>
+    
+  <hr>
+  
+  <h3>Lectures Content</h3>
+
+  <p>This class includes exercises about <b>invariants</b>. It is therefore convenient that you know what was discussed on the lectures:</p>
+  <ul>
+    <li><a href="../material.html#slides">Slides: 1 - Invariants</a>
+  </ul>
+  
+  <hr>
+  
+  <p><big><b>1. My first Mooshak submissions</b></big>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0"></a><br>
+    On this course we will use  <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a> to automatically evaluate your C++ code (<a href="mooshak_help.html">see Mooshak's help</a>).
+    <ul>
+      <li>For all your submissions you can visualize the detailed
+      result obtained in each of the test cases made. It is also
+      possible to access any public tests for which your program did
+        not receive the <span style="color:green">Accepted</span> veredict.
+        <b>For seeing all this detailed feedback you only need to click the result of your submission that appears underlined in the listing.</b>
+
+        <p><font color=red><b>To access the system you can use your <i>login</i> (with the word <tt>"up"</tt>)
+              and <i>password</i> that was sent to your institutional email (message sent on the 21st of September with the title "[AED] Mooshak password - <i>login</i>")</b></font><br>
+          <i>(if you have trouble accessing it, send a message on discord to @Pedro Ribeiro | your practical class professors also know your passwords)</i></p>
+
+      <li>We will not enforce any editor on this course. We do however advise you to use an editor that is available on your computer labs, so that you get acquainted to the environment you will have available on the practice test days (which will be in Linux). We suggest you use <b>VScode</b> (or <b>CLion</b>). You should already know how to compile and run C++ code from your previous courses, but if you need any help you can ask in Discord.
+        
+    </ul>
+
+  <p>In this problem the goal is to make your first submissions in Mooshak, all for the  <a href="../problems/aed001.html">[AED001] Forty-Two</a>. The problem statements will also be available inside Mooshak. <b>Always start by carefully reading the problem statement given!</b></p>
+
+  <ol type="a">
+    <li>Start by submitting an <span style="color:green">Accepted</span> in Mooshak. You can use the following example code given in <a class="code" href="aed001.cpp">aed001.cpp</a> (see <a href="aed001_source.html">html version</a>) to get you started <i>(you can right click the file name and save it on a suitable directory)</i>. The file is already correct and you can submit it directly &#128578;</li>
+
+    <ul>
+      <li>You can experiment on your own computer with the provided input examples to check the result (just copy+paste the inputs)</br>
+        If you saved your input in a file named <span class="code">input.txt</span> you can also use redirection to feed your program with that input using <span class="shell">executable &lt; input.txt</span></li>
+      <li>If you saved the expected output in a file <span class="code">expected.txt</span>, you can check whether it is the same as the program output.Use <span class="shell">executable &lt; input.txt  &gt; output.txt</span> to write the output to a file <span class="code">output.txt</span> and the <span class="shell">diff</span> command to check if there is any difference <span class="shell">diff output.txt expected.txt</span>.</li>
+      <li>All problem statements will follow roughly the same format, specifying the problem, the input, the output, the constraints and giving at least one input example and its corresponding output.</li>
+      <li>You do not need to verify the constraints on your code. On the contrary, the constraints give you guarantees on the input that will be given to your program. You can assume the test cases we will feed your code obey the constraints (e.g. this allows to know which variable types to use on this program, since you know the given integers will never exceed 10<sup>9</sup>).</li>
+      <li>All the lines of input and output should be terminated with the newline character (including the last line).</li>
+      <li>You should only output what is given in the statement.
+Any extra output will cause your code to be marked as incorrect.</li>
+      <li>The <span class="code">main()</span> function must return <span class="code">0</span>. A different returned value means that the process exited with a failure, with Mooshak reporting <span style="color:red">Invalid Function</span> or <span style="color:red">Runtime error</span>.</li>
+
+      <li>After submitting, you can see that the word <span style="color:green">Accepted</span> is underlined on the listing (see <a href="mooshak_list.png">this picture</a> for an example of a list). If you click on it you will see a table detailing your result on each input (see <a href="mooshak_table.png">this picture</a> for an example of the feedback given) .</li>
+      <li>You can click on the submission number on the left of each listing row to recover your submitted code.</li>
+      <li>If you press on <i>more...</i> you can see an interface for seeing submissions that allows you to select only a certain student, a certain problem, etc.
+      <li>If you submit a file that is exactly the same as one that you already submitted, Mooshak will not accept and report a <b>Duplicate submission</b>.
+	  </ul>
+
+    <li>You should now experiment with some common errors to see the behavior of Mooshak in these cases (see the detailed feedback to access the first input where your program fails):</li>
+    <ol>
+      <li>Try to get a <span style="color:red">Compile Time Error</span> - for instance you could remove the last <span class="code">}</span> or the last <span class="code">}</span> and resubmit.</li>
+      <li>Try to get a <span style="color:red">Wrong Answer</span> - for instance you could change the output line to <span class="code">cout &lt;&lt; (count+1) &lt;&lt; endl;</span></li>
+      <li>Try to get a <span style="color:red">Time Limit Exceeded</span> - for instance you could add <span class="code">while(true);</span> before the final <span class="code">return 0</span> to make the program get stuck on a loop</li>
+      <li>Try to get a <span style="color:red">Presentation Error</span> - for instance you could change the output line to <span class="code">cout &lt;&lt; count;</span><br>
+        This would make your output not have the endline character, as requested on all lines.<br>
+        If your output is correct with the exception of any whitespace (e.g. spaces, newlines, tabs) Mooshak will mark your submissions with a <span style="color:red">Presentation Error</span>.</li>
+    </ol>
+    
+  </ol>
+  
+  <hr>
+
+  <p><big><b>2. My first invariant analysis</b></big>
+
+  <p>We will now work towards showing why the previously given program works (<a class="code" href="aed001.cpp">aed001.cpp</a> - <a href="aed001_source.html">html version</a>).</p>
+  
+  <ol type="a">
+  <li> Let \(n\) be the number of values and \(v_0,v_1,\ldots,v_{n-1}\) be the values of the sequence that come on the input. Find a loop invariant that we can use to conclude that the program is correct. You must describe the state of all relevant variables and complete the sentence:
+
+  <p><i>"When we are testing the condition \(i \lt n\) in the for loop for the \(k\)-th time, for \(k \ge 1\), the value of \(i\) is \(\ldots\), the value of \(count\) is \(\ldots\) and \(n\) has its initial value.</i>
+  </p>
+
+  <li>Using the invariant, justify that the loop <b>terminates</b> (check <b>Progress</b> and <b>Termination</b>).
+
+    <details name="hint">
+        <summary>Hints</summary>
+        <p>- \(i\) takes integer values, being 0 initially and, from the problem statement, \(n\) contains a positive integer;
+          <br>
+          - Assuming the invariant is true, we can claim that \(n\) does not change along the loop, that the value of \(i\) increases by one at each iteration, and that, when we test the loop condition \(i < n\) for \(k=n+1\), we have \(i=n\);
+<br>
+- Therefore, \(i < n\) is false when \(k=n+1\). Does that mean the loop terminates?
+<br>
+    </details>
+    
+  <li>Using the invariant, conclude that the value we print satisfies the problem specification.
+ <details name="hint">
+        <summary>Hints</summary>
+        <p>- Assuming the invariant is true, which is the value of \(count\)
+	  when \(k=n+1\)?
+Remark that, for the answer, you must write down just what the invariant says if we replace \(k\) by \(n+1\).
+	  
+<br>
+</details>
+
+    
+  <li>Show that the invariant is true, by checking the properties we refer to as <b>Initialization</b> and <b>Maintenance</b>.
+    Or, equivalently, prove the invariant by mathematical induction.
+
+           <details name="hint">
+        <summary>Hints</summary>
+        <p>- So far, we have not proved that the invariant is true.
+          <br>
+          - <b>Intialization ("base case")</b> We must justify that the property is true when \(k=1\). For that, check what was executed in the program before the first test.
+          <br>
+          - <b>Maintenance ("induction step" or "inheritance")</b> Assume the property is true at \(k\)-th test (as "induction hypothesis") and that \(i < n\
+\) is true. Then, argue that under that assumption, if we execute the body of the loop, the property will still be true for \(k+1\). Remark that, we must check what happens if <span class="code">a == 42</span> is true at that iteration, and if it is not.
+<br>
+       </details>
+
+
+	   
+  <li>Find the number of times each instruction is executed in the <i>worst case</i> and in the <i>best case</i> (variable declarations, reads, prints, assignments, comparisons, increments, returns). Deﬁne them as a function of \(n\). The <i>worst case</i> happens when all the values are 42 and the <i>best case</i> happens when no value is 42.
+
+</ol>
+
+  <hr>
+
+  <p><big><b>3. Removing numbers</b></big>
+
+  <p>Consider the following C++ function which removes all values equal to \(x\) from the array \(a\) with \(n\) integers. The final result will be in \(a[0],\ldots,a[used-1]\) and the function returns \(used\). In the end, the values in the positions \(used\) to \(n-1\) of \(a\) are not relevant (can be anything).</p> 
+
+  <!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">remove</span>(<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>a[],<span style="color: #BBB"> </span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>n,<span style="color: #BBB"> </span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>x)<span style="color: #BBB"> </span>{
+<span style="color: #BBB">  </span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>used<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span>;
+<span style="color: #BBB">  </span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>pos<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span>;
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">while</span><span style="color: #BBB"> </span>(pos<span style="color: #BBB"> </span><span style="color: #333">&lt;</span><span style="color: #BBB"> </span>n)<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">if</span><span style="color: #BBB"> </span>(a[pos]<span style="color: #BBB"> </span><span style="color: #333">!=</span><span style="color: #BBB"> </span>x)<span style="color: #BBB"> </span>{
+<span style="color: #BBB">      </span>a[used]<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span>a[pos];
+<span style="color: #BBB">      </span>used<span style="color: #333">++</span>;
+<span style="color: #BBB">    </span>}
+<span style="color: #BBB">    </span>pos<span style="color: #333">++</span>;
+<span style="color: #BBB">  </span>}
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span>used;
+}
+</pre></div>
+
+  <ol type="a">
+  <li>Let \(v_0,v_1,\ldots,v_{n-1}\) be the values of \(a[0],\ldots,a[n-1]\) when the function is called. Find a loop invariant that we can use to conclude that the function is correct. You must describe the state of all relevant variables and complete the sentence:
+
+  <p><i>"When we are testing the condition \(pos \lt n\) in the while loop for the \(k\)-th time, for \(k \ge 1\), the values of \(n\) and \(x\) are the same they had before the loop, the value of \(pos\) is \(\ldots\), the value of \(used\) is \(\ldots\) and the contents of the array \(a[]\) are \(\ldots\)"</i>
+  </p>
+
+<details name="hint">
+        <summary>Hints</summary>
+	<p>- Follow the program step by step, writing down the content of each variable when it is checking the loop condition \(pos < n\) for \(k=1\), for \(k=2\), for \(k=3\) and so forth.
+<br>
+- Identify a pattern and write it formally, i.e., write the mathematical expressions that define the state (e.g., is it true that \(pos = k-1\)?)
+<br>
+</details>
+
+
+
+
+  
+  <li>Using the invariant, justify that the loop <b>terminates</b> (check <b>Progress</b> and <b>Termination</b>).
+
+    
+<details name="hint">
+        <summary>Hints</summary>
+	<p>- \(pos\) takes integer values and contains 0 initially and, from the problem statement, \(n\) contains a positive integer;
+	  <br>
+	  - Assuming the invariant is true, we can claim that \(n\) does not change along the loop, the value of \(pos\) increases by one at each iteration, and that, when we test the loop condition \(pos < n\) for \(k=n+1\), we have \(pos = n\), since \(pos=k-1\);
+<br>
+- Therefore, \(pos < n\) is false when \(k=n+1\). Does that mean the loop terminates?
+<br>
+</details>
+
+  <li>Using the invariant, conclude that the value we print satisfies the problem specification.
+
+    <details name="hint">
+        <summary>Hints</summary>
+        <p>- Assuming the invariant is true, which is the value of \(used\) and the content of the vector when \(k=n+1\)?
+Remark that, for the answer, you must write down just what the invariant says if we replace \(k\) by \(n+1\). Hopefully, that will be exactly what it is required by the problem specification.
+<br>
+</details>
+
+  <li>Show that the invariant is true, by checking the properties we refer to as <b>Initialization</b> and <b>Maintenance</b>.
+    Or, equivalently, prove the invariant by mathematical induction.
+
+
+       <details name="hint">
+        <summary>Hints</summary>
+        <p>- So far, we have not proved that the invariant is true.
+	  <br>
+	  - <b>Intialization ("base case")</b> We must justify that the property is true when \(k=1\). For that, check what was executed in the program before  the first test.
+	  <br> 
+	  - <b>Maintenance ("induction step" or "inheritance")</b> Assume the property is true at \(k\)-th test (as "induction hypothesis") and that \(pos < n\) is true. Then, argue that under that assumption, if we execute the body of the loop, the property will still be true for \(k+1\). Remark that, we must check what happens if <span class="code">a[pos] != x</span> is true at that iteration, and if it is not.
+<br>
+       </details>
+
+       
+  <li>Find the number of times each instruction is executed in the <i>worst case</i> and in the <i>best case</i>. Deﬁne them as a function of \(n\). When does the <i>worst case</i> happen? And the <i>best case</i>?
+  Remark that \(n\) is a parameter. Do not replace \(n\) by a constant (do not say that the best case is when n=1).</p>
+
+  
+       <details name="hint">
+        <summary>Hints</summary>
+        <p>- In the <i>worst case</i>, the instructions <span class="code">a[used] = a[pos];</span> and <span class="code">used++;</span> are executed in every iteration. In the <i>best case</i>, they are never executed. You must say <b>what characterizes</b> a best case instance and a worst case instance, i.e., the property that the elements in the sequence satisfy in each case
+<br>
+       </details>
+
+       
+  <li>Now that you know the function works &#128522;, solve, submit and get an <span style="color:green">Accepted</span> on the following Mooshak problem:</p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0"></a><br>
+    Problem: <a href="../problems/aed002.html">[AED002] Unlucky Numbers</a>.</p>
+  
+</ol>
+
+  
+  <hr>
+
+  <p><big><b>4. Odd numbers</b></big>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed003.html">[AED003] Space Oddity</a>.</p>
+
+  <ol type="a">
+    <li>Create a C++ program to solve the problem, test it and then submit so it you can get your deserved <span style="color:green">Accepted</span> &#128513;
+
+    <li>Using a suitable invariant and the same steps of the previous problems, can you show why your program is correct?
+  </ol>
+
+<p><i>Note:</i> did you know that <a href="https://en.wikipedia.org/wiki/Space_Oddity">Space Oddity</a> is a David Bowie song and that astronaut Chris Hadfield filmed <a href="https://www.youtube.com/watch?v=KaOC9danxNo">a (revised) cover of this song</a> while he was on the International Space Station? &#128640;</p>
+  
+    <hr>
+
+    <h3>Extra Exercise for Consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h3>
+
+    <p><big><b>5. Number Factorization</b></big></p>
+    
+    <p>AED Mooshak classes will usually include at least one extra
+    exercise that you can use of you want to keep testing your knowledge. For this class we propose a problem in which efficiency matters.
+    
+    <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0"></a><br>
+      For this exercise you will be solving the problem <a href="../problems/aed004.html">[AED004] Bart's Math Problem</a>.</p>
+
+  <p>Here are some helpful notes:</p>
+
+  <ul>
+    <li>the factorization can be found by successive divisions, starting from 2
+    <li>if any prime \(p\) greater than \(\sqrt{n}\) occurs in the factorization of \(n\), then \(p\) occurs only once
+    <li>if \(p_1\) and \(p_2\) are two prime numbers greater than \(\sqrt{n}\) then only one of them can divide \(n\).
+  </ul>
+
+  <p>In order to <b>be efficient</b>, your function must use the properties of prime numbers stated above. An inefficient solution might get <span style="color:red">Time Limit Exceeded</span> veredict at Mooshak (the time limit for this problem is 1 second).</p>
+
+  <ol type="a">
+    <li>Solve, test, submit and <span style="color:green">Accepted</span> on this problem.
+    <li>Justify the <b>correctness</b> of your function.
+  </ol>
+    
+<br>
+      
+      <hr>
+
+    <h3>Challenge Exercise <span style="color:DarkRed">[challenge]</span></h3>
+
+  <p>AED Mooshak classes will usually include one challenge exercise, which can be much harder the previous ones and might even need knowledge that was not given explicitly on the course.</p>
+
+  <p>The main idea is to give you the opportunity of improving your problem solving abilities.</p>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed005.html">[AED005] Number Spiral</a>.</p>
+
+  <p>Because this is the first challenge, the selected problem is not too hard and can be solved by any student without any knowledge of advanced algorithms or data structures. You just need to think a little bit and of course be efficient and go beyond the naive "brute force" approach &#128521;</p>
+
+  <p>Since this is a challenge, I will not give you any hints, but if you are stuck just contact @Pedro Ribeiro on Discord. Feel free to also contact @Pedro Ribeiro to discuss your accepted solution.</p>
+
+  <p>Happy coding! &#128522;</p>
+        
+<hr>
+<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Practical Class #04 - Sorting</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Algorithms and Data Structures 2025/2026</a> (L.EIC011) - DCC/FCUP & DEI/FEUP</h3>
+  <h1>Practical Class #04 - Sorting<br>
+    <small><small>(13/10 to 17/10)</small></small>
+  </h1>
+
+  <hr>
+  <h2>Exercises for submission</h2>
+
+<p>For the <a href="../evaluation.html#grades">continuous evaluation component involving exercise-solving during the semester</a>, the exercises you can submit in this class are:</p>
+  <ul>
+    <li><a class="important" href="../problems/aed018.html">[AED018] Game Tournament</a> (weight 10%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed019.html">[AED019] Counting the Bits</a> (weight 30%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed020.html">[AED020] Computer Lab</a> (weight 30%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed021.html">[AED021] Anagrams</a> (weight 30%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed022.html">[AED022] Football Table</a> (weight 30%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed023.html">[AED023] Chocolate Boxes</a> (weight 30%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed024.html">[AED024] Ferris Wheel</a> (weight 30%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed025.html">[AED025] Counting Inversions</a> (weight 30%) <span style="color:DarkRed">(challenge exercises)</span>
+  </ul>
+  
+  <p><b>Submission Deadline:</b> November 1st (submit to <a href="https://mooshak.dcc.fc.up.pt/~aed/">AED's Mooshak</a>)</p>
+  
+  <p><b>You are encouraged to talk to the professor and to your colleagues if you have difficulties. However, any more direct help you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b><br>
+After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+Each class is worth 9 per cent of the grade for this component. As there will be 12 classes with submissions, you can get full marks even if you haven't done everything.<br>
+For a problem to count, you have to get all the tests right (i.e. accepted). Even if you solve all the problems, the maximum in a single class is 100 per cent.<br>
+It is guaranted that the main exercises on each class will sum to at least 100% of the class grade.</p>
+    
+  <hr>
+  
+  <h3>Lectures Content</h3>
+
+  <p>This class is about <b>sorting</b>. It is therefore convenient that you know what was discussed on the lectures:</p>
+  <ul>
+    <li><a href="../material.html#slides">Slides: 4 - Sorting Algorithms (Comparison based sorting and linear sorting)</a>      
+  </ul>
+  
+  <hr>
+  
+  <p><big><b>1. Using the <tt>sort</tt> function of C++</b></big><br>
+    <i>(the goal of this exercise is for you first to test a basic example of sorting in C++ and then use that knowledge to submit a problem)</i></p>
+
+    <ol type="a">
+
+      <li><b>A sort example</b>
+    
+  <p>Start by downloading the <a class="code" href="sort_example.cpp">sort_example.cpp</a> file. Open on your editor, understand it and then compile and execute it. You should have the following output:
+    
+<pre class="shell">
+Before sorting: 33 4 28 18 15 2 8 17 42 39 
+ After sorting: 2 4 8 15 17 18 28 33 39 42 
+</pre>
+
+<p>Have a look at the <a href="https://en.cppreference.com/w/cpp/algorithm/sort">documentation</a> about the function <a class="code" href="https://en.cppreference.com/w/cpp/algorithm/sort">sort</a> to see how <a href="https://en.cppreference.com/w/">cppreference</a> explains to use the function, how it gives example code and how it states the time complexity: \(\mathcal{O}(N \log N)\) comparisons for sorting \(N\) elements.
+
+<p>Notice how the default behavior of <span class="code">sort</span> is to sort in increasing order using the natural comparison of the elements (experiment changing the vector from <span class="code">int</span> to other types such as <span class="code">double</span>, <span class="code">char</span> or <span class="code">string</span>, changing the stored values, and see what happens).</p>
+
+<p>Note also that <span class="code">sort</span> is not <b>stable</b>, that is, it does not guarantee that in case of a tie it keeps the initial order. However, C++ also has <a class="code" href="https://en.cppreference.com/w/cpp/algorithm/stable_sort">stable_sort</a>, in case you need it.
+
+<p>For other exercises you will also need to understand how you could "tell" <span class="code">sort</span> to use another order, but for now what you know is enough to solve your first Mooshak problem in this class &#128578;
+    
+  <li><b>Your first sorting problem</b>
+
+    <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed018.html">[AED018] Game Tournament</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \log N)\)
+  </p>
+  
+    <p>Read the problem statement and understand what it is asking.</p>
+
+    <p>In this case you want to compute the top-\(K\) values of a set of (distinct) elements. This problem becomes much easier if the values are sorted right?</p>
+
+    <p>You just need to read the values to a vector, sort it (as on the previous example) and then print the first \(K\) values.</p>
+
+    <p>Assuming you simply used <span class="code">sort</span> without supplying any comparator function, the values will be sorted in increasing order. But that is not a problem since you can simply print the last \(K\) values (starting from the last). <i>Et voilà</i>, you should have your first <span style="color:darkgreen"><b>Accepted</b></span>!</p>
+
+        
+  </ol>
+  
+  <hr>      
+
+  <p><big><b>2. Using a Custom comparator</b></big></p>
+
+    <ol type="a">
+
+      <li><b>An example of sort with a custom comparator</b>
+    
+        <p>Start by downloading the <a class="code" href="custom_sort_example.cpp">custom_sort_example.cpp</a> file and the example input contained in <a class="code" href="persons.txt">persons.txt</a>. Open on your editor, understand it and then compile and execute it, feeding the program with the input.<br>
+          Note: if you are running the code on a shell and your executable is called <span class="code">custom_sort_example</span>, then running the command <span class="shell">./custom_sort_example &lt; persons.txt</span> will execute the code giving the contents of <span class="code">persons.txt</span> as its standard input.</p>
+
+        <p>Notice how the function <span class="code">comparePerson</span> is defined and how this connects with <span class="code">sort</span>. <b>Try to change this comparator function to make it sort in a different order</b>. For instance, can you change so that in case of a tie the names comes in decreasing lexicographical order? And what about sorting by decreasing age? Don't forget to test your program to see if it is working and doing what you expect.</p>
+
+        <p>Two more notes before going to your first custom sorting Mooshak problem:</p>
+
+        <ul>
+          <li>We used a comparator function that we defined outside of the sort in the code, but we could have also opted to use an anonymous function given directly as an argument in the <span class="code">sort</span> call using the concept of <a href="https://en.cppreference.com/w/cpp/language/lambda">lambda expressions</a>.<br>
+            Check the following code for an equivalent version of the previous example but using a lambda expression: <a class="code" href="lambda_sort_example.cpp">lambda_sort_example.cpp</a>
+          <li>In this example we used a simple <span class="code">struct</span> to store a person (which has two attributes: name and age). We could have also used a C++ class, which besides storing attributes can also add functionality, but here we simply want to aggregate attributes and we are also focusing on the core contents of this lesson. Classes and a more object oriented approach will be explored on other practical classes.</p>
+        </ul>
+
+      <li><b>A problem that needs a custom comparator</b>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed019.html">[AED019] Counting the Bits</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \log N)\)
+  </p>
+  
+<p>Let's now put to work your knowledge of sorting with a custom comparator function.<br>
+  Start, as you always should, by reading the problem statement and understanding what it is asking.</p>
+
+<p>Our suggestion is that you first create a function <span class="code">int countBits(int n)</span> that receives an integer <i>n</i> and computes the number of 1 bits in its representation. Can you see how to do it?</p>
+
+<p>Don't forget to test your implementation before advancing. For instance, here are some example calls and their correct outputs:</p>
+
+  <ul>
+    <li><span class="code">countBits(15)</span> should return <span class="code">4</span>
+    <li><span class="code">countBits(7)</span> should return <span class="code">3</span>
+    <li><span class="code">countBits(3)</span> should return <span class="code">2</span>
+    <li><span class="code">countBits(2)</span> should return <span class="code">1</span>
+  </ul>
+  
+<p>After doing this, what's left to solve the problem? You simply need to read all integers and sort with a custom comparator function that implements the desired order. You can for instance use the previous example as a blueprint and change both the <span class="code">struct</span> (what should the attributes be?) and the comparator function to match what the problem asks.</p>
+
+</ol>
+      <br>
+  
+  <hr>      
+
+  <p><big><b>3. Solving a problem that needs sorting as a basic building block</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed020.html">[AED020] Computer Lab</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \log N)\)
+  </p>
+  
+  <p>Read the problem statement and understand what it is asking. Can you think on how you could use sorting to help solve the problem? Try to think about the problem by yourself before seeing the hints. &#128521;</p>
+  
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Imagine you sort in increasing order all arrival and leaving times (which the statement guarantees are distinct)
+<br>
+<br>
+- Now imagine you traverse the times in increasing order, as if you are "moving" though time, keeping a variable <i>count</i> with the current number of students in the lab:<br>
+&nbsp; . At the beginning <i>count = 0</i><br>
+&nbsp; . If you pass an arrival time, there is one more person in the lab, so you should increase <i>count</i> by one<br>
+&nbsp; . If you pass a leaving time, there is one less person in the lab, so you should decrease <i>count</i> by one<br>
+&nbsp; . If you keep track of the maximum value <i>count</i> reaches, you have the desired answer!
+</details>
+
+      <br>
+      
+  <hr>
+
+  <p><big><b>4. Sorting everywhere!</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed021.html">[AED021] Anagrams</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \log N)\)
+  </p>
+
+<p>Read the problem statement and understand what it is asking.</p>
+
+<ol type="a">
+
+  <li><b>Checking for anagrams</b>
+
+<p>Let's first concentrate on a simpler task: how can we determine if two words are anagrams? If you <b>sort</b> their contents, then they should produce the same word!<br>
+  For instance, sorting the letters of <i>"algorithm"</i> and <i>"logarithm"</i> both produce the string <i>"aghilmort"</i>.
+
+<p>More generally, for this problem, to check if two phrases are anagrams we could simply check if their sorted versions are the same, after we removed all the spaces and transformed all the letters to their lower case version.</p>
+
+<p>Put this idea into practice by implementing a function <span class="code">string sortString(const string & s)</span> that receives a string <i>s</i> and returns a new string that corresponds to a sorted version of the initial string, without any spaces and with all letters converted to their lowercase version.</p>
+
+<p>Don't forget to test your implementation before advancing. For instance, here are some example calls and their correct outputs:</p>
+
+  <ul>
+    <li><span class="code">sortString("seat")</span> should return <span class="code">"aest"</span>
+    <li><span class="code">sortString("logarithm")</span> should return <span class="code">"aghilmort"</span>
+    <li><span class="code">sortString("I am Lord Voldemort")</span> should return <span class="code">"addeillmmooorrtv"</span>
+  </ul>
+
+  
+  <li><b>Solving the problem</b>
+    
+    <p>With the previous function implemented the problem is now much easier, right? Try to think about the problem by yourself before seeing the hints.</p>
+  
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Read all lines <i>x</i> and store them on a vector <i>v</i> the <span class="code">sortString(x)</span> versions<br><br>
+- To read a line you can use <a class="code" href="https://en.cppreference.com/w/cpp/string/basic_string/getline">getline</a>. For instance, <span class="code">getline(cin, x)</span> will read a line from <i>cin</i> and store it on string <i>x</i><br><br>
+- If you sort this vector <i>v</i> then all anagram classes will be next to each other! For instance, for the example input, the vector would be:<br>
+<span style="color:red">aeeglmnnt</span><br>
+<span style="color:red">aaeeglmnnt</span><br>
+<span style="color:blue">acinoorrsuv</span><br>
+<span style="color:blue">acinoorrsuv</span><br>
+<span style="color:darkgreen">addeillmmooorrtv</span><br>
+<span style="color:darkgreen">addeillmmooorrtv</span><br>
+<span style="color:brown">aest</span><br>
+<span style="color:brown">aest</span><br>
+<span style="color:brown">aest</span><br>
+<span style="color:brown">aest</span><br>
+<span style="color:orange">aghilmort</span><br>
+<span style="color:orange">aghilmort</span><br>
+<span style="color:black">eegmorrst</span><br>
+<span style="color:darkred">eeikmnorstwy</span><br>
+<span style="color:darkred">eeikmnorstwy</span><br>
+<span style="color:darkblue">eilnst</span><br>
+<span style="color:darkblue">eilnst</span><br>
+<span style="color:darkblue">eilnst</span><br>
+<span style="color:black">ginorst</span><br>
+<span style="color:black">orst</span><br>
+<br>
+<br>
+- The classes are simply the colors in the listing. You can just traverse the sorted vector and whenever you find a repetition you increment a counter (taking care to not overcount when a class of anagrams has more than two phrases)<br><br>
+</details>
+
+      
+</ol>
+      
+  <br>
+
+  <hr>
+
+  <h2>Extra Exercises for Consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h2>
+  
+  <p><big><b>5. Football Table</b></big></p>
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed022.html">[AED022] Football Table</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \log N)\)
+  </p>
+
+<p>Read the problem statement and understand what it is asking. Implement, test and submit on Mooshak.</p>
+
+<p>This is just a problem for you to test again that you know how to implement a custom comparator, right? &#128513;</p>
+
+<br>
+
+  <p><big><b>6. Chocolate Boxes</b></big></p>
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed023.html">[AED023] Chocolate Boxes</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \log N)\)
+  </p>
+
+<p>Read the problem statement and understand what it is asking. Implement, test and submit on Mooshak.</p>
+
+<p>Can you think on how you could use sorting? Try to think about the problem by yourself before seeing the hints. </p>
+
+<details name="hint">
+  <summary>Hints</summary>
+  <p>- If the values are sorted, is there any option better than using a consecutive sequence of <i>k</i> elements? Can you see why?
+<br>    
+<br>
+- Knowing this, after sorting in \(\mathcal{O}(N \log N)\) you simply have to check all possible \(\mathcal{O}(N)\) attributions, each one taking \(\mathcal{O}(1)\) to check its difference (last value minus the first one)
+<br>
+<br>
+- For the example input, the sorted version would become <i>1 4 4 5 5 6 7 9</i>. Since we have <i>K=5</i> children, our possibilities would be:<br>
+&nbsp; &nbsp; <i><span style="color:red"><b>1 4 4 5 5</b></span> 6 7 9</i> with difference = <i>5-1</i> = <i>4</i><br>
+&nbsp; &nbsp; <i>1 <span style="color:red"><b>4 4 5 5 6</b></span> 7 9</i> with difference = <i>6-4</i> = <i>2</i> &larr; this is the best option<br>
+&nbsp; &nbsp; <i>1 4 <span style="color:red"><b>4 5 5 6 7</b></span> 9</i> with difference = <i>7-4</i> = <i>3</i><br>
+&nbsp; &nbsp; <i>1 4 4 <span style="color:red"><b>5 5 6 7 9</b></span></i> with difference = <i>9-5</i> = <i>4</i>
+<br>
+<br>
+  </p>
+</details>
+
+  <br>
+  <br>
+
+    <p><big><b>7. Ferris Wheel</b></big></p>
+  
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed024.html">[AED024] Ferris Wheel</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N \log N)\)
+  </p>
+
+<p>Read the problem statement and understand what it is asking. Implement, test and submit on Mooshak.</p>
+
+<p>Can you think on how you could use sorting? Try to think about the problem by yourself before seeing the hints. </p>
+
+<details name="hint">
+  <summary>Hints</summary>
+  <p>- What is the best option to pair the heaviest child? If it cannot be paired with the lightest kid could it be paired with anyone else?
+<br>    
+<br>
+- We can solve this problem with a <a href="https://en.wikipedia.org/wiki/Greedy_algorithm">greedy</a> approach (you will be talking in the future and on other courses of these types of algorithms):<br>
+&nbsp; &nbsp; . Sort the weights in increasing order<br>
+&nbsp; &nbsp; . Initialize a variable <i>ans=0</i> to contain the answer<br>
+&nbsp; &nbsp; . Initialize 2 "pointers" <i>l</i> and <i>h</i> to keep track of lightest and heaviest child still not on a cabin<br>
+&nbsp; &nbsp; . If the heaviest and the lightest child can pair with each other, then pair them up and increase <i>l</i> by 1, decrease <i>h</i> by 1 and increment <i>ans</i><br>
+&nbsp; &nbsp; . Otherwise, if the heaviest and the lightest child cannot pair, then the heaviest child will sit alone in one cabin: decrease <i>h</i> by 1 and increment <i>ans</i><br>
+&nbsp; &nbsp; . Return the final <i>ans</i> after iterating over all the children
+<br>
+<br>
+- Beware that, in general, a greedy approach does not always guarantee an optimal solution. However, for this particular problem we could prove that this strategy is correct. Can you see the intuition behind the idea we used?
+<br>
+<br>
+  </p>
+</details>
+
+<br>
+
+  <hr>
+  
+  <h2>Challenge Exercise <span style="color:DarkRed">[challenge]</span></h2>
+
+  <p>The main idea of the challenge problems is to give you the opportunity of improving your problem solving abilities.</p>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height=30 ></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed025.html">[AED025] Counting Inversions</a>.</p>
+
+  <p>Since this is a challenge, I will not give you any hints, but if
+  you are stuck just contact @PedroRibeiro on Discord. Feel free to
+    also contact @PedroRibeiro to discuss your accepted solution.</p>
+
+  <p>This problem is all about sorting and you can easily find information about it by searching for it on the web, but try to think for yourself before looking explicitly for hints. Obviously, a "brute force" approach in \(\mathcal{O}(N^2)\) is not enough!</p>
+
+  <p>Happy coding! &#128522;</p>
+        
+<hr>
+<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

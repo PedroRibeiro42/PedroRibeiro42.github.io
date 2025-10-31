@@ -1,0 +1,43 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>aed006_naive.cpp</title>
+</head>
+
+<body>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #888">// [AED006] Bakugans</span>
+<span style="color: #888">// A naive O(N*P) solution</span>
+
+<span style="color: #579">#include</span><span style="color: #BBB"> </span><span style="color: #888">&lt;iostream&gt;</span>
+
+<span style="color: #080; font-weight: bold">using</span><span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">namespace</span><span style="color: #BBB"> </span><span style="color: #0E84B5; font-weight: bold">std</span>;
+
+<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span><span style="color: #06B; font-weight: bold">main</span>()<span style="color: #BBB"> </span>{
+
+<span style="color: #BBB">  </span><span style="color: #888">// Read Bakugans energy</span>
+<span style="color: #BBB">  </span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>n;
+<span style="color: #BBB">  </span>cin<span style="color: #BBB"> </span><span style="color: #333">&gt;&gt;</span><span style="color: #BBB"> </span>n;
+<span style="color: #BBB">  </span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>energy[n<span style="color: #333">+</span><span style="color: #00D; font-weight: bold">1</span>];
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">for</span><span style="color: #BBB"> </span>(<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>i<span style="color: #333">=</span><span style="color: #00D; font-weight: bold">1</span>;<span style="color: #BBB"> </span>i<span style="color: #333">&lt;=</span>n;<span style="color: #BBB"> </span>i<span style="color: #333">++</span>)
+<span style="color: #BBB">    </span>cin<span style="color: #BBB"> </span><span style="color: #333">&gt;&gt;</span><span style="color: #BBB"> </span>energy[i];
+
+<span style="color: #BBB">  </span><span style="color: #888">// Read and process photos</span>
+<span style="color: #BBB">  </span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>p;
+<span style="color: #BBB">  </span>cin<span style="color: #BBB"> </span><span style="color: #333">&gt;&gt;</span><span style="color: #BBB"> </span>p;
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">for</span><span style="color: #BBB"> </span>(<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>i<span style="color: #333">=</span><span style="color: #00D; font-weight: bold">0</span>;<span style="color: #BBB"> </span>i<span style="color: #333">&lt;</span>p;<span style="color: #BBB"> </span>i<span style="color: #333">++</span>)<span style="color: #BBB"> </span>{
+<span style="color: #BBB">    </span><span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>a,<span style="color: #BBB"> </span>b,<span style="color: #BBB"> </span>sum<span style="color: #BBB"> </span><span style="color: #333">=</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span>;<span style="color: #BBB">    </span>
+<span style="color: #BBB">    </span>cin<span style="color: #BBB"> </span><span style="color: #333">&gt;&gt;</span><span style="color: #BBB"> </span>a<span style="color: #BBB"> </span><span style="color: #333">&gt;&gt;</span><span style="color: #BBB"> </span>b;
+<span style="color: #BBB">    </span><span style="color: #888">// one cycle per photo</span>
+<span style="color: #BBB">    </span><span style="color: #080; font-weight: bold">for</span><span style="color: #BBB"> </span>(<span style="color: #339; font-weight: bold">int</span><span style="color: #BBB"> </span>j<span style="color: #333">=</span>a;<span style="color: #BBB"> </span>j<span style="color: #333">&lt;=</span>b;<span style="color: #BBB"> </span>j<span style="color: #333">++</span>)<span style="color: #BBB"> </span>
+<span style="color: #BBB">      </span>sum<span style="color: #BBB"> </span><span style="color: #333">+=</span><span style="color: #BBB"> </span>energy[j];
+<span style="color: #BBB">    </span>cout<span style="color: #BBB"> </span><span style="color: #333">&lt;&lt;</span><span style="color: #BBB"> </span>sum<span style="color: #BBB"> </span><span style="color: #333">&lt;&lt;</span><span style="color: #BBB"> </span>endl;
+<span style="color: #BBB">  </span>}
+<span style="color: #BBB">  </span>
+<span style="color: #BBB">  </span><span style="color: #080; font-weight: bold">return</span><span style="color: #BBB"> </span><span style="color: #00D; font-weight: bold">0</span>;
+}
+</pre></div>
+
+</body>
+</html>

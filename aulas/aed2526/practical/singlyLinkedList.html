@@ -1,0 +1,177 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Algoritmos e Estruturas de Dados 2025/2026 - LEIC (FCUP/FEUP)</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Singly Linked List</span>
+<span style="color: #888888">// Last update: 20/10/2024</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+
+<span style="color: #557799">#ifndef SLLIST_H</span>
+<span style="color: #557799">#define SLLIST_H</span>
+
+<span style="color: #557799">#include &lt;iostream&gt;</span>
+<span style="color: #557799">#include &lt;sstream&gt;</span>
+<span style="color: #557799">#include &lt;cassert&gt;</span>
+<span style="color: #557799">#include &lt;string&gt;</span>
+
+
+<span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Simple Node&lt;T&gt; class with a link to the next node</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">T</span><span style="color: #333333">&gt;</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">Node</span> {
+  
+<span style="color: #997700; font-weight: bold">private:</span>
+  T value;   <span style="color: #888888">// value in the node</span>
+  Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>next;  <span style="color: #888888">// pointer to next node</span>
+
+<span style="color: #997700; font-weight: bold">public:</span>
+  Node(<span style="color: #008800; font-weight: bold">const</span> T <span style="color: #333333">&amp;</span> v, Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>n)<span style="color: #333333">:</span> value(v), next(n) {}
+
+  T <span style="color: #333333">&amp;</span> getValue() {
+    <span style="color: #008800; font-weight: bold">return</span> value;
+  }
+  
+  Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>getNext() {
+    <span style="color: #008800; font-weight: bold">return</span> next;
+  }
+  
+  <span style="color: #333399; font-weight: bold">void</span> setValue(T <span style="color: #333333">&amp;</span> v) {
+    value<span style="color: #333333">=</span>v;
+  }
+  
+  <span style="color: #333399; font-weight: bold">void</span> setNext(Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>n) {
+    next <span style="color: #333333">=</span> n;
+  }
+};
+
+
+<span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Implementation of a SinglyLinkedList&lt;T&gt;</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">T</span><span style="color: #333333">&gt;</span>
+<span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">SinglyLinkedList</span> {
+
+<span style="color: #997700; font-weight: bold">private:</span>
+  Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>first;    <span style="color: #888888">// first element</span>
+  <span style="color: #333399; font-weight: bold">int</span> length;         <span style="color: #888888">// length</span>
+  
+<span style="color: #997700; font-weight: bold">public:</span>
+
+  <span style="color: #888888">// Construtor (creates empty list)</span>
+  SinglyLinkedList()<span style="color: #333333">:</span> first(nullptr), length(<span style="color: #0000DD; font-weight: bold">0</span>) {}
+  
+  <span style="color: #888888">// Destrutor</span>
+  <span style="color: #333333">~</span>SinglyLinkedList() {
+    <span style="color: #008800; font-weight: bold">while</span>(<span style="color: #333333">!</span>isEmpty()) {
+      assert(first <span style="color: #333333">!=</span> nullptr <span style="color: #333333">&amp;&amp;</span> <span style="background-color: #fff0f0">&quot;length bigger than what it should be&quot;</span>);
+      removeFirst();
+    }
+    assert(first <span style="color: #333333">==</span> nullptr <span style="color: #333333">&amp;&amp;</span> <span style="background-color: #fff0f0">&quot;length smaller than what it should be&quot;</span>);
+  }
+  
+  <span style="color: #888888">// Returns the length of the list</span>
+  <span style="color: #333399; font-weight: bold">int</span> size() {
+    <span style="color: #008800; font-weight: bold">return</span> length;
+  }
+
+  <span style="color: #888888">// Returns true iff the list is empty</span>
+  <span style="color: #333399; font-weight: bold">bool</span> isEmpty() {
+    <span style="color: #008800; font-weight: bold">return</span> (length <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">0</span>);
+  }
+   
+  <span style="color: #888888">// Adds v to the head of the list</span>
+  <span style="color: #333399; font-weight: bold">void</span> addFirst(<span style="color: #008800; font-weight: bold">const</span> T <span style="color: #333333">&amp;</span> v) {
+    Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>newNode <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span>(v, first); 
+    first <span style="color: #333333">=</span> newNode;
+    length<span style="color: #333333">++</span>;
+  }
+
+  <span style="color: #888888">// Adds v to the end of the list</span>
+  <span style="color: #333399; font-weight: bold">void</span> addLast(<span style="color: #008800; font-weight: bold">const</span> T <span style="color: #333333">&amp;</span> v) {
+    Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>newNode <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span>(v, nullptr); 
+    <span style="color: #008800; font-weight: bold">if</span> (isEmpty()) {
+      first <span style="color: #333333">=</span> newNode;
+    } <span style="color: #008800; font-weight: bold">else</span> {
+      Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>cur <span style="color: #333333">=</span> first;
+      <span style="color: #008800; font-weight: bold">while</span> (cur<span style="color: #333333">-&gt;</span>getNext() <span style="color: #333333">!=</span> nullptr)
+        cur <span style="color: #333333">=</span> cur<span style="color: #333333">-&gt;</span>getNext();
+      cur<span style="color: #333333">-&gt;</span>setNext(newNode);
+    }
+    length<span style="color: #333333">++</span>;
+  }
+
+  <span style="color: #888888">// Returns the reference to the first value</span>
+  T <span style="color: #333333">&amp;</span> getFirst() {
+    assert(<span style="color: #333333">!</span>isEmpty() <span style="color: #333333">&amp;&amp;</span> <span style="background-color: #fff0f0">&quot;trying to get first from empty list&quot;</span>);
+    <span style="color: #008800; font-weight: bold">return</span> first<span style="color: #333333">-&gt;</span>getValue();
+  }
+
+  <span style="color: #888888">// Returns the last value</span>
+  T <span style="color: #333333">&amp;</span> getLast() {
+    assert(<span style="color: #333333">!</span>isEmpty() <span style="color: #333333">&amp;&amp;</span> <span style="background-color: #fff0f0">&quot;trying to get last from empty list&quot;</span>);
+    Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>cur <span style="color: #333333">=</span> first;
+    <span style="color: #008800; font-weight: bold">while</span> (cur<span style="color: #333333">-&gt;</span>getNext() <span style="color: #333333">!=</span> nullptr)
+      cur <span style="color: #333333">=</span> cur<span style="color: #333333">-&gt;</span>getNext();
+    <span style="color: #008800; font-weight: bold">return</span> cur<span style="color: #333333">-&gt;</span>getValue();      
+  }
+
+  <span style="color: #888888">// Removes the first element (does nothing if the list is empty)</span>
+  <span style="color: #333399; font-weight: bold">void</span> removeFirst() {
+    <span style="color: #008800; font-weight: bold">if</span> (isEmpty()) <span style="color: #008800; font-weight: bold">return</span>;
+    Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>victim <span style="color: #333333">=</span> first;
+    first <span style="color: #333333">=</span> first<span style="color: #333333">-&gt;</span>getNext();
+    <span style="color: #008800; font-weight: bold">delete</span> victim;
+    length<span style="color: #333333">--</span>;
+  }
+
+  <span style="color: #888888">// Removes the last element (does nothing if the list is empty)</span>
+  <span style="color: #333399; font-weight: bold">void</span> removeLast() {
+    <span style="color: #008800; font-weight: bold">if</span> (isEmpty()) <span style="color: #008800; font-weight: bold">return</span>;
+    <span style="color: #008800; font-weight: bold">if</span> (length <span style="color: #333333">==</span> <span style="color: #0000DD; font-weight: bold">1</span>) {
+      <span style="color: #008800; font-weight: bold">delete</span> first;
+      first <span style="color: #333333">=</span> nullptr;
+    } <span style="color: #008800; font-weight: bold">else</span> {
+      <span style="color: #888888">// Using length and a for loop to show an alternative to while loop</span>
+      Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>cur <span style="color: #333333">=</span> first;
+      <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>length<span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">2</span>; i<span style="color: #333333">++</span>)  
+        cur <span style="color: #333333">=</span> cur<span style="color: #333333">-&gt;</span>getNext();
+      Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>victim <span style="color: #333333">=</span> cur<span style="color: #333333">-&gt;</span>getNext();
+      cur<span style="color: #333333">-&gt;</span>setNext(victim<span style="color: #333333">-&gt;</span>getNext());
+      <span style="color: #008800; font-weight: bold">delete</span> victim;
+    }
+    length<span style="color: #333333">--</span>;
+  }
+
+  <span style="color: #888888">// Convert a list to a string</span>
+  std<span style="color: #333333">::</span>string toString() {
+    <span style="color: #008800; font-weight: bold">if</span> (isEmpty()) <span style="color: #008800; font-weight: bold">return</span> <span style="background-color: #fff0f0">&quot;{}&quot;</span>;
+    std<span style="color: #333333">::</span>stringstream sstr;
+    sstr <span style="color: #333333">&lt;&lt;</span>  <span style="background-color: #fff0f0">&quot;{&quot;</span> <span style="color: #333333">&lt;&lt;</span>  first<span style="color: #333333">-&gt;</span>getValue();
+    Node<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> <span style="color: #333333">*</span>cur <span style="color: #333333">=</span> first<span style="color: #333333">-&gt;</span>getNext();
+    <span style="color: #008800; font-weight: bold">while</span> (cur <span style="color: #333333">!=</span> nullptr) {
+      sstr <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;,&quot;</span> <span style="color: #333333">&lt;&lt;</span> cur<span style="color: #333333">-&gt;</span>getValue();
+      cur <span style="color: #333333">=</span> cur<span style="color: #333333">-&gt;</span>getNext();
+    }
+    sstr <span style="color: #333333">&lt;&lt;</span>  <span style="background-color: #fff0f0">&quot;}&quot;</span>;
+    std<span style="color: #333333">::</span>string str;
+    std<span style="color: #333333">::</span>getline(sstr,str);
+    <span style="color: #008800; font-weight: bold">return</span> str;
+  }
+
+  
+  <span style="color: #888888">// ------------------------------------------------------------</span>
+  <span style="color: #888888">// TODO: put the functions you need to implement below this</span>
+  <span style="color: #888888">// ------------------------------------------------------------</span>
+  
+
+
+
+  
+};
+
+
+<span style="color: #557799">#endif</span>
+</pre></div>

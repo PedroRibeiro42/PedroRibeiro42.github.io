@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Practical Class #05 - Linked Lists</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Algorithms and Data Structures 2025/2026</a> (L.EIC011) - DCC/FCUP & DEI/FEUP</h3>
+  <h1>Practical Class #05 - Linked Lists<br>
+    <small><small>(20/10 to 24/10)</small></small>
+  </h1>
+
+  <hr>
+  <h2>Exercises for submission</h2>
+
+  <p>In what concerns the <a href="../evaluation.html#grades">continuous evaluation solving exercises during the semester</a>, the exercises you can submit in this class are:</p>
+  
+  <ul>
+    <li><a class="important" href="../problems/aed026.html">[AED026] Returning an element on a given position</a> (weight 25%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed027.html">[AED027] Counting elements</a> (weight 25%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed028.html">[AED028] Removing an element on a given position</a> (weight 25%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed029.html">[AED029] Inserting an element on a given position</a> (weight 25%) <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed030.html">[AED030] Duplicating elements</a> (weight 25%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed031.html">[AED031] Removing all occurrences of an element</a> (weight 25%) <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed032.html">[AED032] Squared Notebook</a> (weight 25%) <span style="color:DarkRed">(challenge exercises)</span>
+  </ul>
+
+<p><b>Submission Deadline:</b> November 8th (submit to <a href="https://mooshak.dcc.fc.up.pt/~aed/">AED's Mooshak</a>)</p>
+  
+  <p><b>You are encouraged to talk to the professor and to your colleagues if you have difficulties. However, any more direct help you have received from other colleagues or LLMs should be acknowledged in the comments of the code you submit.</b><br>
+After the deadline the problems will still be available on Mooshak, but the submissions will not count towards your grade.<br>
+Each class is worth 9 per cent of the grade for this component. As there will be 12 classes with submissions, you can get full marks even if you haven't done everything.<br>
+For a problem to count, you have to get all the tests right (i.e. accepted). Even if you solve all the problems, the maximum in a single class is 100 per cent.<br>
+It is guaranted that the main exercises on each class will sum to at least 100% of the class grade.</p>
+    
+  <hr>
+  
+  <h3>Lectures Content</h3>
+
+  <p>This class is about <b>linkeds lists implementation</b>. It is therefore convenient that you know what was discussed on the lectures:</p>
+  <ul>
+    <li><a href="../material.html#slides">Slides: 5 -  Linear Data Structures: Linked Lists</a>      
+  </ul>
+
+  <p>The exercises for this class will involve the low level implementation
+  of linked lists and adding new methods, so that you can gain a better understanding of
+  what's happening.<br> On the following classes you will be allowed to use the STL class <a href="https://en.cppreference.com/w/cpp/container/list" class="code">list</a>, but for this class we want you to be able to understand (and code) an implementation.</p>
+  
+  <hr>
+  
+  <p><big><b>1. Understanding Linked Lists</b></big><br>
+    <i>(the goal of this exercise is for you to understand a basic implementation of linked lists that uses templates)</i></p>
+
+  <p><img width="500" src="sllist.png"></p>
+  
+    <ol type="a">
+
+      <li><b>Linked Lists - The implementation and a first test</b>
+        
+        <p>Start by downloading the following two files: <a class="code" href="singlyLinkedList.h">singlyLinkedList.h</a> (see it in <a href="singlyLinkedList.html">html</a>) and <a class="code" href="testLists.cpp">testLists.cpp</a> (see it in <a href="testLists.html">html</a>).</p>
+
+        <p>Compile the code. The whole <span class="code">SinglyLinkedList&lt;T&gt;</span> class is contained in the .h file, so you just need to compile <span class="code">testLists.cpp</span> (make sure they are in the same directory, so that the line <span class="code">#include "singlyLinkedList.h"</span> knows where to find the file it wants to include). If you are on a shell, you could for instance run  <span class="shell">g++ -std=c++17 -o testLists testLists.cpp</span> to obain an executable with the name <i>testLists</i>).</p>
+
+        <p>Run the code while looking at <span class="code">testLists.cpp</span> on your editor to see each line and its effect. You should obtain the following output:</p>
+
+<pre class="shell">{}
+isEmpty? 1
+{1,2,3,4,5}
+{10,9,8,7,6,1,2,3,4,5}
+size = 10
+{9,8,7,6,1,2,3,4,5}
+{9,8,7,6,1,2,3,4}
+isEmpty? 0
+getFirst() = 9
+getLast() = 4
+</pre>
+
+        
+<p>Also have a look at each method being called in <span class="code">singlyLinkedList.h</span> to understand how the linkedList is implemented. The figure above gives you an overview of how the class is organized and a similar class (although distinct) was implemented and explained in the lectures.</p>
+
+      <li><b>Templates and generalisation</b>
+
+        <p>Notice how the implementation uses templates to be general and therefore supports any data type (not just <span class="code">int</span>).</p>
+
+        <p>To make sure you understand how to use it, implement and test the creation of a singly linked list of <span class="code">char</span> containing the 5 vowels: <span class="code">'a'</span>, <span class="code">'e'</span>, <span class="code">'i'</span>, <span class="code">'o'</span>, <span class="code">'u'</span>.</p>
+
+      <li><b>Seing the errors</b>
+
+        <p>To understand how the class is providing some error messages, create an empty list and try to get the first or last element. What happens when you run the code?</p>
+
+        <p>The error messages might be helpful when you are developing the next methods.</p>
+        
+  </ol>
+    
+    <hr>
+
+  <p><big><b>2. Your first linked list method</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed026.html">[AED026] Returning an element on a given position</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the size of the list)</i>
+  </p>
+  
+  <p>For this class you will be adding methods to an existing class, so the idea is that you add the requested method at the end of the class (but before the closing brackets). <b>You only need to submit the <span class="code">singlyLinkedList.h</span> file!</b></p>
+
+  <p>If you want to test the method on your computer, you can copy+paste tester code from the problem statement to a file on your computer, compile it and use the input given to see if the results are as expected (note how easy it is to add new inputs, if you want to make further tests).</p>
+
+  <p>This problems asks you to traverse the list until the desired position. Have a look at <span class="code">getLast()</span>. What do you need to change to implement the <span class="code">get</span> method?</p>
+  
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- You can do the same type of cycle blueprinted in <i>getLast()</i> (use a <i>cur</i> variable to keep the current node, starting with first and always going to the next value).
+<br>
+<br>
+- If you want to get to position <i>pos</i>, how many <i>next</i> links to you need to traverse?
+<br>
+<br>
+- After reaching the desired node, you can simply use <i>getValue()</i> to return the desired value.
+</details>
+
+      <br>
+      
+  <hr>
+
+  <p><big><b>3. Counting values</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed027.html">[AED027] Counting elements</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the size of the list)</i>
+  </p>
+
+  <p>This is a similar exercise to the previous one, but now you need to count. Can you see how to use a list traversal do the the counting?</p>
+
+        <details name="hint">
+        <summary>Hints</summary>
+<p>- Use the same pattern of link traversal with a <i>cur</i> node, but this time traverse the entire list
+<br>
+<br>
+- Use an auxiliary variable as a counter and on each iteration check with <span class="code">==</span> to see if the value stored in the node is equal (use <i>cur->getValue()</i>), incrementing the counter when this happens.
+</details>
+    
+  <br>
+
+  <hr>
+
+  <p><big><b>4. Removing a node</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed028.html">[AED028] Removing an element on a given position </a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the size of the list)</i>
+  </p>
+
+  <p>For this exercise use as a blueprint the method <span class="code">removeLast()</span>. What do you need to change?</p>
+
+        <details name="hint">
+        <summary>Hints</summary>
+<p>- Just as in <i>removeLast()</i>, instead of going until the node, go until the previous node, so that when you need to erase you can just make the current node skip the node you want to delete (the "victim"); don't forget to <i>delete</i> the node after removing it (see the <i>getLast()</i> implementation) if you want to avoid memory leaks (which are not tested explicitly by Mooshak)
+<br>
+<br>
+- Don't forget to decrease the length variable after removing the node
+<br>
+<br>
+- Be careful with the case where the node to remove is the first one (as there is no previous node to the first); but in that case you can simply call removeFirst(), right?
+<br>
+<br>
+</details>
+    
+  <br>
+
+  <hr>
+
+    <p><big><b>5. Inserting a node</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed029.html">[AED029] Inserting an element on a given position </a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the size of the list)</i>
+  </p>
+
+  <p>For this exercise use as a blueprint the method <span class="code">addLast()</span>. What do you need to change?</p>
+
+        <details name="hint">
+        <summary>Hints</summary>
+<p>- Because you want to insert before <i>pos</i> you need to stop before the position and do something similar to what is done in <i>getLast()</i>
+<br>
+<br>
+- Don't forget to increment length variable after inserting the node
+<br>
+<br>
+- Be careful with the case where you want to insert the node in the first position (as there is no previous node to the first); but in that case you can simply call addFirst(), right?
+<br>
+<br>
+</details>
+    
+  <br>
+
+  <hr>
+
+  <h2>Extra Exercises for Consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h2>
+  
+
+    <p><big><b>6. Duplicating elements</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed030.html">[AED030] Duplicating elements </a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the size of the list)</i>
+  </p>
+
+  <p>Can you do this one without any hints?</p>
+
+  <br>
+  
+  <p><big><b>7. Removing all occurrences of a value</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed031.html">[AED031] Inserting an element on a given position </a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the size of the list)</i>
+  </p>
+
+  <p>For this exercise Mooshak was setup with a large test to make sure your implementation is linear on the size of the list, so you cannot go back to the start of the list each time you remove a node. You should be able to remove as you are traversing the list (and take care when removing consecutive nodes)</p>
+
+  <br>
+
+  <hr>
+  
+  <h2>Challenges Exercises <span style="color:DarkRed">[challenge]</span></h2>
+
+  <p>The main idea of the challenge problems is to give you the opportunity of improving your problem solving abilities, so it does not necessarily have anything to do with the main topic of the class.</p>
+      
+  <p>The proposed challenge here is again an adaptation of a problem used on the <a href="https://oni.dcc.fc.up.pt/">National Olympiads in Informatics</a> in 2016.</p>
+
+  <p>Remember that these challenge exercises are harder and the main idea is to give you the opportunity of improving your problem solving abilities!</p>
+    
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height=30 ></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed032.html">[AED032] Squared Notebook</a>.</p>
+
+  <p>Since this is a challenge, I will not give you any hints, but if
+  you are stuck just contact @PedroRibeiro on Discord. Feel free to
+    also contact @PedroRibeiro to discuss your accepted solution.</p>
+
+  <p>Happy coding! &#128522;</p>
+        
+<hr>
+<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+</body>
+
+</html>

@@ -1,0 +1,57 @@
+<html>
+  <head>
+    <title>Linux VSCode Configuration for C++ in FEUP Labs</title>
+  </head>
+  <body>
+
+<h3>Linux VSCode Configuration for C++ in FEUP Labs</h3>
+    
+<p>Copy the following script to a file and execute it (or download directly <a href="vscode_config.sh">vscode_config.sh</a>)</p>
+    
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%;"><span></span><span style="color: #888">#!/bin/bash</span>
+
+<span style="color: #888"># AED - Configure Linux VSCode at FEUP Labs (made by Iohan Soares and Pedro Ribeiro) </span>
+<span style="color: #888"># [Use at your own risk!]</span>
+
+<span style="color: #888"># Find g++ compiler path</span>
+<span style="color: #963">COMPILER</span><span style="color: #333">=</span><span style="color: #080; font-weight: bold">$(</span>which<span style="color: #BBB"> </span>g++<span style="color: #080; font-weight: bold">)</span>
+
+<span style="color: #888"># VS Code user settings directory</span>
+<span style="color: #963">USER_VSCODE_DIR</span><span style="color: #333">=</span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #963">$HOME</span><span style="background-color: #FFF0F0">/.config/Code/User&quot;</span>
+<span style="color: #963">SETTINGS_FILE</span><span style="color: #333">=</span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #963">$USER_VSCODE_DIR</span><span style="background-color: #FFF0F0">/settings.json&quot;</span>
+
+<span style="color: #888"># Create directory if it doesn&#39;t exist</span>
+mkdir<span style="color: #BBB"> </span>-p<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #963">$USER_VSCODE_DIR</span><span style="background-color: #FFF0F0">&quot;</span>
+
+<span style="color: #007020">echo</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&quot;VSCode user settings directory: </span><span style="color: #963">$USER_VSCODE_DIR</span><span style="background-color: #FFF0F0">&quot;</span>
+
+<span style="color: #888"># Backup existing settings.json if it exists</span>
+<span style="color: #080; font-weight: bold">if</span><span style="color: #BBB"> </span><span style="color: #333">[</span><span style="color: #BBB"> </span>-f<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #963">$SETTINGS_FILE</span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #BBB"> </span><span style="color: #333">]</span>;<span style="color: #BBB"> </span><span style="color: #080; font-weight: bold">then</span>
+<span style="color: #BBB">    </span><span style="color: #963">BACKUP_FILE</span><span style="color: #333">=</span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #963">$SETTINGS_FILE</span><span style="background-color: #FFF0F0">.bak_</span><span style="color: #080; font-weight: bold">$(</span>date<span style="color: #BBB"> </span>+%Y%m%d_%H%M%S<span style="color: #080; font-weight: bold">)</span><span style="background-color: #FFF0F0">&quot;</span>
+<span style="color: #BBB">    </span>cp<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #963">$SETTINGS_FILE</span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #963">$BACKUP_FILE</span><span style="background-color: #FFF0F0">&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #007020">echo</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&quot;Existing settings.json found.&quot;</span>
+<span style="color: #BBB">    </span><span style="color: #007020">echo</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&quot;Backup created at: </span><span style="color: #963">$BACKUP_FILE</span><span style="background-color: #FFF0F0">&quot;</span>
+<span style="color: #080; font-weight: bold">else</span>
+<span style="color: #BBB">    </span><span style="color: #007020">echo</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&quot;No existing settings.json found. A new one will be created.&quot;</span>
+<span style="color: #080; font-weight: bold">fi</span>
+
+<span style="color: #888"># Write new settings.json</span>
+cat<span style="color: #BBB"> </span>&gt;<span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #963">$SETTINGS_FILE</span><span style="background-color: #FFF0F0">&quot;</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&lt;&lt;EOL</span>
+<span style="background-color: #FFF0F0">{</span>
+<span style="background-color: #FFF0F0">    &quot;C_Cpp.default.compilerPath&quot;: &quot;$COMPILER&quot;,</span>
+<span style="background-color: #FFF0F0">    &quot;C_Cpp.default.intelliSenseMode&quot;: &quot;gcc-x64&quot;,</span>
+<span style="background-color: #FFF0F0">    &quot;C_Cpp.default.cppStandard&quot;: &quot;c++17&quot;,</span>
+<span style="background-color: #FFF0F0">    &quot;C_Cpp.default.cStandard&quot;: &quot;c11&quot;,</span>
+<span style="background-color: #FFF0F0">    &quot;C_Cpp.default.includePath&quot;: [</span>
+<span style="background-color: #FFF0F0">        &quot;/usr/include&quot;,</span>
+<span style="background-color: #FFF0F0">        &quot;/usr/include/c++/9&quot;,</span>
+<span style="background-color: #FFF0F0">        &quot;/usr/include/c++/x86_64-linux-gnu&quot;</span>
+<span style="background-color: #FFF0F0">    ]</span>
+<span style="background-color: #FFF0F0">}</span>
+<span style="background-color: #FFF0F0">EOL</span>
+
+<span style="color: #007020">echo</span><span style="color: #BBB"> </span><span style="background-color: #FFF0F0">&quot;New VSCode C++ configuration has been written to: </span><span style="color: #963">$SETTINGS_FILE</span><span style="background-color: #FFF0F0">&quot;</span>
+</pre></div>
+
+  </body>
+  </html>

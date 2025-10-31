@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC023] Horrible Queries</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      .hl {
+          background-color: #ffcccc;
+          font-weight: bold;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>This problem is a Mooshak version of a <a target="_blank" href="https://www.spoj.com/problems/HORRIBLE/">SPOJ Problem</a>.</small></p>
+
+<hr>
+
+
+<h2>[PC023] Horrible Queries</h2>
+<p><img src="pc023.png" align="right">
+  World is getting more evil and it's getting tougher to get into the Evil League of Evil. Since the legendary Bad Horse has retired, now you have to correctly answer the evil questions of Dr. Horrible, who has a PhD in horribleness (but not in Computer Science). You are given an array of \(N\) elements, which are initially all 0. After that you will be given \(C\) commands. They are:</p>
+
+<ul>
+<li> <b>0 p q v</b> - you have to add \(v\) to all numbers in the range of \(p\) to \(q\) (inclusive), where \(p\) and \(q\) are two indexes of the array.
+<li><b>1 p q</b> - output a line containing a single integer which is the sum of all the array elements between \(p\) and \(q\) (inclusive).
+</ul>
+
+<h3>Input</h3>
+<p>The first line contains \(N \) and \(C\). After that you'll be given \(C\) commands in the format mentioned above.</p>
+
+
+<h3>Output</h3>
+<p>Print the answers of the queries, one per line.</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>\( 1 \leq N \leq 100\,000 \)
+  <li>\( 1 \leq C \leq 100\,000 \)
+  <li>\( 1 \leq p, q \leq N \)
+  <li>\( 1 \leq v \leq 10^7 \)
+</ul>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+1
+8 6
+0 2 4 26
+0 4 8 80
+0 4 5 20
+1 8 8 
+0 5 7 14
+1 4 8
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+80
+508
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+
+</body></html>

@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC003] Encryption</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+<body bgcolor="white">
+
+<h2>[PC003] Encryption</h2>
+
+<p><img src="pc003.png" align="right">Forty-Two Password Inc. has created a new encryption technique which encodes a message by inserting between its characters randomly generated strings in a clever way. You must help them validate their method by creating a program that checks if the original message is really encoded in the final string.</p>
+
+<h3>The Problem</h3>
+
+<p>Given two strings \(A\) and \(B\), you have to check if \(A\) is a subsequence of \(B\), that is, if you can remove characters from \(B\) such that the concatenation of the remaining characters is \(A\).</p>
+
+<h3>Input</h3>
+
+<p>The first line contains \(T\), the number of test cases that you will need to process. Each of the following \(T\) lines contains \(A\) and \(B\), two strings of lowercase letters.</p>
+
+<h3>Output</h3>
+
+<p>For each test case (in the same order as they appear in the input) output a line with <big><tt>"yes"</tt></big> if \(A\) is a subsequence of \(B\) and <big><tt>"no"</tt></big> otherwise.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>\(1 \leq T \leq 20\)</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of test cases</td>
+      </tr>
+      <tr>
+        <td>\(1 \leq |A| \leq |B| \leq 100\)</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Length of strings A and B</td>
+      </tr>
+    </table>
+
+<p><table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>4
+sequence subsequence
+mordor middleearth
+jasp javascript
+person compression
+</pre>
+    </td>
+    <td valign="top">
+      <pre>yes
+no
+yes
+no
+</pre>
+    </td>
+  </tr>
+</td>
+</table></p>
+
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

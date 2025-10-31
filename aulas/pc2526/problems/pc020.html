@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC020] Light Switching</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>This problem is a Mooshak version of a <a target="_blank" href="https://www.spoj.com/problems/LITE/">SPOJ problem</a>.</small></p>
+
+<hr>
+  
+<h2>[PC020] Light Switching</h2>
+
+<p><img src="pc020.png" align="right">
+Farmer John tries to keep the cows sharp by letting them play with intellectual toys. One of the larger toys is the lights in the barn.  Each of the \(n\) cow stalls conveniently numbered  \(1 \ldots n\) has a colorful light above it.</p>
+
+<p>At the beginning of the evening, all the lights are off. The cows control the lights with a set of \(n\) pushbutton switches that toggle the lights; pushing switch \(i\) changes the state of light \(i\) from off to on or from on to off.</p>
+
+<p>The cows read and execute a list of \(m\) operations expressed as one of two integers: \(0\) or \(1\).</p>
+
+<p>The first kind of operation (denoted by a \(0\) command) includes two subsequent integers \(s_i\) and \(e_i\) that indicate a starting switch and ending switch. They execute the operation by pushing each pushbutton from \(s_i\) through \(e_i\) inclusive exactly once.</p>
+
+<p>The second kind of operation (denoted by a \(1\) command) asks the cows to count how many lights are on in the range given by two integers \(s_i\) and \(e_i\) which specify the inclusive range in which the cows should count the number of lights that are on.</p>
+
+<p>Help Farmer John ensure the cows are getting the correct answer by processing the list and producing the proper counts.</p>
+
+<h3>Input</h3>
+
+<p>Line \(1\): Two space-separated integers: \(n\) and \(m\).</p>
+
+<p>Lines \(2\) to \(M+1\): Each line represents an operation with three space-separated integers: operation (\(0\) or \(1\)), \(s_i\), and \(e_i\).</p>
+
+<h3>Output</h3>
+
+Lines \(1\) to \(m\): For each output query, print the count as an integer by itself on a single line.</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>\( 1 \leq n, m \leq 10^5 \)
+  <li>\( 1 \leq s_i \leq e_i \leq n \)
+</ul>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+4 5
+0 1 2
+0 2 4
+1 2 3
+0 2 4
+1 1 4
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+1
+2  
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<ul>
+  <li>Initially all lights are 4 lights off: [<span style="color:red">off</span>, <span style="color:red">off</span>, <span style="color:red">off</span>, <span style="color:red">off</span>]
+  <li>0 1 2 changes lights to [<span style="color:green">on</span>, <span style="color:green">on</span>, <span style="color:red">off</span>, <span style="color:red">off</span>]
+  <li>0 2 4 changes lights to [<span style="color:green">on</span>, <span style="color:red">off</span>, <span style="color:green">on</span>, <span style="color:green">on</span>]
+  <li>1 2 3 considers sequence [<span style="color:red">off</span>, <span style="color:green">on</span>] with 1 light turned on
+  <li>0 2 4 changes lights to [<span style="color:green">on</span>, <span style="color:green">on</span>, <span style="color:red">off</span>, <span style="color:red">off</span>]
+  <li>1 1 5 considers sequence [<span style="color:green">on</span>, <span style="color:green">on</span> <span style="color:red">off</span>, <span style="color:red">off</span>] with 2 lights turned on
+
+</ul>
+
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

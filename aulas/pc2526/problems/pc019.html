@@ -1,0 +1,124 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC019] Census</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      .hl {
+          background-color: #ffcccc;
+          font-weight: bold;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>This problem is a Mooshak version of a <a target="_blank" href="https://onlinejudge.org/external/112/11297.pdf">UVA Online Judge Problem</a>.</small></p>
+
+<hr>
+  
+<h2>[PC019] Census</h2>
+
+<p><img src="pc019.png" align="right">
+This year, there have been many problems with population calculations, since in some cities, there
+are many emigrants, or the population growth is very high. Every year the ACM (for Association
+for Counting Members) conducts a census in each region. The country is divided into \(n^2\) regions,
+consisting of an \(n \times n\) grid of regions. Your task is to find the least, and the greatest population in
+some set of regions. Since in a single year there is no significant change in the populations, the ACM
+modifies the population counts by some number of inhabitants.</p>
+
+<h3>Input</h3>
+
+<p>In the first line you will find the integer \(n.\).  The following \(n\) lines will each contain the \(n\) integers, representing the initial population of city \(c[y,x]\). In the following line is the number \(q\), followed by \(q\) lines with queries, each one being of one of the following two types::</p>
+
+<ul>
+  <li>\(\text{q} \, y_1 \, x_1 \, y_2 \, x_2\) which represents the coordinates of the upper left and lower right of where you must calculate the maximum and minimum change in population.</li>
+  <li>\(\text{c} \, y \, x \, v\) indicating a change of the population of city \(c[y, x]\) to value \(v\).
+</ul>
+
+
+<h3>Output</h3>
+
+<p>For each query \(q \, y_1 \, x_1 \, y_2 \, x_2\) print in a single line the greatest and least amount of current population in that region, separated by a single space.</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>\( 1 \leq n \leq 500 \)
+  <li>\( 1 \leq q \leq 40\,000 \)
+  <li>\( 0 \leq c[i,j], v \leq 10^6\)
+  <li>\( 1 \leq y_1 \leq y_2 \leq n\)
+  <li>\( 1 \leq x_1 \leq x_2 \leq n\)
+  <li>\( 1 \leq x, y \leq n\)
+</ul>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+5
+1 2 3 4 5
+0 9 2 1 3
+0 2 3 4 1
+0 1 2 4 5
+8 5 3 1 4
+4
+q 1 1 2 3
+c 2 3 10
+q 1 1 5 5
+q 1 2 2 2
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+9 0
+10 0
+9 2
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<ul>
+  <li> Query 1 (1 1 2 3) corresponds to the following region (max=9, min=0):
+<pre>
+<span class="hl">1 2 3</span> 4 5
+<span class="hl">0 9 2</span>  1 3
+0 2 3 4 1
+0 1 2 4 5
+8 5 3 1 4
+</pre>
+
+  <li> Query 1 (1 1 5 5) corresponds to the following region (max=10, min=0):
+<pre>
+<span class="hl">1  2 3 4 5</span>
+<span class="hl">0 10 2 1 3</span>
+<span class="hl">0  2 3 4 1</span>
+<span class="hl">0  1 2 4 5</span>
+<span class="hl">8  5 3 1 4</span>
+</pre>
+
+  <li> Query 1 (1 2 2 2) corresponds to the following region (max=10, min=0):
+<pre>
+1 <span class="hl"> 2</span> 3 4 5
+0 <span class="hl"> 9</span> 2 1 3
+0 10 3 4 1
+0  1 2 4 5
+8  5 3 1 4
+</pre>
+
+</ul>
+
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

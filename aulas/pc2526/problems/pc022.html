@@ -1,0 +1,91 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC022] Japan</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      .hl {
+          background-color: #ffcccc;
+          font-weight: bold;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>This problem is a Mooshak version of a <a target="_blank" href="https://www.spoj.com/problems/MSE06H/">SPOJ Problem</a>.</small></p>
+
+<hr>
+
+
+<h2>[PC022] Japan</h2>
+<p><img src="pc022.png" align="right">
+  Japan plans to welcome the ACM ICPC World Finals and a lot of roads must be built for the venue. Japan is a tall island with \(N\) cities on the East coast and \(M\) cities on the West coast. \(K\) superhighways will be build. Cities on each coast are numbered \(1, 2, \ldots\) from North to South. Each superhighway is a straight line and connects a city on the East coast with a city of the West coast. 
+</p>
+<p>
+The funding  for  the construction is guaranteed by ACM. A major portion of the sum is determined by the number of crossings between superhighways. At most two superhighways cross at one  location. Write a program that calculates the number of  the crossings between superhighways. </p>
+</p>
+
+<h3>Input</h3>
+<p> 
+Each test case starts with three numbers: \(N, M, K\). Each of the next \(K\) lines contains two numbers – the numbers of cities connected by the superhighway. The first one  is  the number of  the city on the East coast and second one is the number of the city of the West coast.  A pair of cities will have at most one highway connecting them.
+</p>
+
+<h3>Output</h3>
+<p>
+A line with one integer: the number of crossings.
+</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>\( 1 \leq N \leq 1\,000 \)
+  <li>\( 1 \leq M \leq 1\,000 \)
+  <li>\( 1 \leq K \leq 100\,000 \)
+</ul>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+3 4 4
+1 4
+2 3
+3 2
+3 1
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+5
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<p>The 5 crossings are:</p>
+
+<ul>
+  <li>(1,4) with (3,1)</li>
+  <li>(1,4) with (3,2)</li>
+  <li>(1,4) with (2,3)</li>
+  <li>(2,3) with (3,1)</li>
+  <li>(2,3) with (3,2)</li>
+</ul>
+
+<p>The only pair of roads that do not cross each other is (3,1) and (3,2).</p>
+
+<p><img src="pc022_example.png"></p>
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

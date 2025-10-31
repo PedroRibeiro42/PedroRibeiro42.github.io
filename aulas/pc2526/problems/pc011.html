@@ -1,0 +1,71 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC011] Special Sort</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+<body bgcolor="white">
+
+<h2>[PC011] Special Sort</h2>
+
+<p><img src="pc011.jpg" height="220" align="right">You are given an array of \(n\) distinct integers. Your task is to sort the array into descending order according to the number of 1's in their binary representation. If two numbers have the same number of 1's, you have to sort them in ascending order of their value.</p>
+
+<h3>Input</h3>
+
+<p>The first input line an integer \(n\): the amount of numbers in the array.</p>
+
+<p>The second line contains \(n\) integers \(x_1, x_2, \ldots, x_n\): the numbers of the array sorted as described above.</p>
+
+  
+<h3>Output</h3>
+
+<p>A single line containing the numbers in sorted order, separated by single spaces <i>(there should be no space after the last number)</i>.</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>\( 1 \leq n \leq 10^5 \)
+  <li>\( 1 \leq x_i \leq 10^9 \)
+</ul>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+8
+5 2 15 3 9 4 6 7
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+15 7 3 5 6 9 2 4
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<p>The binary representation of each number in the input is:
+  <ul>
+    <li>15: 1111 <span style="color:#444444;"><i>(four 1's)</i></span>
+    <li>7: 0111 <span style="color:#444444;"><i>(three 1's)</i></span>
+    <li>3: 0011 <span style="color:#444444;"><i>(two 1's)</i></span>
+    <li>5: 0101 <span style="color:#444444;"<<i>(two 1's)</i></span>
+    <li>6: 0110 <span style="color:#444444;"><i>(two 1's)</i></span>
+    <li>9: 1001 <span style="color:#444444;"><i>(two 1's)</i></span>
+    <li>2: 0010 <span style="color:#444444;"><i>(one 1)</i></span>
+    <li>4: 0100 <span style="color:#444444;"><i>(one 1)</i></span>
+  </ul>
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

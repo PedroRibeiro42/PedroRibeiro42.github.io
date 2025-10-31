@@ -1,0 +1,169 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC005] Cool Sequences</title>
+  </head>
+
+<body bgcolor="white">
+
+<h2>[PC005] Cool Sequences</h2>
+
+<p><img src="pc005.jpg" align="right" width="350">You are given a sequence of positive integers of length <b>N</b>, <b>S</b>=(s<sub>1</sub>​,s<sub>2</sub>​,...,s<sub>N</sub>) and your goal is to remove some elements so that it becomes a <b>cool sequence</b>.</p>
+
+<p>In this problem, a sequence <i>S</i> is a <b>cool sequence</b> if for all elements <i>x</i> in <i>S</i>, the value <i>x</i> appears exactly <i>x</i> times in <i>S</i></p>
+
+<p>For example, (3,3,3), (4,2,4,1,4,2,4) and () (an empty sequence) are cool sequences, while (3,3,3,3) and (2,4,1,4,2) are not.</p>
+
+<h3>The Problem</h3>
+
+<p>Given a sequence <b>S</b> with <b>N</b> elements, find the minimum number of elements that needs to be removed so that it
+will be a cool sequence.</p>
+
+<h3>Input</h3>
+
+<p>The first line contains <b>N</b>, the length of the sequence. The second line contains s<sub>1</sub>​ s<sub>2</sub>​ ... s<sub>N</sub>, that is the elements of the sequence separated by single spaces.</p>
+
+<h3>Output</h3>
+
+<p>The output should be a single line containing the minimum number of elements that needs to be removed so that <b>S</b> will be a cool sequence.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; N &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of elements in the sequence</td>
+      </tr>
+      <tr>
+        <td>1 &le; s<sub>i</sub> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Elements of the sequence</td>
+      </tr>
+    </table>
+
+<br>
+    
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 1</td>
+    <td>Example Output 1</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+4
+3 3 3 3
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+1
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<br>
+    
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 2</td>
+    <td>Example Output 2</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+5
+2 4 1 4 2
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+2
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<br>
+    
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 3</td>
+    <td>Example Output 3</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+6
+1 2 2 3 3 3
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+0
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<br>
+    
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 4</td>
+    <td>Example Output 4</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+1
+1000000000
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+1
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<br>
+    
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input 5</td>
+    <td>Example Output 5</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+8
+2 7 1 8 2 8 1 8
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+5
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

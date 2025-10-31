@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC025] Calculate The Cost</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+      .hl {
+          background-color: #ffcccc;
+          font-weight: bold;
+      }
+    </style>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>This problem is a Mooshak version of a <a target="_blank" href="https://www.spoj.com/problems/CCOST/">SPOJ Problem</a>.</small></p>
+
+<hr>
+
+
+<h2>[PC025] Calculate The Cost</h2>
+<p><img src="pc025.png" align="right">
+In a small village near the Himalayas, there is a rich land-owner, in possession of a vast, rectangular tract of land. Unknown to him, a major oil corporation has verified the existence of a vast oil resource beneath his land.</p>
+<p>The oil company sends a man to negotiate the purchase of a rectangular field from within the landowner's land, with sides parallel to those of his area. The landowner, valuing his land according to the trees growing in it and the area to be purchased, gives the company man a map of his land, marking the location of trees of different types, and a list of the worth of each type of tree.</p>
+<p>To ensure the most economic purchase of land with the required dimensions, the company man provides you with the data in his possession, and along with that, a list of the land areas that he considers good by his judgement.</p>
+<p>You must provide, for each land area that he has listed, the sum total of the values of the trees that lie within or on the boundary of that land area.</p>
+
+<h3>Input</h3>
+
+<p>The first line contains an integer \(n\), equal to the number of trees in the area. This line is followed by \(n\) lines each containing three integers separated by spaces which are the coordinate of the tree \((x, y)\) and value \(v\) of that tree (there can be more than one tree at the same point). Following this is an integer \(R\), equal to the number of proposals of land areas given by the company man. Next \(R\) lines contain 4 integers each \((x_1, y_1, x_2, y_2)\) which are the coordinates of lower left \((x1, y1)\) and upper right \((x2, y2)\) corner of the rectangular area.</p>
+
+<h3>Output</h3>
+
+<p>Your program should output \(R\) lines containing the sum of values of the trees which lie inside or on the corresponding rectangular plot.</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>\( 1 \leq n \leq 10^5 \)
+  <li>\( 1 \leq R \leq 5 \cdot 10^4 \)
+  <li>\( 0 \leq x,y \lt 10^7 \)
+  <li>\( 1 \leq v \lt 10^4 \)
+  <li>\( 0 \leq x1 \leq x2 \lt 10^7 \)
+  <li>\( 0 \leq y1 \leq y2 \lt 10^7 \)
+</ul>
+
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+<pre>
+3
+1 1 2
+2 2 3
+3 3 4
+2
+1 1 1 2
+0 0 5 5
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+2
+9
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

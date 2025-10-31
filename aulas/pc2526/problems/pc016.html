@@ -1,0 +1,80 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC016] Frequent Values</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+  <body bgcolor="white">
+    
+  <p><small>This problem is a Mooshak version of a <a target="_blank" href="https://onlinejudge.org/external/112/11235.pdf">UVA</a> and <a target="_blank" href="https://www.spoj.com/problems/FREQUENT/">SPOJ</a> problem.</small></p>
+
+  <hr>
+
+  
+  <h2>[PC016] Frequent Values</h2>
+
+<p><img align="right" src="pc016.png">
+You are given a sequence of \(n\) integers \(a_1, a_2 , \ldots , a_n\) in non-decreasing order. In addition to that, you are given several queries consisting of indices \(i\) and \(j\). For each query, determine the most frequent value among the integers \(a_i, ..., a_j\).
+
+<h3>Input</h3>
+
+<p>The first input line contains two inters integer \(n\) and \(q\), respectively the amount of numbers and and queries.</p>
+
+<p>The second line contains \(n\) integers \(a_1, a_2, \ldots, a_n\): the sequence of integers.</p>
+
+<p>The next \(q\) lines describe the queries: each contains two integers \(i \, j\) describing the query range.
+
+  
+<h3>Output</h3>
+
+<p>\(q\) lines, each with one integer: the number of occurrences of the most frequent value within the given range. </p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>\( 1 \leq n \leq 10^5 \)
+  <li>\( 1 \leq q \leq 10^5 \)
+  <li>\( -10^5 \leq a_i \leq 10^5 \)
+  <li>\( 1 \leq i \leq j \leq n\)
+</ul>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+10 3
+-1 -1 1 1 1 1 3 10 10 10
+2 3
+1 10
+5 10
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+1
+4
+3
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<ul>
+  <li> Query 1 (2–3): The range is [-1, 1], the most frequent values are -1 or 1 which appears once.
+  <li> Query 2 (1-10): The range is [-1, -1, 1, 1, 1, 1, 3, 10, 10, 10], the most frequent value is 1 which appears 4 times. 
+  <li> Query 3 (5-10):  The range is [1, 3, 10, 10, 10], the most frequent value is 10 which appears 3 times. 
+</ul>
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

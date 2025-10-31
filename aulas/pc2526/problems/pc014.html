@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC014] Building Construction</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+<body bgcolor="white">
+
+  <p><small>This problem is a Mooshak version of a <a target="_blank" href="https://www.spoj.com/problems/KOPC12A/">SPOJ problem</a> (but with harder constraints).</small></p>
+
+  <hr>
+  
+<h2>[PC014] Building Construction</h2>
+
+<p><img src="pc014.png" width="350" align="right">
+Given \(N\) buildings of height \(h_1, h_2, h_3, \ldots, h_n\), the objective is to make every building have equal height. This can be done by removing bricks from a building or adding some bricks to a building. Removing a brick or adding a brick is done at certain cost which will be given along with the heights of the buildings. Find the minimal cost at which you can make the buildings look beautiful by re-constructing the buildings such that the \(N\) buildings satisfy.</p>
+
+<p>\(h_1 = h_2 = h_3 = \ldots = h_n = k\) (and \(k\) can be any number)</p>
+
+<p>For convenience, all buildings are considered to be vertical piles of bricks, which are of same dimensions.</p>
+
+<h3>Input</h3>
+
+  <p>The first line of input contains an integer \(T\) which denotes number of test cases. This will be followed by \(3 \times T\) lines, 3 lines per test case.</p>
+
+  <p>The first line of each test case contains an integer \(N\) and the  second line contains \(N\) integers which denote the heights of the buildings \(h_1, h_2, h_3, \ldots, h_n\) and the third line contains \(N\) integers \(c_1, c_2, c_3, \ldots, c_n\) which denote the cost of adding or removing one unit of brick from the corresponding building.
+
+<h3>Output</h3>
+
+<p>The output must contain T lines each line corresponding to a testcase, indicating the respective minimal cost.</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>\( 1 \leq T \leq 15 \)
+  <li>\( 1 \leq N \leq 100\,000 \)
+  <li>\( 1 \leq h_i \leq 10\,000 \)
+  <li>\( 1 \leq c_i \leq 10\,000 \)
+</ul>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+2
+3
+1 2 3
+10 100 1000
+3
+1 3 2
+10 100 100
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+120
+110
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<br>
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

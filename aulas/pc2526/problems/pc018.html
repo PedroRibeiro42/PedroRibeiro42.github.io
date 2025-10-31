@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>[PC018] K-Query</title>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+  </head>
+
+<body bgcolor="white">
+
+<p><small>This problem is a Mooshak version of a <a target="_blank" href="https://www.spoj.com/problems/KQUERY/">SPOJ problem</a>.</small></p>
+
+<hr>
+  
+<h2>[PC018] K-Query</h2>
+
+<p><img src="pc018.png" align="right">
+  You will be given a sequence of \(n\) numbers \(a_1, a_2, \ldots, a_n\) and a number of k-queries in the form of a triple of integers \((i, j, k)\). For each of the queries, you have to return the number of elements greater than \(k\) in the subsequence \(a_i, a_{i+1}, \ldots, a_j\).</p>
+
+<h3>Input</h3>
+
+<p>The first input line contains two integers \(n\) and \(q\): the size of the sequence and the number of queries.
+
+<p>The next line contains \(n\) integers \(a_1, a_2, \ldots, a_n\)​: the integers in the sequence.</p>
+
+<p>The next \(q\) lines each contain a query in the form of three integers \(i \, j \, k\).</p>
+
+<h3>Output</h3>
+
+<p>For each k-query \((i, j, k)\), print the number of elements greater than \(k\) in the subsequence \(a_i, a_{i+1}, \ldots, a_j\) in a single line.</p>
+
+<h3>Constraints</h3>
+
+<ul>
+  <li>\( 1 \leq n,q \leq 10^5 \)
+  <li>\( 1 \leq a_i, k \leq 10^9 \)
+  <li>\( 1 \leq i \leq j \leq n\)
+</ul>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+    <td>Example Input</td>
+    <td>Example Output</td>
+  </tr>
+  <tr bgcolor="white">
+    <td valign="top">
+      <pre>
+6 3
+5 1 2 3 4 5
+2 4 1
+4 4 4
+1 6 2
+</pre>
+    </td>
+    <td valign="top">
+<pre>
+2
+0
+4
+</pre>
+    </td>
+  </tr>
+</td>
+</table>
+
+<ul>
+  <li> Query 1 (2,4,1): The range is [1,2,3] and there are 2 values greather than k=1, which are 2 and 3.
+  <li> Query 2 (4,4,4): The range is [4] and there are no greather than k=4,
+  <li> Query 3 (1,6,2): The range is [5,1,2,3,4] and there are 3 values greather than k=2, which are 5, 3, 4 and 5.
+</ul>
+
+
+<hr size="2">
+<center><b>Competitive Programming (CC3032) 2025/2026</b><br>
+  DCC/FCUP - University of Porto
+</center>
+<hr size="2">
+
+</body></html>

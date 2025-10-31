@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Competitive Programming (CC3032) - Week #03</title>
+	<link rel=StyleSheet href="style2526.css" type="text/css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  
+<table bgcolor="black" border="0" cellspacing="1" cellpadding="0">
+<tr>
+<td rowspan="3" bgcolor="white" style="padding: 5px;"><a href="index.html"><img src="pc2526.png" height="50" border="0"></a></td>
+<td class="h1" valign="middle" align="center">&nbsp; Week #03 &nbsp;</td>
+</tr>
+<tr>
+<td class="h3" valign="middle" align="center">&nbsp;<a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a>&nbsp;</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Main learning outcomes for this class</h2>
+
+<ol>
+  <li><b>Sorting:</b>
+    <ul>
+      <li>I know <b>how to sort using the libraries</b> of my language (wether they are numbers or more complicated structures) and I know the <b>complexity</b> of those sorting algorithms.
+      <li>I know some non comparative sorting algorithms such as <b>counting sort</b> and <b>radix sort</b> that allow one to sort in time better than \(\mathcal{O}(n \log n)\).
+    </ul>
+  <li><b>Binary Search and variants:</b>
+    <ul>
+      <li>I know what <b>binary search</b> is and its <b>complexity</b>.
+      <li>I know how to call binary search using the <b>libraries</b> of my language.
+      <li>I know how to <b>manually implement binary search</b>.
+      <li>I understand the concept of <b>binary search the answer</b>.
+      <li>I understand the concept of <b>bisection</b>.
+      <li>I understand the concept of <b>ternary search</b>.
+    </ul>
+</ol>
+
+<hr>
+
+<h2>Study Material</h2>
+
+<ul>
+  <li><b>Slides made for class</b> : <a href="material/sorting_binarysearch.pdf">Sorting, Binary Search and Variants</a>
+    <ul>
+      <li>The problems <a href="https://cses.fi/problemset/task/1085">[CSES 1085] - Array Division</a> can be directly solved implementing the strategy described in the slides
+    </ul>
+  <li><b>Sorting: Example code:</b>
+    <ul>
+      <li><a href="material/sort.c">sort.c</a> | <a href="material/sort.cpp">sort.cpp</a> | <a href="material/sort_vector.cpp">sort_vector.cpp</a> |  <a href="material/Sort.java">Sort.java</a>
+      <li><a href="material/customsort.c">customsort.c</a> | <a href="material/customsort.cpp">customsort.cpp</a> | <a href="material/customsort_lambda.cpp">customsort_lambda.cpp</a> | <a href="material/CustomSort.java">CustomSort.java</a> | Example input: <a href="material/persons.txt">persons.txt</a>
+    </ul>
+  <li><b>Sorting, Binary Search and Variants</b>
+    <ul>
+      <li>Library binary search on <a href="https://man7.org/linux/man-pages/man3/bsearch.3.html">C</a>, <a href="https://en.cppreference.com/w/cpp/algorithm/binary_search.html">C++</a> and <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/Arrays.html">Java</a>
+      <li>Lower bounds on <a href="https://en.cppreference.com/w/cpp/algorithm/lower_bound.html">C++</a> (also available on tree-based data structures such as <a href="https://en.cppreference.com/w/cpp/container/set.html">set</a>) or <a href="https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/TreeSet.html#ceiling(E)">Java</a> [you also have... <a href="https://en.cppreference.com/w/cpp/algorithm/upper_bound.html">upper_bound</a>]
+      <li>Chapter 3 of <a href="https://cses.fi/book/book.pdf">Competitive Programmer's Handbook</a> book
+      <li>Section 3.3.1 of the <a href="https://www.comp.nus.edu.sg/~stevenha/myteaching/competitive_programming/cp2.pdf">Competitive Programming</a> book
+      <li><a href="https://en.wikipedia.org/wiki/Ternary_search">Wikipedia article about ternary search</a>
+      <li><a href="http://wcipeg.com/wiki/Binary_search">Binary Search @ PEG Wiki</a>
+      <li><a href="http://wcipeg.com/wiki/Ternary_search">Ternary Search @ PEG Wiki</a>
+      <li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/binary-search">Binary Search @ Top Coder Tutorials</a>
+    </ul>
+  <li><b>More problems to submit:</a>
+    <ul>
+      <li><a href="https://codeforces.com/problemset?tags=binary+search">CodeForces problemas tagged as "Binary Search"</a>
+      <li><a href="https://codeforces.com/problemset?tags=ternary+search">CodeForces problemas tagged as "Ternary Search"</a>
+      <li><a href="https://www.spoj.com/problems/tag/binary-search">SPOJ problemas tagged as binary search</a>
+    </ul>
+</ul>
+
+
+<hr>
+
+<h3>I want my memes!</h3>
+
+<details class="meme" name="meme">
+  <summary>&#128513; don't know what to do?</summary>
+  <p><img width="400" src="meme_sort.jpg"></p>
+</details>
+
+<br>
+
+<details class="meme" name="meme">
+  <summary>&#128513; log solution</summary>
+  <p><img width="400" src="meme_logbsearch.jpg"></p>
+</details>
+
+<br>
+
+<details class="meme" name="meme">
+  <summary>&#128513; so much binary search...</summary>
+  <p><img width="400" src="meme_quaternary.jpg"></p>
+</details>
+
+<br>
+
+<details class="meme" name="meme">
+  <summary>&#128513; swiss knife</summary>
+  <p><img width="500" src="meme_swissknife.jpg"></p>
+</details>
+
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a> | <b>Last update:</b> <script language="Javascript">document.write(document.lastModified )</script></p>
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Competitive Programming (CC3032) - Weekly Problems #03</title>
+	<link rel=StyleSheet href="style2526.css" type="text/css">
+</head>
+
+<body>
+  
+<table bgcolor="black" border="0" cellspacing="1" cellpadding="0">
+<tr>
+<td rowspan="3" bgcolor="white" style="padding:5px;"><a href="index.html"><img src="pc2526.png" height="50" border="0"></a></td>
+<td class="h1" valign="middle" align="center">&nbsp; Weekly Problems #03 &nbsp;</td>
+</tr>
+<tr>
+<td class="h3" valign="middle" align="center"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a></td>
+</tr>
+</table>
+
+<hr>
+
+<p>This is one of 11 weekly problem sets. Each one is worth 10% of the grade of the <b>"Submitted Implementation"</b> evaluation criteria.</p>
+
+<ul>
+  <li><b>Date of publication:</b> 29/09/2025
+  <li><b>Date of delivery (deadline):</b> 23h59m of <font color="red"><b>20/10/2025</b></font> (-2% for each extra day)
+  <li><b>Topics:</b> Sorting, binary search, ternary search, bisection
+</ul>
+
+<hr>
+
+<p>6 proposed problems:</p>
+
+  <ul>
+
+    <li> <a href="https://mooshak.dcc.fc.up.pt/~pc/">[Mooshak PC011]</a> - <a href="problems/pc011.html">Special Sort</a><br>
+      <i><span style="color:brown">(tested in C++ and Java)</span></i>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>Simply use a custom sort &#128521;</p>
+      </details>
+      
+      <br>
+
+    <li> <a href="https://mooshak.dcc.fc.up.pt/~pc/">[Mooshak PC012]</a> - <a href="problems/pc012.html">Factory Machines</a><br>
+      <i><span style="color:brown">(tested in C++ and Java)</span></i>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>If the correct answer is <i>s</i>, then the factory cannot make the products in <i>s-1</i> seconds or in any number of seconds smaller than <i>s</i>. Similarly, it can certainly produce them in <i>s+1</i> seconds or in any number of seconds bigger than <i>s</i>.<br>
+          <br>
+          This is a <i>no no ... no yes yes ... yes</i> search space and you can binary search the answer!<br>
+          <br>
+          Checking if a certain number of seconds is feasible is easy right (you can do it in a greedy fashion with linear time in <i>n</i>)? &#128521;
+        </p>
+      </details>
+      
+      <br>
+
+    <li> <a href="https://mooshak.dcc.fc.up.pt/~pc/">[Mooshak PC013]</a> - <a href="problems/pc013.html">Pie</a><br>
+      <i><span style="color:brown">(tested in C++ and Java)</span></i>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>Again an optimization problem (<i>find the largest volume</i>). If a certain volume is possible, than certainly all smaller volumes are also possible, right (even if it leads to more spoiled pie)? <br><br>How can we use this to binary search on the volume? And when should we stop our search?
+        </p>
+      </details>
+      
+      <br>
+
+    <li><a href="https://mooshak.dcc.fc.up.pt/~pc/">[Mooshak PC014]</a> - <a href="problems/pc014.html">Building Construction</a><br>
+      <i><span style="color:brown">(tested in C++ and Java)</span></i>
+
+       <details name="hint">
+         <summary>Hints</summary>
+         <p>Think about the correct answer <i>k</i>. What happens to the cost when <i>k</i> is lower? And when <i>k</i> is bigger? You can even make a program to check these costs. What is the shape of the cost function <i>cost(k)</i>? How can you use this?</p>
+       </details>
+
+       <br>
+
+    <li> <a href="https://codeforces.com/contest/713/problem/B">[CodeForces 713B]</a> - <a href="https://codeforces.com/contest/713/problem/B">Searching Rectangles</a><br>
+      <i><span style="color:brown">(tested in C++ and Java)</span></i>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>Welcome to an interactive problem &#128513; Searching all positions is too much, right? Can you think on how some kind of binary search can be applied?</p>
+      </details>
+
+      <br>
+
+    <li> <a href="https://codeforces.com/problemset/problem/818/F">[CodeForces 818F]</a> - <a href="https://codeforces.com/problemset/problem/818/F">Level Generation</a><br>
+      <i><span style="color:brown">(tested in C++ and Java)</span></i>
+      
+       <details name="hint">
+         <summary>Hints</summary>
+         <p>What about making a problem withouth hints? &#128515; </p>
+       </details>
+
+       <br>
+  </ul>
+  
+<hr>
+
+<p>About the delivery:</p>
+
+<ul>
+    <li>I will automatically catch your submissions from Codeforces (as well as in Mooshak).</i>
+    <li>At the end of the semester you will need to send all your submitted code to me.
+    <li>You can chat and discuss the problems among yourselves, but you should do your own implementation (simply copying code from other or from an LLM is considered a severe break of the code of conduct).
+    <li>The final code submitted to should include comments with the temporal and spatial complexity, as well as a small explanation of your algorithmic idea. You should also refer any helps you got (including referencing any sources you have consulted).
+  </ul>
+
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a> | <b>Last update:</b> <script language="Javascript">document.write(document.lastModified )</script></p>
+
+</body>
+
+</html>

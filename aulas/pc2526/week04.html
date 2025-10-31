@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<title>Competitive Programming (CC3032) - Week #04</title>
+	<link rel=StyleSheet href="style2526.css" type="text/css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  
+<table bgcolor="black" border="0" cellspacing="1" cellpadding="0">
+<tr>
+<td rowspan="3" bgcolor="white" style="padding: 5px;"><a href="index.html"><img src="pc2526.png" height="50" border="0"></a></td>
+<td class="h1" valign="middle" align="center">&nbsp; Week #04 &nbsp;</td>
+</tr>
+<tr>
+<td class="h3" valign="middle" align="center">&nbsp;<a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a>&nbsp;</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Main learning outcomes for this class</h2>
+
+<ol>
+  <li><b>Range Minimum Query (RMQ):</b>
+    <ul>
+      <li>I know the <b>RMQ</b> problems and what is asks for
+      <li>I know variants, such as asking for the maximum or the sum (<b>RSQ</b>)
+    </ul>
+  <li><b>Square-root (srt) decomposition</b>
+    <ul>
+      <li>I know the meaning of <b>decomposing</b> an array of size <i>n</i> into </i>buckets</i> of size <i>sqrt(n)</i>
+      <li>I know how to answer an RMQ <b><i>query</i></b> using <i>sqrt decomposition</i>
+      <li>I know how to do a <b><i>single update</i></b> in RMQ using <i>sqrt decomposition</i>
+      <li>I understand how to <b>adapt</b> it to variations such as RSQ.
+    </ul>
+  <li><b>Segments trees:</b>
+    <ul>
+      <li>I understand the concept of <b>segment trees</b>
+      <li>I know how how to <b>implement</b> segment trees using simple arrays
+      <li>I know how to answer an RMQ <b><i>query</i></b> using <i>segment trees</i>
+      <li>I know how to do a <b><i>single update</i></b> in RMQ using <i>segment trees</i>
+      <li>I understand how to <b>adapt</b> the <b>merge</b> function of a segment tree to more complex variations (including storing several values in a node, like for instance in a <b>merge sort tree</b>)
+      <li>I know and understand the concept of <b>lazy propagation</b> to make <b>range updates</b>
+      <li>I know and understand the concept of <b>offline processing</b> and how I can (re)sort queries to make a good usage of segment trees
+      <li>I know and understand the concept of <b>2D Segment Trees</b> for generalizing to a 2D case
+    </ul>
+</ol>
+
+<hr>
+
+<h2>Study Material</h2>
+
+
+
+<ul>
+  <li><b>Videos:</b>
+    <ul>
+      <li><a href="https://youtu.be/t2_NALOXQcs">Segment Trees and Lazy Propagation</a> [42m14s] (my own video from the Topics in Advanced Algorithms course)</li>
+      <li><a href="https://youtu.be/vHg5K08lPKY">LCA and RMQ (buckets, sparse tables, cartesian trees)</a> [1h34m12s] (my own video from the Topics in Advanced Algorithms course)</li>
+    </ul>
+        
+  <li><b>General References in websites:</b>
+    <ul>
+      <li><a href="https://www.topcoder.com/community/competitive-programming/tutorials/range-minimum-query-and-lowest-common-ancestor/">Range Minimum Query and Lowest Common Ancestor</a> (TopCoder Tutorial)
+      <li><a href="http://codeforces.com/blog/entry/15890">Algorithm Gym :: Everything About Segment Trees</a> (CodeForces Blog Post)
+      <li><a href="https://cp-algorithms.com/data_structures/sqrt_decomposition.html">Sqrt Decomposition</a> (E-Maxx Algorithms)
+      <li><a href="https://cp-algorithms.com/data_structures/segment_tree.html">Segment Trees</a> (E-Maxx Algorithms)
+    </ul>
+  <li><b>Example Implementations:</b>
+    <ul>
+      <li>Example implementation of segment tree: <a href="material/segtree_array.cpp">segtree_array.cpp</a> [<a href="material/segtree_array.html">colorized</a>] | <a href="material/segtree_ptr.cpp">segtree_ptr.cpp</a> [<a href="material/segtree_ptr.html">colorized</a>]<br>
+	[solves <a href="https://cses.fi/problemset/task/1648">https://cses.fi/problemset/task/1648</a>]
+    </ul>
+  <li><b>Book References:</b>
+    <ul>
+      <li>Section 9.3 and Chapters 27 and 28 of the <a href="https://cses.fi/book/book.pdf">Competitive Programmer's Handbook</a> book
+      <li>Section 2.3.3 of the <a href="https://www.comp.nus.edu.sg/~stevenha/myteaching/competitive_programming/cp2.pdf">Competitive Programming</a> book
+    </ul>
+</ul>
+
+<hr>
+
+<h3>I want my memes!</h3>
+
+<details class="meme" name="meme">
+  <summary>&#128513; When you learn about segment trees</summary>
+  <p><img width="500" src="meme_segtrees.jpg"></p>
+</details>
+
+<br>
+
+<details class="meme" name="meme">
+  <summary>&#128513; 2D segment trees</summary>
+  <p><img width="500" src="meme_recursion.jpg"></p>
+</details>
+
+<br>
+
+<details class="meme" name="meme">
+  <summary>&#128513; Lazy propagation</summary>
+  <p><img width="500" src="meme_lazy.jpg"></p>
+</details>
+
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a> | <b>Last update:</b> <script language="Javascript">document.write(document.lastModified )</script></p>
+
+</body>
+
+</html>

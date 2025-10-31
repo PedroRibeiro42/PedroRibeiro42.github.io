@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>Competitive Programming (CC3032) - Weekly Problems #05</title>
+	<link rel=StyleSheet href="style2526.css" type="text/css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  
+<table bgcolor="black" border="0" cellspacing="1" cellpadding="0">
+<tr>
+<td rowspan="3" bgcolor="white" style="padding:5px;"><a href="index.html"><img src="pc2526.png" height="50" border="0"></a></td>
+<td class="h1" valign="middle" align="center">&nbsp; Weekly Problems #05 &nbsp;</td>
+</tr>
+<tr>
+<td class="h3" valign="middle" align="center"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a></td>
+</tr>
+</table>
+
+<hr>
+
+<p>This is one of 11 weekly problem sets. Each one is worth 10% of the grade of the <b>"Submitted Implementation"</b> evaluation criteria.</p>
+
+<ul>
+  <li><b>Date of publication:</b> 14/10/2025
+  <li><b>Date of delivery (deadline):</b> 23h59m of <font color="red"><b>10/11/2025</b></font> (-2% for each extra day)
+  <li><b>Topics:</b>  Cumulative sums and fenwick trees (BITs)
+</ul>
+
+<hr>
+
+<p>6 proposed problems:</p>
+
+  <ul>
+
+    <li> <a href="https://mooshak.dcc.fc.up.pt/~pc/">[Mooshak PC021]</a> - <a href="problems/pc021.html">Maximum Sum</a><br>
+      <i><span style="color:brown">(tested in C++, Java and Python)</span></i>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>
+          - Use cumulative sums<br><br>
+          - Can you see how to use Kadane algorithm on one dimension to reduce the runtime complexity to \(\mathcal{O}(n^3)\)?<br><br>
+        </p>
+      </details>
+      
+      <br>
+
+    <li> <a href="https://mooshak.dcc.fc.up.pt/~pc/">[Mooshak PC022]</a> - <a href="problems/pc022.html">Japan</a><br>
+      <i><span style="color:brown">(tested in C++, Java and Python)</span></i>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>
+          - Can you see how the number of crossing is equal to the number of "inversions"?<br><br>
+          - Can you use a fenwick tree (with single queries and single updates) to compute?
+        </p>
+      </details>
+      
+      <br>
+
+    <li> <a href="https://codeforces.com/contest/276/problem/C">[CodeForces 276C]</a> - <a href="https://codeforces.com/contest/276/problem/C">Little Girl and Maximum Sum</a><br>
+      <i><span style="color:brown">(tested in C++, Java and Python)</span></i>
+      
+       <details name="hint">
+         <summary>Hints</summary>
+         <p>- Which position should have the highest value? And the 2nd highest? ...<br><br>
+           - How to use fenwick trees to compute frequencies of positions in the queries?<br>
+           &nbsp &nbsp;<i>(perhaps using range updates and single queries?)</i>
+         </p>
+       </details>
+      
+      <br>
+
+      <li> <a href="https://mooshak.dcc.fc.up.pt/~pc/">[Mooshak PC023]</a> - <a href="problems/pc023.html">Horrible Queries</a><br>
+      <i><span style="color:brown">(tested in C++, Java and Python)</span></i>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- Use a fenwick tree with range update and range queries</p>
+      </details>
+      
+      <br>
+
+      <li> <a href="https://mooshak.dcc.fc.up.pt/~pc/">[Mooshak PC024]</a> - <a href="problems/pc024.html">Matrix Summation</a><br>
+      <i><span style="color:brown">(tested in C++, Java and Python)</span></i>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- Use a 2D fenwick tree</p>
+      </details>
+      
+      <br>
+
+      <li> <a href="https://mooshak.dcc.fc.up.pt/~pc/">[Mooshak PC025]</a> - <a href="problems/pc025.html">Calculate The Cost</a><br>
+      <i><span style="color:brown">(tested in C++, Java and Python)</span></i>
+      
+      <details name="hint">
+        <summary>Hints</summary>
+        <p>- A "naive" fenwick tree approach will not fit on memory...<br><br>
+          - Would processing the trees and queries in a different order help you?
+        </p>
+      </details>
+      
+      <br>
+
+      
+  </ul>
+  
+<hr>
+
+<p>About the delivery:</p>
+
+<ul>
+    <li>I will automatically catch your submissions from Codeforces (as well as in Mooshak).</i>
+    <li>At the end of the semester you will need to send all your submitted code to me.
+    <li>You can chat and discuss the problems among yourselves, but you should do your own implementation (simply copying code from other or from an LLM is considered a severe break of the code of conduct).
+    <li>The final code submitted to should include comments with the temporal and spatial complexity, as well as a small explanation of your algorithmic idea. You should also refer any helps you got (including referencing any sources you have consulted).
+  </ul>
+
+<hr>
+
+<p class="right"><a href="http://www.dcc.fc.up.pt/~pribeiro/">Pedro Ribeiro</a> - <a href="http://www.dcc.fc.up.pt/">DCC</a>/<a href="http://www.fc.up.pt/">FCUP</a> | <b>Last update:</b> <script language="Javascript">document.write(document.lastModified )</script></p>
+
+</body>
+
+</html>

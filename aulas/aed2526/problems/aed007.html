@@ -1,0 +1,151 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED007] Treasure Hunter</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 18th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class02.html">class #02 exercise sheet</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[AED007] Treasure Hunter</h2>
+
+<p><img align="right" src="aed007.png" border="1">
+After many years competing in programming contests, Sarah has finally retired. As a new challenge, she decides to become a treasure hunter! Her next target is a small island in the Pacific Ocean where there is is a straight line of <b>N</b> chests buried side by side. Some of these chests contain valuable treasures, which Sarah wants to collect.</p>
+
+<p>At the beginning, Sarah is standing on chest number <b>S</b>. Then she follows a sequence of <b>I</b> instructions on an old map, which tell her to move left or right along the line of chests. Each instruction is either "move X steps to the right" or "move X steps to the left". A step to the right means moving to the next chest towards the east, and a step to the left means moving to the next chest toward west.</p>
+
+<p>Moreover, <b>whenever Sarah passes by a chest</b> (even in the middle of executing an instruction), she digs out and opens it, collecting the treasure inside if there is one. Note that Sarah also digs out the chest at her initial starting position <b>S</b>.</p>
+
+<p>For example, suppose there are <b>N = 5</b> chests, and every chest except the 2nd one has a treasure. Sarah starts at position <b>S = 3</b> and the map gives <b>I = 3</b> instructions:</p>
+
+<ul>
+  <li>Move 1 step to the right
+  <li>Move 2 steps to the left
+  <li>Move 3 steps to the right
+</ul>
+
+<p>As she moves, she passes several chests and ends up collecting exactly <b>3</b> treasures, as shown on the following figure (collected treasures are marked with a shovel):</p>
+
+<p><img height="220" src="aed006_example.png"></p>
+
+<p>At the end of her journey, Sarah wants to know how many treasures she collected. But there are so many... can you help her count?</p>
+
+<h3>The Problem</h3>
+
+<p>Given a line of <b>N</b> chests, the initial position <b>S</b>, and a list of <b>I</b> movement instructions, compute how many treasures Sarah collects.</p>
+
+<h3>Input</h3>
+
+<p>The first line contains three integers: <b>N</b> (the number of chests), <b>S</b> (Sarah's initial position) and <b>I</b> (the number of instructions).</p>
+
+<p>This is followed by a line with <b>N</b> characters that can be <code>'T'</code> or <code>'E'</code>, where the <i>i</i>-th character represents the type of the <i>i</i>-th chest, <code>'T'</code>  for a <b>T</b>reasure chest and <code>'E'</code> for an <b>E</b>mpty chest (with no treasure).
+
+<p>This is followed by <b>I</b> lines, each with two integers <b>D K</b>, where <b>D</b> is a character that can be <code>'L'</code> (left) or <code>'R'</code> (right), representing the direction of movement, and <b>K</b> is an integer representing the number of steps to take.</p>
+
+<p>Note: it is guaranteed that the instructions never force Sarah to leave the line of chests, i.e. her position will always be between 1 and <b>N</b>.</p> 
+
+<h3>Output</h3>
+
+<p>The output be a single line containing an integer representing the number of treasures collected by Sarah.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 100&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of chests</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>S</b> &le; <b>N</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Initial Position</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>I</b> &le; 100&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of instructions</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+5 3 3
+TETTT
+R 1
+L 2
+R 3
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+3
+</pre>
+      </td>
+    </tr>
+</table>
+
+<p>This first example corresponds to the figure in the problem statement.</p>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+10 5 9
+TTTTETTTTT
+R 1
+L 2
+R 1
+R 1
+R 1
+L 3
+L 1
+R 4
+R 1
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+5
+</pre>
+      </td>
+    </tr>
+</table>
+
+<p>Please note that the number of steps in one instruction is not necessarily smaller than 10 and may contain more than one digit in other tests given to your program.</p>
+
+
+<hr size="2">
+<center>
+  <i>(this is an adaptation from a problem of the National Olympiads in Informatics)</i><br><br>
+
+  <b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

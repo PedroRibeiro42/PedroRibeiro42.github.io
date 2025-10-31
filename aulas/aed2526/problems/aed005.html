@@ -1,0 +1,118 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED005] Number Spiral</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 11th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class01.html">class #01 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED005] Number Spiral</h2>
+
+<p><img align="right" src="aed005.png" border="0" width="300">Imagine the following number spiral (starts on 01 and goes in increasing order):</p>
+
+
+<pre>
+<font color="red">|    </font>  +--+--+--+--+--+--+
+<font color="red">|  +2</font>  |21|22|23|24|25|26|
+<font color="red">|    </font>  +--+--+--+--+--+--+
+<font color="red">|  +1</font>  |20|07|08|09|10|27|
+<font color="red">    </font>  +--+--+--+--+--+--+
+<font color="red">Y   0</font>  |19|06|<b>01</b>|02|11|28|
+<font color="red">     </font>  +--+--+--+--+--+--+
+<font color="red">|  -1</font>  |18|05|04|03|12|29|
+<font color="red">|    </font>  +--+--+--+--+--+--+
+<font color="red">|  -2</font>  |17|16|15|14|13|30|
+<font color="red">|    </font>  +--+--+--+--+--+--+
+                      ...
+<font color="blue">        -2 -1  0 +1 +2 +3
+       ------- X --------</font>
+</pre>
+  
+<p>Suppose you have a coordinate system (X,Y) as shown, where the origin is the number 01. Using this, we can say 01 is at position (0,0), 02 is at position (1,0), 03 at position (1,-1), 04 at position (0,-1), 05 at position (-1,-1), and so on.</p>
+
+<h3><font>The Problem</font></h3>
+
+<p>Given a sequence <b>N</b>, can you compute its coordinates (X,Y) on the number spiral?</p>
+
+<h3><font>Input</font></h3>
+
+<p>The input has a single line containing <b>N</b>, the number to consider.</p>
+
+<h3><font>Output</font></h3>
+
+<p>A single line containing (X,Y), the coordinates of the number on the spiral, as described before.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 10<sup>14</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>The number to consider</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+5
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+(-1,-1)
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+    <table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+26
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+(3,2)
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>&nbsp;</p>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

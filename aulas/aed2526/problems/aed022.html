@@ -1,0 +1,129 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED022] Football Table</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED022] Football Table</h2>
+
+<p><img align="right" src="aed022.jpg" width="350">
+The football league needs your help to compute the final ranking of all teams!</p>
+
+
+<h3>The Problem</h3>
+
+<p>Given a list of <b>N</b> teams with their name, number of wins, draws, losses, goals scored and goals against, your task is to produce a ranking table, sorted in decreasing order of points (3 points per win, 1 point per draw). In case of a tie, the teams should come by decreasing order of goal average (difference of goals scored and against). If teams are tied in both points and goal average, they should come by increasing alphabetical order of their names.</p>
+  
+<h3>Input</h3>
+
+<p>The first input line contains an integer <b>N</b>: the amount of teams to consider.</p>
+
+<p>The following <b>N</b> lines give the team details, one per line, in the format <tt>NAME WINS DRAWS LOSSES GOALS_SCORED GOALS_AGAINST</tt>. The names of the teams will be formed by lowercase letters with no spaces.</p>
+
+<h3>Output</h3>
+
+<p>The output should contain <b>N</b> lines: the ranking table teams in the required order, in the format <tt>NAME POINTS GOAL_AVERAGE</tt></p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Amount of teams</td>
+      </tr>
+      <tr>
+        <td>1 &le; |NAME| &le; 20</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Length of a team name</td>
+      </tr>
+      <tr>
+        <td>1 &le; WINS, DRAWS, LOSSES, GOALS_SCORED, GOALS_AGAINST &le; 10<sup>6</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>The numbers that detail the performance of the team</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+20
+crystalpalace 11 9 18 39 51
+everton 11 14 13 59 55
+afcbournemouth 11 9 18 45 67
+manchesterunited 19 9 10 49 35
+tottenham 19 13 6 69 35
+arsenal 20 11 7 65 36
+liverpool 16 12 10 63 50
+swanseacity 12 11 15 42 52
+newcastle 9 10 19 44 65
+astonvilla 3 8 27 27 76
+westham 16 14 8 65 51
+leicestercity 23 12 3 68 36
+watford 12 9 17 40 50
+chelsea 12 14 12 59 53
+norwichcity 9 7 22 39 67
+southampton 18 9 11 59 41
+sunderland 9 12 17 48 62
+manchestercity 19 9 10 71 41
+stokecity 14 9 15 41 55
+westbromwich 10 13 15 34 48
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+leicestercity 81 32
+arsenal 71 29
+tottenham 70 34
+manchestercity 66 30
+manchesterunited 66 14
+southampton 63 18
+westham 62 14
+liverpool 60 13
+stokecity 51 -14
+chelsea 50 6
+everton 47 4
+swanseacity 47 -10
+watford 45 -10
+westbromwich 43 -14
+crystalpalace 42 -12
+afcbournemouth 42 -22
+sunderland 39 -14
+newcastle 37 -21
+norwichcity 34 -28
+astonvilla 17 -49
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

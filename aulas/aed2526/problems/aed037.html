@@ -1,0 +1,267 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED037] Supermarket</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 22nd</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class06.html">class #06 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED037] Supermarket</h2>
+
+<p><img align="right" src="aed037.jpg">A supermarket has <b>C</b> checkouts with a cashier, numbered consecutively from 1 to <b>C</b>. Each of these checkouts has a queue of customers, and at the beginning all the queues are empty.</p>
+
+<p><b>N</b> customers are shopping in this supermarket. Each customer is identified by a name, an arrival time (in seconds) at the checkouts and the number of products to pay for. As soon as a customer arrives at the checkout area to pay, they choose the checkout with the least number of customers in the queue and, in case of a tie, the one where the last customer in the queue has the least number of products. If there is still a tie, they choose the queue with the lowest index number.</p>
+
+<p>A customer with <b>P</b> products takes <b>10 + P*K<sub>i</sub></b> seconds to be served at checkout <b>i</b>, where <b>K<sub>i</sub></b> is a constant that defines how many seconds it takes the cashier operator of checkout <b>i</b> to process a single product, and 10 is the constant time needed for the customer to pay.</p>
+
+<p>If a customer arrives in the same second that another one or more finishes their shopping, you should process the arriving customer first and only then consider the finishing customers.</p>
+
+<h3>The Problem</h3>
+
+<p>Your task is to simulate what happens at the supermarket, printing the list of customers that went to each checkout.</p>
+
+<h3>Input</h3>
+
+<p>The first line of input contains integer <b>C</b>, the number of checkouts to consider. The second line contains <b>C</b> space separated integers, with the <i>i</i>-th number representing <b>K<sub>i</sub></b>, the speed of the cashier in checkout <i>i</i>.</p>
+
+<p>The third line contains an integer <b>N</b>, representing the number of the customers. <b>N</b> lines follow, each on the format <b>NAME<sub>i</sub> ARRIVAL<sub>i</sub> PRODUCTS<sub>i</sub></b> indicating respectively the name (a contiguous sequence of no more than 100 letters), the arrival time to the checkout area (an integer) and the number of products (an integer). It is guaranteed that the clients come in strictly increasing order of arrival time.</p>
+
+<h3>Output</h3>
+
+<p>The output should consiste of <b>C</b> sequences of lines, each one representing one checkout (in increasing index order). Each section should start with a line in the format <tt>"Checkout #i: NR_CUSTOMERS"</tt> indicating that the checkout with index <i>i</i> attended a certain number of customers. Then follows one line per customer that went to that checkout in the format <tt>". NAME ARRIVAL<sub>i</sub> START<sub>i</sub> DEPARTURE<sub>i</sub>"</tt>, indicating the name of the client, when it arrived to the end of the queue, when it arrived to the front of its queue and at what time it left the queue, having payed for its products.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>C</b> &le; 10</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of checkouts</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>K<sub>i</sub></b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Speed of the cashier in checkout <i>i</i></td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of customers</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>PRODUCTS<sub>i</sub></b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of products of customers</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>ARRIVAL<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Arrival time of customers</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>DEPARTURE<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Departure time of customers</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+2
+3 8
+6
+Liam 1 5
+Olivia 3 2
+Noah 4 1
+Amelia 20 1
+Emma 50 4
+Oliver 72 3
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+Checkout #1: 3
+. Liam 1 1 26
+. Amelia 20 26 39
+. Emma 50 50 72
+Checkout #2: 3
+. Olivia 3 3 29
+. Noah 4 29 47
+. Oliver 72 72 106
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p><b>Detailed explanation of example input:</b></p>
+
+<p><i>Note that on the queues, the number (X) is the number of products of that customer.</i></p>
+
+<table bgcolor="black" cellspacing="1" cellpadding="3">
+  <tr bgcolor="#cccccc">
+    <td><b>Time</b></td>
+    <td><b>Events</b></td>
+    <td><b>Queues at end of events</b></td>
+  </tr>
+  <tr bgcolor="white">
+    <td align="center">1</td>
+    <td>
+      <font color="darkred"><b>Liam</b> arrives to end of <b>#1</b></font><br>
+      <font color="#666666"><i>(all checkouts empty, chooses first)</i></font><br>
+      <font color="darkblue"><b>Liam</b> is on the front of <b>#1</b></font>
+    </td>
+    <td>
+      <li> Checkout #1: Liam(5)
+      <li> Checkout #2:</td>
+  </tr>
+    <tr bgcolor="#eeeeee">
+    <td align="center">3</td>
+    <td>
+      <font color="darkred"><b>Olivia</b> arrives to end of <b>#2</b></font><br>
+      <font color="#666666"><i>(#2 had less clients than #1)</i></font></font><br>
+      <font color="darkblue"><b>Olivia</b> is on the front of <b>#2</b></font>
+    </td>
+    <td>
+      <li> Checkout #1: Liam(5)
+      <li> Checkout #2: Olivia(2)  
+    </td>
+  </tr>
+  <tr bgcolor="white">
+    <td align="center">4</td>
+    <td>
+      <font color="darkred"><b>Noah</b> arrives to end of <b>#2</b></font><br>
+      <font color="#666666"><i>(#2 last customer had less products than last customer of #1)</i></font>
+    </td>
+    <td>
+      <li> Checkout #1: Liam(5)
+      <li> Checkout #2: Olivia(2) Noah(1)
+    </td>
+  </tr>
+    <tr bgcolor="#eeeeee">
+    <td align="center">20</td>
+    <td>
+      <font color="darkred"><b>Amelia</b> arrives to end of <b>#1</b></font><br>
+      <font color="#666666"><i>(#1 had less clients than #2)</i></font>      
+    </td>
+    <td>
+      <li> Checkout #1: Liam(5) Amelia(1)
+      <li> Checkout #2: Olivia(2) Noah(1)        
+    </td>
+  </tr>
+  <tr bgcolor="white">
+    <td align="center">26</td>
+    <td>
+      <font color="darkgreen"><b>Liam</b> leaves <b>#1</b></font><br>
+      <font color="#666666"><i>(started at 1, takes 10+5*K<sub>1</sub>=25, departs at 1+25=26)</i></font><br>
+      <font color="darkblue"><b>Amelia</b> is on the front of <b>#1</b></font><br>
+    </td>
+    <td>
+      <li> Checkout #1: Amelia(1)
+      <li> Checkout #2: Olivia(2) Noah(1)
+    </td>
+  </tr>
+    <tr bgcolor="#eeeeee">
+    <td align="center">29</td>
+    <td>
+      <font color="darkgreen"><b>Olivia</b> leaves  <b>#2</b></font><br>
+      <font color="#666666"><i>(started at 3, takes 10+2*K<sub>2</sub>=26, departs at 3+26=29)</i></font><br>
+      <font color="darkblue"><b>Noah</b> is on the front of <b>#2</b></font><br> 
+    </td>
+    <td>
+      <li> Checkout #1: Amelia(1)
+      <li> Checkout #2: Noah(1)
+    </td>
+  </tr>
+  <tr bgcolor="white">
+    <td align="center">39</td>
+    <td>
+      <font color="darkgreen"><b>Amelia</b> leaves <b>#1</b></font><br>
+      <font color="#666666"><i>(started at 26, takes 10+1*K<sub>1</sub>=13, departs at 26+13=39)</i></font><br>
+    </td>
+    <td>
+      <li> Checkout #1:
+      <li> Checkout #2: Noah(1)
+    </td>
+  </tr>
+    <tr bgcolor="#eeeeee">
+    <td align="center">47</td>
+    <td>
+      <font color="darkgreen"><b>Noah</b> leaves <b>#2</b></font><br>
+      <font color="#666666"><i>(started at 29, takes 10+1*K<sub>2</sub>=18, departs at 29+18=47)</i></font><br>
+    </td>
+    <td>
+      <li> Checkout #1:
+      <li> Checkout #2:
+    </td>
+  </tr>
+  <tr bgcolor="white">
+    <td align="center">50</td>
+    <td>
+      <font color="darkred"><b>Emma</b> arrives to end <b>#1</b></font><br>
+      <font color="#666666"><i>(all checkouts empty, chooses first)</i></font><br>
+      <font color="darkblue"><b>Emma</b> is on the front of <b>#1</b></font>
+    </td>
+    <td>
+      <li> Checkout #1: Emma(4)
+      <li> Checkout #2:
+    </td>
+  </tr>
+    <tr bgcolor="#eeeeee">
+    <td align="center">72</td>
+    <td>
+      <font color="darkred"><b>Oliver</b> arrives to end of <b>#2</b></font><br>
+      <font color="#666666"><i>(#2 had less clients than #1 | <b>process arrivals before departures</b>)</i></font></font><br>
+      <font color="darkblue"><b>Oliver</b> is on the front of <b>#2</b></font><br>
+      <font color="darkgreen"><b>Emma</b> leaves <b>#1</b></font><br>
+      <font color="#666666"><i>(started at 50, takes 10+4*K<sub>1</sub>=22, departs at 50+22=72)</i></font><br>
+    </td>
+    <td>
+      <li> Checkout #1:
+      <li> Checkout #2: Oliver(3)
+    </td>
+  </tr>
+  <tr bgcolor="white">
+    <td align="center">106</td>
+    <td>
+      <font color="darkgreen"><b>Oliver</b> leaves <b>#2</b></font><br>
+      <font color="#666666"><i>(started at 72, takes 10+3*K<sub>2</sub>=34, departs at 72+34=106)</i></font><br>
+    </td>
+    <td>
+      <li> Checkout #1:
+      <li> Checkout #2:
+    </td>
+  </tr>
+</table>
+
+
+<br>
+
+
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

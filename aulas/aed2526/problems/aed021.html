@@ -1,0 +1,118 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED021] Anagrams</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED021] Anagrams</h2>
+
+<p><img align="right" src="aed021.jpg" width="350">
+  An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, using all the original letters exactly once.</p>
+
+<p>For example, "east, "seat" and "eats" are anagrams, because they all have 1 <i>a</i>, 1 <i>e</i>, 1 <i>s</i> and 1 <i>t</i>. "torso" and "roots" are also anagrams, because they both have 2 <i>o's</i>, 1 <i>r</i>, 1 <i>s</i> and 1 <i>t</i>.</p>
+
+<p>Note that the same can be said about phrases, if we ignore spaces and upper/lower case. For instance, "New York Times" is an anagram of ""monkeys write", and "a gentleman" is an anagram of "elegant man".</p>
+
+<p>We call an <b>anagram class</b> to a set of two or more phrases (which can also be single words) that are anagrams. For instance, the set {"east", "university", "elegant man", "eats", "seat", "a gentleman"} has 2 anagram classes: {"east", "eats", "seat"} and {"elegant man", "a gentleman"}. "university" does not belong to an anagram class because there is no anagram of it in the set.</p>
+
+<h3>The Problem</h3>
+
+<p>Given a set of <b>N</b> phrases, your task is to find how many anagram classes it contains.</p>
+  
+<h3>Input</h3>
+
+<p>The first input line contains an integer <b>N</b>: the amount of phrases to consider.</p>
+
+<p>The following <b>N</b> lines give phrases, one per line. Each of these phrases has less than 50 characters and contains only letters (upper or lower case) and spaces. You can be assured that there are no repeated phrases.</p>
+
+<h3>Output</h3>
+
+<p>The output should be a single line containing the amount of anagram classes found.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Amount of phrases</td>
+      </tr>
+    </table>
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+20
+elegant man
+east
+algorithm
+sorting
+monkeys write
+seat
+Tom Marvolo Riddle
+coronavirus
+sort
+New York Times
+eats
+listen
+silent
+logarithm
+teas
+a gentleman
+I am Lord Voldemort
+enlist
+mergesort
+carnivorous
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+7
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>There are 7 anagram classes in the example input:</p>
+
+<ul>
+  <li>{"elegant man", "a gentleman"}
+  <li>{"east", "seat", "eats", teas"}
+  <li>{"algorithm", "logarithm"}
+  <li>{"monkeys write", "New York Times"}
+  <li>{"Tom Marvolo Riddle", "I am Lord Voldemort"}
+  <li>{"coronavirus", "carnivorous"}
+  <li>{"listen", "silent", "enlist"}
+</ul>
+
+<p>Three phrases do not have anagrams: "sorting", "sort" and "mergesort".
+
+
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

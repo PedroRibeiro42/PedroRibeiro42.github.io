@@ -1,0 +1,110 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED036] Convex Hull</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 22nd</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class06.html">class #06 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED036] Convex Hull</h2>
+
+<p><img align="right" src="aed036.png" width="300"> The <b>convex
+  hull</b> of a set of 2D points is the smallest convex polygon that
+  encloses all the points. It is a very useful geometric primitive
+  that can give a rough idea of the shape of the set of points. It
+  also serves as first preprocessing step to many other geometric
+  algorithms.</p>
+  
+<h3>The Problem</h3>
+
+<p>Given a set of 2D points in general position (i.e., such that no three points are collinear), your task is to compute their convex hull.</p>
+
+<h3>Input</h3>
+
+<p>The first line contains an integer <b>N</b>, the number of points to consider.</p>
+
+<p>The following <b>N</b> lines contain the points, one per line, as two space separated integers in the format <b>X<sub>i</sub></b> <b>Y<sub>i</sub></b>.</p>
+
+<p><b>It is guaranteed that the points are pairwise distinct and any three points are non-collinear, that is, they do not lie on a single line.</b></p>
+
+<h3>Output</h3>
+
+<p>The output should contain the number of points in the convex hull, followed by the points themselves in the same format as in the input (one per line as a pair of <i>X Y</i> coordinates).</p>
+
+<p>The points should come in counter-clockwise order, starting with the bottom most point (the one with the smaller <i>Y</i> coordinate; in case of a tie in <i>Y</i>, choose the one with the smallest <i>X</i> coordinate).</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>3 &le; <b>N</b> &le; 500</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of Points</td>
+      </tr>
+      <tr>
+        <td>0 &le; <b>X<sub>i</sub></b>, <b>Y<sub>i</sub></b> &le; 1000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Coordinates</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+10
+5 2
+0 5
+3 3
+4 10
+3 0
+10 10
+7 0
+1 8
+4 6
+9 8
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+6
+3 0
+7 0
+10 10
+4 10
+1 8
+0 5
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>The example input corresponds to the following figure (with its respective convex hull indicated in blue):</p>
+
+<p><img src="aed036_example.png"></p>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

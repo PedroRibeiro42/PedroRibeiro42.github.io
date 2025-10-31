@@ -1,0 +1,146 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED010] Cool Numbers</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 18th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class02.html">class #02 exercise sheet</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[AED010] Cool Numbers</h2>
+
+<p><img align="right" src="aed010.png" width="350">
+Pedro noticed that the number 95726184 was written underneath his laptop. Curious as he was, he couldn't help noticing that the sum of its digits was 42! In fact, 9+5+7+2+6+1+8+4=42, which made Pedro think that this was a really "cool" number.</p>
+
+<p>Overjoyed, he ran to Ana to tell him about his discovery. However, Ana didn't find the discovery that fascinating, as she thought that there were many numbers with this property. Pedro started counting from 95726184 and in fact 9 numbers later came 95726193, the sum of whose digits was also 42. But the distance isn't always so short...</p>
+
+<p>After some more thought, Pedro thought he could create a game to challenge Ana, which consists of finding the first "cool" number greater than a given number. To prevent someone from simply trying to memorise answers, he decided he was interested in numbers whose sum of the digits was any given number of their choice and not just 42.</p>
+
+
+<h3>The Problem</h3>
+
+<p>Given several pairs of integers <b>N<sub>i</sub></b> and <b>K<sub>i</sub></b>, your task is to find, for each pair, the smallest number greater than <b>N<sub>i</sub></b> such that the sum of its digits is exactly <b>K<sub>i</sub></b>.</p>
+
+<h3>Input</h3>
+
+<p>The first line of the input contains an integer <b>T</b> indicating the number of test cases, i.e. the number of pairs of integers to consider.</p>
+
+<p>This is followed by <b>T</b> lines, each with the two corresponding <b>N<sub>i</sub></b> <b>K<sub>i</sub></b> integers.</p>
+
+<h3>Output</h3>
+
+<p>The output must contain <b>T</b> lines. The <i>i</i>-th line should contain a single integer <b>A<sub>i</sub></b> indicating the answer for the corresponding pair, i.e. which is the smallest number that is both greater than <b>N<sub>i</sub></b> and with the sum of its digits being <b>K<sub>i</sub></b>.
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>T</b> &le; 1&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of test cases</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>N<sub>i</sub></b> &le; 10<sup>16</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Initial Numbers</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>K<sub>i</sub></b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Desired digit sum</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>A<sub>i</sub> - N<sub>i</sub> </b> &le; 10<sup>18</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Difference between initial number and the number we are looking for</td>
+      </tr>
+</table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+6
+95726184 42
+424242 42
+1 25
+299 13
+8660 20
+4253816 8
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+95726193
+429999
+799
+319
+8705
+4300001
+</pre>
+      </td>
+    </tr>
+    </table>
+
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+7
+100000599988 50
+100000599989 50
+100000599998 50
+987654321098 100
+12121678909876 42
+12121128909876 42
+1 92
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+100000599989
+100000599998
+100000679999
+987679999999
+12121678910004
+12121128910059
+29999999999
+</pre>
+      </td>
+    </tr>
+    </table>
+<p>
+
+  
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

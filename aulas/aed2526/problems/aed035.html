@@ -1,0 +1,177 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED035] Round-Robin</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 22nd</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class06.html">class #06 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED035] Round-Robin</h2>
+
+<p><img align="right" src="aed035.jpg" width="300">
+Suppose you have a queue of processes to be executed by a processor using a <i>scheduling</i> algorithm with a <i>round-robin</i> strategy:
+
+<ol>
+  <li>Take the first process in the queue and execute it for a maximum of <b>T</b> seconds;
+  <li>If the process is not yet finished, it goes to the end of the queue with <b>T</b> fewer seconds remaining;
+  <li>Return to the first step, continuing to process the first process in the queue until all processes are completed.
+</ol>
+
+
+<p>Imagine, for example, that <i>T=5</i> and the queue initially looks like this, where each number indicates the remaining time. The processor will go through 7 iterations before finishing:</p>
+
+<p><b><font color="blue">Current time: 0 seconds</font> (0 processor iterations)</b>
+  
+<table bgcolor="black" cellspacing="1">
+  <tr bgcolor="white">
+    <td width="80">emacs<br>9</td>
+    <td width="80">firefox<br>3</td>
+    <td width="80">bash<br>12</td>
+    <td width="80">dia<br>5</td>
+  </tr>    
+</table>
+
+<p>The processor first executes <i>emacs</i> for 5 seconds. There are still 4 seconds remaining, and this process is now placed at the end of the queue:</p>
+
+<p><b><font color="blue">Current time: 5 seconds</font> (1 processor iteration)</b>
+<table bgcolor="black" cellspacing="1">
+  <tr bgcolor="white">
+    <td width="80">firefox<br>3</td>
+    <td width="80">bash<br>12</td>
+    <td width="80">dia<br>5</td>
+    <td width="80">emacs<br>4</td>	    
+  </tr>    
+</table>
+
+<p>As <i>firefox</i> needs less than 5 seconds, it runs for the 3 seconds it needs and finishes. The algorithm continues until all processes are completed:</p>
+
+<p><b><font color="blue">Current time: 8 seconds</font> (2 processor iterations)</b> <font color="#770000">[firefox completes]</font>
+<table bgcolor="black" cellspacing="1">
+  <tr bgcolor="white">
+    <td width="80">bash<br>12</td>
+    <td width="80">dia<br>5</td>
+    <td width="80">emacs<br>4</td>
+  </tr>    
+</table>
+
+<p><b><font color="blue">Current time: 13 seconds</font> (3 processor iterations)</b>
+<table bgcolor="black" cellspacing="1">
+  <tr bgcolor="white">
+    <td width="80">dia<br>5</td>
+    <td width="80">emacs<br>4</td>
+    <td width="80">bash<br>7</td>
+  </tr>    
+</table>
+
+<p><b><font color="blue">Current time: 18 seconds</font> (4 processor iterations)</b> <font color="#770000">[dia completes]</font></b>
+<table bgcolor="black" cellspacing="1">
+  <tr bgcolor="white">
+    <td width="80">emacs<br>4</td>
+    <td width="80">bash<br>7</td>
+  </tr>    
+</table>
+
+<p><b><font color="blue">Current time: 22 seconds</font> (5 processor iterations)</b> <font color="#770000">[emacs completes]</font></b>
+<table bgcolor="black" cellspacing="1">
+  <tr bgcolor="white">
+    <td width="80">bash<br>7</td>
+  </tr>    
+</table>
+
+<p><b><font color="blue">Current time: 27 seconds</font> (6 processor iterations)</b>  
+<table bgcolor="black" cellspacing="1">
+  <tr bgcolor="white">
+    <td width="80">bash<br>2</td>
+  </tr>    
+</table>
+
+<p><b><font color="blue">Current time: 29 seconds</font> (7 processor iterations)</b> <font color="#770000">[bash completes]</font></b><br>
+<b><font color="red">Queue empty</font></b>
+
+<h3>The Problem</h3>
+
+<p>Your task is to write a method to simulate this process, printing a line each time a process finishes with the name of the process, the time it finishes and how many processor iterations it took.</p>
+
+<h3>Input</h3>
+
+<p>The first line contains an integer <b>T</b>, the maximum execution time per iteration.</p>
+
+<p>The second line contains an integer <b>N</b>, the number of processes in the queue. The next <b>N</b> lines contain processes in the format <b>P<sub>i</sub> R<sub>i</sub></b>, where <b>P<sub>i</sub></b> is the name of the process and <b>R<sub>i</sub></b> the time it requires. The name consists only of lowercase letters, and the time is an integer.</p>
+
+<h3>Output</h3>
+
+<p>The output should contain <b>N</b> lines, describing the processes in the order they completed in the format <tt>PROCESS_NAME a b</tt>, where <i>a</i> is the time when the process finished, and <i>b</i> is the number of processor iterations when it happened.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>T</b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Maximum execution time per iteration</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of processes</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>|P<sub>i</sub>|</b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Length of process names</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>R<sub>i</sub></b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Time one process requires</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+5
+4
+emacs 9
+firefox 3
+bash 12
+dia 5
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+firefox 8 2
+dia 18 4
+emacs 22 5
+bash 29 7
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

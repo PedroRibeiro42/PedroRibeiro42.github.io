@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED011] Number Searching</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 25th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class03.html">class #03 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED011] Number Searching</h2>
+
+<p><img align="right" src="aed011.png" border="0" width="300">Tom has a sequence of sorted integer numbers and he is sure there should be a way look for them better than just using a linear search... he needs your help for that!
+
+</p>
+
+
+<h3>The Problem</h3>
+
+<p>Given a sorted sequence of <b>N</b> distinct integer numbers and <b>Q</b> queries, each one indicating a number to search for, your task is to find the position of each query number in the sequence (or to find that it does not appear in the sequence).</p>
+
+<h3>Input</h3>
+
+<p>The first line of the input contains an integer <b>N</b>, the quantity of numbers in the sorted sequence. The second line contains the sequence itself with <b>N</b> space separated integers (we denote each one by <b>S<sub>i</sub></b>). It is guaranteed that these numbers are distinct and that they come in increasing order.</p>
+
+<p>The third line contains an integer <b>Q</b>, the quantity of queries to consider. Each of the following <b>Q</b> lines contains a query in the form of a single integer <b>X<sub>i</sub></b>, indicating the number we are searching for.</b>
+
+<h3>Output</h3>
+
+<p>The output should contain exactly <b>Q</b> lines. The <i>i</i>-th line should contain the position of the number <b>X<sub>i</sub></b> in the sequence or -1 is the number does not appear. Note that the positions in the sequence go from 0 to <b>N</b>-1.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Quantity of numbers in the sequence</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>S<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Numbers in the sorted sequence</td>
+      </tr>
+      <td>1 &le; <b>Q</b> &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Quantity of queries</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>X<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Numbers that will be queried</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+8
+2 7 10 12 13 14 42 105
+7
+2
+105
+42
+28
+1
+13
+999
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+0
+7
+6
+-1
+-1
+4
+-1
+</pre>
+      </td>
+    </tr>
+    </table>
+
+
+<p>Explanation of the example:</p>
+
+<ul>
+  <li>2 is in position 0
+  <li>105 is in position 7
+  <li>42 is in position 6
+  <li>28 does not appear
+  <li>1 does not appear
+  <li>13 is in position 4
+  <li>999 does not appear
+</ul>
+    
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

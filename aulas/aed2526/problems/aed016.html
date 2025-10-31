@@ -1,0 +1,150 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED016] Word Game</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 25th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class03.html">class #03 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED016] Word Game</h2>
+
+<p><img align="right" src="aed016.png" width="320">
+  Little Susan has a new hobby: she likes to remove letters from a word to get another word. It's complicated for her, though, and her brother James always wants to help her.</p>
+
+<p>James gives Susan a word <b>A</b> so that she can reach the word <b>B</b> from it. Susan removes the letters from <b>A</b> in a certain order which is indicated by a permutation P of the indices of the word A. For example, if the word <b>A</b>="SUSAN" and the permutation <b>P</b>={4,1,3,2,5}, then Susan's letter removals make the following sequence of words:</p>
+
+<p>SUSAN
+&rarr;
+SUS<span style="color:red; text-decoration: line-through;">A</span>N
+&rarr;
+<span style="color:red; text-decoration: line-through;">S</span>US<span style="color:red; text-decoration: line-through;">A</span>N
+&rarr;
+<span style="color:red; text-decoration: line-through;">S</span>U<span style="color:red; text-decoration: line-through;">SA</span>N
+&rarr;
+<span style="color:red; text-decoration: line-through;">SUSA</span>N
+&rarr;
+<span style="color:red; text-decoration: line-through;">SUSAN</span>
+<p>
+  
+<p>James knows the permutation Susan is going to use. His goal is to stop his sister at some stage and continue to remove the letters himself until he reaches the <b>B</b> word. However, as Susan likes this hobby so much, he wants to stop his sister as late as possible. Your task is to determine how many letters can Susan remove until James needs to stop her.</p>
+
+<h3>The Problem</h3>
+
+<p>Given two strings <b>A</b> and <b>B</b> and a permutation <b>P</b> indicating the order in which Susan is going to remove the letters from <b>A</b>, your task is to compute how many letters can Susan remove such that from the remaining ones James can still obtain word <b>B</b> by removing zero or more letters.</p>
+  
+<h3>Input</h3>
+
+<p>The first line of the input contains the word <b>A</b>. The second line contains the word <b>B</b>. The third line contains a permutation of the valid indexes of <b>A</b> (i.e., a sequence of <b>|A|</b> distinct integers, in the range 1 to <b>|A|</b>). The words will always be sequences of lower case letters and it is guaranteed that it always be possible to obtain <b>B</b> from <b>A</b>.</p>
+
+<h3>Output</h3>
+
+<p>The output should consist of a single line containing the maximum number of letters that Susan can remove in the order given by the permutation so that from the remaining string James can still obtain the word <b>B</b> by eventually removing more letters, as previously explained before.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>|B|</b> &le; <b>|A|</b> &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Size of the words</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>P<sub>i</sub></b> &le; <b>|A|</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Integers in the permutation</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+ababcba
+abb
+5 3 4 1 7 6 2
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+3
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>We have the sequence
+ababcba
+&rarr; 
+abab<span style="color:red; text-decoration: line-through;">c</span>ba
+&rarr; 
+ab<span style="color:red; text-decoration: line-through;">a</span>b<span style="color:red; text-decoration: line-through;">c</span>ba
+&rarr; 
+ab<span style="color:red; text-decoration: line-through;">abc</span>ba
+<br>
+Susan cannot continue from here since we could not obtain abb from
+<span style="color:red; text-decoration: line-through;">a</span>b<span style="color:red; text-decoration: line-through;">abc</span>ba
+</p>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+bbbabb
+bb
+1 6 3 4 2 5
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+4
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>We have the sequence
+bbbabb
+&rarr; 
+<span style="color:red; text-decoration: line-through;">b</span>bbabb
+&rarr; 
+<span style="color:red; text-decoration: line-through;">b</span>bbab<span style="color:red; text-decoration: line-through;">b</span>
+&rarr; 
+<span style="color:red; text-decoration: line-through;">b</span>b<span style="color:red; text-decoration: line-through;">b</span>ab<span style="color:red; text-decoration: line-through;">b</span>
+&rarr; 
+<span style="color:red; text-decoration: line-through;">b</span>b<span style="color:red; text-decoration: line-through;">ba</span>b<span style="color:red; text-decoration: line-through;">b</span>
+<br>
+Susan cannot continue from here since we could not obtain bb from
+<span style="color:red; text-decoration: line-through;">bbba</span>b<span style="color:red; text-decoration: line-through;">b</span>
+</p>
+
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

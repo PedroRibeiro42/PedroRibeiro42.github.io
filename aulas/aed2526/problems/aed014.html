@@ -1,0 +1,125 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED014] Backpacking Trip</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 25th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class03.html">class #03 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED014] Backpacking Trip</h2>
+
+<p><img align="right" src="aed014.jpg">
+  Mary and and her friends have decided to take a trip to the Alps, where they'll be walking a beautiful mountain trail. As the trail is very long, they decided to carry their backpacks and camp for several nights along the way. For Mary, one of the best parts of the whole experience is planning the whole trip and she wants to make sure she chooses the best possible plan.</p>
+
+<p>Her friends already know where it's possible to camp each night, and they also know the distance in kilometres between the possible successive camping spots. Mary's aim is to divide the route into several days in order to minimise the distance they have to walk in a single day. Imagine, for example, that they want to split the following consecutive distances into four days:</p>
+
+<pre>7 9 3 8 2 2 9 4 3 4 7 9 9</pre>
+
+<p>One possible plan would be to partition the route into the following four parts:</p>
+
+<pre>7 9 3 | 8 2 2 | 9 4 3 | 4 7 9 9</pre>
+
+<p>In this partition, they would walk 19km on the first day (7+9+3), 12km on the second day (8+2+2), 16km on the third day (9+4+3) and 29km on the last day (4+7+9+9). The "cost" of this partition would be 29km, which is the longest distance in a single day.</p>
+
+<p>A better alternative would be as follows:</p>
+
+<pre>7 9 | 3 8 2 2 | 9 4 3 4 | 7 9 9</pre>
+
+<p>Now they would walk 16km, 15km, 20km and 25km each day, with the cost being 25km (the longest distance).</p>
+
+<p>However, this still isn't the optimal partition for four days of travelling... Moreover, Mary would also like to know how to split the journey if she wanted three or five days instead of four. Can you help her?</p>
+
+<h3>The Problem</h3>
+
+<p>Given a set of <b>N</b> distances, and <b>Q</b> queries, each indicating a number <b>K<sub>i</sub></b> of days, your task is to calculate, for each question, the optimal cost, i.e. which partition minimises the greatest distance in a single day, as explained above.
+
+<h3>Input</h3>
+
+<p>The first line of the input contains a single integer <b>N</b>, the number of distances to be considered. This is followed by a line with <b>N</b> integers <b>D<sub>i</sub></b>, indicating the distances between camping sites.</p>
+
+<p>The third line contains a number <b>Q</b>, indicating the number of queries. This is followed by <b>Q</b> lines, each with an integer <b>K<sub>i</sub></b> indicating the number of days Mary wishes to split the journey into.</p>
+
+<h3>Output</h3>
+
+<p>The output should consist of <b>Q</b> lines, one for each question, in the same order as in the input. Each of the lines should indicate the respective optimal cost, i.e. the shortest maximum distance of a partition in <b>K<sub>i</sub></b> days of the given distances.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 1&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Quantity of distances</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>D<sub>i</sub></b> &le; 1&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Distances</td>
+      </tr>
+      <td>1 &le; <b>Q</b> &le; 10</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Quantity of queries</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>K<sub>i</sub></b> &le; N</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of days in which to split the route</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+13
+7 9 3 8 2 2 9 4 3 4 7 9 9
+3
+4
+3
+5
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+21
+27
+18
+</pre>
+      </td>
+    </tr>
+    </table>
+
+
+<p>Explanation of the example:</p>
+
+<ul>
+  <li>For <b>K<sub>i</sub></b>=4 days, the answer is 21 and a possible partition is with that cost is <tt>7 9 3 | 8 2 2 9 | 4 3 4 7 | 9 9</tt>
+  <li>For <b>K<sub>i</sub></b>=3 days, the answer is 27 and a possible partition is with that cost is <tt>7 9 3 8 | 2 2 9 4 3 4 | 7 9 9</tt>
+  <li>For <b>K<sub>i</sub></b>=5 days, the answer is 18 and a possible partition is with that cost is <tt>7 9 | 3 8 2 2 | 9 4 3 | 4 7 | 9 9</tt>
+</ul>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

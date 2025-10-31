@@ -1,0 +1,108 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED015] Closest Sums</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 25th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class03.html">class #03 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED015] Closest Sums</h2>
+
+<h3>The Problem</h3>
+
+<p><img align="right" src="aed015.jpg">
+Given a set <b>S</b> of <b>N</b> integers, and a sequence of <b>Q</b> queries, each indicating a number <i>X<sub>i</sub></i>, your task is to find out which sum of two different numbers from <b>S</b> is closest to the number <b>X<sub>i</sub></b> in each question.</p>
+  
+
+<h3>Input</h3>
+
+<p>The first line of the input contains a single number indicating <b>N</b>, the size of the set <b>S</b> of numbers. The second line contains the numbers <b>S<sub>i</sub></b> in the set (it is guaranteed that they are all distinct numbers).</p>
+
+<p>The third line contains a number <b>Q</b>, indicating the number of questions, followed on the fourth line by the <b>X<sub>i</sub></b> numbers for each question.</p>
+
+<h3>Output</h3>
+
+<p>The output should consist of <b>Q</b> lines, one for each question, in the same order as in the input. Each line should indicate the sum closest to the respective question. If there are two distinct sums at the same minimum distance, both should be shown, in ascending order and separated by a space.</b>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>2 &le; <b>N</b> &le; 1&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Size of the set of numbers</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>S<sub>i</sub></b> &le; 10<sup>6</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Integers in the set</td>
+      </tr>
+      <td>1 &le; <b>Q</b> &le; 10&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Quantity of queries</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>X<sub>i</sub></b> &le; 10<sup>6</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number in each query</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+6
+12 3 17 5 34 33
+4
+1 51 41 21
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+8
+51
+39
+20 22
+</pre>
+      </td>
+    </tr>
+    </table>
+
+
+<p>Explanation of the example:</p>
+
+<p>In this case we have S = {3,5,12,17,33,34} and 4 queries
+
+<ul>
+  <li>For query 1, the answer is 8 (3+5), the sum that is closes to 1.
+  <li>For query 51, the answer is 51 (17+34).
+  <li>For query 41, the answer is 39 (5+34).   
+  <li>For query 21, the answer is 20 (3+17) and 22 (5+17), both at the same distance from 21.
+</ul>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED013] Interval Count</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 25th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class03.html">class #03 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED013] Interval Count</h2>
+
+<p><img align="right" src="aed013.jpg" border="0" width="200">Tom really likes sorted integer sequences and he now needs your help for counting elements.
+</p>
+
+
+<h3>The Problem</h3>
+
+<p>Given a sorted sequence of <b>N</b> integer numbers and <b>Q</b> queries, each one indicating an interval range to search for, your task is to find how many numbers in the sequence are in the queried interval.</p>
+
+<h3>Input</h3>
+
+<p>The first line of input contains an integer <b>N</b>, the quantity of numbers in the sorted sequence. The second line contains the sequence itself with <b>N</b> space separated integers (we denote each one by <b>S<sub>i</sub></b>). It is guaranteed that these come in increasing order, but there might be repeated numbers.</p>
+
+<p>The third line contains an integer <b>Q</b>, the quantity of queries to consider. Each of the following <b>Q</b> lines contains a query in the form of two integers two integers <b>A<sub>i</sub></b> and <b>B<sub>i</sub></b>, indicating we are considering the interval [<b>A<sub>i</sub></b>, <b>B<sub>i</sub></b>].</b>
+
+<h3>Output</h3>
+
+<p>The output should contain exactly <b>Q</b> lines. The <i>i</i>-th line should contain amount of numbers in the sequence that are in the interval [<b>A<sub>i</sub></b>, <b>B<sub>i</sub></b>], that is, how many <b>S<sub>j</sub></b> sequence numbers exist such that <b>A<sub>i</sub></b>&nbsp;&le;&nbsp;<b>S<sub>j</sub></b>&nbsp;&le;&nbsp;<b>B<sub>i</sub></b>.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Quantity of numbers in the sequence</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>S<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Numbers in the sorted sequence</td>
+      </tr>
+      <td>1 &le; <b>Q</b> &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Quantity of queries</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>A<sub>i</sub></b> &le; <b>B<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Intervals that will be queried</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+10
+2 2 2 3 5 5 8 8 8 8
+5
+1 9
+3 5
+4 7
+6 7
+1 1
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+10
+3
+2
+0
+0
+</pre>
+      </td>
+    </tr>
+    </table>
+
+
+<p>Explanation of the example:</p>
+
+<ul>
+  <li>All 10 numbers are in [1,9]
+  <li>3 numbers are in [3,5]
+  <li>2 numbers are in [4,7]
+  <li>no number is in [6,7]
+  <li>no number is in [1,1]
+</ul>
+    
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

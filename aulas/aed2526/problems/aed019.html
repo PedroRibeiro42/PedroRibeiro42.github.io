@@ -1,0 +1,103 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED019] Counting the Bits</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED019] Counting the Bits</h2>
+
+<p><img align="right" src="aed019.jpg" width="300">
+Count von Count has just found out that he can compute the number of 1 bits in a number! He needs your help to sort a set of numbers based on this.</p>
+ 
+<h3>The Problem</h3>
+
+<p>Given <b>N</b> distinct integers, your task is to sort them in descending order according to the number of 1's in their binary representation. If two numbers have the same number of 1's, you have to sort them in ascending order of their value.</p>
+  
+<h3>Input</h3>
+
+<p>The first input line contains an integer <b>N</b>: the amount of numbers to consider.</p>
+
+<p>The second line contains <b>N</b> distinct integers <b>X<sub>1</sub> X<sub>2</sub> ... X<sub>N</sub></b>, the numbers you want to sort.</p>
+
+<h3>Output</h3>
+
+<p>The output should consist of <b>N</b> lines, containing the numbers sorted in the indicated order (one number per line).</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Amount of numbers</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>X<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number values</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+8
+5 2 15 3 9 4 6 7
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+15
+7
+3
+5
+6
+9
+2
+4
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>The binary representation of each number in the input is:
+  <ul>
+    <li>15: 1111 <span style="color:#444444;"><i>(four 1's)</i></span>
+    <li>7: 0111 <span style="color:#444444;"><i>(three 1's)</i></span>
+    <li>3: 0011 <span style="color:#444444;"><i>(two 1's)</i></span>
+    <li>5: 0101 <span style="color:#444444;"><i>(two 1's)</i></span>
+    <li>6: 0110 <span style="color:#444444;"><i>(two 1's)</i></span>
+    <li>9: 1001 <span style="color:#444444;"><i>(two 1's)</i></span>
+    <li>2: 0010 <span style="color:#444444;"><i>(one 1)</i></span>
+    <li>4: 0100 <span style="color:#444444;"><i>(one 1)</i></span>
+  </ul>
+
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

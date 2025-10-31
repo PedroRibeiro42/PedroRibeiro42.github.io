@@ -1,0 +1,129 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED006] Bakugans</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 18th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class02.html">class #02 exercise sheet</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[AED006] Bakugans</h2>
+
+<p><img align="right" src="aed006.png" border="1">
+Bakugans are small spheres that, when placed on special cards, open up and transform into different creatures, such as a dragon or a scorpion. Each Bakugan has a certain amount of G energy associated with it, which is then used when they battle to find out which one is the strongest. For example, we may have one Bakugan with 300G, another with 400G and another with 500G, in which case the strongest of the three would be the one with 500G.</p>
+
+<p>Little Sam loves his Bakugans and decided to line them all up so he could take several photos and show them to his friends. As one photo cannot capture all the Bakugans, he decided that he only wanted to show the photos that captured the strongest Bakugans, with the most energy, but he needs your help to calculate the energy present in each photo.</p>
+
+<p>The layout of the Bakugans can be thought of as a sequence of integers describing the energy of each one. For example, the following sequence represents 10 Bakugans arranged in a row:</p>
+
+<pre>
+<b>Position:</b><span style="color:blue">    1   2   3   4   5   6   7   8   9  10</span>
+<b>Bakugans:</b>  100 200 300 100 400 100 500 600 200 300</pre>
+
+<p>Each photo is described by a contiguous subsequence of Bakugans, identified by their starting positions. For example, a photo between positions 2 and 6 would correspond to::</p>
+
+<pre>
+<b>Position:</b><span style="color:blue">    1   2   3   4   5   6   7   8   9  10</span>
+<b>Bakugans:</b>  100 <span style="color:red"><b>200 300 100 400 100</b></span> 500 600 200 300   <i>(energy on the photo = 200 + 300 + 100 + 400 + 100 = 1100)</i></pre> 
+
+<p>In this case, the total energy of the photo (corresponding to the sum of the energies of the Bakugans that appear in it) would be 1100. Can you help Sam find out the energy present in each of his photos?</p>
+  
+<h3>The Problem</h3>
+
+<p>Given a sequence of <b>N</b> Bakugans, described by the energies <b>E<sub>i</sub></b> of each one, as well as a series of <b>P</b> photos, each indicating that it contains the Bakugans between positions <b>A<sub>i</sub></b> and <b>B<sub>i</sub></b>, your task is to calculate, for each photo, the sum of the energies of the Bakugans with positions in the interval <b>[A<sub>i</sub>, B<sub>i</sub>]</b>.</p>
+
+<h3>Input</h3>
+
+<p>The first line contains a single integer <b>N</b>, the number of Bakugans. The second line contains <b>N</b> space-separated integers <b>E<sub>i</sub></b>, the energy values of the sequence of Bakugans.</p>
+
+<p>The third line contains a single integer <b>P</b>, the number of photos. The next <b>P</b> lines describe the photos, one per line, each one containing two integers <b>A<sub>i</sub> B<sub>i</sub></b> representing the initial and final position of the corresponding photo.</p>
+
+<h3>Output</h3>
+
+<p>The output should contain <b>P</b> lines, one per photo. The <i>i</i>-th line should contain a single integer representing the sum of the energies on the positions between <b>A<sub>i</sub></b> and <b>B<sub>i</sub></b>, inclusive.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 200&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of Bakugans</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>E<sub>i</sub></b> &le; 1&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Energy of each Bakugan</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>P</b> &le; 200&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of photos</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>A<sub>i</sub></b> &le; <b>B<sub>i</sub></b> &le; <b>N</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Initial and final position of each photo</td>
+      </tr>            
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+10
+100 200 300 100 400 100 500 600 200 300
+5
+2 6
+1 10
+7 7
+4 8
+3 9
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+1100
+2800
+500
+1700
+2200
+</pre>
+      </td>
+    </tr>
+</table>
+
+<p><b>Explanation of example input/output</b></p>
+
+<ul>
+<li>The first photo shows the Bakugan in positions 2 to 6 and has a total energy of 1100 = 200 + 300 + 100 + 400 + 100.
+<li>The second photo shows all the Bakugan (positions 1 to 10) and has a total energy of 2800.
+<li>The third photo contains only the Bakugan in position 7, which has an energy of 500.
+<li>The fourth photo contains the Bakugans in positions 4 to 8 (with a total energy of 1700).
+<li>The fifth photo contains the Bakugans in positions 3 to 9 (with a total energy of 2200). 
+</ul>    
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

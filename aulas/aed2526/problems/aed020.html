@@ -1,0 +1,128 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED020] Computer Lab</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED020] Computer Lab</h2>
+
+<p><img align="right" src="aed020.jpg" width="350">
+  The largest computer lab in your university is being intensively used by the students trying to solve all problems. You keep a record of the (distinct) arrival and leaving times of each student and you would like to know the maximum number of students that were at the lab at the same time.</p>
+
+<p>Imagine you have three students:</p>
+
+<ul>
+  <li><span style="color:#0000FF">Student 1: arrives at 1, leaves at 4</span>
+  <li><span style="color:#006100">Student 2: arrives at 6, leaves at 8</span>
+  <li><span style="color:#FF0000">Student 3: arrives at 2, leaves at 9</span>
+</ul>
+
+<p>This corresponds to the figure below and the maximum number of students at the same time in the lab is 2 (in interval [2,4] students <span style="color:#0000FF">1</span> and <span style="color:#FF0000">3</span> and in interval [6,8] students <span style="color:#006100">2</span> and <span style="color:#FF0000">3</span>)
+
+<p><img src="aed020_f1.png" width="300"></p>
+
+<h3>The Problem</h3>
+
+<p>Given the (all distinct) arrival and leaving times of <b>N</b> students, your task is to determine what is the maximum number of students that were in the lab at the same time.</p>
+  
+<h3>Input</h3>
+
+<p>The first input line contains an integer <b>N</b>: the number of students to consider.</p>
+
+<p>The following <b>N</b> lines give the arrival time <b>A<sub>i</sub></b> and the leaving time <b>L<sub>i</sub></b> of the students. You may assume that all arrival and leaving times are distinct integers.</p>
+
+<h3>Output</h3>
+
+<p>The output should be a line containing the maximum number of students that were in the lab at the same time.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 2 &times; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of students</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>A<sub>i</sub></b> &lt; <b>L<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Arrival and leaving times</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+3
+1 4
+6 8
+2 9
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+2
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>The first example corresponds to the figure given in the problem statement.</p>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+5
+5 9
+7 10
+2 6
+1 3
+4 8
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+3
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>The second example corresponds to the following figure (with a maximum of 3 students at the same time):</p>
+
+<p><img src="aed020_f2.png" width="300"></p>
+  
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

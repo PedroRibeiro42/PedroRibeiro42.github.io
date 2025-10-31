@@ -1,0 +1,89 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED023] Chocolate Boxes</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED023] Chocolate Boxes</h2>
+
+<p><img align="right" src="aed023.jpg" width="350">
+  John has <b>N</b> chocolate boxes available, each one with a certain amount of chocolates <b>C<sub>i</sub></b>. He wants to give one chocolate box to each of his friends, but since he wants to be as fair as possible he wants to choose which boxes to give in a way such that it <b>minimizes the difference between the lowest and the highest number of chocolates a friend receives</b>.</p>
+
+<p>Can you help John discover how to do this and what is the smallest possible difference?</p>
+
+<h3>The Problem</h3>
+
+<p>Given a set of <b>N</b> chocolate boxes, the amount of chocolates <b>C<sub>i</sub></b> on each one and a number <b>K</b> of friends, your task is to compute the smallest possible difference between the lowest and the highest number of chocolates a friend receives if John gives exactly one box of chocolate to each of his <b>K</b> friends.</p>
+  
+<h3>Input</h3>
+
+<p>The first input line contains two integers <b>N</b> (the amount of chocolate boxes) and <b>K</b> (the amount of friends).</p>
+
+<p>The second line contains <b>N</b> space separated integers indicating the amount of chocolates in each box.</p>
+
+<h3>Output</h3>
+
+<p>The output should be a single line containing the smallest possible difference as previously described.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>2 &le; <b>K</b> &le; <b>N</b> &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Amount of friends and chocolate boxes</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>C<sub>i</sub></b> &le; 10<sup>6</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Amount of chocolates in one box</td>
+      </tr>
+            
+    </table>
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+8 5
+7 5 1 4 4 6 5 9
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+2
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>John could give the following boxes: {4,4,5,5,6} (with a difference of 6-4 = 2)
+
+
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

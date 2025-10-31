@@ -1,0 +1,119 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED018] Game Tournament</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED018] Game Tournament</h2>
+
+<p><img align="right" src="aed018.jpg" width="320">
+You really love Algorithmology, the new game from Data Structures Inc, which is making quite an entrance on the competitive gaming scene, with tournaments appearing all over the world. You are particularly interested in the Major Championships (known as the majors) that will be held next month and will determine the world champion. Based on the results of previous tournaments, you have a secret formula that allows to compute the exact skill level of each player, and you now want to determine what the top of the ranking in the majors will look like.</p>
+ 
+<h3>The Problem</h3>
+
+<p>Given the (distinct) skill levels <b>S<sub>i</sub></b> of <b>N</b> players that will compete in the majors, your task is to compute the top <b>K</b> ranked players, that is the <b>K</b> highest values.</p>
+  
+<h3>Input</h3>
+
+<p>The first line of the input contains two integers: <b>N</b> (the number of players) and <b>K</b> (the amount of top players you want to compute).</p>
+
+<p>The second line contains <b>S<sub>1</sub> S<sub>2</sub> ... S<sub>N</sub></b>, that is, <b>N</b> distinct integers indicating the skill level of the <b>N</b> competitors.</p>
+
+<h3>Output</h3>
+
+<p>The output should consist of <b>K</b> lines, indicating the <b>K</b> highest skill levels, sorted in decreasing order.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Amount of Players</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>K</b> &le; <b>N</b></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Amount of top players you want to know</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>S<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Skill levels</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+8 3
+12 42 7 3 9 5 10 15
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+42
+15
+12
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+10 5
+63 84 47 4 31 50 25 70 6 48
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+84
+70
+63
+50
+48
+</pre>
+      </td>
+    </tr>
+    </table>
+
+
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

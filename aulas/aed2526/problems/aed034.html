@@ -1,0 +1,155 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED034] Perfect Weddings</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 22nd</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class06.html">class #06 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED034] Perfect Weddings</h2>
+
+<p><font color="#777777"><i>(this problem is an adaptation from a ToPAS'2010 problem)</i></font></p>
+
+<p><img align="right" src="aed034.png" width="300">It's St Anthony's Day in the kingdom of expressions, and the parentheses <tt>()</tt>, brackets <tt>[]</tt> and braces <tt>{}</tt> are thrilled to be getting married. However, they still need to find their date. The grooms will wait in orderly fashion for their brides and, in order not to create too much confusion, will leave as soon as they arrive. As they are modern people, they will even use a computer program to control this process.</p>
+  
+<h3>The Problem</h3>
+
+<p>Given an expression that might contain parentheses, brackets and braces, your task is to check if the expression is well formed in terms of pairs of (), [] and {} (the brides and grooms).</p>
+
+<h3>Input</h3>
+
+<p>The input will consist of a single line containing an expression <b>E</b>. The only characters on this line will be digits (<tt>0</tt> to <tt>9</tt>), lower case letters (<tt>a</tt> to <tt>z</tt>), operators (<tt>+</tt>, <tt>-</tt>, <tt>*</tt>, <tt>/</tt>) and parentheses <tt>()</tt>, brackets <tt>[]</tt> or braces <tt>{}</tt>.</p>
+
+<h3>Output</h3>
+
+<p>If all the pairs are well matched, you should print the type of each pair - <tt>()</tt>, <tt>[]</tt> or <tt>{}</tt> - and the respective opening and closing positions in the expressions (starting at 0). One line should be printed for each pair, in the order of closure (the second number is strictly ascending).</p>
+
+<p>If any of the pairs are badly matched, you should only print a line saying <tt>"badly matched pairs"</tt>.</p>
+
+<p>If the expression contains no parentheses, brackets or braces, you should print a line saying <tt>"no brides and grooms to marry"</tt>.
+
+<p>There is no need to validate the expression other than the matching of parentheses, brackets and braces.</p>
+
+<p>In the output, the integer positions are separated from the pair type by a space, but the parentheses, brackets or curly braces have no separator between them.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>|E|</b> &le; 1000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of characters in the expression</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+3(x+2)-4{x+[2y-(27-z)+8w]}-1
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+() 1 5
+() 15 20
+[] 11 24
+{} 8 25
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+2(x+3]
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+badly matched pairs
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 3</td>
+      <td>Example Output 3</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+2(x+3)+2)
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+badly matched pairs
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 4</td>
+      <td>Example Output 4</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+2x+4y+7
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+no brides and grooms to marry
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

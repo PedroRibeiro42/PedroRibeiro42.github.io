@@ -1,0 +1,121 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED003] Space Oddity</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 11th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class01.html">class #01 exercise sheet</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[AED003] Space Oddity</h2>
+
+<p><img align="right" src="aed003.png" border="1">
+The radio crackles, and <a href="https://genius.com/David-bowie-space-oddity-lyrics">Major Tom</a> drifts weightlessly inside his capsule. Earth is a blue planet far behind him, and the stars shine silently all around. The farther he floats, the stranger he feels an <i>odd</i> sensation he cannot quite explain.
+</p>
+
+<p>As if reading his thoughts, Mission Control transmits a sequence of numbers. To them, it's just routine telemetry. But Major Tom interprets the message differently: to him, the odd numbers in the list resonate with his lonely strangeness, while the even numbers fade into the background like static in the void.</p>
+
+<p>He wonders: how many odd signals are hidden in the transmission? And what is the last odd number he can cling to, before drifting deeper into the great unknown?</p>
+
+<p>Your task is to help Major Tom decipher the message before he loses contact.</p>
+
+<h3>The Problem</h3>
+
+<p>Given a sequence of positive integers, count how many of them are odd and output both that count and the last odd number in the sequence.</p>
+
+<h3>Input</h3>
+
+<p>The first line contains a single integer <b>N</b>, the number of integers in the sequence.</p>
+
+<p>The second line contains <b>N</b> space-separated integers <b>a<sub>i</sub></b>, .</p>
+
+<h3>Output</h3>
+
+<p>The output should be a line with two integers separated by a space:</p>
+
+<ul>
+  <li>The count of odd numbers in the sequence.
+  <li>The last odd number in the sequece.
+</ul>
+
+<p>If there are no odd numbers, output <code>0 -1</code>.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Size of sequence</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>a<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Numbers in the sequence</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+5
+42 17 8 23 100
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+2 23
+</pre>
+      </td>
+    </tr>
+</table>
+
+<p>There are two odd numbers (17 and 23) and the last one is 23.</p>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+4
+2 4 6 8
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+0 -1
+</pre>
+      </td>
+    </tr>
+</table>
+
+<p>There are no odd numbers.</p>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

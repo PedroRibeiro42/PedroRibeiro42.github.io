@@ -1,0 +1,134 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED017] Coloring Squares</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 25th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class03.html">class #03 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED017] Coloring Squares</h2>
+
+<p><img align="right" src="aed017.jpg">
+  Sarah has a deep and inexplicable love for her squared notebook. While others binge-watch shows or scroll endlessly through social media, Sarah prefer coloring squares in a grid.</p>
+
+<p>One day she decided to start a new hobby: shading squares with her pencil following some very peculiar rules. Starting from a single shaded square on the first line, she applies the following transformations for every square in each new line:</p>
+
+<ul>
+  <li><img src="aed017_f1.png">
+  <li><img src="aed017_f2.png">
+</ul>
+
+
+<p>So, the very first line begins with only one shaded square. From there, Sarah applies her rules line by line, creating patterns that look suspiciously like she’s inventing her own cryptographic art style. Below you can see how the first three lines turn out:</p>
+
+<p><img src="aed017_f3.png"></p>
+
+<p>Sarah found the resulting patterns so beautiful that she couldn’t resist... counting squares! She picks a segment of one line and counts how many shaded squares it contains.</p>
+
+<p>For example, between positions 3 and 7 of line 3, there are exactly 2 shaded squares:</p>
+
+<p><img src="aed017_f4.png"></p>
+
+<p>But soon Sarah realized that counting shaded squares by hand was extremely exhausting, and she’d rather keep her energy for sharpening pencils. That’s where you come in.</p>
+  
+<h3>The Problem</h3>
+
+<p>Given Sarah's rules (starting with a single shaded square in the first line), your task is to answer several queries of the form:
+
+<p>On line number <b>K</b>, how many squares are shaded between positions <b>A</b> and </b>B (inclusive)?</p>
+  
+<h3>Input</h3>
+
+<p>The first line contains a single integer <b>Q</b>, the number of queries.</p>
+
+<p>Each of the next <b>Q</b> lines contains three integers <b>K A B</b>, representing the interval <b>[A,B]</b> on line <b>K</b>. You may assume all positions are valid for the line in question, that is, they are within its limits.</p>
+
+
+<h3>Output</h3>
+
+<p>For each of the <b>Q</b> queries, output a single line with the number of shaded squares between positions <b>A</b> and <b>B</b> on line <b>K</b>.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>Q</b> &le; 1&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of Queries</td>
+      </tr>      
+      <tr>
+        <td>1 &le; <b>K</b> &le; 1&nbsp;000</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Line of the squared notebook</td>
+      </tr>
+<tr>
+        <td>1 &le; <b>A</b> &le; <b>B</b> &le; 10<sup>16</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Poositions on the line for one query</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+5
+3 3 7
+3 1 8
+2 1 1
+5 27 41
+4 9 12
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+2
+4
+1
+5
+0
+</pre>
+      </td>
+    </tr>
+    </table>
+
+
+<p>Explanation of the example</p>
+
+<p>Below are the segments corresponding to each of the queries:</p>
+
+<ul>
+  <li><b>3 3 7</b>: positions 3 to 7 of line 3 (2 shaded squares) <img src="aed017_input1.png"><br>&nbsp;</li>
+  <li><b>3 1 8</b>: positions 1 to 8 of line 3 (4 shaded squares) <img src="aed017_input2.png"><br>&nbsp;</li>
+  <li><b>2 1 1</b>: positions 1 to 1 of line 2 (1 shaded square) <img src="aed017_input3.png"><br>&nbsp;</li>
+  <li><b>5 27 41</b>: positions 27 to 41 of line 5 (5 shaded squares) <img src="aed017_input4.png"><br>&nbsp;</li>
+  <li><b>4 9 12</b>: positions 9 to 12 of line 4 (0 shaded squares) <img src="aed017_input5.png"><br>&nbsp;</li>
+</ul>
+
+<hr size="2">
+<center><i>(this is an adaptation from a <a target="_blank" href="https://oni.dcc.fc.up.pt/">National Olympiad in Informatics</a> problem)</i><br>&nbsp;</center>
+
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

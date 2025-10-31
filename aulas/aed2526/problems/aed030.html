@@ -1,0 +1,139 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED030] Duplicating elements</title>
+  <style>
+    .function {
+        color: black;
+        background: #eeeeee;
+        margin: 2px;
+        padding: 2px;
+        border: 1px dashed black;
+    }
+  </style>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2><img align="right" src="sllist.png" width="600">
+  [AED030] Duplicating elements</h2>
+
+<p style="color:red">In this problem you should only submit a <b>singlyLinkedList.h</b> file with a self-containing definition of a class SinglyLinkedList&lt;T&gt;</p>
+
+<h3>Base Code</h3>
+
+<p>
+  Use as a basis the class SinglyLinkedList&lt;T&gt; (<a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/singlyLinkedList.html">see code</a> | <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/singlyLinkedList.h">download code</a>) which implements a generic singly linked list similar to what was done on classes, with methods to add and remove an element in the end, return the size, knowing if the list is empty or printing the list.</p>
+
+<h3>The Problem</h3>
+
+<p>Add a new method <span class="function">void duplicate()</span> to the class. The function should <b>duplicate all elements</b>. For instance, the list {1,2,3} should become {1,1,2,2,3,3} and the list {'a','b'} should become {'a','a','b','b'}.</p>
+
+<h3>Submission</h3>
+
+<p>You should submit the file <i>singlyLinkedList.h</i> with the method <b>duplicate</b> added to SinglyLinkedList&lt;T&gt; as requested (<b>and without removing any of the other existing methods</b>). You can however create additional methods, if you need them.</p>
+
+<p>Mooshak will use the following code to link to your class, read the inputs, build the lists and call your method, printing its result.</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;iostream&gt;</span>
+<span style="color: #557799">#include &lt;string&gt;</span>
+
+<span style="color: #557799">#include &quot;singlyLinkedList.h&quot;</span>
+
+<span style="color: #888888">// Read n and then n elements to add to the list using addFirst, followed by</span>
+<span style="color: #888888">// a call to duplicate</span>
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+<span style="color: #333399; font-weight: bold">void</span> read() {
+  <span style="color: #333399; font-weight: bold">int</span> n;
+  std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> n;
+  SinglyLinkedList<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> lst;
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">++</span>) {
+    T v;
+    std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> v;
+    lst.addFirst(v);
+  }
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;lst = &quot;</span> <span style="color: #333333">&lt;&lt;</span> lst.toString() <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; | size = &quot;</span> <span style="color: #333333">&lt;&lt;</span> lst.size() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;  
+  lst.duplicate();
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;lst = &quot;</span> <span style="color: #333333">&lt;&lt;</span> lst.toString() <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; | size = &quot;</span> <span style="color: #333333">&lt;&lt;</span> lst.size() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;-------------------------&quot;</span> <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+}
+
+<span style="color: #333399; font-weight: bold">int</span> main() {
+
+  <span style="color: #333399; font-weight: bold">int</span> n;
+  std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> n;
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">++</span>) {
+    std<span style="color: #333333">::</span>string type;
+    std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> type;
+    <span style="color: #008800; font-weight: bold">if</span> (type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;int&quot;</span>) read<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">&gt;</span>();
+    <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> (type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;char&quot;</span>) read<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">char</span><span style="color: #333333">&gt;</span>();
+    <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> (type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;string&quot;</span>) read<span style="color: #333333">&lt;</span>std<span style="color: #333333">::</span>string<span style="color: #333333">&gt;</span>();
+  }
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>4
+
+int 3
+3 2 1
+
+char 2
+b a
+
+string 4
+cool very is programming
+
+int 0
+
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+lst = {1,2,3} | size = 3
+lst = {1,1,2,2,3,3} | size = 6
+-------------------------
+lst = {a,b} | size = 2
+lst = {a,a,b,b} | size = 4
+-------------------------
+lst = {programming,is,very,cool} | size = 4
+lst = {programming,programming,is,is,very,very,cool,cool} | size = 8
+-------------------------
+lst = {} | size = 0
+lst = {} | size = 0
+-------------------------
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

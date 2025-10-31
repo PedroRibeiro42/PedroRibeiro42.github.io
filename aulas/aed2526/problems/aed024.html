@@ -1,0 +1,119 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED024] Ferris Wheel</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 1st</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class04.html">class #04 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED024] Ferris Wheel</h2>
+
+<p><img align="right" src="aed024.jpg" width="350">
+  There are <b>N</b> children that want to go to a ferris wheel and you need to allocate passenger cabin for each one.</p>
+
+<p>You know the weight <b>W<sub>i</sub></b> of each child and you know the maximum total weight <b>K</b> of a single cabin. You also know that each cabin can take at most two children (but it might also just take one), as long the total weight on it does not exceed <b>K</b>.</p>
+
+<p>What is the minimum number of cabins you need for all the children?</p>
+
+<h3>The Problem</h3>
+
+<p>Given a set of <b>N</b> children and their weights, and also the weight capacity of each cabin in the ferris wheel, your task is to find the minimum number of cabins needed to transport all the children.</p>
+  
+<h3>Input</h3>
+
+<p>The first input line contains two integers <b>N</b> (the amount of children) and <b>K</b> (the maximum weight on a single cabin).</p>
+
+<p>The second line contains <b>N</b> space separated integers indicating the weight of each child.</p>
+
+<h3>Output</h3>
+
+<p>The output should be a single line containing the minimum number of cabins needed.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 2 &times; 10<sup>5</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of children </td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>K</b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Maximum weight in a cabin</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>W<sub>i</sub></b> &le; K</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Weight of each child</td>
+      </tr>
+            
+    </table>
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+8 10
+8 2 9 3 1 6 8 4
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+5
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>We could use for instance the following 5 cabins: (1,9) (2,8) (3,6) (4) (8)</p>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+8 11
+8 2 9 3 1 6 8 4
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+4
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>We could use for instance the following 4 cabins: (1,9) (2,8) (3,8) (4,6)</p>
+
+
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

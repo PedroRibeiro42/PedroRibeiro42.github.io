@@ -1,0 +1,162 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED031] Removing all occurrences of an element</title>
+  <style>
+    .function {
+        color: black;
+        background: #eeeeee;
+        margin: 2px;
+        padding: 2px;
+        border: 1px dashed black;
+    }
+  </style>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 8th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class05.html">class #05 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2><img align="right" src="sllist.png" width="600">
+  [AED031] Removing all occurrences of an element</h2>
+
+<p style="color:red">In this problem you should only submit a <b>singlyLinkedList.h</b> file with a self-containing definition of a class SinglyLinkedList&lt;T&gt;</p>
+
+<h3>Base Code</h3>
+
+<p>
+  Use as a basis the class SinglyLinkedList&lt;T&gt; (<a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/singlyLinkedList.html">see code</a> | <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/singlyLinkedList.h">download code</a>) which implements a generic singly linked list similar to what was done on classes, with methods to add and remove an element in the end, return the size, knowing if the list is empty or printing the list.</p>
+
+<h3>The Problem</h3>
+
+<p>Add a new method <span class="function">void removeAll(const T & v)</span> to the class. The function should <b>remove all occurrences of value <i>v</i></b>. Your method should have <b>linear time complexity in the size of the list</b> in order to pass the last test.</p>
+
+<h3>Submission</h3>
+
+<p>You should submit the file <i>singlyLinkedList.h</i> with the method <b>removeAll</b> added to SinglyLinkedList&lt;T&gt; as requested (<b>and without removing any of the other existing methods</b>). You can however create additional methods, if you need them.</p>
+
+<p>Mooshak will use the following code to link to your class, read the inputs, build the lists and call your method, printing its result.</p>
+
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;iostream&gt;</span>
+<span style="color: #557799">#include &lt;string&gt;</span>
+
+<span style="color: #557799">#include &quot;singlyLinkedList.h&quot;</span>
+
+<span style="color: #888888">// Read n and then n elements to add to the list using addFirst, followed by</span>
+<span style="color: #888888">// Read q and then q queries q_i to call removeAll(q_i)</span>
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+<span style="color: #333399; font-weight: bold">void</span> read() {
+  <span style="color: #333399; font-weight: bold">int</span> n;
+  std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> n;
+  SinglyLinkedList<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> lst;
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">++</span>) {
+    T v;
+    std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> v;
+    lst.addFirst(v);
+  }
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;lst = &quot;</span> <span style="color: #333333">&lt;&lt;</span> lst.toString() <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; | size = &quot;</span> <span style="color: #333333">&lt;&lt;</span> lst.size() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> n;
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">++</span>) {
+    T q;
+    std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> q;
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;lst.removeAll(&quot;</span> <span style="color: #333333">&lt;&lt;</span> q <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;)&quot;</span> <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+    lst.removeAll(q);
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;lst = &quot;</span> <span style="color: #333333">&lt;&lt;</span> lst.toString() <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; | size = &quot;</span> <span style="color: #333333">&lt;&lt;</span> lst.size() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  }
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;-------------------------&quot;</span> <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+}
+
+<span style="color: #333399; font-weight: bold">int</span> main() {
+
+  <span style="color: #333399; font-weight: bold">int</span> n;
+  std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> n;
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">++</span>) {
+    std<span style="color: #333333">::</span>string type;
+    std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> type;
+    <span style="color: #008800; font-weight: bold">if</span> (type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;int&quot;</span>) read<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">&gt;</span>();
+    <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> (type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;char&quot;</span>) read<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">char</span><span style="color: #333333">&gt;</span>();
+    <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> (type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;string&quot;</span>) read<span style="color: #333333">&lt;</span>std<span style="color: #333333">::</span>string<span style="color: #333333">&gt;</span>();
+  }
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input</td>
+      <td>Example Output</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>3
+
+int 7
+1 2 3 1 1 4 1
+5
+5 1 2 3 4
+
+char 8
+a b b c d d d f
+3
+b d c
+
+string 4
+hello hello hello hello
+2
+hello
+hello
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+lst = {1,4,1,1,3,2,1} | size = 7
+lst.removeAll(5)
+lst = {1,4,1,1,3,2,1} | size = 7
+lst.removeAll(1)
+lst = {4,3,2} | size = 3
+lst.removeAll(2)
+lst = {4,3} | size = 2
+lst.removeAll(3)
+lst = {4} | size = 1
+lst.removeAll(4)
+lst = {} | size = 0
+-------------------------
+lst = {f,d,d,d,c,b,b,a} | size = 8
+lst.removeAll(b)
+lst = {f,d,d,d,c,a} | size = 6
+lst.removeAll(d)
+lst = {f,c,a} | size = 3
+lst.removeAll(c)
+lst = {f,a} | size = 2
+-------------------------
+lst = {hello,hello,hello,hello} | size = 4
+lst.removeAll(hello)
+lst = {} | size = 0
+lst.removeAll(hello)
+lst = {} | size = 0
+-------------------------
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

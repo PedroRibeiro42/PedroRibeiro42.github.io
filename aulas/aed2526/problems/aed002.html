@@ -1,0 +1,118 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED002] Unlucky Numbers</title>
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of October 11th</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class01.html">class #01 exercise sheet</a>]</b></small></p>
+  
+<hr>
+  
+<h2>[AED002] Unlucky Numbers</h2>
+
+<p><img align="right" src="aed002.png" border="1">Many cultures consider certain numbers <i>"unlucky"</i>. For example, in several european countries the number <b>13</b> is seen as a symbol of bad luck, while in many asian countries the number <b>4</b> is avoided due to its similarity in pronunciation to the word for "death".</b>
+</p>
+
+<p>In this problem, you will be given a list of integers and a specific unlucky number and you need to filter out all occurrences of the unlucky number.</p>
+ 
+<h3>The Problem</h3>
+
+<p>Given a list of <b>N</b> integers and an unlucky number <b>X</b>, count how many integers are different from <b>X</b> and then output those numbers in their original order in the list.</p>
+
+<h3>Input</h3>
+
+<p>The first line contains two integers <b>N</b> and <b>X</b>, where <b>N</b> is the number of integers in the list and <b>X</b> is the unlucky number.</p>
+
+<p>The second line contains <b>N</b> space-separated integers <b>a<sub>i</sub></b>, representing the list. It is guaranteed that <b>at least one of the integers will not be unlucky</b>.</p>
+
+<h3>Output</h3>
+
+<p>The first line must contain a single integer: the number of integers in the list that are not equal to <b>X</b>.</p>
+
+<p>The second line must contain these integers, separated by single spaces, in the same order they appeared in the input.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Size of initial list</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>X</b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Unlucky number</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>a<sub>i</sub></b> &le; 10<sup>9</sup></td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Numbers in the list</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+8 13
+13 2 31 13 13 7 25 13
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+4
+2 31 7 25
+</pre>
+      </td>
+    </tr>
+</table>
+
+<p>There are four numbers (2, 31, 7 and 25) that are not the unlucky 13.</p>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+  <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+5 4
+42 4 4 4 4
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+1
+42
+</pre>
+      </td>
+    </tr>
+</table>
+
+<p>In this example there is only one unlucky number, which is 42.</p>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

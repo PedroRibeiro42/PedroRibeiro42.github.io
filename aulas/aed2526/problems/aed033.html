@@ -1,0 +1,370 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED033] Eeny, meeny, miny, moe</title>
+
+  <style>
+    table.game {
+        background-color: black;
+        border-spacing: 1px;
+    }
+    
+    td.game {
+        text-align: center;
+        padding: 3px;
+        background-color: white;                
+    }
+
+    td.child {
+        text-align: center;
+        padding: 3px;
+        background-color: #eeffee;
+    }
+
+    td.remove {
+        text-align: center;
+        padding: 3px;
+        background-color: #ffeeee;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<p><small>In what concerns the continuous evaluation solving exercises grade during the semester, you should </small><b><span style="color:green">submit until 23:59 of November 22nd</span></b><br>
+  <small><i>(this exercise will still be available for submission after that deadline, but without couting towards your grade)</i><br>
+  <b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2526/practical/class06.html">class #06 exercise sheet</a>]</b></small></p>
+
+<hr>
+  
+<h2>[AED033] Eeny, meeny, miny, moe</h2>
+
+<p><img align="right" src="aed033.png" width="300">
+  <i>"Eeny, meeny, miny, moe"</i> is a very well known children's counting-out rhyme (if you are portuguese, the equivalent would be <i>"Pim Pam Pum"</i>).</p>
+
+<p>Michael has decided to play this game with his friends Mary, John, Jane and Tom. He started by selecting a sentence and observing how many words it had:</p>
+
+  
+  <table class="game">
+    <tr>
+      <td class="game">Eeny</td>
+      <td class="game">meeny</td>
+      <td class="game">miny</td>
+      <td class="game">moe</td>
+      <td class="game">catch</td>
+      <td class="game">a</td>
+      <td class="game">tiger</td>
+      <td class="game">by</td>
+      <td class="game">the</td>
+      <td class="game">toe</td>
+    </tr>
+    <tr>
+      <td class="game">1</td>
+      <td class="game">2</td>
+      <td class="game">3</td>
+      <td class="game">4</td>
+      <td class="game">5</td>
+      <td class="game">6</td>
+      <td class="game">7</td>
+      <td class="game">8</td>
+      <td class="game">9</td>
+      <td class="game">10</td>
+    </tr>
+</table>    
+
+<p>Then all the five children put themselves in a circle:
+
+<p><img src="aed033_children.png" width="250"></p>
+
+<p>Michael then starts to say the words in the sentence pointing first to himself and changing to the next clockwise person each time he said a new word, to see whom he was pointing to in the last word:</p>
+
+  <table class="game">
+    <tr>
+      <td class="game">Eeny</td>
+      <td class="game">meeny</td>
+      <td class="game">miny</td>
+      <td class="game">moe</td>
+      <td class="game">catch</td>
+      <td class="game">a</td>
+      <td class="game">tiger</td>
+      <td class="game">by</td>
+      <td class="game">the</td>
+      <td class="game">toe</td>
+    </tr>
+    <tr>
+      <td class="game">1</td>
+      <td class="game">2</td>
+      <td class="game">3</td>
+      <td class="game">4</td>
+      <td class="game">5</td>
+      <td class="game">6</td>
+      <td class="game">7</td>
+      <td class="game">8</td>
+      <td class="game">9</td>
+      <td class="game">10</td>
+    </tr>
+    <tr>
+      <td class="child">Michael</td>
+      <td class="child">Mary</td>
+      <td class="child">John</td>
+      <td class="child">Jane</td>
+      <td class="child">Tom</td>
+      <td class="child">Michael</td>
+      <td class="child">Mary</td>
+      <td class="child">John</td>
+      <td class="child">Jane</td>
+      <td class="remove"><b>Tom</b></td>
+    </tr>
+</table>    
+
+<p><b>Tom</b> leaves the circle and the game continues with the remaining persons and starting at the person next to the one that was removed:</p>
+
+  
+  <table class="game">
+    <tr>
+      <td class="game">Eeny</td>
+      <td class="game">meeny</td>
+      <td class="game">miny</td>
+      <td class="game">moe</td>
+      <td class="game">catch</td>
+      <td class="game">a</td>
+      <td class="game">tiger</td>
+      <td class="game">by</td>
+      <td class="game">the</td>
+      <td class="game">toe</td>
+    </tr>
+    <tr>
+      <td class="game">1</td>
+      <td class="game">2</td>
+      <td class="game">3</td>
+      <td class="game">4</td>
+      <td class="game">5</td>
+      <td class="game">6</td>
+      <td class="game">7</td>
+      <td class="game">8</td>
+      <td class="game">9</td>
+      <td class="game">10</td>
+    </tr>
+    <tr>
+      <td class="child">Michael</td>
+      <td class="child">Mary</td>
+      <td class="child">John</td>
+      <td class="child">Jane</td>
+      <td class="child">Michael</td>
+      <td class="child">Mary</td>
+      <td class="child">John</td>
+      <td class="child">Jane</td>
+      <td class="child">Michael</td>
+      <td class="remove"><b>Mary</b></td>
+    </tr>
+</table>    
+
+<p><b>Mary</b> leaves and the game continues:</p>
+  
+  <table class="game">
+    <tr>
+      <td class="game">Eeny</td>
+      <td class="game">meeny</td>
+      <td class="game">miny</td>
+      <td class="game">moe</td>
+      <td class="game">catch</td>
+      <td class="game">a</td>
+      <td class="game">tiger</td>
+      <td class="game">by</td>
+      <td class="game">the</td>
+      <td class="game">toe</td>
+    </tr>
+    <tr>
+      <td class="game">1</td>
+      <td class="game">2</td>
+      <td class="game">3</td>
+      <td class="game">4</td>
+      <td class="game">5</td>
+      <td class="game">6</td>
+      <td class="game">7</td>
+      <td class="game">8</td>
+      <td class="game">9</td>
+      <td class="game">10</td>
+    </tr>
+    <tr>
+      <td class="child">John</td>
+      <td class="child">Jane</td>
+      <td class="child">Michael</td>
+      <td class="child">John</td>
+      <td class="child">Jane</td>
+      <td class="child">Michael</td>
+      <td class="child">John</td>
+      <td class="child">Jane</td>
+      <td class="child">Michael</td>
+      <td class="remove"><b>John</b></td>
+    </tr>
+</table>    
+
+
+ <p><b>John</b> leaves and the game continues:</p>
+  
+  <table class="game">
+    <tr>
+      <td class="game">Eeny</td>
+      <td class="game">meeny</td>
+      <td class="game">miny</td>
+      <td class="game">moe</td>
+      <td class="game">catch</td>
+      <td class="game">a</td>
+      <td class="game">tiger</td>
+      <td class="game">by</td>
+      <td class="game">the</td>
+      <td class="game">toe</td>
+    </tr>
+    <tr>
+      <td class="game">1</td>
+      <td class="game">2</td>
+      <td class="game">3</td>
+      <td class="game">4</td>
+      <td class="game">5</td>
+      <td class="game">6</td>
+      <td class="game">7</td>
+      <td class="game">8</td>
+      <td class="game">9</td>
+      <td class="game">10</td>
+    </tr>
+    <tr>
+      <td class="child">Jane</td>
+      <td class="child">Michael</td>
+      <td class="child">Jane</td>
+      <td class="child">Michael</td>
+      <td class="child">Jane</td>
+      <td class="child">Michael</td>
+      <td class="child">Jane</td>
+      <td class="child">Michael</td>
+      <td class="child">Jane</td>
+      <td class="remove"><b>Michael</b></td>
+    </tr>
+</table>    
+
+<p><b>Michael</b> leaves the circle and <b>Jane</b> is the last one standing, winning the game!</p>
+
+<p>Can you help the children play the game?</p>
+
+</p>
+ 
+<h3>The Problem</h3>
+
+<p>Given a sentence with <b>K</b> words and the names of <b>N</b> children, your task is to simulate the game by going round and round always eliminating the <i><b>K</b>-th</i> child, printing the names of the children as they are removed.</p>
+  
+<h3>Input</h3>
+
+<p>The first line of the input contains a sentence with <b>K</b> words separated by single spaces.</p>
+
+<p>The second line of the input contains an integer <b>N</b>, followed by the <b>N</b> lines, each one with the name of one child (a single word), in the order they are in the circle.</p>
+
+<p>You may assume that all the words (both in the sentence and in the names) are constituted only by letters (that can be in upper or lower case) and with a length of at most 100.</p>
+
+<h3>Output</h3>
+
+<p>The output should consist of <b>N</b> lines, each one with a name of a child in the order they are eliminated in the game (with the last name being the winner) if you always eliminate the <b>K</b>-th child. You should start to count on the first child that comes in the input.</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>K</b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of words in the sentence</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 100</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of children</td>
+      </tr>
+    </table>
+
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 1</td>
+      <td>Example Output 1</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+Eeny meeny miny moe catch a tiger by the toe
+5
+Michael
+Mary
+John
+Jane
+Tom
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+Tom
+Mary
+John
+Michael
+Jane
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input 2</td>
+      <td>Example Output 2</td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre>
+pim pam pum
+10
+PedroRibeiro
+AnaTomas
+TiagoCarvalho
+JadnaCruz
+FilipaRamos
+VascoCruz
+BernardoLeite
+IohanSoares
+VanessaSilva
+JorgeOliveira
+</pre>
+      </td>
+      <td valign="top">
+<pre>
+TiagoCarvalho
+VascoCruz
+VanessaSilva
+AnaTomas
+BernardoLeite
+PedroRibeiro
+IohanSoares
+FilipaRamos
+JorgeOliveira
+JadnaCruz
+</pre>
+      </td>
+    </tr>
+    </table>
+
+
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

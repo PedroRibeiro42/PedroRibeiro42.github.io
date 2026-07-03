@@ -1,0 +1,83 @@
+p,body,td,th,li  {
+   font-size: 13px;   
+   font-family: arial, geneva, sans serif;
+   color: black;
+   text-align: justify;
+   font-weight: normal;
+}
+
+h1 {font-size: 27px; color: #000050;}
+h2 {font-size: 20px; color: #000050;}
+h3 {font-size: 15px; color: #000050;}
+
+body {
+   background-color: #e6e6f0;
+}
+
+td, th {
+   background-color: #ffffff;
+   text-align: center;
+   text-valign: middle;
+}
+
+
+th  {
+   background-color: #e0e0e0;
+   font-weight: bold;
+   color: black;
+}
+
+table.main {
+    background-color: black;
+}
+
+a {font-weight: bold;border-bottom:1px dotted #333366; color:#333366; text-decoration:none;}
+a:hover {font-weight: bold; border-bottom:1px solid #aa0000; color:#aa0000; text-decoration:none;}
+a.noul {border-bottom:0px;}
+
+#section {background:#ffffff; border-top:1px solid #000050; clear:both; margin:0; padding-top:8px; padding-bottom:8px;}
+.section {background:#ffffff; border-top:1px solid #000050; clear:both; margin:0; padding-top:8px; padding-bottom:8px;}
+#container {background:#ffffff; margin:0 auto 20px; padding:5px 20px 20px; width:900px; border:1px dashed #000000}
+
+td.code {
+   border=1;
+   font-size: 1.0em;
+   text-align: left;
+   background-color: white;
+}
+
+li {
+    margin: 8px 0 8px 0;
+}
+
+li.small {
+    margin: 0 0 0 0;
+}
+
+.center {text-align: center;}
+.right  {text-align: right;}
+.left   {text-align: left;}
+
+.footer {text-align: right; color: 444444;}
+
+.red   {color: black; background-color: #eedddd;}
+.green {color: black; background-color: #ddeedd;}
+.grey {color: black; background-color: #cccccc;}
+
+.odd {color: black; background-color: #ffffff;}
+.even {color: black; background-color: #e8e8e8;}
+
+.codigo {font-family: monospace; color: #222222; background-color: #dddddd; display: inline-block; padding: 0px 6px 1px 6px;}
+.shell  {font-family: monospace; color: white; background-color: black; display: inline-block; padding: 0px 6px 1px 6px;}
+pre.nomargin {margin: 6px 0 6px 0; padding: 0 0 0 0;}
+
+.box3 {background:#eedddd; border:1px solid #000040; color:#000; font-size:0.9em; line-height:1.4em; padding:10px 10px 10px 13px; text-align:center;}
+.box4 {background:#ff0000; border:1px solid #000040; color:#fff; font-size:0.9em; line-height:1.4em; padding:10px 10px 10px 13px; text-align:center;}
+.box3 a {color:brown; font-weight:700; text-decoration:underline;}
+.box3 a:hover {color: red;}
+.box4 a {color:#fff9c6; font-weight:700; text-decoration:underline;}
+.box4 a:hover {color: yellow;}
+
+.playlist {
+       background-color: #ffd2d2;
+}

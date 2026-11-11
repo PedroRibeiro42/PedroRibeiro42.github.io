@@ -3,17 +3,32 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>[AED002] Unlucky Numbers</title>
-</head>
+    <script>
+      function copyExample(btn, id, label, done) {
+        var pre = document.getElementById(id);
+        var text = pre.textContent.replace(/^\n/, "");
+        function ok() { btn.textContent = done; setTimeout(function () { btn.textContent = label; }, 1500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(ok);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); ok(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      }
+    </script>
+  </head>
 
 <body>
 
-<p><b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/class01.html">class #01 exercise sheet</a>]</b></small></p>
+<p><b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/class01.html">class #01 exercise sheet</a>]</b></p>
   
 <hr>
   
 <h2>[AED002] Unlucky Numbers</h2>
 
-<p><img align="right" src="aed002.png" border="1">Many cultures consider certain numbers <i>"unlucky"</i>. For example, in several european countries the number <b>13</b> is seen as a symbol of bad luck, while in many asian countries the number <b>4</b> is avoided due to its similarity in pronunciation to the word for "death".</b>
+<p><img align="right" src="aed002.png" border="1">Many cultures consider certain numbers <i>"unlucky"</i>. For example, in several european countries the number <b>13</b> is seen as a symbol of bad luck, while in many asian countries the number <b>4</b> is avoided due to its similarity in pronunciation to the word for "death".
 </p>
 
 <p>In this problem, you will be given a list of integers and a specific unlucky number and you need to filter out all occurrences of the unlucky number.</p>
@@ -61,18 +76,18 @@
 <table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
 
     <tr bgcolor="#e2e2e2">
-      <td>Example Input 1</td>
-      <td>Example Output 1</td>
+      <td>Example Input 1 <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_1', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output 1 <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_1', 'Copy', 'Copied!')">Copy</button></td>
     </tr>
     <tr bgcolor="white">
       <td valign="top">
-<pre>
+<pre id="ex_in_1">
 8 13
 13 2 31 13 13 7 25 13
 </pre>
       </td>
       <td valign="top">
-<pre>
+<pre id="ex_out_1">
 4
 2 31 7 25
 </pre>
@@ -84,18 +99,18 @@
 
 <table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
   <tr bgcolor="#e2e2e2">
-      <td>Example Input 2</td>
-      <td>Example Output 2</td>
+      <td>Example Input 2 <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_2', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output 2 <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_2', 'Copy', 'Copied!')">Copy</button></td>
     </tr>
     <tr bgcolor="white">
       <td valign="top">
-<pre>
+<pre id="ex_in_2">
 5 4
 42 4 4 4 4
 </pre>
       </td>
       <td valign="top">
-<pre>
+<pre id="ex_out_2">
 1
 42
 </pre>

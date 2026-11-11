@@ -3,7 +3,22 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>[AED017] Coloring Squares</title>
-</head>
+    <script>
+      function copyExample(btn, id, label, done) {
+        var pre = document.getElementById(id);
+        var text = pre.textContent.replace(/^\n/, "");
+        function ok() { btn.textContent = done; setTimeout(function () { btn.textContent = label; }, 1500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(ok);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); ok(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      }
+    </script>
+  </head>
 
 <body>
 
@@ -40,7 +55,7 @@
 
 <p>Given Sarah's rules (starting with a single shaded square in the first line), your task is to answer several queries of the form:
 
-<p>On line number <b>K</b>, how many squares are shaded between positions <b>A</b> and </b>B (inclusive)?</p>
+<p>On line number <b>K</b>, how many squares are shaded between positions <b>A</b> and <b>B</b> (inclusive)?</p>
   
 <h3>Input</h3>
 
@@ -71,7 +86,7 @@
 <tr>
         <td>1 &le; <b>A</b> &le; <b>B</b> &le; 10<sup>16</sup></td>
         <td>&nbsp; &nbsp; &nbsp;</td>
-        <td>Poositions on the line for one query</td>
+        <td>Positions on the line for one query</td>
       </tr>
     </table>
 
@@ -80,12 +95,12 @@
 <table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
 
     <tr bgcolor="#e2e2e2">
-      <td>Example Input</td>
-      <td>Example Output</td>
+      <td>Example Input <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_1', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_1', 'Copy', 'Copied!')">Copy</button></td>
     </tr>
     <tr bgcolor="white">
       <td valign="top">
-<pre>
+<pre id="ex_in_1">
 5
 3 3 7
 3 1 8
@@ -95,7 +110,7 @@
 </pre>
       </td>
       <td valign="top">
-<pre>
+<pre id="ex_out_1">
 2
 4
 1
@@ -122,7 +137,7 @@
 <hr size="2">
 <center><i>(this is an adaptation from a <a target="_blank" href="https://oni.dcc.fc.up.pt/">National Olympiad in Informatics</a> problem)</i><br>&nbsp;</center>
 
-<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+<center><b>Algorithms and Data Structures (L.EIC011) 2026/2027</b><br>
   DCC/FCUP & DEI/FEUP - University of Porto
 </center>
 <hr size="2">

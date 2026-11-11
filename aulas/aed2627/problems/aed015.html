@@ -3,7 +3,22 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>[AED015] Closest Sums</title>
-</head>
+    <script>
+      function copyExample(btn, id, label, done) {
+        var pre = document.getElementById(id);
+        var text = pre.textContent.replace(/^\n/, "");
+        function ok() { btn.textContent = done; setTimeout(function () { btn.textContent = label; }, 1500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(ok);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); ok(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      }
+    </script>
+  </head>
 
 <body>
 
@@ -27,7 +42,7 @@ Given a set <b>S</b> of <b>N</b> integers, and a sequence of <b>Q</b> queries, e
 
 <h3>Output</h3>
 
-<p>The output should consist of <b>Q</b> lines, one for each question, in the same order as in the input. Each line should indicate the sum closest to the respective question. If there are two distinct sums at the same minimum distance, both should be shown, in ascending order and separated by a space.</b>
+<p>The output should consist of <b>Q</b> lines, one for each question, in the same order as in the input. Each line should indicate the sum closest to the respective question. If there are two distinct sums at the same minimum distance, both should be shown, in ascending order and separated by a space.
 
 <h3>Constraints</h3>
 
@@ -44,7 +59,8 @@ Given a set <b>S</b> of <b>N</b> integers, and a sequence of <b>Q</b> queries, e
         <td>&nbsp; &nbsp; &nbsp;</td>
         <td>Integers in the set</td>
       </tr>
-      <td>1 &le; <b>Q</b> &le; 10&nbsp;000</td>
+      <tr>
+        <td>1 &le; <b>Q</b> &le; 10&nbsp;000</td>
         <td>&nbsp; &nbsp; &nbsp;</td>
         <td>Quantity of queries</td>
       </tr>
@@ -60,12 +76,12 @@ Given a set <b>S</b> of <b>N</b> integers, and a sequence of <b>Q</b> queries, e
 <table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
 
     <tr bgcolor="#e2e2e2">
-      <td>Example Input</td>
-      <td>Example Output</td>
+      <td>Example Input <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_1', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_1', 'Copy', 'Copied!')">Copy</button></td>
     </tr>
     <tr bgcolor="white">
       <td valign="top">
-<pre>
+<pre id="ex_in_1">
 6
 12 3 17 5 34 33
 4
@@ -73,7 +89,7 @@ Given a set <b>S</b> of <b>N</b> integers, and a sequence of <b>Q</b> queries, e
 </pre>
       </td>
       <td valign="top">
-<pre>
+<pre id="ex_out_1">
 8
 51
 39
@@ -96,7 +112,7 @@ Given a set <b>S</b> of <b>N</b> integers, and a sequence of <b>Q</b> queries, e
 </ul>
 
 <hr size="2">
-<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+<center><b>Algorithms and Data Structures (L.EIC011) 2026/2027</b><br>
   DCC/FCUP & DEI/FEUP - University of Porto
 </center>
 <hr size="2">

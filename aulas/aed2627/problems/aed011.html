@@ -3,7 +3,22 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>[AED011] Number Searching</title>
-</head>
+    <script>
+      function copyExample(btn, id, label, done) {
+        var pre = document.getElementById(id);
+        var text = pre.textContent.replace(/^\n/, "");
+        function ok() { btn.textContent = done; setTimeout(function () { btn.textContent = label; }, 1500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(ok);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); ok(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      }
+    </script>
+  </head>
 
 <body>
 
@@ -26,7 +41,7 @@
 
 <p>The first line of the input contains an integer <b>N</b>, the quantity of numbers in the sorted sequence. The second line contains the sequence itself with <b>N</b> space separated integers (we denote each one by <b>S<sub>i</sub></b>). It is guaranteed that these numbers are distinct and that they come in increasing order.</p>
 
-<p>The third line contains an integer <b>Q</b>, the quantity of queries to consider. Each of the following <b>Q</b> lines contains a query in the form of a single integer <b>X<sub>i</sub></b>, indicating the number we are searching for.</b>
+<p>The third line contains an integer <b>Q</b>, the quantity of queries to consider. Each of the following <b>Q</b> lines contains a query in the form of a single integer <b>X<sub>i</sub></b>, indicating the number we are searching for.
 
 <h3>Output</h3>
 
@@ -47,7 +62,8 @@
         <td>&nbsp; &nbsp; &nbsp;</td>
         <td>Numbers in the sorted sequence</td>
       </tr>
-      <td>1 &le; <b>Q</b> &le; 10<sup>5</sup></td>
+      <tr>
+        <td>1 &le; <b>Q</b> &le; 10<sup>5</sup></td>
         <td>&nbsp; &nbsp; &nbsp;</td>
         <td>Quantity of queries</td>
       </tr>
@@ -63,12 +79,12 @@
 <table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
 
     <tr bgcolor="#e2e2e2">
-      <td>Example Input</td>
-      <td>Example Output</td>
+      <td>Example Input <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_1', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_1', 'Copy', 'Copied!')">Copy</button></td>
     </tr>
     <tr bgcolor="white">
       <td valign="top">
-<pre>
+<pre id="ex_in_1">
 8
 2 7 10 12 13 14 42 105
 7
@@ -82,7 +98,7 @@
 </pre>
       </td>
       <td valign="top">
-<pre>
+<pre id="ex_out_1">
 0
 7
 6
@@ -109,7 +125,7 @@
 </ul>
     
 <hr size="2">
-<center><b>Algorithms and Data Structures (L.EIC011) 2025/2026</b><br>
+<center><b>Algorithms and Data Structures (L.EIC011) 2026/2027</b><br>
   DCC/FCUP & DEI/FEUP - University of Porto
 </center>
 <hr size="2">

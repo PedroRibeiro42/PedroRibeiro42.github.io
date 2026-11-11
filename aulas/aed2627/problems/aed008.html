@@ -3,11 +3,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>[AED008] Saving Pipefish</title>
-</head>
+    <script>
+      function copyExample(btn, id, label, done) {
+        var pre = document.getElementById(id);
+        var text = pre.textContent.replace(/^\n/, "");
+        function ok() { btn.textContent = done; setTimeout(function () { btn.textContent = label; }, 1500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(ok);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); ok(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      }
+    </script>
+  </head>
 
 <body>
 
-<p><b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/class02.html">class #02 exercise sheet</a>]</b></small></p>
+<p><b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/class02.html">class #02 exercise sheet</a>]</b></p>
   
 <hr>
   
@@ -91,44 +106,46 @@
 <table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
 
     <tr bgcolor="#e2e2e2">
-      <td>Example Input 1</td>
-      <td>Example Output 1</td>
+      <td>Example Input 1 <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_1', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output 1 <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_1', 'Copy', 'Copied!')">Copy</button></td>
     </tr>
     <tr bgcolor="white">
       <td valign="top">
-<pre>
+<pre id="ex_in_1">
 7 3 150
 142 155 147 165 150 112 73
 </pre>
       </td>
       <td valign="top">
-<pre>
+<pre id="ex_out_1">
 3
 </pre>
       </td>
     </tr>
+</table>
 
+<p>The first example of input corresponds to the figures above.</p>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
     <tr bgcolor="#e2e2e2">
-      <td>Example Input 2</td>
-      <td>Example Output 2</td>
+      <td>Example Input 2 <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_2', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output 2 <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_2', 'Copy', 'Copied!')">Copy</button></td>
     </tr>
     <tr bgcolor="white">
       <td valign="top">
-<pre>
+<pre id="ex_in_2">
 12 4 10
 5 10 12 10 9 14 5 7 9 11 3 3
 </pre>
       </td>
       <td valign="top">
-<pre>
+<pre id="ex_out_2">
 4
 </pre>
       </td>
     </tr>
 
 </table>
-
-<p>The first example of input corresponds to the figures above.</p>
 
 <hr size="2">
 <center>

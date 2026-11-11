@@ -3,11 +3,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <title>[AED006] Bakugans</title>
-</head>
+    <script>
+      function copyExample(btn, id, label, done) {
+        var pre = document.getElementById(id);
+        var text = pre.textContent.replace(/^\n/, "");
+        function ok() { btn.textContent = done; setTimeout(function () { btn.textContent = label; }, 1500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(ok);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); ok(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      }
+    </script>
+  </head>
 
 <body>
 
-<p><b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/class02.html">class #02 exercise sheet</a>]</b></small></p>
+<p><b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/class02.html">class #02 exercise sheet</a>]</b></p>
   
 <hr>
   
@@ -78,12 +93,12 @@ Bakugans are small spheres that, when placed on special cards, open up and trans
 <table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
 
     <tr bgcolor="#e2e2e2">
-      <td>Example Input</td>
-      <td>Example Output</td>
+      <td>Example Input <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_1', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_1', 'Copy', 'Copied!')">Copy</button></td>
     </tr>
     <tr bgcolor="white">
       <td valign="top">
-<pre>
+<pre id="ex_in_1">
 10
 100 200 300 100 400 100 500 600 200 300
 5
@@ -95,7 +110,7 @@ Bakugans are small spheres that, when placed on special cards, open up and trans
 </pre>
       </td>
       <td valign="top">
-<pre>
+<pre id="ex_out_1">
 1100
 2800
 500

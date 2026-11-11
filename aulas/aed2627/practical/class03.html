@@ -22,7 +22,7 @@
 
   <h2>Lectures Content <a href="../material.html#slides"><img height="30" src="../images/lecture_slides.png" border="0"></a></h2>
 
-  <p>This class includes exercises about <b>Complexity and Asymptotic Analysis</b>. It is therefore convenient that you know what was discussed on the lectures:</p>
+  <p>This class includes exercises about <b>Sequential Search, Binary Search and Variants</b>. It is therefore convenient that you know what was discussed on the lectures:</p>
   <ul>
     <li><a href="../material.html#slides">Slides: 3 - Searching (Sequential Search, Binary Search and Variants)</a>
   </ul>
@@ -79,7 +79,7 @@
 
 </pre>
 
-  <p>This indicates all examples were executed but the answers were incorrect. This is because <span class="code">search</span> it is not implemented yet and is always returning -1. Notice how even just a simple function takes some time to be called 100&nbsp;000 times in the last input.</p>
+  <p>This indicates all examples were executed but the answers were incorrect. This is because <span class="code">search</span> is not implemented yet and is always returning -1. Notice how even just a simple function takes some time to be called 100&nbsp;000 times in the last input.</p>
 
   <ol type="a">
     
@@ -138,7 +138,7 @@
     Our suggestion is that you create a function <span class="code">int lowerBound(const vector&lt;int&gt; & v, int key)</span>
   </p>
   
-  <p>A <i>brute force</i> approach that goes does a sequential search in linear time is not enough (if you want you can check by implementing and submitting to Mooshak, where you should get a <span style="color:red">Time Limit Exceeded</span>).</p>
+  <p>A <i>brute force</i> approach that does a sequential search in linear time is not enough (if you want you can check by implementing and submitting to Mooshak, where you should get a <span style="color:red">Time Limit Exceeded</span>).</p>
   
   <p>To solve in the desired time complexity you need to be able to answer each query in logarithmic time. But you know you can use binary search to do this, right? <b>Don't forget you are expected to code, test and submit in Mooshak until you get an accepted solution.</b></p>
 
@@ -171,7 +171,7 @@
 <p>- Assuming the numbers are stored in vector <i>v</i> and you trying to count the elements in <i>[a,b]</i>, what would you obtain if you call <span class="code">lowerBound(v, a)</span>?
 <br>
 <br>
-- A cal to <span class="code">lowerBound(v, b)</span> would obtain the first occurrence of <i>b</i>, if it occurs. How can you use this function to obtain the element <i>exactly after</i> all occurrences of elements <i>&le;b</i>?
+- A call to <span class="code">lowerBound(v, b)</span> would obtain the first occurrence of <i>b</i>, if it occurs. How can you use this function to obtain the element <i>exactly after</i> all occurrences of elements <i>&le;b</i>?
 <br>
 <br>
 - If you have the first position inside the interval and the first position immediately after the last position of the interval, how could you obtain the result?
@@ -189,14 +189,14 @@
 
   <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
     For this exercise you will be solving the problem <a href="../problems/aed014.html">[AED014] Backpacking Trip</a>.<br>
-    <b>Desired time complexity:</b> \(\mathcal{O}(N + Q \times \log S)\), where \(S\) is the sum of all \(N\) distances
+    <b>Desired time complexity:</b> \(\mathcal{O}(N + Q \times N \times \log S)\), where \(S\) is the sum of all \(N\) distances
   </p>
 
   <p>This problem was explained in detail in the lectures <span style="color:brown;">(see slides 39 to 44 of Chapter 3 - Searching)</span>.
 
     <ol type="a">
       <li><b>isPossible</b>
-        <p>Let's start by implementing an auxiliary function that will be very useful: <span class="code">bool isPossible(const vector&lt;int&gt; & v, int x, int k)</span>. This function should have time \(\mathcal{O}(n)\) where \(n\) is the size of the vector.</o>
+        <p>Let's start by implementing an auxiliary function that will be very useful: <span class="code">bool isPossible(const vector&lt;int&gt; & v, int x, int k)</span>. This function should have time \(\mathcal{O}(n)\) where \(n\) is the size of the vector.</p>
 
         <p>This function should return <i>true</i> if it is possible to divide the vector <i>v</i> into <i>k</i> partitions (sequences of contiguous numbers) such that the sum of the largest partition is <i>&le;x</i> or <i>false</i> otherwise. Here are some examples of possible calls and the expected results:</p>
 
@@ -233,7 +233,7 @@
 - The search space is of the type <i>no no .. yes yes .. yes</i> for the function <span class="code">isPossible</span> and so we can at its essence a <i>lowerBound</i> type of binary search
 <br>
 <br>
-- Each of these \(Q\) queries takes therefore time \(\mathcal{O}(\log S)\)
+- Each of these \(Q\) queries takes therefore time \(\mathcal{O}(N \times \log S)\): \(\mathcal{O}(\log S)\) steps of binary search, each one calling <span class="code">isPossible</span> in \(\mathcal{O}(N)\)
   </p>
 </details>
       
@@ -316,7 +316,7 @@
   <p>Happy coding! &#128522;</p>
         
 <hr>
-<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></b></p>
 </body>
 
 </html>

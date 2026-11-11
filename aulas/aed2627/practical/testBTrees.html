@@ -1,0 +1,31 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Algoritmos e Estruturas de Dados 2026/2027 - LEIC (FCUP/FEUP)</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Example of how to use the BTree&lt;T&gt; class</span>
+<span style="color: #888888">// Last update: 05/11/2026</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+
+<span style="color: #557799">#include</span> <span style="color: #888888">&quot;binaryTree.h&quot;</span><span style="color: #557799"></span>
+
+<span style="color: #333399; font-weight: bold">int</span> <span style="color: #0066BB; font-weight: bold">main</span>() {
+
+  BTree<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">&gt;</span> t; <span style="color: #888888">// Create an empty tree of integers</span>
+  t.read(<span style="background-color: #fff0f0">&quot;N&quot;</span>);  <span style="color: #888888">// Read contents from stdin, using &quot;N&quot; as nullptr</span>
+
+  <span style="color: #888888">// Call some of the methods the class provides</span>
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;numberNodes = &quot;</span> <span style="color: #333333">&lt;&lt;</span> t.numberNodes() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;  
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;height = &quot;</span>      <span style="color: #333333">&lt;&lt;</span> t.height() <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;contains(2) = &quot;</span> <span style="color: #333333">&lt;&lt;</span> t.contains(<span style="color: #0000DD; font-weight: bold">2</span>) <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;contains(3) = &quot;</span> <span style="color: #333333">&lt;&lt;</span> t.contains(<span style="color: #0000DD; font-weight: bold">3</span>) <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+
+  <span style="color: #888888">// Print nodes in several possible orders</span>
+  t.printPreOrder();
+  t.printInOrder();
+  t.printPostOrder();
+  t.printBFS();
+  t.printDFS();
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>

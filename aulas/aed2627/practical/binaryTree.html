@@ -1,0 +1,223 @@
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre style="margin: 0; line-height: 125%"><span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Algoritmos e Estruturas de Dados 2026/2027 - LEIC (FCUP/FEUP)</span>
+<span style="color: #888888">// http://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Binary Tree</span>
+<span style="color: #888888">// Last update: 05/11/2026</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+<span style="color: #888888">// Note: as mentioned in the lectures, the recursive helper methods</span>
+<span style="color: #888888">// should ideally be private. Here everything is public, so that you</span>
+<span style="color: #888888">// can add new methods (and their helpers) anywhere in the class.</span>
+<span style="color: #888888">// -------------------------------------------------------------</span>
+
+<span style="color: #557799">#ifndef BTREE_H</span>
+<span style="color: #557799">#define BTREE_H</span>
+
+<span style="color: #557799">#include</span> <span style="color: #888888">&lt;iostream&gt;</span><span style="color: #557799"></span>
+<span style="color: #557799">#include</span> <span style="color: #888888">&lt;algorithm&gt;</span><span style="color: #557799"></span>
+<span style="color: #557799">#include</span> <span style="color: #888888">&lt;sstream&gt;</span><span style="color: #557799"></span>
+<span style="color: #557799">#include</span> <span style="color: #888888">&lt;string&gt;</span><span style="color: #557799"></span>
+<span style="color: #557799">#include</span> <span style="color: #888888">&lt;queue&gt;</span><span style="color: #557799"></span>
+<span style="color: #557799">#include</span> <span style="color: #888888">&lt;stack&gt;</span><span style="color: #557799"></span>
+
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">T</span><span style="color: #333333">&gt;</span> <span style="color: #008800; font-weight: bold">class</span> <span style="color: #BB0066; font-weight: bold">BTree</span> {
+<span style="color: #008800; font-weight: bold">private</span><span style="color: #333333">:</span>
+  <span style="color: #008800; font-weight: bold">struct</span> Node {
+    T value;            <span style="color: #888888">// The value stored on the node</span>
+    Node <span style="color: #333333">*</span>left, <span style="color: #333333">*</span>right; <span style="color: #888888">// Pointers to left and right child</span>
+  };
+
+  <span style="color: #888888">// The tree</span>
+  Node <span style="color: #333333">*</span>root;           <span style="color: #888888">// Pointer to the root node</span>
+
+<span style="color: #008800; font-weight: bold">public</span><span style="color: #333333">:</span>
+  <span style="color: #888888">// Constructor: initially the tree is empty</span>
+  BTree() {
+    root <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">nullptr</span>;
+  }
+
+  <span style="color: #888888">// Copies are forbidden (see slides 38 and 39)</span>
+  BTree(<span style="color: #008800; font-weight: bold">const</span> BTree <span style="color: #333333">&amp;</span>) <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">delete</span>;              <span style="color: #888888">// no copy constructor</span>
+  BTree <span style="color: #333333">&amp;</span> <span style="color: #008800; font-weight: bold">operator</span><span style="color: #333333">=</span>(<span style="color: #008800; font-weight: bold">const</span> BTree <span style="color: #333333">&amp;</span>) <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">delete</span>;  <span style="color: #888888">// no copy assignment</span>
+
+  <span style="color: #888888">// Destructor: delete all nodes (see slide 37)</span>
+  <span style="color: #333333">~</span>BTree() {
+    destroy(root);
+  }
+
+  <span style="color: #888888">// Recursively delete left and right subtrees and then current node</span>
+  <span style="color: #333399; font-weight: bold">void</span> destroy(Node <span style="color: #333333">*</span>n) {
+    <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">nullptr</span>) <span style="color: #008800; font-weight: bold">return</span>;
+    destroy(n<span style="color: #333333">-&gt;</span>left);
+    destroy(n<span style="color: #333333">-&gt;</span>right);
+    <span style="color: #008800; font-weight: bold">delete</span> n;
+  }
+
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+  <span style="color: #888888">// Count the number of nodes (see slides 12 and 13)</span>
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+
+  <span style="color: #333399; font-weight: bold">int</span> numberNodes() <span style="color: #008800; font-weight: bold">const</span> {
+    <span style="color: #008800; font-weight: bold">return</span> numberNodes(root);
+  }
+
+  <span style="color: #333399; font-weight: bold">int</span> numberNodes(Node <span style="color: #333333">*</span>n) <span style="color: #008800; font-weight: bold">const</span> {
+    <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">nullptr</span>) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">+</span> numberNodes(n<span style="color: #333333">-&gt;</span>left) <span style="color: #333333">+</span> numberNodes(n<span style="color: #333333">-&gt;</span>right);
+  }
+
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+  <span style="color: #888888">// Height of the tree (see slides 15 and 16)</span>
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+
+  <span style="color: #333399; font-weight: bold">int</span> height() <span style="color: #008800; font-weight: bold">const</span> {
+    <span style="color: #008800; font-weight: bold">return</span> height(root);
+  }
+
+  <span style="color: #333399; font-weight: bold">int</span> height(Node <span style="color: #333333">*</span>n) <span style="color: #008800; font-weight: bold">const</span> {
+    <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">nullptr</span>) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #333333">-</span><span style="color: #0000DD; font-weight: bold">1</span>;
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">1</span> <span style="color: #333333">+</span> std<span style="color: #333333">::</span>max(height(n<span style="color: #333333">-&gt;</span>left), height(n<span style="color: #333333">-&gt;</span>right));
+  }
+
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+  <span style="color: #888888">// Does the tree contain value &#39;val&#39;? (see slides 17 and 18)</span>
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+
+  <span style="color: #333399; font-weight: bold">bool</span> contains(<span style="color: #008800; font-weight: bold">const</span> T <span style="color: #333333">&amp;</span> val) <span style="color: #008800; font-weight: bold">const</span> {
+    <span style="color: #008800; font-weight: bold">return</span> contains(root, val);
+  }
+
+  <span style="color: #333399; font-weight: bold">bool</span> contains(Node <span style="color: #333333">*</span>n, <span style="color: #008800; font-weight: bold">const</span> T <span style="color: #333333">&amp;</span> val) <span style="color: #008800; font-weight: bold">const</span> {
+    <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">nullptr</span>) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">false</span>;
+    <span style="color: #008800; font-weight: bold">if</span> (n<span style="color: #333333">-&gt;</span>value <span style="color: #333333">==</span> val) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #007020">true</span>;
+    <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0066BB; font-weight: bold">contains</span>(n<span style="color: #333333">-&gt;</span>left, val) <span style="color: #333333">||</span> contains(n<span style="color: #333333">-&gt;</span>right, val);
+  }
+
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+  <span style="color: #888888">// Print tree in PreOrder (see slide 21)</span>
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+
+  <span style="color: #333399; font-weight: bold">void</span> printPreOrder() <span style="color: #008800; font-weight: bold">const</span> {
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;PreOrder:&quot;</span>;
+    printPreOrder(root);
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  }
+
+  <span style="color: #333399; font-weight: bold">void</span> printPreOrder(Node <span style="color: #333333">*</span>n) <span style="color: #008800; font-weight: bold">const</span> {
+    <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">nullptr</span>) <span style="color: #008800; font-weight: bold">return</span>;
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">&lt;&lt;</span> n<span style="color: #333333">-&gt;</span>value;
+    printPreOrder(n<span style="color: #333333">-&gt;</span>left);
+    printPreOrder(n<span style="color: #333333">-&gt;</span>right);
+  }
+
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+  <span style="color: #888888">// Print tree in InOrder (see slides 22 and 23)</span>
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+
+  <span style="color: #333399; font-weight: bold">void</span> printInOrder() <span style="color: #008800; font-weight: bold">const</span> {
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;InOrder:&quot;</span>;
+    printInOrder(root);
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  }
+
+  <span style="color: #333399; font-weight: bold">void</span> printInOrder(Node <span style="color: #333333">*</span>n) <span style="color: #008800; font-weight: bold">const</span> {
+    <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">nullptr</span>) <span style="color: #008800; font-weight: bold">return</span>;
+    printInOrder(n<span style="color: #333333">-&gt;</span>left);
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">&lt;&lt;</span> n<span style="color: #333333">-&gt;</span>value;
+    printInOrder(n<span style="color: #333333">-&gt;</span>right);
+  }
+
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+  <span style="color: #888888">// Print tree in PostOrder (see slides 22 and 23)</span>
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+
+  <span style="color: #333399; font-weight: bold">void</span> printPostOrder() <span style="color: #008800; font-weight: bold">const</span> {
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;PostOrder:&quot;</span>;
+    printPostOrder(root);
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  }
+
+  <span style="color: #333399; font-weight: bold">void</span> printPostOrder(Node <span style="color: #333333">*</span>n) <span style="color: #008800; font-weight: bold">const</span> {
+    <span style="color: #008800; font-weight: bold">if</span> (n <span style="color: #333333">==</span> <span style="color: #008800; font-weight: bold">nullptr</span>) <span style="color: #008800; font-weight: bold">return</span>;
+    printPostOrder(n<span style="color: #333333">-&gt;</span>left);
+    printPostOrder(n<span style="color: #333333">-&gt;</span>right);
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">&lt;&lt;</span> n<span style="color: #333333">-&gt;</span>value;
+  }
+
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+  <span style="color: #888888">// Print tree in Breadth-First order using a queue</span>
+  <span style="color: #888888">// (see slides 25 to 27)</span>
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+
+  <span style="color: #333399; font-weight: bold">void</span> printBFS() <span style="color: #008800; font-weight: bold">const</span> {
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;BFS:&quot;</span>;
+
+    std<span style="color: #333333">::</span>queue<span style="color: #333333">&lt;</span>Node <span style="color: #333333">*&gt;</span> q;
+    q.push(root);
+    <span style="color: #008800; font-weight: bold">while</span> (<span style="color: #333333">!</span>q.empty()) {
+      Node <span style="color: #333333">*</span>cur <span style="color: #333333">=</span> q.front();
+      q.pop();
+      <span style="color: #008800; font-weight: bold">if</span> (cur <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">nullptr</span>) {
+        std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">&lt;&lt;</span> cur<span style="color: #333333">-&gt;</span>value;
+        q.push(cur<span style="color: #333333">-&gt;</span>left);
+        q.push(cur<span style="color: #333333">-&gt;</span>right);
+      }
+    }
+
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  }
+
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+  <span style="color: #888888">// Print tree in Depth-First order using a stack</span>
+  <span style="color: #888888">// (see slides 28 and 29)</span>
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+
+  <span style="color: #333399; font-weight: bold">void</span> printDFS() <span style="color: #008800; font-weight: bold">const</span> {
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;DFS:&quot;</span>;
+
+    std<span style="color: #333333">::</span>stack<span style="color: #333333">&lt;</span>Node <span style="color: #333333">*&gt;</span> s;
+    s.push(root);
+    <span style="color: #008800; font-weight: bold">while</span> (<span style="color: #333333">!</span>s.empty()) {
+      Node <span style="color: #333333">*</span>cur <span style="color: #333333">=</span> s.top();
+      s.pop();
+      <span style="color: #008800; font-weight: bold">if</span> (cur <span style="color: #333333">!=</span> <span style="color: #008800; font-weight: bold">nullptr</span>) {
+        std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot; &quot;</span> <span style="color: #333333">&lt;&lt;</span> cur<span style="color: #333333">-&gt;</span>value;
+        s.push(cur<span style="color: #333333">-&gt;</span>right);   <span style="color: #888888">// right first, so that left is on top</span>
+        s.push(cur<span style="color: #333333">-&gt;</span>left);
+      }
+    }
+
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  }
+
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+  <span style="color: #888888">// Read a tree in PreOrder from standard input</span>
+  <span style="color: #888888">// (see slides 31 to 34)</span>
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+
+  <span style="color: #333399; font-weight: bold">void</span> read(std<span style="color: #333333">::</span>string null) {
+    root <span style="color: #333333">=</span> readNode(null);
+  }
+
+  Node <span style="color: #333333">*</span>readNode(std<span style="color: #333333">::</span>string null) {
+    std<span style="color: #333333">::</span>string buffer;
+    std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> buffer;
+    <span style="color: #008800; font-weight: bold">if</span> (buffer <span style="color: #333333">==</span> null) <span style="color: #008800; font-weight: bold">return</span> <span style="color: #008800; font-weight: bold">nullptr</span>;
+    Node <span style="color: #333333">*</span>n <span style="color: #333333">=</span> <span style="color: #008800; font-weight: bold">new</span> Node;
+    std<span style="color: #333333">::</span>istringstream ss(buffer);
+    ss <span style="color: #333333">&gt;&gt;</span> n<span style="color: #333333">-&gt;</span>value;
+    n<span style="color: #333333">-&gt;</span>left <span style="color: #333333">=</span> readNode(null);
+    n<span style="color: #333333">-&gt;</span>right <span style="color: #333333">=</span> readNode(null);
+    <span style="color: #008800; font-weight: bold">return</span> n;
+  }
+
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+  <span style="color: #888888">// TODO: put the functions you need to implement below this</span>
+  <span style="color: #888888">// ---------------------------------------------------------</span>
+
+
+
+};
+
+<span style="color: #557799">#endif</span>
+</pre></div>

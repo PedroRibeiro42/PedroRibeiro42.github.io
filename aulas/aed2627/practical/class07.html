@@ -1,0 +1,321 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Practical Class #07 - Binary Trees</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+</head>
+
+<body>
+
+  <h3><a href="../index.html">Algorithms and Data Structures 2026/2027</a> (L.EIC011) - DCC/FCUP & DEI/FEUP</h3>
+  <h1>Practical Class #07 - Binary Trees<br>
+    <small><small>(09/11 to 13/11)</small></small>
+  </h1>
+
+  <hr>
+
+<h2>Lectures Content <a href="../material.html#slides"><img height="30" src="../images/lecture_slides.png" border="0"></a></h2>
+
+  <p>This class is about <b>binary trees implementation</b>. It is therefore convenient that you know what was discussed on the lectures:
+    <ul>
+      <li><a href="../material.html#slides">Slides: 7 - Binary Trees</a>
+    </ul>
+
+  <p>The exercises for this class will involve the low level implementation
+  of binary trees and adding new methods, so that you can gain a better understanding of trees and how they work, while at the same time training your algorithmic abilities.<br> On the following classes you will be allowed to use any STL classes that use trees as the underlying implementation (such as <a href="https://en.cppreference.com/w/cpp/container/set">sets</a> or <a href="https://en.cppreference.com/w/cpp/container/map">maps</a>), but for this class we want you to be able to understand (and code) an implementation. Moreover, unlike lists, C++ does not provide a native binary tree class ready to be used.</p>
+
+    <hr>
+
+  <h2>Implementation Content <a href="https://mooshak.dcc.fc.up.pt/~aed"><img height="30" src="mooshak.gif" border="0"></a></h2>
+
+  <p>This class includes the following implementation exercises available on <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a>:
+
+  <ul>
+    <li><a class="important" href="../problems/aed039.html">[AED039] Counting Leaves</a> <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed040.html">[AED040] Strictly Binary Trees</a> <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed041.html">[AED041] Tree Paths</a> <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed042.html">[AED042] Deep Nodes</a> <span style="color:DarkGreen">(main exercises)</span>
+    <li><a class="important" href="../problems/aed043.html">[AED043] Even Nodes</a> <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed044.html">[AED044] Sum of All Levels</a> <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed045.html">[AED045] Maximum Sum Path</a> <span style="color:DarkSlateBlue">(extra exercises)</span>
+    <li><a class="important" href="../problems/aed046.html">[AED046] Recovering Lost Trees</a> <span style="color:DarkRed">(challenge exercises)</span>
+  </ul>
+
+  <hr>
+
+  <p><big><b>1. Understanding Binary Trees</b></big><br>
+    <i>(the goal of this exercise is for you to understand what a binary tree is and some of the orders in which we could traverse its nodes)</i></p>
+
+    <ol type="a">
+      <li><b>Your first binary tree</b>
+
+        <p>One way of describing a tree is to use one of the following representations:</p>
+        <ul>
+          <li><b>preorder (DFS):</b> root, followed by the preorder representation of the left subtree, followed by the preorder representation of the right subtree.</li>
+          <li><b>inorder (DFS):</b> inorder representation of the left subtree, followed by the root, followed by the inorder representation of the right subtree.
+          <li><b>postorder (DFS):</b> postorder representation of the left subtree, followed by the postorder representation of the right subtree, followed by the root.
+          <li><b>breadth-first (BFS):</b> nodes in increasing order of depth (from top to bottom) and on the same level from left to right.
+        </ul>
+
+        <p>Consider for instance the tree of the following figure:</p>
+
+        <p><img src="tree1.png" width="150"></p>
+
+        <p>Using the 4 representations given before, the tree would be described as:</p>
+
+          <ul>
+	          <li><b>preorder:</b> 5 1 8 6 7 2
+	          <li><b>inorder:</b> 8 1 6 5 2 7
+	          <li><b>postorder:</b> 8 6 1 2 7 5
+	          <li><b>breadth-first:</b> 5 1 7 8 6 2
+	        </ul>
+
+
+      <li><b>Understanding traversal order</b>
+
+        <p>To make sure you understood, write down the four representations given (preorder, inorder, postorder, breadth-first) but for the following tree:</p>
+
+        <p><img src="tree2.png" width="170"></p>
+
+          <details>
+            <summary>Solution</summary>
+              <p>- <b>preorder:</b> 6 8 4 3 5 1 7<br><br>
+	               - <b>inorder:</b> 8 4 6 1 5 3 7<br><br>
+	               - <b>postorder:</b> 4 8 1 5 7 3 6<br><br>
+	               - <b>breadth-first:</b> 6 8 3 4 5 7 1
+          </details>
+
+    </ol>
+
+
+  <hr>
+
+  <p><big><b>2. A binary tree implementation</b></big><br>
+    <i>(the goal of this exercise is for you to understand a basic implementation of binary trees that uses templates)</i></p>
+
+  <p><img width="600" src="representation.png"></p>
+
+    <ol type="a">
+
+      <li><b>Binary Trees - the code</b>
+
+        <p>Start by downloading the following two files: <a class="code" href="binaryTree.h">binaryTree.h</a> (see it in <a href="binaryTree.html">html</a>) and <a class="code" href="testBTrees.cpp">testBTrees.cpp</a> (see it in <a href="testBTrees.html">html</a>). This is the same <span class="code">BTree&lt;T&gt;</span> class that was shown in the lectures.</p>
+
+        <p>Compile the code. The whole <span class="code">BTree&lt;T&gt;</span> class is contained in the .h file, so you just need to compile <span class="code">testBTrees.cpp</span> (make sure they are in the same directory, so that the line <span class="code">#include "binaryTree.h"</span> knows where to find the file it wants to include). If you are on a shell, you could for instance run <span class="shell">g++ -std=c++17 -Wall -o testBTrees testBTrees.cpp</span> to obtain an executable with the name <i>testBTrees</i>.</p>
+
+      <li><b>A first test</b>
+
+        <p>Download the file <a class="code" href="input.txt">input.txt</a> containing a line with <span class="code">5 1 8 N N 6 N N 7 2 N N N</span>. This is the <b>serialization</b> of the tree in the following figure: its preorder representation with <i>N</i> explicitly representing the <i>nullptr</i> nodes (as seen in the lectures, this is enough to rebuild the tree, while the preorder alone is not):</p>
+
+        <p><img src="tree1_nulls.png" width="450"><br>
+        <i>(the two representations in this figure refer to the same tree)</i></p>
+
+        <p>Now run the test code you compiled giving as input the file you downloaded (equivalent to writing its contents as the input):</p>
+
+        <p class="shell">./testBTrees &lt; input.txt</p>
+
+        <p>You should obtain the following as the output:</p>
+
+<pre class="shell">numberNodes = 6
+height = 2
+contains(2) = 1
+contains(3) = 0
+PreOrder: 5 1 8 6 7 2
+InOrder: 8 1 6 5 2 7
+PostOrder: 8 6 1 2 7 5
+BFS: 5 1 7 8 6 2
+DFS: 5 1 8 6 7 2
+</pre>
+
+<p>Notice that the PreOrder and DFS lines are equal, and this is not a mistake: the DFS with a stack (<span class="code">printDFS()</span>) visits the nodes in the same order as the recursive PreOrder (see slides 28 and 29).</p>
+
+<p>Have a look at each method being called in <span class="code">binaryTree.h</span> to understand how the binary tree is implemented. The figure above gives you an overview of how the class is organized, and the comments in the code point to the slides where each method was explained in the lectures.</p>
+
+      <li><b>Templates and generalisation</b>
+
+        <p>Notice how the implementation uses templates to be general and therefore supports any data type (not just <span class="code">int</span>).</p>
+
+        <p>To make sure you understand how to use it, create a file <span class="code">input2.txt</span> that gives the <b>serialization</b> of the following tree, ready to be read by the class, and give it as input to your program, testing if it gives the correct output.</p>
+
+        <p><img src="tree3.png" width="370"></p>
+
+        <details>
+            <summary>Solution</summary>
+            <p>The file <code>input2.txt</code> should contain: <code>apple orange apricot N N kiwi melon N N N cherry N pear banana N N grape N N</code><br><br>
+              You can read this tree with the code:<br><br>
+              <code>BTree&lt;std::string&gt; t;<br>
+              t.read("N");</code><br><br>
+              If you are reusing the testBTrees.cpp file, notice that lines such as <code>t.contains(2)</code> will now give an error, because they should have a string as an argument (e.g. <code>t.contains("orange")</code>).
+          </details>
+
+  </ol>
+
+    <hr>
+
+  <p><big><b>Before you start: adding methods to the class</b></big></p>
+
+  <p>In exercises 3 to 9 you will be adding methods to the <span class="code">BTree&lt;T&gt;</span> class (only the challenge is different). Add the requested method at the end of the class (but before the closing bracket), together with any recursive helper it needs, just like <span class="code">numberNodes()</span> and its helper. <b>You only need to submit the <span class="code">binaryTree.h</span> file!</b></p>
+
+  <p>If you want to test the method on your computer, you can copy the tester code from the problem statement (use the Copy button above it) to a file on your computer, compile it and use the example input to see if the results are as expected (note how easy it is to add new inputs, if you want to make further tests - you can simply give new trees with their <b>serialization</b>, as shown in exercise 2).</p>
+
+  <p>If your program crashes with <span class="code">Segmentation fault</span> (often a missing <i>nullptr</i> check in a recursive method), compile it again with <span class="shell">g++ -std=c++17 -Wall -g -fsanitize=address ...</span> and run it: the error message will then show the method and the line where the crash happened. <i>(This works on Linux and macOS; it is not available with MinGW on Windows.)</i></p>
+
+  <p>Two things to keep in mind:</p>
+  <ul>
+    <li><b>Your method should work for any type <span class="code">T</span>.</b> In problems AED039 to AED042 the tests also include trees of strings, so do not assume the values are integers (AED043 to AED045 only use trees of integers, as their statements say).
+    <li><b>Be consistent with <span class="code">const</span>.</b> Methods that do not change the tree should be <span class="code">const</span> (see slide 13), and the problem statements say so when this applies. If your main method is <span class="code">const</span> (like <span class="code">numberNodes() const</span>), the helper it calls must also be <span class="code">const</span>. Otherwise the compiler gives an error such as <span class="code">passing 'const BTree&lt;int&gt;' as 'this' argument discards qualifiers</span>.
+  </ul>
+
+  <hr>
+
+  <p><big><b>3. Your first binary tree method</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed039.html">[AED039] Counting Leaves</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the number of nodes in the tree)</i>
+  </p>
+
+  <p>This problem asks you to traverse the tree and count all leaves. Have a look at <span class="code">numberNodes()</span>. What do you need to change to implement the <span class="code">numberLeaves</span> method?</p>
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- The number of leaves in a tree is equal to the number of leaves in the left subtree plus the number of leaves in the right subtree<br><br>
+- A base case is when the current node is a leaf... in which case we should return 1<br><br>
+- Another base case is when the current node is <i>nullptr</i>... in which case we should return 0
+</details>
+
+      <br>
+
+  <hr>
+
+  <p><big><b>4. A boolean tree method</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed040.html">[AED040] Strictly Binary Trees</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the number of nodes in the tree)</i>
+  </p>
+
+  <details name="hint">
+        <summary>Hints</summary>
+<p>- A tree is strictly binary if BOTH its subtrees (left and right) are strictly binary.<br><br>
+- At each node, you must check if it is valid, i.e. if it is a leaf or if it has two children:<br>
+&nbsp; &nbsp; . If it's not valid, just return... <i>false</i>!<br>
+&nbsp; &nbsp; . If it is valid, you still need to check that BOTH the left and right subtrees are also strictly binary.
+</details>
+
+  <br>
+
+  <hr>
+
+  <p><big><b>5. Processing Paths</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed041.html">[AED041] Tree Paths</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(|s|)\) <i>(where <b>|s|</b> is the length of the path, which is at most the height of the tree: you only need to visit the nodes on the path, not the whole tree)</i>
+  </p>
+
+  <p>Notice that the method returns a <b>reference</b> (<span class="code">T &amp;</span>) to the value stored in the node. This means it can also be used to change the tree: in the example of the problem statement, <span class="code">t.path("LR") = 42;</span> replaces the value 5 by 42. This is why <span class="code">path</span> is not declared <span class="code">const</span>, unlike the other methods you write this week: it gives access that allows changing the tree.</p>
+
+        <details name="hint">
+        <summary>Hints</summary>
+<p>- You do not even need recursion: start with a pointer to the root and, for each character of <i>s</i>, move to the left or to the right child. At the end, return the value of the node you reached<br><br>
+
+- If you prefer recursion, besides the current node your helper method could have as arguments the path string <i>s</i> and the integer position <i>pos</i> where you are in the path. Looking at <i>s[pos]</i> you decide if you go to the left or to the right, calling the same method for that child... but with the position incremented!<br><br>
+
+- In both cases, do not forget the special path <i>"_"</i>, which represents the root
+</details>
+
+  <br>
+
+  <hr>
+
+    <p><big><b>6. Number of nodes at a certain depth</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed042.html">[AED042] Deep Nodes</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the number of nodes in the tree)</i>
+  </p>
+
+  <details name="hint">
+    <summary>Hints</summary>
+<p>- Can you do one exercise without any hints? &#128521;
+</details>
+
+  <br>
+
+  <hr>
+
+  <h2>Extra Exercises for Consolidating your knowledge <span style="color:DarkSlateBlue">[extra]</span></h2>
+
+
+  <p><big><b>7. Counting Even Nodes</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed043.html">[AED043] Even Nodes</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the number of nodes in the tree)</i>
+  </p>
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- This problem is similar to counting the nodes or counting the leaves<br><br>
+- Instead of counting everything or just the leaves, count only the ones which are even (use the % operator to check for the remainder when divided by 2)
+</details>
+
+
+  <br>
+
+  <p><big><b>8. Sum of the nodes at a certain depth level</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed044.html">[AED044] Sum of All Levels</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the number of nodes in the tree)</i>
+  </p>
+
+      <details name="hint">
+        <summary>Hints</summary>
+<p>- Start by creating a vector with size equal to the height + 1 (note you already have a method for computing the height)<br><br>
+- While you are traversing the tree, if you keep track of which depth level you are at, you can just add to the corresponding position in the vector (assuming you are also passing around a reference to the vector)
+</details>
+
+  <br>
+
+
+    <p><big><b>9. The path of maximum sum</b></big></p>
+
+  <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed045.html">[AED045] Maximum Sum Path</a>.<br>
+    <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the number of nodes in the tree)</i>
+  </p>
+
+  <details name="hint">
+    <summary>Hints</summary>
+<p>- One more without hints? &#128521;
+</details>
+
+  <br>
+
+  <hr>
+
+  <h2>Challenge Exercises <span style="color:DarkRed">[challenge]</span></h2>
+
+  <p>The main idea of the challenge problems is to give you the opportunity of improving your problem solving abilities.</p>
+
+   <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height=30 ></a><br>
+    For this exercise you will be solving the problem <a href="../problems/aed046.html">[AED046] Recovering Lost Trees</a>.</p>
+
+  <p>For this class, the problem is easier than the last one, but involves... trees! (of course &#128513;)</p>
+
+  <p>The input limits are small, so it is "just" about correctness.</p>
+
+  <p>Since this is a challenge, I will not give you any hints, but if you are stuck just contact @PedroRibeiro on Discord. Feel free to also contact @PedroRibeiro to discuss your accepted solution.</p>
+
+  <p>Happy coding! &#128522;</p>
+
+<hr>
+<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></b></p>
+</body>
+
+</html>

@@ -19,7 +19,7 @@
   
   <h2>Lectures Content <a href="../material.html#slides"><img height="30" src="../images/lecture_slides.png" border="0"></a></h2>
 
-  <p>This class is about <b>sorting</b>. It is therefore convenient that you know what was discussed on the lectures:</p>
+  <p>This class is about <b>linked lists</b>. It is therefore convenient that you know what was discussed on the lectures:</p>
   <ul>
     <li><a href="../material.html#slides">Slides: 5 - Linear Data Structures: Linked Lists</a>      
   </ul>
@@ -53,7 +53,7 @@
         
         <p>Start by downloading the following two files: <a class="code" href="singlyLinkedList.h">singlyLinkedList.h</a> (see it in <a href="singlyLinkedList.html">html</a>) and <a class="code" href="testLists.cpp">testLists.cpp</a> (see it in <a href="testLists.html">html</a>).</p>
 
-        <p>Compile the code. The whole <span class="code">SinglyLinkedList&lt;T&gt;</span> class is contained in the .h file, so you just need to compile <span class="code">testLists.cpp</span> (make sure they are in the same directory, so that the line <span class="code">#include "singlyLinkedList.h"</span> knows where to find the file it wants to include). If you are on a shell, you could for instance run  <span class="shell">g++ -std=c++17 -o testLists testLists.cpp</span> to obain an executable with the name <i>testLists</i>).</p>
+        <p>Compile the code. The whole <span class="code">SinglyLinkedList&lt;T&gt;</span> class is contained in the .h file, so you just need to compile <span class="code">testLists.cpp</span> (make sure they are in the same directory, so that the line <span class="code">#include "singlyLinkedList.h"</span> knows where to find the file it wants to include). If you are on a shell, you could for instance run  <span class="shell">g++ -std=c++17 -o testLists testLists.cpp</span> to obtain an executable with the name <i>testLists</i>).</p>
 
         <p>Run the code while looking at <span class="code">testLists.cpp</span> on your editor to see each line and its effect. You should obtain the following output:</p>
 
@@ -99,14 +99,14 @@ getLast() = 4
 
   <p>If you want to test the method on your computer, you can copy+paste tester code from the problem statement to a file on your computer, compile it and use the input given to see if the results are as expected (note how easy it is to add new inputs, if you want to make further tests).</p>
 
-  <p>This problems asks you to traverse the list until the desired position. Have a look at <span class="code">getLast()</span>. What do you need to change to implement the <span class="code">get</span> method?</p>
+  <p>This problem asks you to traverse the list until the desired position. Have a look at <span class="code">getLast()</span>. What do you need to change to implement the <span class="code">get</span> method?</p>
   
       <details name="hint">
         <summary>Hints</summary>
 <p>- You can do the same type of cycle blueprinted in <i>getLast()</i> (use a <i>cur</i> variable to keep the current node, starting with first and always going to the next value).
 <br>
 <br>
-- If you want to get to position <i>pos</i>, how many <i>next</i> links to you need to traverse?
+- If you want to get to position <i>pos</i>, how many <i>next</i> links do you need to traverse?
 <br>
 <br>
 - After reaching the desired node, you can simply use <i>getValue()</i> to return the desired value.
@@ -123,7 +123,7 @@ getLast() = 4
     <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the size of the list)</i>
   </p>
 
-  <p>This is a similar exercise to the previous one, but now you need to count. Can you see how to use a list traversal do the the counting?</p>
+  <p>This is a similar exercise to the previous one, but now you need to count. Can you see how to use a list traversal to do the counting?</p>
 
         <details name="hint">
         <summary>Hints</summary>
@@ -148,7 +148,7 @@ getLast() = 4
 
         <details name="hint">
         <summary>Hints</summary>
-<p>- Just as in <i>removeLast()</i>, instead of going until the node, go until the previous node, so that when you need to erase you can just make the current node skip the node you want to delete (the "victim"); don't forget to <i>delete</i> the node after removing it (see the <i>getLast()</i> implementation) if you want to avoid memory leaks (which are not tested explicitly by Mooshak)
+<p>- Just as in <i>removeLast()</i>, instead of going until the node, go until the previous node, so that when you need to erase you can just make the current node skip the node you want to delete (the "victim"); don't forget to <i>delete</i> the node after removing it (see the <i>removeLast()</i> implementation) if you want to avoid memory leaks (which are not tested explicitly by Mooshak)
 <br>
 <br>
 - Don't forget to decrease the length variable after removing the node
@@ -191,7 +191,7 @@ getLast() = 4
 
   <h2>Written Exam Example Exercises <span style="color:red">[exam exercises]</span></h2>
 
-  <p><big><b>6. Training for the exam</b></big></p>
+  <p id="exercise6"><big><b>6. Training for the exam</b></big></p>
 
   
   <p>We provide here a copy of the written exam from the previous year: <a href="../evaluation/exam_jan_13_2026_en.pdf">Exam 25/26 ("normal" season)</a><br>
@@ -225,7 +225,7 @@ getLast() = 4
   <p><big><b>8. Removing all occurrences of a value</b></big></p>
 
   <p><a href="https://mooshak.dcc.fc.up.pt/~aed"><img src="mooshak.gif" border="0" height="30"></a><br>
-    For this exercise you will be solving the problem <a href="../problems/aed031.html">[AED031] Inserting an element on a given position </a>.<br>
+    For this exercise you will be solving the problem <a href="../problems/aed031.html">[AED031] Removing all occurrences of an element</a>.<br>
     <b>Desired time complexity:</b> \(\mathcal{O}(N)\) <i>(where <b>N</b> is the size of the list)</i>
   </p>
 
@@ -253,7 +253,7 @@ getLast() = 4
   <p>Happy coding! &#128522;</p>
         
 <hr>
-<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Última actualização: <b><script language="Javascript">document.write(document.lastModified )</script></p>
+<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></b></p>
 </body>
 
 </html>

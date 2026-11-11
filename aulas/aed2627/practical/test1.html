@@ -1,0 +1,103 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+	<title>Information for the 1st Practical Test</title>
+	<link rel="StyleSheet" href="practical.css" type="text/css">
+	<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+
+<body>
+  <h3><a href="../index.html">Algorithms and Data Structures 2026/2027</a> (L.EIC011) - DCC/FCUP & DEI/FEUP</h3>
+  <h1>Information for the 1st Practical Test<br></h1>
+<hr>
+
+<h3>General Information</h3>
+
+<ul>
+  <li><b>Date:</b> 14/11/2026 (saturday)
+  <li><b>Time:</b> There will be two shifts for the test (08:30 and 11:00). <span style="color:red">You can submit your shift preference in <a href="https://mooshak.dcc.fc.up.pt/~aed/">Mooshak</a> until the end of 10/11/2026 (tuesday).</span>
+    <!--<i>[the allocation of students to a particular shift and computer lab will be given on 12/11/2026]</i>-->
+    <!--[<a href="../evaluation/distribution_test1_final.pdf">see student allocation to shift and room</a>] <i>(protected access)</i>-->
+  <li><b>Place:</b> FEUP Computer Labs (B Building)
+  </li>
+  <li><b>Duration:</b> 2h
+  <li><b>Method:</b> the test will be individual and will consist of practical problems for which you can submit C++ code to Mooshak and receive feedback that might include public test cases, like in the practical classes
+  <li><b>Language:</b> all problems will be available in english and in portuguese
+  <li><b>Environment:</b> the computers will have Linux, with GCC available at command line, and usual IDEs, with at least VSCode able to compile/execute (but you should know how to compile in a shell); you will have access to documentation (local copy of <a href="https://en.cppreference.com/w/">cppreference</a>) and to a local copy of the course website (including lecture slides and practical classes, with all auxiliary files)
+  <li><b>Scoring:</b> this test is worth between 2.5 and 3.5 points out of 20 (12.5% to 17.5% of your class grade, depending on the weighting that applies to the practical component) [see <a href="../evaluation.html#grades">explanation and calculation formula of final grade</a>]<br>
+    You will have 4 exercises in Mooshak, each worth 25%.
+    In all exercises there will be <b>partial scoring</b> (e.g. passes some tests, fails on others) to accommodate for aspects such as border cases or different algorithmic complexities.<br>
+    When submitting, you will know the score you got on all tests. Your grade on a problem will be the grade of your best submission on that problem (the one with the highest score)<br>
+</ul>
+
+<hr>
+    
+<h3>Specific goals for each exercise and training problems</h3>
+
+  <ol>
+
+    <li>[25%] <b>Exercise 1: a simple problem with some algorithmic insight</b> <i>(this exercise will roughly correspond to contents of practical class <a href="class01.html">#01</a> and <a href="class02.html">#02</a>)</i><br>
+      You will need to solve a simple problem and think about what the algorithm should be. The solution will need a certain complexity to pass all the tests, and you might need to use techniques learned in classes such as sliding windows or prefix sums. Partial score will be given to solutions that are more naive and don't have the desired complexity.
+    <ul>
+      <li><b>Training Problems:</b>
+        <a href="../problems/aed004.html">[AED004]</a>
+        <a href="../problems/aed006.html">[AED006]</a>
+        <a href="../problems/aed007.html">[AED007]</a>
+        <a href="../problems/aed008.html">[AED008]</a>
+        (and also <a href="../problems/aed009.html">[AED009]</a>)
+    </ul>
+    &nbsp;
+    <br>
+    
+    <li>[25%] <b>Exercise 2: binary search</b> <i>(this exercise will roughly correspond to contents of practical class <a href="class03.html">#03</a>)</i><br>
+      You will need to know how to apply a direct or indirect variation of binary search. Input data will already be sorted. To obtain full score you need to have an \(O(\log n)\) search, but partial score will be given to submissions that use linear search. You can use the C++ library if you want (e.g. <span class="code">lower_bound</span>).
+      
+      <ul>
+	      <li><b>Training Problems:</b>
+          <a href="../problems/aed011.html">[AED011]</a>
+          <a href="../problems/aed012.html">[AED012]</a>
+          <a href="../problems/aed013.html">[AED013]</a>
+          (and also <a href="../problems/aed015.html">[AED015]</a>)
+      </ul>
+	      &nbsp;
+	      <br>
+	          
+    <li>[25%] <b>Exercise 3: sorting with custom order</b> <i>(this exercise will roughly correspond to contents of practical class <a href="class04.html">#04</a>)</i><br>
+      You will need to know how to apply sorting with a customized order that might depend on more than one parameter. To obtain full score you need to have an \(O(n \log n)\) sort, but partial score will be given to submissions that take quadratic time for sorting or that do not take into consideration all the sorting parameters. You can use the C++ library if you want (e.g. <span class="code">sort</span>)
+      <ul>
+        <li><b>Training Problems:</b>
+          <a href="../problems/aed018.html">[AED018]</a>
+          <a href="../problems/aed019.html">[AED019]</a>
+          <a href="../problems/aed022.html">[AED022]</a>
+          (and also <a href="../problems/aed021.html">[AED021]</a>)
+      </ul>
+      &nbsp;
+      <br>
+
+    <li>[25%] <b>Exercise 4: methods in linked lists</b> <i>(this exercise will roughly correspond to contents of practical class <a href="class05.html">#05</a>)</i><br>
+     You will need to add one or more small methods to the singly linked list class given in the lectures and used on practical exercises (class SinglyLinkedList&lt;T&gt;: <a href="singlyLinkedList.html">see code</a> | <a href="singlyLinkedList.h">download code</a>). Partial score will be given if you solve just one of the methods or if you don't have an efficient method with the right complexity.
+    <ul>
+      <li><b>Training Problems:</b>
+        <a href="../problems/aed026.html">[AED026]</a>
+        <a href="../problems/aed027.html">[AED027]</a>
+        <a href="../problems/aed028.html">[AED028]</a>
+        <a href="../problems/aed029.html">[AED029]</a>
+        <a href="../problems/aed030.html">[AED030]</a>
+        <a href="../problems/aed031.html">[AED031]</a>
+      <li><b>Additional Training:</b> exercise <a href="class05.html#exercise6">6 of practical class #05</a>
+        (splitting a linked list, merging two sorted linked lists and merge sort with linked lists).
+        These are not available on Mooshak, but they are good practice for this exercise: try to write
+        the code for them as methods of the linked list class, and then test it on your own computer.
+    </ul>
+    &nbsp;
+    <br>
+
+  </ol>
+
+<hr>
+<p class="footer">Pedro Ribeiro & Ana Paula Tomás (DCC/FCUP) / Last Update: <b><script language="Javascript">document.write(document.lastModified )</script></b></p>
+</body>
+
+</html>

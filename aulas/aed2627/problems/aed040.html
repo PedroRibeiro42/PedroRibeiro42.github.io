@@ -1,0 +1,150 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED040] Strictly Binary Trees</title>
+  <style>
+    .function {
+        color: black;
+        background: #eeeeee;
+        margin: 2px;
+        padding: 2px;
+        border: 1px dashed black;
+    }
+  </style>
+    <script>
+      function copyExample(btn, id, label, done) {
+        var pre = document.getElementById(id);
+        var text = pre.textContent.replace(/^\n/, "");
+        function ok() { btn.textContent = done; setTimeout(function () { btn.textContent = label; }, 1500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(ok);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); ok(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      }
+    </script>
+  </head>
+
+<body>
+
+<p><b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/class07.html">class #07 exercise sheet</a>]</b></p>
+
+<hr>
+  
+<h2><img align="right" src="btree.png" width="600">
+  [AED040] Strictly Binary Trees</h2>
+
+<p style="color:red">In this problem you should only submit a <b>binaryTree.h</b> file with a self-containing definition of a class BTree&lt;T&gt;</p>
+
+<h3>Base Code</h3>
+
+<p>
+  Use as a basis the class BTree&lt;T&gt; (<a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/binaryTree.html">see code</a> | <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/binaryTree.h">download code</a>) which implements a generic binary tree that was explained in classes, with methods to read a tree from standard input, to write several node traversals, to count the number of nodes, to compute the height and to see if it contains a certain value.</p>
+
+<h3>The Problem</h3>
+
+<p>Add a new method <span class="function">bool strict() const</span> to the class. The method does not change the tree, so it should be <b>const</b> (as seen in the lectures). The function should <b>return <i>true</i> if the tree is strictly binary, or <i>false</i> otherwise</b>.</p>
+
+<p>A tree is considered to be <b>strictly binary</b> if there is no node with only one child, i.e. if all its nodes have exactly two children or are leaves (zero children). The following figure illustrates six binary trees, the first three of which are strictly binary and the last three of which are not (the nodes that do not fulfil the requested condition are indicated in red).</p>
+
+<p><img src="aed040.png" width="800"></p>
+
+    
+<h3>Submission</h3>
+
+<p>You should submit the file <i>binaryTree.h</i> with the method <b>strict</b> added to binaryTree&lt;T&gt; as requested (<b>and without removing any of the other existing methods</b>). You can however create additional methods, if you need them.</p>
+
+<p>Mooshak will use the following code to link to your class, read the inputs, build the trees and call your method, printing its result.</p>
+
+<div style="text-align:right; margin-bottom:0.3em"><button type="button" onclick="copyExample(this, 'tester_code', 'Copy', 'Copied!')">Copy</button></div>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre id="tester_code" style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;iostream&gt;</span>
+<span style="color: #557799">#include &lt;string&gt;</span>
+
+<span style="color: #557799">#include &quot;binaryTree.h&quot;</span>
+
+<span style="color: #888888">// Read a tree of type t assuming &quot;N&quot; as the null value</span>
+<span style="color: #888888">// call t.strict() method and write its output</span>
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+<span style="color: #333399; font-weight: bold">void</span> read() {
+  BTree<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> t;
+  t.read(<span style="background-color: #fff0f0">&quot;N&quot;</span>);
+
+  std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;t.strict() = &quot;</span> <span style="color: #333333">&lt;&lt;</span> (t.strict()<span style="color: #333333">?</span><span style="background-color: #fff0f0">&quot;true&quot;</span><span style="color: #333333">:</span><span style="background-color: #fff0f0">&quot;false&quot;</span>) <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+}
+
+<span style="color: #333399; font-weight: bold">int</span> main() {
+
+  <span style="color: #333399; font-weight: bold">int</span> n;
+  std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> n;
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i<span style="color: #333333">=</span><span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">++</span>) {
+    std<span style="color: #333333">::</span>string type;
+    std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> type;
+    <span style="color: #008800; font-weight: bold">if</span> (type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;int&quot;</span>) read<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">&gt;</span>();
+    <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> (type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;string&quot;</span>) read<span style="color: #333333">&lt;</span>std<span style="color: #333333">::</span>string<span style="color: #333333">&gt;</span>();
+  }
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_1', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_1', 'Copy', 'Copied!')">Copy</button></td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre id="ex_in_1">6
+
+int
+6 3 2 N N 5 N N 10 8 N N 25 N N
+
+int
+6 3 2 N N 5 N N 10 N N
+
+int
+6 3 N N 10 N N
+
+int
+6 3 2 N N N 10 8 N N 25 N N
+
+int
+6 3 2 N N 5 N N N
+
+int
+6 3 N 5 N N 10 N 25 N N
+</pre>
+      </td>
+      <td valign="top">
+<pre id="ex_out_1">
+t.strict() = true
+t.strict() = true
+t.strict() = true
+t.strict() = false
+t.strict() = false
+t.strict() = false
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>The example input corresponds to the trees in the example figure given in the problem description.</p>
+
+<br>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2026/2027</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

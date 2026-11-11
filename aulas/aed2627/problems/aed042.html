@@ -1,0 +1,136 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED042] Deep Nodes</title>
+  <style>
+    .function {
+        color: black;
+        background: #eeeeee;
+        margin: 2px;
+        padding: 2px;
+        border: 1px dashed black;
+    }
+  </style>
+    <script>
+      function copyExample(btn, id, label, done) {
+        var pre = document.getElementById(id);
+        var text = pre.textContent.replace(/^\n/, "");
+        function ok() { btn.textContent = done; setTimeout(function () { btn.textContent = label; }, 1500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(ok);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); ok(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      }
+    </script>
+  </head>
+
+<body>
+
+<p><b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/class07.html">class #07 exercise sheet</a>]</b></p>
+
+<hr>
+  
+<h2><img align="right" src="btree.png" width="600">
+  [AED042] Deep Nodes</h2>
+
+<p style="color:red">In this problem you should only submit a <b>binaryTree.h</b> file with a self-containing definition of a class BTree&lt;T&gt;</p>
+
+<h3>Base Code</h3>
+
+<p>
+  Use as a basis the class BTree&lt;T&gt; (<a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/binaryTree.html">see code</a> | <a href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/binaryTree.h">download code</a>) which implements a generic binary tree that was explained in classes, with methods to read a tree from standard input, to write several node traversals, to count the number of nodes, to compute the height and to see if it contains a certain value.</p>
+
+<h3>The Problem</h3>
+
+<p>Add a new method <span class="function">int nodesLevel(int k) const</span> to the class. The method does not change the tree, so it should be <b>const</b> (as seen in the lectures). The function should <b>return the number of nodes at level <i>k</i> of depth</b>. It is guaranteed that <i>k</i> will be a valid depth level, that is, the tree has at least one node on that depth. The following figure illustrates a tree and the number of nodes at each depth level:</p>
+
+<p><img src="aed042.png" width="280"></p>
+
+    
+<h3>Submission</h3>
+
+<p>You should submit the file <i>binaryTree.h</i> with the method <b>nodesLevel</b> added to binaryTree&lt;T&gt; as requested (<b>and without removing any of the other existing methods</b>). You can however create additional methods, if you need them.</p>
+
+<p>Mooshak will use the following code to link to your class, read the inputs, build the trees and call your method, printing its result.</p>
+
+<div style="text-align:right; margin-bottom:0.3em"><button type="button" onclick="copyExample(this, 'tester_code', 'Copy', 'Copied!')">Copy</button></div>
+<!-- HTML generated using hilite.me --><div style="background: #ffffff; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;"><pre id="tester_code" style="margin: 0; line-height: 125%"><span style="color: #557799">#include &lt;iostream&gt;</span>
+<span style="color: #557799">#include &lt;string&gt;</span>
+
+<span style="color: #557799">#include &quot;binaryTree.h&quot;</span>
+
+<span style="color: #888888">// Read a tree of type t assuming &quot;N&quot; as the null value</span>
+<span style="color: #888888">// read n paths and call t.path() for each one of them</span>
+<span style="color: #008800; font-weight: bold">template</span> <span style="color: #333333">&lt;</span><span style="color: #008800; font-weight: bold">typename</span> T<span style="color: #333333">&gt;</span>
+<span style="color: #333399; font-weight: bold">void</span> read() {
+  BTree<span style="color: #333333">&lt;</span>T<span style="color: #333333">&gt;</span> t;
+  t.read(<span style="background-color: #fff0f0">&quot;N&quot;</span>);
+
+  <span style="color: #333399; font-weight: bold">int</span> n;
+  std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> n;
+  <span style="color: #008800; font-weight: bold">for</span> (<span style="color: #333399; font-weight: bold">int</span> i <span style="color: #333333">=</span> <span style="color: #0000DD; font-weight: bold">0</span>; i<span style="color: #333333">&lt;</span>n; i<span style="color: #333333">++</span>) {
+    <span style="color: #333399; font-weight: bold">int</span> k;
+    std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> k;
+    std<span style="color: #333333">::</span>cout <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;t.nodesLevel(&quot;</span> <span style="color: #333333">&lt;&lt;</span> k <span style="color: #333333">&lt;&lt;</span> <span style="background-color: #fff0f0">&quot;) = &quot;</span> <span style="color: #333333">&lt;&lt;</span> t.nodesLevel(k) <span style="color: #333333">&lt;&lt;</span> std<span style="color: #333333">::</span>endl;
+  }
+}
+
+<span style="color: #333399; font-weight: bold">int</span> main() {
+
+  std<span style="color: #333333">::</span>string type;
+  std<span style="color: #333333">::</span>cin <span style="color: #333333">&gt;&gt;</span> type;
+  <span style="color: #008800; font-weight: bold">if</span> (type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;int&quot;</span>) read<span style="color: #333333">&lt;</span><span style="color: #333399; font-weight: bold">int</span><span style="color: #333333">&gt;</span>();
+  <span style="color: #008800; font-weight: bold">else</span> <span style="color: #0066BB; font-weight: bold">if</span> (type <span style="color: #333333">==</span> <span style="background-color: #fff0f0">&quot;string&quot;</span>) read<span style="color: #333333">&lt;</span>std<span style="color: #333333">::</span>string<span style="color: #333333">&gt;</span>();
+  
+  <span style="color: #008800; font-weight: bold">return</span> <span style="color: #0000DD; font-weight: bold">0</span>;
+}
+</pre></div>
+
+<br>
+
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_1', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_1', 'Copy', 'Copied!')">Copy</button></td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre id="ex_in_1">int
+6 3 2 N 1 N N 5 N 7 N N 10 8 N 9 N N 25 N N
+4
+0
+1
+2
+3
+</pre>
+      </td>
+      <td valign="top">
+<pre id="ex_out_1">
+t.nodesLevel(0) = 1
+t.nodesLevel(1) = 2
+t.nodesLevel(2) = 4
+t.nodesLevel(3) = 3
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<p>The example input corresponds to the tree and 4 node levels of the example figure given in the problem description.</p>
+
+<br>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2026/2027</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>

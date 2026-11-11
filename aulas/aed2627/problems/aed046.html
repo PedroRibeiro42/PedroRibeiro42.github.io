@@ -1,0 +1,156 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>[AED046] Recovering Lost Trees</title>
+    <script>
+      function copyExample(btn, id, label, done) {
+        var pre = document.getElementById(id);
+        var text = pre.textContent.replace(/^\n/, "");
+        function ok() { btn.textContent = done; setTimeout(function () { btn.textContent = label; }, 1500); }
+        if (navigator.clipboard && window.isSecureContext) {
+          navigator.clipboard.writeText(text).then(ok);
+        } else {
+          var ta = document.createElement("textarea");
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          try { document.execCommand("copy"); ok(); } catch (e) {}
+          document.body.removeChild(ta);
+        }
+      }
+    </script>
+  </head>
+
+<body>
+
+<p><b>[to understand the context of this problem, you should read the <a target="_blank" href="https://www.dcc.fc.up.pt/~pribeiro/aulas/aed2627/practical/class07.html">class #07 exercise sheet</a>]</b></p>
+
+<hr>
+  
+<h2>[AED046] Recovering Lost Trees</h2>
+
+<p><img align="right" src="aed046.png" width="300">A former professor of Algorithms and Data Structures had many examples of integer binary trees stored to show to his students. What he did was simply store the preorder and inorder representation of the trees (not indicating empty trees). <b>As he always used different values in each node, this representation was enough to completely define the tree!</b>
+
+<p>Recall how to write a tree in preorder and inorder:</p>
+
+  <ul>
+    <li><b>preorder:</b> root value, followed by the preorder representation of the left subtree, followed by the preorder representation of the right subtree.</li>
+    <li><b>inorder :</b> inorder representation of the left subtree, followed by the root value, followed by the inorder representation of the right subtree.</li>
+  </ul>
+
+<p><img src="aed046_tree.png" width="180"></p>
+
+<p>For instance, for the figure above, we have the following representations:</p>
+
+<ul>
+  <li><b>preorder:</b> 1 2 4 5 3 6 7</li>
+  <li><b>inorder:</b> 4 2 5 1 6 3 7</li>
+</ul>
+
+<p>The new teacher of the subject wants to restore the trees and needs your help!</p>
+
+<h3>The Problem</h3>
+
+<p>Given the preorder and inorder representation of a binary tree your task is to reconstruct the tree. After that, you only need to show the <b>postorder</b> representation of the tree to show you were able to reconstruct it. Since the new professor is interested in knowing the <b>number of leaves</b> of the tree, you also need to compute it.</p>
+
+<p>Recall how to write a tree in postorder:</p>
+
+  <ul>
+    <li><b>postorder:</b> postorder representation of the left subtree, followed by the postorder representation of the right subtree, followed by the root value.</li>
+  </ul>
+
+
+</p>
+  
+<h3>Input</h3>
+
+<p>The first input line contains an integer <b>T</b>, indicating the number of trees to consider.</p>
+
+<p>Each tree is indicated by three lines:</p>
+
+<ul>
+  <li>the first line contains <b>N</b>, the number of nodes in the tree
+  <li>the second line contains the preorder representation of the tree (<b>N</b> space separated integers)
+  <li>the third line contains the inorder representation of the tree (<b>N</b> space separated integers)
+</ul>
+
+<p>You can assume all the integer values of the same tree will be different and will fit on a normal <i>int</i> type.
+
+<h3>Output</h3>
+
+<p>For each tree in the input the output should be:</p>
+
+<ul>
+  <li>a first line with the <b>postorder</b> representation of the tree (<b>N</b> space separated integers)    
+  <li>a second line containing <tt>"leaves = L"</tt> where <b>L</b> is the number of leaves in the tree
+</ul>
+
+<p>Note that there should be a single space between the numbers of the postorder representation (and no space after the last number)</p>
+
+<h3>Constraints</h3>
+
+<p>The following limits are guaranteed in all the test cases that will be given to your program:</p>
+
+    <table>
+      <tr>
+        <td>1 &le; <b>T</b> &le; 5</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of trees in the input</td>
+      </tr>
+      <tr>
+        <td>1 &le; <b>N</b> &le; 50</td>
+        <td>&nbsp; &nbsp; &nbsp;</td>
+        <td>Number of nodes in one tree</td>
+      </tr>            
+    </table>
+<br>
+     
+<table cellspacing="1" cellpadding="4" bgcolor="black" border="0">
+
+    <tr bgcolor="#e2e2e2">
+      <td>Example Input <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_in_1', 'Copy', 'Copied!')">Copy</button></td>
+      <td>Example Output <button type="button" style="float:right; margin-left:0.8em" onclick="copyExample(this, 'ex_out_1', 'Copy', 'Copied!')">Copy</button></td>
+    </tr>
+    <tr bgcolor="white">
+      <td valign="top">
+<pre id="ex_in_1">
+4
+7
+1 2 4 5 3 6 7
+4 2 5 1 6 3 7
+3
+1 2 3
+1 2 3
+3
+1 2 3
+2 1 3
+3
+1 2 3
+3 2 1
+</pre>
+      </td>
+      <td valign="top">
+<pre id="ex_out_1">
+4 5 2 6 7 3 1
+leaves = 4
+3 2 1
+leaves = 1
+2 3 1
+leaves = 2
+3 2 1
+leaves = 1
+</pre>
+      </td>
+    </tr>
+    </table>
+
+<br>
+
+<hr size="2">
+<center><b>Algorithms and Data Structures (L.EIC011) 2026/2027</b><br>
+  DCC/FCUP & DEI/FEUP - University of Porto
+</center>
+<hr size="2">
+
+</body>
+
+</html>
